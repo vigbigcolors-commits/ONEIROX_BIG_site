@@ -1,7 +1,8 @@
 # CONTINUATION — Oneirox (читай первым в новом чате Cursor)
 
 **Обновлено:** 2 июля 2026  
-**Контрольная точка (git tag):** `07.02.2026_Oneirox` → commit `311663c`  
+**Контрольная точка (git tag):** `07.02.2026_Oneirox_pagespeed` → commit `365d1b5`  
+**Предыдущая точка:** `07.02.2026_Oneirox` → `311663c`  
 **Сайт (статика):** `D:\aONEIROX +++++++++\ONEIROX  2 -------------------\Oneirox`  
 **GitHub:** https://github.com/vigbigcolors-commits/ONEIROX_BIG_site  
 **Cloudflare Pages:** oneirox-big-site → **https://oneirox.com**  
@@ -10,7 +11,44 @@
 
 ---
 
-## Контрольная точка `07.02.2026_Oneirox` (2 июля 2026)
+## Контрольная точка `07.02.2026_Oneirox_pagespeed` (2 июля 2026)
+
+**Зафиксировано — рабочий прод + mobile PageSpeed:**
+
+| Что | Статус |
+|-----|--------|
+| Домен oneirox.com на Cloudflare Pages | ✅ |
+| GitHub `ONEIROX_BIG_site` синхронизирован | ✅ |
+| Главная + Decode + API Railway | ✅ |
+| About, Methodology, Disclaimer, Privacy, Terms, Phase, Tools | ✅ |
+| 310→307 редиректов WP (`public/_redirects`) | ✅ (петли /about/ исправлены) |
+| `sitemap.xml` + `robots.txt` | ✅ |
+| Schema WebApplication + мобильный Decode (textarea) | ✅ |
+| Логотип — пульсирующее сердце 60 BPM | ✅ |
+| **Mobile PageSpeed** — critical CSS ~19 KB, self-hosted fonts, idle scripts | ✅ |
+| Анимация мозга + synapses на мобиле | ✅ |
+
+**Оптимизации главной (commit `365d1b5`):**
+- `decode.css` — только hero + форма (critical path)
+- `decode-deferred.css` — panel body, results, neuro spotlight (async)
+- `main.css` — below-fold sections (async)
+- `fonts.css` + `public/fonts/*.woff2` — без Google Fonts RTT
+- `perf-defer.js` — neural-bg, share, back-to-top после `load` + idle
+- JSON-LD перенесён в конец `<body>`
+- `fetchpriority="high"` на `neiro.webp`
+
+**Вернуться к этой точке:**
+```powershell
+cd "D:\aONEIROX +++++++++\ONEIROX  2 -------------------\Oneirox"
+git fetch origin
+git checkout 07.02.2026_Oneirox_pagespeed
+# или новая ветка от тега:
+git checkout -b restore-from-checkpoint 07.02.2026_Oneirox_pagespeed
+```
+
+---
+
+## Контрольная точка `07.02.2026_Oneirox` (2 июля 2026) — предыдущая
 
 **Зафиксировано — рабочий прод:**
 
@@ -30,8 +68,6 @@
 cd "D:\aONEIROX +++++++++\ONEIROX  2 -------------------\Oneirox"
 git fetch origin
 git checkout 07.02.2026_Oneirox
-# или новая ветка от тега:
-git checkout -b restore-from-checkpoint 07.02.2026_Oneirox
 ```
 
 **Не путать с устаревшей копией:** `C:\Users\Vigen\Downloads\Oneirox` — без git, не деплоится.
@@ -42,7 +78,7 @@ git checkout -b restore-from-checkpoint 07.02.2026_Oneirox
 
 ```
 Открыл workspace Oneirox. Прочитай CONTINUATION.md.
-Контрольная точка: git tag 07.02.2026_Oneirox (commit 311663c).
+Контрольная точка: git tag 07.02.2026_Oneirox_pagespeed (commit 365d1b5).
 Папка: D:\aONEIROX +++++++++\ONEIROX  2 -------------------\Oneirox
 Decode не ломать (oneirox-decode.js + decode.css + контракт формы).
 API: D:\aONEIROX +++++++++\ONEIROX_API +++++++++++++ (Railway).
@@ -80,7 +116,7 @@ API: D:\aONEIROX +++++++++\ONEIROX_API +++++++++++++ (Railway).
 
 ```powershell
 # Сайт
-cd C:\Users\Vigen\Downloads\Oneirox
+cd "D:\aONEIROX +++++++++\ONEIROX  2 -------------------\Oneirox"
 npm run dev
 ```
 → http://localhost:3000
@@ -115,24 +151,26 @@ uvicorn main:app --reload --port 8000
 ### Глобальные
 | Файл | Назначение |
 |------|------------|
-| `public/css/tokens.css` | Палитра — **не менять без причины** |
+| `public/css/tokens.css` | Палитра + body reset — **не менять без причины** |
+| `public/css/fonts.css` | Self-hosted Playfair + Work Sans (`public/fonts/`) |
 | `public/css/site-nav.css` | Header, logo, nav, кнопки, **сердце в логотипе** |
-| `public/css/page.css` | Inner pages shell (импорт tokens + site-nav) |
-| `public/css/main.css` | Footer, back-to-top, часть кнопок |
+| `public/css/page.css` | Inner pages shell (импорт fonts + tokens + site-nav) |
+| `public/css/main.css` | Footer, sections, instruments — **async на главной** |
 
 ### Главная
 | Файл | Назначение |
 |------|------------|
-| `public/css/decode.css` | ⚠️ **Только Decode** — neiro.webp, synapses, панель |
-| `public/css/main.css` | Hero layout, tools, footer |
-| `public/css/flow.css` | Flow cards |
-| `public/css/why-decode.css` | Why Decode block + grid |
-| `public/css/tools.css` | Tools cards |
-| `public/css/insight.css` | How, Why, Mechanisms, Science, Trust, FAQ |
+| `public/css/decode.css` | ⚠️ **Critical Decode** — hero, форма, synapses, stats |
+| `public/css/decode-deferred.css` | Panel body, results, neuro spotlight — **async** |
+| `public/css/flow.css` | Flow cards — async |
+| `public/css/why-decode.css` | Why Decode block — async |
+| `public/css/tools.css` | Tools cards — async |
+| `public/css/insight.css` | How, Why, Mechanisms, Science, Trust, FAQ — async |
 | `public/js/oneirox-decode.js` | ⚠️ **Мозг Decode** — не ломать |
-| `public/js/oneirox-neural-bg.js` | Нейро-анимация фона hero |
-| `public/js/oneirox-share.js` | Share |
-| `public/js/back-to-top.js` | Кнопка наверх |
+| `public/js/perf-defer.js` | Idle-load: neural-bg, share, back-to-top |
+| `public/js/oneirox-neural-bg.js` | Нейро-анимация фона hero (deferred) |
+| `public/js/oneirox-share.js` | Share (deferred) |
+| `public/js/back-to-top.js` | Кнопка наверх (deferred) |
 
 ### Inner pages
 | Файл | Страница |
@@ -162,14 +200,14 @@ uvicorn main:app --reload --port 8000
 ```html
 <div class="onx-search-wrap">
   <form role="search" method="get" action="/">
-    <input type="search" name="dream" ... />
+    <textarea name="dream" rows="4" ...></textarea>
     <button type="submit">Decode</button>
   </form>
 </div>
 ```
 
 - Логика: **только** `public/js/oneirox-decode.js`
-- Стили: **только** `public/css/decode.css`
+- Стили: **только** `public/css/decode.css` (+ `decode-deferred.css` для below-fold panel)
 - API body: `{ "text": "..." }` → `{ "interpretation": "..." }`
 - Парсинг ответа: `[SIGNAL]` `[BODY]` `[MORNING]`
 - Mapper context: `localStorage` key `onx_mapper_data`, TTL 30 min
@@ -208,7 +246,7 @@ About / Methodology / Legal / Phase — ссылаются на `#decode-app` к
 #cfedaf  glow
 ```
 
-Шрифты: **Playfair Display** + **Work Sans**  
+Шрифты: **Playfair Display** + **Work Sans** (self-hosted в `public/fonts/`, `fonts.css`)  
 Max width: **1200px** (`--onx-max-width`)
 
 ---
@@ -250,7 +288,7 @@ Max width: **1200px** (`--onx-max-width`)
 
 ---
 
-## Git / деплой — статус на 07.02.2026_Oneirox
+## Git / деплой — статус на 07.02.2026_Oneirox_pagespeed
 
 - [x] GitHub `ONEIROX_BIG_site` + push на `main`
 - [x] Cloudflare Pages, build output `public`
@@ -258,16 +296,21 @@ Max width: **1200px** (`--onx-max-width`)
 - [x] `public/_redirects` (307 правил WP → новый сайт)
 - [x] `public/sitemap.xml` + `public/robots.txt`
 - [x] Тест Decode на production
-- [x] Git tag **`07.02.2026_Oneirox`**
+- [x] Git tag **`07.02.2026_Oneirox`** (базовый прод)
+- [x] Git tag **`07.02.2026_Oneirox_pagespeed`** (mobile perf)
+- [x] Mobile PageSpeed: critical CSS split, self-hosted fonts, idle scripts
 
 ### TODO дальше
 
+- [ ] Перепроверить PageSpeed mobile на production (цель 90+)
+- [ ] Фото `vigen.jpg` для About (опционально)
+- [ ] `/library/` для топ WP-статей из экспорта (опционально)
 ---
 
 ## Workspace в Cursor
 
 Обычно открыты **две папки**:
-1. `C:\Users\Vigen\Downloads\Oneirox` — сайт
+1. `D:\aONEIROX +++++++++\ONEIROX  2 -------------------\Oneirox` — сайт (актуальный)
 2. `D:\aONEIROX +++++++++\ONEIROX_API +++++++++++++` — API
 
 Это нормально. В git — **раздельно**.
