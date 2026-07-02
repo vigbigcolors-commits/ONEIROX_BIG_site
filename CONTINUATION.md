@@ -1,9 +1,9 @@
 # CONTINUATION — Oneirox (читай первым в новом чате Cursor)
 
-**Обновлено:** 2 июля 2026  
-**Контрольная точка (git tag):** `07.02.2026_Oneirox_stable` → commit `f6acb06`  
+**Обновлено:** 3 июля 2026  
+**Контрольная точка (git tag):** `03.07.2026_Oneirox_stable` → commit `a985df4`  
 **API контрольная точка:** `STABLE_DECODE_07.02.2026` → commit `3acabd5`  
-**Предыдущие точки:** `07.02.2026_Oneirox_pagespeed` → `365d1b5` · `07.02.2026_Oneirox` → `311663c`  
+**Предыдущие точки:** `07.02.2026_Oneirox_stable` → `f6acb06` · `07.02.2026_Oneirox_pagespeed` → `365d1b5`  
 **Сайт (статика):** `D:\aONEIROX +++++++++\ONEIROX  2 -------------------\Oneirox`  
 **GitHub:** https://github.com/vigbigcolors-commits/ONEIROX_BIG_site  
 **Cloudflare Pages:** oneirox-big-site → **https://oneirox.com**  
@@ -12,9 +12,9 @@
 
 ---
 
-## Контрольная точка `07.02.2026_Oneirox_stable` (2 июля 2026)
+## Контрольная точка `03.07.2026_Oneirox_stable` (3 июля 2026)
 
-**Зафиксировано — стабильный прод, Decode ~9/10, UI отполирован:**
+**Зафиксировано — стабильный прод, Decode ~9/10, UI + анимация:**
 
 | Что | Статус |
 |-----|--------|
@@ -26,77 +26,63 @@
 | `sitemap.xml` + `robots.txt` | ✅ |
 | Schema WebApplication + мобильный Decode (textarea) | ✅ |
 | Логотип — пульсирующее сердце 60 BPM | ✅ |
-| **Mobile PageSpeed** — critical CSS, self-hosted fonts, idle scripts | ✅ |
-| **Decode UI** — кнопка под textarea (без наложения на scrollbar) | ✅ |
+| **Mobile PageSpeed** — critical CSS, self-hosted fonts | ✅ |
+| **Hero нейроны** — canvas + SVG synapses на neiro.webp | ✅ |
+| **Decode UI** — кнопка под textarea (без scrollbar overlap) | ✅ |
 | **Decode result** — Playfair SIGNAL, Work Sans body | ✅ |
-| **Back-to-top** — sync CSS + direct script на главной | ✅ |
-| **API Decode** — голос «you/your», термины в скобках, sanitizer | ✅ |
+| **Back-to-top** — sync CSS + direct script | ✅ |
+| **API Decode** — you/your, термины в скобках, sanitizer | ✅ |
 
-**Коммиты этой точки (сайт, `f6acb06`):**
+**Коммиты сайта (`a985df4`):**
+- `a985df4` — **нейроанимация hero**: `oneirox-neural-bg.js` direct defer (не idle-defer)
 - `f6acb06` — кнопка Decode под полем на всех экранах
-- `1eca3ac` — back-to-top: стили в `site-nav.css`, прямой `<script defer>`
-- `af4c7b5` — типографика результата Decode (`decode-deferred.css`)
-- `365d1b5` и ранее — PageSpeed split CSS, self-hosted fonts (`07.02.2026_Oneirox_pagespeed`)
+- `1eca3ac` — back-to-top: `site-nav.css` + direct `<script defer>`
+- `af4c7b5` — типографика результата (`decode-deferred.css`)
+- `365d1b5` — PageSpeed split CSS, self-hosted fonts
+
+**Скрипты главной (НЕ ЛОМАТЬ порядок загрузки):**
+```html
+<script src="/js/oneirox-decode.js" defer></script>
+<script src="/js/oneirox-neural-bg.js" defer></script>   <!-- hero canvas — DIRECT -->
+<script src="/js/back-to-top.js" defer></script>           <!-- DIRECT -->
+<script src="/js/perf-defer.js" defer></script>           <!-- только share.js idle -->
+```
+
+**Анимация — что где:**
+| Слой | Файл | Загрузка |
+|------|------|----------|
+| Canvas нейросеть в hero | `oneirox-neural-bg.js` | **direct defer** на index.html |
+| SVG synapses на иконке | `decode.css` (CSS keyframes) | critical CSS, сразу |
+| Share после Decode | `oneirox-share.js` | через `perf-defer.js` idle |
+
+⚠️ **Не возвращать neural-bg в perf-defer** — idle до 2.8s, пользователь не видит нейроны.
 
 **API (`STABLE_DECODE_07.02.2026` → `3acabd5`):**
-- Один вызов Claude (O3-style) — **без** multi-call rewrite (ломало прод)
-- `sanitize_decode_output()` — убирает `her amygdala`, `her brain`, organ-diagnosis
-- Partner/breakup note в `build_user_message()` — сон партнёра, расставание
-- `_fix_morning_question()` — «Did she tell you», не «Had you told you»
-- Промпт: `WHO YOU SPEAK TO`, `PLAIN LANGUAGE BRIDGE`, ban her/his brain
+- Один вызов Claude (O3-style) — **без** multi-call rewrite
+- `sanitize_decode_output()` — her brain / her amygdala / organ-diagnosis
+- Partner/breakup CLIENT note в `build_user_message()`
+- `_fix_morning_question()` — «Did she tell you»
+- Промпт: WHO YOU SPEAK TO, PLAIN LANGUAGE BRIDGE
+
+**Качество Decode (проверено на partner/breakup, ~9/10):**
+- ✅ «Your grief is structural», «she made the interpretive leap»
+- ✅ MORNING: marriage / timelines / pressure
+- ⚠️ Мелочи модели (sanitizer TODO): «scan her dreams sleep», «her dreams and amygdala»
 
 **Откат сайта:**
 ```powershell
 cd "D:\aONEIROX +++++++++\ONEIROX  2 -------------------\Oneirox"
 git fetch origin
-git checkout 07.02.2026_Oneirox_stable
+git checkout 03.07.2026_Oneirox_stable
 ```
 
 **Откат API:**
 ```powershell
 cd "D:\aONEIROX +++++++++\ONEIROX_API +++++++++++++"
-git fetch origin
 git checkout STABLE_DECODE_07.02.2026 -- main.py dream_validation.py ONEIROX_PROMPT.txt test_dream.py
 git push origin HEAD:main
 ```
-→ Railway Dashboard → **Redeploy** (автодеплой выключен)
-
-**Быстрый откат API без git:** Railway → Deployments → redeploy предыдущий зелёный.
-
-**Старая точка отката API (до sanitizer):** tag `STABLE_DECODE_O3`
-
----
-
-## Контрольная точка `07.02.2026_Oneirox_pagespeed` (2 июля 2026)
-
-**Зафиксировано — рабочий прод + mobile PageSpeed:**
-
-| Что | Статус |
-|-----|--------|
-| Mobile PageSpeed — critical CSS ~19 KB, self-hosted fonts, idle scripts | ✅ |
-| Анимация мозга + synapses на мобиле | ✅ |
-
-**Оптимизации главной (commit `365d1b5`):**
-- `decode.css` — только hero + форма (critical path)
-- `decode-deferred.css` — panel body, results, neuro spotlight (async)
-- `main.css` — below-fold sections (async)
-- `fonts.css` + `public/fonts/*.woff2` — без Google Fonts RTT
-- `perf-defer.js` — neural-bg, share после `load` + idle
-- JSON-LD перенесён в конец `<body>`
-- `fetchpriority="high"` на `neiro.webp`
-
-**Вернуться:**
-```powershell
-git checkout 07.02.2026_Oneirox_pagespeed
-```
-
----
-
-## Контрольная точка `07.02.2026_Oneirox` (2 июля 2026) — базовый прод
-
-Базовый рабочий прод до PageSpeed-оптимизаций. `git checkout 07.02.2026_Oneirox`
-
-**Не путать с устаревшей копией:** `C:\Users\Vigen\Downloads\Oneirox` — без git, не деплоится.
+→ Railway → **Redeploy** (автодеплой выключен)
 
 ---
 
@@ -104,10 +90,11 @@ git checkout 07.02.2026_Oneirox_pagespeed
 
 ```
 Открыл workspace Oneirox. Прочитай CONTINUATION.md.
-Контрольная точка сайт: git tag 07.02.2026_Oneirox_stable (commit f6acb06).
-Контрольная точка API: git tag STABLE_DECODE_07.02.2026 (commit 3acabd5).
+Сайт: tag 03.07.2026_Oneirox_stable (a985df4).
+API: tag STABLE_DECODE_07.02.2026 (3acabd5).
 Папка сайт: D:\aONEIROX +++++++++\ONEIROX  2 -------------------\Oneirox
 Decode не ломать (oneirox-decode.js + decode.css + контракт формы).
+Нейроанимацию не defer-ить (neural-bg.js = direct script).
 API: D:\aONEIROX +++++++++\ONEIROX_API +++++++++++++ (Railway, Redeploy вручную).
 ```
 
@@ -117,44 +104,25 @@ API: D:\aONEIROX +++++++++\ONEIROX_API +++++++++++++ (Railway, Redeploy вруч
 
 ## Два проекта — два репозитория (ВАЖНО)
 
-| Слой | Папка на диске | GitHub | Деплой |
-|------|----------------|--------|--------|
-| **Сайт** (HTML/CSS/JS) | `D:\aONEIROX +++++++++\ONEIROX  2 -------------------\Oneirox` | **ONEIROX_BIG_site** ✅ | **Cloudflare Pages** → `public/` |
-| **API** (FastAPI) | `D:\aONEIROX +++++++++\ONEIROX_API +++++++++++++` | `oneirox-api` ✅ | **Railway** |
+| Слой | Папка | GitHub | Деплой |
+|------|-------|--------|--------|
+| **Сайт** | `D:\aONEIROX +++++++++\ONEIROX  2 -------------------\Oneirox` | ONEIROX_BIG_site | Cloudflare Pages → `public/` |
+| **API** | `D:\aONEIROX +++++++++\ONEIROX_API +++++++++++++` | oneirox-api | Railway |
 
-**Связь:** `public/js/oneirox-decode.js` → `POST https://oneirox-api-production.up.railway.app/analyze`  
-Локально: `http://127.0.0.1:8000/analyze` (запустить uvicorn в папке API)
+**Связь:** `oneirox-decode.js` → `POST https://oneirox-api-production.up.railway.app/analyze`
 
-### API — что где
+### API — файлы
 
 | Файл | Роль |
 |------|------|
-| `main.py` | FastAPI, `/analyze`, rate limit, Claude, `sanitize_decode_output()` |
-| `dream_validation.py` | Валидация, `build_user_message()`, sanitizer, MORNING fix |
-| `ONEIROX_PROMPT.txt` | Промпт Decode (встроен через `build_user_message`) |
-| `dream.txt` | **Только тест** — `py test_dream.py dream.txt` (в .gitignore) |
-| `test_dream.py` | Локальный тест без сайта |
+| `main.py` | FastAPI, `/analyze`, rate limit, Claude, sanitizer |
+| `dream_validation.py` | `build_user_message()`, `sanitize_decode_output()`, MORNING fix |
+| `ONEIROX_PROMPT.txt` | Промпт Decode |
+| `test_dream.py` | `py test_dream.py dream.txt` |
 
-**Не коммитить в API:** `.env`, `dream.txt`, `API KEY/`, `ЗАПАС/`
+**Не коммитить:** `.env`, `dream.txt`, `API KEY/`, `ЗАПАС/`
 
-**⚠️ НЕ возвращать multi-call Claude rewrite** — вызывало таймауты и «Something went wrong».
-
----
-
-## Локальный запуск
-
-```powershell
-# Сайт
-cd "D:\aONEIROX +++++++++\ONEIROX  2 -------------------\Oneirox"
-npm run dev
-```
-→ http://localhost:3000
-
-```powershell
-# API (если нужен локальный Decode)
-cd "D:\aONEIROX +++++++++\ONEIROX_API +++++++++++++"
-uvicorn main:app --reload --port 8000
-```
+**⚠️ НЕ возвращать multi-call Claude rewrite** — таймауты, «Something went wrong».
 
 ---
 
@@ -170,24 +138,23 @@ uvicorn main:app --reload --port 8000
 ```
 
 - Логика: **только** `public/js/oneirox-decode.js`
-- Стили: **только** `public/css/decode.css` (+ `decode-deferred.css` для below-fold panel)
-- Форма: textarea сверху, кнопка **снизу на всю ширину** (все экраны)
-- API body: `{ "text": "..." }` → `{ "interpretation": "..." }`
-- Парсинг ответа: `[SIGNAL]` `[BODY]` `[MORNING]`
-- Mapper context: `localStorage` key `onx_mapper_data`, TTL 30 min
+- Стили: `decode.css` + `decode-deferred.css` (async)
+- Форма: textarea сверху, кнопка снизу на всю ширину
+- API: `{ "text": "..." }` → `{ "interpretation": "..." }`
+- Парсинг: `[SIGNAL]` `[BODY]` `[MORNING]`
 
 ---
 
-## CSS / JS — карта файлов (главная)
+## CSS / JS — главная
 
 | Файл | Назначение |
 |------|------------|
-| `public/css/decode.css` | ⚠️ Critical Decode — hero, форма, synapses |
-| `public/css/decode-deferred.css` | Panel body, results typography — async |
-| `public/css/site-nav.css` | Header, logo, **back-to-top** |
-| `public/js/oneirox-decode.js` | ⚠️ Мозг Decode — не ломать |
-| `public/js/back-to-top.js` | Кнопка наверх — **direct defer** на index.html |
-| `public/js/perf-defer.js` | Idle-load: neural-bg, share |
+| `decode.css` | Critical: hero, форма, **synapse SVG**, neural-bg container |
+| `decode-deferred.css` | Panel, results, neuro spotlight — async |
+| `oneirox-neural-bg.js` | Canvas нейросеть hero — **direct defer** |
+| `oneirox-decode.js` | Логика Decode |
+| `back-to-top.js` | Кнопка наверх — direct defer |
+| `perf-defer.js` | Только `oneirox-share.js` idle |
 
 ---
 
@@ -195,19 +162,21 @@ uvicorn main:app --reload --port 8000
 
 | Tag | Repo | Commit | Смысл |
 |-----|------|--------|-------|
-| `07.02.2026_Oneirox_stable` | site | `f6acb06` | **Текущая** — полный стабильный прод |
-| `07.02.2026_Oneirox_pagespeed` | site | `365d1b5` | PageSpeed оптимизации |
+| `03.07.2026_Oneirox_stable` | site | `a985df4` | **Текущая** — прод + нейроанимация |
+| `07.02.2026_Oneirox_stable` | site | `f6acb06` | UI без fix neural-bg |
+| `07.02.2026_Oneirox_pagespeed` | site | `365d1b5` | PageSpeed |
 | `07.02.2026_Oneirox` | site | `311663c` | Базовый прод |
-| `STABLE_DECODE_07.02.2026` | API | `3acabd5` | **Текущая** — Decode sanitizer + prompt |
-| `STABLE_DECODE_O3` | API | rollback | Экстренный откат до O3 |
+| `STABLE_DECODE_07.02.2026` | API | `3acabd5` | **Текущая** Decode |
+| `STABLE_DECODE_O3` | API | rollback | Экстренный откат |
 
 ---
 
 ## TODO дальше (опционально)
 
-- [ ] Sanitizer: мелкая грамматика модели («the dream was she staging»)
+- [ ] Sanitizer: «scan her dreams sleep» → «read her sleep from outside»
+- [ ] Sanitizer: «her dreams and amygdala» → plain language
+- [ ] Sanitizer: «the dream was she staging»
 - [ ] Фото `vigen.jpg` для About
-- [ ] `/library/` для топ WP-статей
 - [ ] README на GitHub API
 
 ---
@@ -217,10 +186,9 @@ uvicorn main:app --reload --port 8000
 | Что | URL |
 |-----|-----|
 | Сайт | https://oneirox.com |
-| API prod | https://oneirox-api-production.up.railway.app/analyze |
-| API version | https://oneirox-api-production.up.railway.app/version |
-| Спека главной | `docs/HOMEPAGE-SPEC.md` |
+| API | https://oneirox-api-production.up.railway.app/analyze |
+| API docs | CONTINUE.md в папке ONEIROX_API |
 
 ---
 
-*Обновляй этот файл после каждой значимой сессии. Это единая точка входа.*
+*Обновляй после каждой значимой сессии. Единая точка входа.*
