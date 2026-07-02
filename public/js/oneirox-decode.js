@@ -57,7 +57,8 @@ window.addEventListener('DOMContentLoaded', function () {
   }
 
   function getInput() {
-    return searchForm.querySelector('input[type="search"]') ||
+    return searchForm.querySelector('textarea') ||
+           searchForm.querySelector('input[type="search"]') ||
            searchForm.querySelector('input[type="text"]');
   }
 

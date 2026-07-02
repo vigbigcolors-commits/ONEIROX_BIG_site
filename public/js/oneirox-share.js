@@ -77,6 +77,7 @@ function watchDecodeResult() {
       /* Capture dream from input */
       var inp = document.querySelector('input[placeholder*="snake" i]') ||
                 document.querySelector('input[placeholder*="dream" i]') ||
+                document.querySelector('.onx-search-wrap textarea') ||
                 document.querySelector('.onx-search-wrap input');
       reading.dream = inp ? inp.value.trim() : '';
 

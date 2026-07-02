@@ -513,7 +513,8 @@
 }
 
 #decode .onx-search-wrap input[type="search"],
-#decode .onx-search-wrap input[type="text"] {
+#decode .onx-search-wrap input[type="text"],
+#decode .onx-search-wrap textarea {
   width: 100% !important;
   padding: 22px 148px 22px 22px !important;
   background: #ffffff !important;
@@ -527,14 +528,25 @@
   transition: border-color 0.2s, box-shadow 0.2s;
 }
 
-#decode .onx-search-wrap input:focus {
+#decode .onx-search-wrap textarea {
+  display: block !important;
+  min-height: 96px !important;
+  line-height: 1.55 !important;
+  resize: vertical !important;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+#decode .onx-search-wrap input:focus,
+#decode .onx-search-wrap textarea:focus {
   border-color: #4a6838 !important;
   box-shadow:
     0 0 0 4px rgba(115, 165, 99, 0.22),
     inset 0 1px 4px rgba(42, 58, 32, 0.04) !important;
 }
 
-#decode .onx-search-wrap input::placeholder {
+#decode .onx-search-wrap input::placeholder,
+#decode .onx-search-wrap textarea::placeholder {
   color: #7a8a72 !important;
   font-style: italic !important;
 }
@@ -933,6 +945,38 @@
 
 @media (max-width: 820px) {
   #decode .onx-decode-strengths { grid-template-columns: 1fr; }
+
+  /* Dream field + Decode: stacked on mobile — no overlap */
+  #decode .onx-search-wrap form {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 12px !important;
+  }
+
+  #decode .onx-search-wrap input[type="search"],
+  #decode .onx-search-wrap input[type="text"],
+  #decode .onx-search-wrap textarea {
+    padding: 16px 18px !important;
+    min-height: 128px !important;
+    border-radius: 16px !important;
+  }
+
+  #decode .onx-search-wrap button {
+    position: static !important;
+    right: auto !important;
+    left: auto !important;
+    top: auto !important;
+    bottom: auto !important;
+    transform: none !important;
+    width: 100% !important;
+    padding: 16px 24px !important;
+    border-radius: 14px !important;
+  }
+
+  #decode .onx-search-wrap button:hover,
+  #decode .onx-search-wrap button:disabled {
+    transform: none !important;
+  }
 }
 
 @media (max-width: 720px) {
@@ -948,18 +992,16 @@
   #decode.onx-hero { padding: 36px 12px 44px !important; }
   #decode .onx-hero__eyebrow { font-size: 8px !important; letter-spacing: 0.18em !important; padding: 6px 14px !important; }
   #decode .onx-decode-panel { padding: 22px 18px 18px !important; border-radius: 22px !important; }
-  #decode .onx-search-wrap input {
-    padding: 18px 16px 64px 16px !important;
-    border-radius: 16px !important;
+  #decode .onx-decode-panel__header {
+    flex-direction: column !important;
+    text-align: center !important;
+    gap: 14px !important;
   }
-  #decode .onx-search-wrap button {
-    right: 8px !important;
-    left: 8px !important;
-    top: auto !important;
-    bottom: 8px !important;
-    transform: none !important;
-    width: calc(100% - 16px) !important;
-    border-radius: 12px !important;
+  #decode .onx-decode-panel__icon {
+    width: 100px !important;
+    height: 100px !important;
+    min-width: 100px !important;
+    min-height: 100px !important;
   }
   #onx-decode-result { padding: 22px 18px; }
 }
