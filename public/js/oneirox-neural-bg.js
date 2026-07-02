@@ -16,6 +16,8 @@
   var ctx = canvas.getContext('2d', { alpha: true, desynchronized: true });
 
   var reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var isTouch = window.matchMedia('(pointer: coarse)').matches;
+  var isNarrow = window.matchMedia('(max-width: 820px)').matches;
   var dpr = 1;
   var w = 0;
   var h = 0;
@@ -35,7 +37,7 @@
   var span = 0;
   var sparkTick = 0;
 
-  var MIN_FRAME_MS = 33;
+  var MIN_FRAME_MS = isTouch || isNarrow ? 20 : 33;
   var NODE_COLORS = [
     [235, 255, 225], [210, 245, 255], [225, 252, 235],
     [200, 240, 255], [245, 255, 230], [195, 235, 250],
@@ -441,7 +443,7 @@
     var dt = ts - lastTs;
     lastTs = ts;
 
-    if (!frozen && inView && !isScrolling && !document.hidden) {
+    if (!frozen && inView && (!isScrolling || isTouch) && !document.hidden) {
       if (ts - lastPaint >= MIN_FRAME_MS) {
         time += dt;
         paintFrame(dt * 0.001);
@@ -466,6 +468,7 @@
   }
 
   function onScroll() {
+    if (isTouch) return;
     if (!isScrolling) isScrolling = true;
     clearTimeout(scrollTimer);
     scrollTimer = setTimeout(function () { isScrolling = false; }, 100);
@@ -491,11 +494,16 @@
 
     if ('IntersectionObserver' in window) {
       new IntersectionObserver(function (entries) {
-        setInView(entries[0].isIntersecting && entries[0].intersectionRatio > 0.02);
-      }, { threshold: [0, 0.02, 0.08] }).observe(hero);
+        setInView(entries[0].isIntersecting);
+      }, { threshold: [0, 0.01, 0.05], rootMargin: '48px 0px' }).observe(hero);
     } else if (!reducedMotion) {
       setInView(true);
     }
+  }
+
+  if (!reducedMotion && hero) {
+    var rect = hero.getBoundingClientRect();
+    if (rect.bottom > 0 && rect.top < window.innerHeight) startLoop();
   }
 
   window.addEventListener('scroll', onScroll, { passive: true });

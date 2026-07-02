@@ -186,12 +186,15 @@
   height: 100%;
   pointer-events: none;
   z-index: 1;
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
 }
 
 #decode .onx-neiro-synapses__link {
   stroke: rgba(120, 248, 252, 0.42);
   stroke-width: 0.85;
   animation: onx-neiro-link 3.2s ease-in-out infinite;
+  will-change: stroke-opacity, opacity;
 }
 
 #decode .onx-neiro-synapses__link--a { animation-delay: 0s; }
@@ -216,6 +219,7 @@
   transform-box: fill-box;
   transform-origin: center;
   animation: onx-neiro-spark 2.4s ease-in-out infinite;
+  will-change: transform, opacity;
 }
 
 #decode .onx-neiro-synapses__node--1 { animation-delay: 0s; }
@@ -945,6 +949,18 @@
 
 @media (max-width: 820px) {
   #decode .onx-decode-strengths { grid-template-columns: 1fr; }
+
+  /* Synapse overlay — keep visible + GPU layer on touch screens */
+  #decode .onx-neiro-synapses__link,
+  #decode .onx-neiro-synapses__pulse,
+  #decode .onx-neiro-synapses__node {
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+  }
+
+  #decode .onx-neiro-synapses__pulse {
+    animation: onx-neiro-travel 2.2s linear infinite;
+  }
 
   /* Dream field + Decode: stacked on mobile — no overlap */
   #decode .onx-search-wrap form {
