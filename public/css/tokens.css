@@ -1,6 +1,5 @@
 /* ONEIROX DESIGN TOKENS */
-:root {
-  --onx-forest:       #3a4435;
+:root {  --onx-forest:       #3a4435;
   --onx-moss:         #566e58;
   --onx-sage:         #5c7a58;
   --onx-leaf:         #73a563;
@@ -35,4 +34,16 @@
   --onx-radius-pill:  50px;
   --onx-shadow-card:  0 20px 60px rgba(58, 68, 53, 0.12);
   --onx-shadow-cta:   0 6px 20px rgba(86, 110, 88, 0.4);
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { scroll-behavior: auto; }
+
+body {
+  margin: 0;
+  font-family: var(--onx-font-sans);
+  background: var(--onx-canvas);
+  color: var(--onx-ink);
+  -webkit-font-smoothing: antialiased;
 }

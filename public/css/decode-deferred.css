@@ -1,0 +1,584 @@
+/* Below-fold decode panel, results, neuro spotlight */
+/* ── Panel body: how + why + output ── */
+#decode .onx-decode-panel__body {
+  margin-top: 26px;
+  padding-top: 24px;
+  border-top: 1.5px solid rgba(74, 104, 56, 0.18);
+}
+
+#decode .onx-decode-section__label {
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #3a5230;
+  margin-bottom: 14px;
+}
+
+#decode .onx-decode-steps {
+  margin: 0 0 16px;
+  padding-left: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+#decode .onx-decode-steps li {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #2e3830;
+}
+
+#decode .onx-decode-steps strong {
+  color: #1a2414;
+  font-weight: 700;
+}
+
+#decode .onx-decode-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 22px;
+}
+
+#decode .onx-decode-chip {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  color: #2a4a22;
+  background: rgba(255, 255, 255, 0.75);
+  border: 1.5px solid rgba(74, 104, 56, 0.35);
+  border-radius: 50px;
+  padding: 7px 14px;
+  box-shadow: 0 2px 8px rgba(42, 58, 32, 0.06);
+}
+
+#decode .onx-decode-why {
+  margin-bottom: 22px;
+}
+
+#decode .onx-decode-strengths {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+#decode .onx-decode-strength {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  padding: 16px 16px 14px;
+  border-radius: 16px;
+  border: 1px solid transparent;
+  box-shadow: 0 6px 20px rgba(42, 58, 32, 0.06);
+  transition: transform 0.22s ease, box-shadow 0.22s ease;
+}
+
+#decode .onx-decode-strength:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(42, 58, 32, 0.1);
+}
+
+#decode .onx-decode-strength--mechanism {
+  background: linear-gradient(145deg, #eef6e8 0%, #e2efd8 100%);
+  border-color: rgba(92, 122, 88, 0.22);
+}
+
+#decode .onx-decode-strength--body {
+  background: linear-gradient(145deg, #e6f5f2 0%, #d8eeea 100%);
+  border-color: rgba(38, 133, 113, 0.22);
+}
+
+#decode .onx-decode-strength--reading {
+  background: linear-gradient(145deg, #edf2fb 0%, #e3ebf8 100%);
+  border-color: rgba(49, 137, 204, 0.22);
+}
+
+#decode .onx-decode-strength__icon {
+  flex-shrink: 0;
+  width: 34px;
+  height: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  border-radius: 50%;
+  border: 1.5px solid transparent;
+}
+
+#decode .onx-decode-strength--mechanism .onx-decode-strength__icon {
+  background: #5c7a58;
+  color: #eef8e4;
+  border-color: #4a6346;
+  box-shadow: 0 4px 12px rgba(92, 122, 88, 0.35);
+}
+
+#decode .onx-decode-strength--body .onx-decode-strength__icon {
+  background: #268571;
+  color: #e8faf4;
+  border-color: #1e6b52;
+  box-shadow: 0 4px 12px rgba(38, 133, 113, 0.35);
+}
+
+#decode .onx-decode-strength--reading .onx-decode-strength__icon {
+  background: #3189cc;
+  color: #eef6ff;
+  border-color: #266799;
+  box-shadow: 0 4px 12px rgba(49, 137, 204, 0.35);
+}
+
+#decode .onx-decode-strength--mechanism .onx-decode-strength__title { color: #3d5238; }
+#decode .onx-decode-strength--body .onx-decode-strength__title { color: #1e5c4a; }
+#decode .onx-decode-strength--reading .onx-decode-strength__title { color: #2a5f8f; }
+
+#decode .onx-decode-strength__title {
+  font-family: var(--onx-font-serif);
+  font-size: 14px;
+  font-weight: 700;
+  color: #1a2414;
+  margin-bottom: 4px;
+  line-height: 1.25;
+}
+
+#decode .onx-decode-strength__text {
+  font-size: 12px;
+  line-height: 1.55;
+  color: #3d4a36;
+  margin: 0;
+}
+
+#decode .onx-decode-panel .onx-decode-output-hint {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin: 0 0 18px;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  overflow: visible;
+}
+
+#decode .onx-decode-panel .onx-output-hint__item {
+  text-align: center;
+  padding: 16px 12px;
+  border-radius: 14px;
+  border: 1px solid transparent;
+  border-right: none;
+  box-shadow: 0 4px 16px rgba(42, 58, 32, 0.05);
+}
+
+#decode .onx-output-hint__item--signal {
+  background: linear-gradient(160deg, #f2f8ec 0%, #e6f0dc 100%);
+  border-color: rgba(115, 165, 99, 0.25);
+}
+
+#decode .onx-output-hint__item--body {
+  background: linear-gradient(160deg, #e8f6f2 0%, #daf0ea 100%);
+  border-color: rgba(77, 173, 184, 0.28);
+}
+
+#decode .onx-output-hint__item--morning {
+  background: linear-gradient(160deg, #eef4fc 0%, #e0ecfa 100%);
+  border-color: rgba(0, 162, 255, 0.22);
+}
+
+#decode .onx-output-hint__item--signal .onx-output-hint__tag { color: #5c7a58; }
+#decode .onx-output-hint__item--body .onx-output-hint__tag { color: #268571; }
+#decode .onx-output-hint__item--morning .onx-output-hint__tag { color: #3189cc; }
+
+#decode .onx-decode-panel .onx-output-hint__desc {
+  color: #3a4435;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+#decode .onx-decode-panel__meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 10px 14px;
+  margin: 0;
+  padding-top: 4px;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #3a5230;
+}
+
+#decode .onx-decode-panel__meta-dot {
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: rgba(58, 90, 45, 0.45);
+}
+
+/* ── SIGNAL / BODY / MORNING (shared item styles) ── */
+#decode .onx-output-hint__tag {
+  display: block;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  color: var(--onx-emerald);
+  margin-bottom: 5px;
+}
+
+#decode .onx-output-hint__desc {
+  display: block;
+  font-size: 11px;
+  line-height: 1.45;
+  color: #3a4435;
+  font-weight: 500;
+}
+
+/* ── Neuro spotlight — editorial card ── */
+.onx-neuro-spotlight {
+  max-width: var(--onx-max-width);
+  margin: 48px auto 40px;
+  padding: 42px 48px 38px;
+  border-radius: 24px;
+  background: #fafcf8;
+  border: 1px solid rgba(58, 68, 53, 0.1);
+  box-shadow:
+    0 40px 88px rgba(42, 58, 32, 0.09),
+    0 1px 0 rgba(255, 255, 255, 0.9) inset;
+  text-align: left;
+}
+
+.onx-neuro-spotlight__head {
+  text-align: center;
+  margin-bottom: 32px;
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+.onx-neuro-spotlight__eyebrow {
+  margin: 0 0 14px;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: #00a2ff;
+}
+
+.onx-neuro-spotlight__title {
+  margin: 0 auto;
+  max-width: 22ch;
+  font-family: var(--onx-font-serif);
+  font-size: clamp(26px, 3.4vw, 38px);
+  font-weight: 600;
+  line-height: 1.18;
+  color: #1e261c;
+  letter-spacing: -0.025em;
+}
+
+.onx-neuro-spotlight__title em {
+  color: #5c7a58;
+  font-style: italic;
+}
+
+.onx-neuro-spotlight__title::after {
+  content: '';
+  display: block;
+  width: 48px;
+  height: 2px;
+  margin: 18px auto 0;
+  border-radius: 2px;
+  background: linear-gradient(90deg, #00a2ff, #73a563);
+  opacity: 0.75;
+}
+
+.onx-neuro-spotlight__visual {
+  margin: 0 auto 32px;
+  max-width: 920px;
+  padding: 0;
+  border: none;
+  box-shadow: none;
+  line-height: 0;
+}
+
+.onx-neuro-spotlight__frame {
+  border-radius: 18px;
+  overflow: hidden;
+  border: 1px solid rgba(58, 68, 53, 0.14);
+  box-shadow:
+    0 28px 60px rgba(42, 58, 32, 0.14),
+    0 0 0 1px rgba(255, 255, 255, 0.5) inset;
+  background: #1a2414;
+}
+
+.onx-neuro-spotlight__visual img {
+  display: block;
+  width: 100%;
+  height: auto;
+  min-height: 310px;
+  max-height: 420px;
+  object-fit: cover;
+  object-position: center 22%;
+}
+
+.onx-neuro-spotlight__facts {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+}
+
+.onx-neuro-fact {
+  position: relative;
+  padding: 18px 16px 16px;
+  border-radius: 16px;
+  border: 1px solid transparent;
+  box-shadow: 0 4px 18px rgba(42, 58, 32, 0.05);
+  overflow: hidden;
+  transition: transform 0.22s ease, box-shadow 0.22s ease;
+}
+
+.onx-neuro-fact::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  border-radius: 16px 16px 0 0;
+}
+
+.onx-neuro-fact:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 32px rgba(42, 58, 32, 0.09);
+}
+
+.onx-neuro-fact--rem {
+  background: linear-gradient(155deg, #f0f8ea 0%, #e4f0d8 100%);
+  border-color: rgba(115, 165, 99, 0.28);
+}
+.onx-neuro-fact--rem::before { background: linear-gradient(90deg, #73a563, #5c7a58); }
+.onx-neuro-fact--rem .onx-neuro-fact__n { color: #4a6b42; background: rgba(115, 165, 99, 0.14); }
+
+.onx-neuro-fact--gut {
+  background: linear-gradient(155deg, #e8f7f2 0%, #d9efe8 100%);
+  border-color: rgba(38, 133, 113, 0.26);
+}
+.onx-neuro-fact--gut::before { background: linear-gradient(90deg, #4dadb8, #268571); }
+.onx-neuro-fact--gut .onx-neuro-fact__n { color: #1e6b52; background: rgba(38, 133, 113, 0.12); }
+
+.onx-neuro-fact--mind {
+  background: linear-gradient(155deg, #edf4fc 0%, #dfeaf8 100%);
+  border-color: rgba(49, 137, 204, 0.24);
+}
+.onx-neuro-fact--mind::before { background: linear-gradient(90deg, #00a2ff, #3189cc); }
+.onx-neuro-fact--mind .onx-neuro-fact__n { color: #266799; background: rgba(0, 162, 255, 0.1); }
+
+.onx-neuro-fact--temp {
+  background: linear-gradient(155deg, #f3f0fa 0%, #e8e4f4 100%);
+  border-color: rgba(120, 100, 180, 0.22);
+}
+.onx-neuro-fact--temp::before { background: linear-gradient(90deg, #9b8fd4, #7a6cb8); }
+.onx-neuro-fact--temp .onx-neuro-fact__n { color: #5a4d8a; background: rgba(120, 100, 180, 0.12); }
+
+.onx-neuro-fact__n {
+  display: inline-block;
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  margin-bottom: 10px;
+  padding: 4px 9px;
+  border-radius: 20px;
+}
+
+.onx-neuro-fact__text {
+  margin: 0;
+  font-size: 11.5px;
+  line-height: 1.5;
+  color: #3a4435;
+}
+
+.onx-neuro-fact__text strong {
+  display: block;
+  font-family: var(--onx-font-serif);
+  font-size: 13px;
+  font-weight: 600;
+  color: #1e261c;
+  margin-bottom: 5px;
+  letter-spacing: -0.01em;
+}
+
+@media (max-width: 900px) {
+  .onx-neuro-spotlight__facts {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+}
+
+@media (max-width: 640px) {
+  .onx-neuro-spotlight {
+    margin: 32px auto 28px;
+    padding: 28px 20px 24px;
+    border-radius: 18px;
+  }
+
+  .onx-neuro-spotlight__visual {
+    max-width: 100%;
+  }
+
+  .onx-neuro-spotlight__visual img {
+    min-height: 200px;
+    max-height: 260px;
+    object-position: center 20%;
+  }
+
+  .onx-neuro-spotlight__facts {
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+
+  .onx-neuro-fact {
+    padding: 13px 12px;
+  }
+}
+
+/* ── Decode result ── */
+#onx-decode-result {
+  display: none;
+  margin-top: 20px;
+  padding: 32px 36px 28px;
+  background: #fafcf8;
+  border: 2px solid #3a4435;
+  border-radius: 16px;
+  text-align: left;
+  font-size: 16px;
+  line-height: 1.85;
+  color: var(--onx-forest);
+  font-family: Georgia, "Times New Roman", serif;
+  max-width: var(--onx-max-width);
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow: 0 16px 48px rgba(58, 68, 53, 0.1);
+  animation: onx-fade-up 0.45s ease both;
+}
+
+#onx-decode-result::before {
+  content: '◈ Neural reading';
+  display: block;
+  font-family: var(--onx-font-sans);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--onx-moss);
+  margin-bottom: 18px;
+}
+
+@keyframes onx-fade-up {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.onx-decode__signal {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--onx-forest);
+  line-height: 1.45;
+  margin-bottom: 20px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid rgba(58, 68, 53, 0.12);
+  font-family: var(--onx-font-serif);
+}
+
+.onx-decode__para {
+  margin-bottom: 14px;
+  font-size: 16px;
+  line-height: 1.85;
+  color: #3a4435;
+}
+
+.onx-decode__morning {
+  margin-top: 20px;
+  padding: 18px 22px;
+  background: #f0f4ec;
+  border-radius: 12px;
+  border-left: 3px solid var(--onx-emerald);
+  font-style: italic;
+  font-size: 15px;
+  color: #4a5445;
+  line-height: 1.65;
+}
+
+.onx-decode__error {
+  color: var(--onx-rose);
+  font-family: var(--onx-font-sans);
+  font-size: 14px;
+}
+
+.onx-decode__loading { padding: 8px 0; }
+
+.onx-decode__loading-text {
+  font-size: 13px;
+  color: var(--onx-mist);
+  font-style: italic;
+  margin-bottom: 14px;
+}
+
+.onx-decode__progress-track {
+  background: rgba(58, 68, 53, 0.1);
+  border-radius: 4px;
+  height: 3px;
+  overflow: hidden;
+}
+
+.onx-decode__progress-bar {
+  height: 3px;
+  width: 0%;
+  background: var(--onx-emerald);
+  border-radius: 4px;
+  transition: width 0.4s ease;
+}
+
+.onx-mapper-banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 14px;
+  padding: 12px 18px;
+  background: rgba(244, 248, 240, 0.9);
+  border: 1px solid rgba(115, 165, 99, 0.25);
+  border-radius: 14px;
+  font-family: var(--onx-font-sans);
+  flex-wrap: wrap;
+}
+
+.onx-mapper-banner__text {
+  font-size: 13px;
+  color: var(--onx-forest);
+  line-height: 1.6;
+}
+
+.onx-mapper-banner__clear {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--onx-moss);
+  background: var(--onx-white);
+  border: 1px solid rgba(58, 68, 53, 0.15);
+  border-radius: 8px;
+  cursor: pointer;
+  padding: 5px 12px;
+  font-family: var(--onx-font-sans);
+}
+
+.onx-mapper-banner__clear:hover {
+  background: #eef2ea;
+}
+@media (max-width: 720px) {
+  #decode .onx-decode-panel .onx-decode-output-hint { grid-template-columns: 1fr; }
+  #decode .onx-decode-panel .onx-output-hint__item {
+    border-right: none;
+    border-bottom: 1px solid rgba(74, 104, 56, 0.12);
+  }
+  #decode .onx-decode-panel .onx-output-hint__item:last-child { border-bottom: none; }
+  #onx-decode-result { padding: 22px 18px; }
+}
