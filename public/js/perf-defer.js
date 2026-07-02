@@ -5,7 +5,6 @@
   'use strict';
 
   var DEFERRED = [
-    '/js/oneirox-neural-bg.js',
     '/js/oneirox-share.js'
   ];
 
