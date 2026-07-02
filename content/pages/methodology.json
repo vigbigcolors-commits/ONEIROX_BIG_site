@@ -1,0 +1,78 @@
+{
+  "source": "https://oneirox.com/methodology/",
+  "hero": {
+    "eyebrow": "Methodology · Oneirox · How I Read Dreams",
+    "title": "Not a Clinician. Not a Dictionary. Something More Honest.",
+    "lead": "Most dream interpretation has a methodology problem. The method is: look up the symbol, return the meaning. Fast, scalable, and completely indifferent to the person who had the dream.",
+    "lead_strong": "The person who had the dream is the entire point. Five years of reading. 50+ books. This is what I actually do instead — and why the Oneirox Dream Decoder works differently from anything else that exists."
+  },
+  "stats": [
+    { "value": "5", "label": "Years studying" },
+    { "value": "50+", "label": "Books read" },
+    { "value": "14", "label": "Researchers cited", "note": "Methodology page said 12; align with engine at 14" }
+  ],
+  "origin": {
+    "title": "The Gap Between What People Say and What the Body Registers",
+    "quote": "The image is never the point. The feeling that generated the image is the point. I start there.",
+    "disclaimer": "I am not a clinician. I am not a therapist. I'm a researcher with an obsession and a methodology. This is not a medical resource."
+  },
+  "principles": [
+    {
+      "n": "01",
+      "title": "The Emotional Signature Is Primary. The Visual Content Is Secondary.",
+      "body": "Standard dream interpretation starts with the image. What the neuroscience of REM sleep suggests is the opposite: the emotional state is primary. The image is selected by the dreaming brain to encode and process that emotional state as efficiently as possible.",
+      "citation": "Cartwright — The Twenty-Four Hour Mind"
+    },
+    {
+      "n": "02",
+      "title": "The Body Knows Before the Mind Names It.",
+      "body": "The amygdala receives threat-relevant information from the thalamus before that information reaches the cortex. The physical residue after waking is not a side effect of the dream. It is the most honest available data about what the dream was processing.",
+      "citation": "LeDoux — The Emotional Brain · Damasio — The Feeling of What Happens"
+    },
+    {
+      "n": "03",
+      "title": "The Neuroscience Tells You What. The Life Tells You Why.",
+      "body": "The human brain cannot distinguish between financial threat, social status threat, and physical danger at the level of the amygdala's alarm response. The neuroscience gives me the structure. The life gives me the address.",
+      "citation": "Sapolsky — Behave · Why Zebras Don't Get Ulcers"
+    },
+    {
+      "n": "04",
+      "title": "Timing Is the Most Diagnostic Element.",
+      "body": "Dreams track life transitions with remarkable precision — and often slightly before those changes are fully consciously acknowledged. The amygdala updates before the cortex has finished its assessment.",
+      "citation": "Cartwright — longitudinal dream research, Rush University"
+    },
+    {
+      "n": "05",
+      "title": "The Dream Is Not Prophetic. It Is Diagnostic.",
+      "body": "The dreaming brain does not know the future. It generates accurate current assessments of the emotional state of ongoing situations. Dreams are the nervous system's most honest available communication. They are not oracular. They are diagnostic.",
+      "citation": "Walker — Why We Sleep · Hobson — The Dreaming Brain"
+    }
+  ],
+  "reading_sequence": [
+    { "n": 1, "title": "The Feeling", "text": "What is the felt quality of this dream? Where does it live in the body? This is the primary data." },
+    { "n": 2, "title": "The Timing", "text": "What is the waking-life context that generates this specific emotional charge right now?" },
+    { "n": 3, "title": "The Neuroscience", "text": "What is the brain actually doing when it produces this image? Walker, Cartwright, LeDoux, Sapolsky, Damasio, Porges." },
+    { "n": 4, "title": "The Specificity", "text": "What distinguishes this version of the dream from other versions of the same image?" },
+    { "n": 5, "title": "The Honest Sentence", "text": "The sentence the dreaming mind was building toward — the thing it would have said directly if waking management hadn't required images instead." }
+  ],
+  "timeline": [
+    { "year": "01", "title": "Foundation — Walker, Cartwright, LeDoux", "text": "By the end of year one: the emotion is primary, the image is the encoding mechanism." },
+    { "year": "02", "title": "The Body Layer — Damasio, Sapolsky, Porges", "text": "Somatic markers. Financial threat and physical danger produce identical alarm responses." },
+    { "year": "03", "title": "The Depth Layer — Jung, van der Kolk, Levine", "text": "Images that carry weight beyond personal history. Trauma and recurring dreams." },
+    { "year": "04", "title": "Building Oneirox", "text": "Cluster architecture. Every dream type connected to a psychological root." },
+    { "year": "05", "title": "Tools. Instruments. The Decode Engine.", "text": "Sensory Dream Mapper live. AI Dream Decoder live. Close the distance between what the brain was doing and what the waking mind can understand." }
+  ],
+  "limitations": {
+    "title": "What This Methodology Cannot Do",
+    "closing": "What it can do is deliver the most honest available account of what your brain was doing while you slept. Not comfort. Not prediction. Precision."
+  },
+  "cajochen": {
+    "title": "Your Brain Dreamed Differently That Night. The Moon Knows Why.",
+    "stats": [
+      { "value": "30%", "label": "Less deep sleep near full moon" },
+      { "value": "25%", "label": "More REM density near full moon" }
+    ],
+    "citation": "Cajochen et al., Current Biology, 2013",
+    "doi": "https://doi.org/10.1016/j.cub.2013.07.029"
+  }
+}

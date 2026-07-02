@@ -1,0 +1,363 @@
+/* ONEIROX TOOLS — rich instrument cards */
+
+.onx-tools {
+  --onx-tools-radius: 24px;
+  padding: 56px 24px 64px;
+  background: var(--onx-canvas);
+}
+
+.onx-tools__inner {
+  max-width: var(--onx-max-width);
+  margin: 0 auto;
+}
+
+.onx-tools__header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 32px;
+}
+
+.onx-tools__label {
+  font-family: var(--onx-font-serif);
+  font-size: clamp(26px, 3.2vw, 32px);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--onx-forest);
+  line-height: 1.15;
+  margin: 0;
+}
+
+.onx-tools__sub {
+  font-size: 14px;
+  color: #5a6450;
+  font-style: italic;
+  text-align: right;
+  max-width: 340px;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.onx-tools__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.onx-card2 {
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  position: relative;
+  border-radius: var(--onx-tools-radius);
+  overflow: hidden;
+  transition: transform 0.4s cubic-bezier(0.34, 1.2, 0.64, 1), box-shadow 0.4s ease;
+  height: 380px;
+}
+
+.onx-card2:hover {
+  transform: translateY(-8px) scale(1.01);
+}
+
+.onx-card2--mapper {
+  background: linear-gradient(155deg, #dcecd0 0%, #b8d4a4 38%, #8fc078 100%);
+  border: 1.5px solid rgba(58, 106, 48, 0.45);
+  box-shadow:
+    0 12px 40px rgba(30, 70, 20, 0.18),
+    inset 0 1px 0 rgba(255, 255, 255, 0.45);
+}
+
+.onx-card2--mapper:hover {
+  box-shadow:
+    0 28px 64px rgba(30, 70, 20, 0.28),
+    inset 0 1px 0 rgba(255, 255, 255, 0.5);
+}
+
+.onx-card2--mapper::after {
+  content: '';
+  position: absolute;
+  top: -60px;
+  right: -60px;
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.35) 0%, transparent 65%);
+  pointer-events: none;
+}
+
+.onx-card2--phase {
+  background: linear-gradient(150deg, #0c1828 0%, #0f2244 40%, #142a52 70%, #0e1c36 100%);
+  border: 1.5px solid rgba(100, 160, 255, 0.35);
+  box-shadow:
+    0 12px 40px rgba(8, 16, 48, 0.5),
+    0 0 0 1px rgba(80, 140, 255, 0.1),
+    inset 0 1px 0 rgba(120, 170, 255, 0.12);
+}
+
+.onx-card2--phase:hover {
+  box-shadow:
+    0 28px 64px rgba(8, 16, 48, 0.65),
+    0 0 48px rgba(60, 120, 255, 0.15),
+    inset 0 1px 0 rgba(120, 170, 255, 0.15);
+}
+
+.onx-card2--phase::before {
+  content: '';
+  position: absolute;
+  width: 240px;
+  height: 240px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(60, 120, 255, 0.14) 0%, transparent 68%);
+  top: -50px;
+  right: -50px;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.onx-card2__body {
+  padding: 26px 28px 0;
+  position: relative;
+  z-index: 2;
+  flex: 1 1 auto;
+  min-height: 0;
+}
+
+.onx-card2__toprow {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 14px;
+}
+
+.onx-card2__icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.onx-card2--mapper .onx-card2__icon {
+  background: radial-gradient(circle at 38% 32%, #b0e890 0%, #5aaa40 45%, #2a6420 100%);
+  box-shadow: 0 6px 20px rgba(30, 90, 20, 0.4), inset 0 2px 4px rgba(255, 255, 255, 0.4);
+}
+
+.onx-card2--phase .onx-card2__icon {
+  background: radial-gradient(circle at 40% 30%, #e8f0ff 0%, #98b8e0 40%, #5070a8 100%);
+  box-shadow: 0 6px 20px rgba(40, 80, 160, 0.5), inset 0 2px 4px rgba(255, 255, 255, 0.3);
+  overflow: hidden;
+}
+
+.icon-neuro { filter: drop-shadow(0 2px 4px rgba(20, 60, 10, 0.4)); }
+
+.icon-moon {
+  width: 40px;
+  height: 40px;
+  position: relative;
+}
+
+.icon-moon__full {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 38% 32%, #eef4ff 0%, #b8cce8 45%, #88a0c8 100%);
+  position: absolute;
+  right: 2px;
+  top: 3px;
+  box-shadow: inset -4px -2px 8px rgba(40, 60, 120, 0.4), inset 2px 2px 6px rgba(255, 255, 255, 0.5);
+}
+
+.icon-moon__shadow {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 60% 40%, #0d1f3d 0%, #0a1628 100%);
+  position: absolute;
+  left: 0;
+  top: 6px;
+  box-shadow: inset 2px 1px 4px rgba(0, 0, 0, 0.5);
+}
+
+.onx-card2__badge {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  padding: 6px 14px;
+  border-radius: 20px;
+  line-height: 1;
+  border: 1.5px solid;
+}
+
+.onx-card2__badge--feeds {
+  background: rgba(38, 133, 113, 0.15);
+  color: #1e4a38;
+  border-color: rgba(38, 133, 113, 0.4);
+}
+
+.onx-card2__name {
+  font-family: var(--onx-font-serif);
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1.12;
+  margin-bottom: 10px;
+  letter-spacing: -0.01em;
+}
+
+.onx-card2--mapper .onx-card2__name { color: #142a0c; }
+.onx-card2--phase .onx-card2__name {
+  color: #dce8ff;
+  text-shadow: 0 0 30px rgba(80, 140, 255, 0.25);
+}
+
+.onx-card2__desc {
+  font-size: 13px;
+  line-height: 1.55;
+  margin-bottom: 12px;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.onx-card2--mapper .onx-card2__desc { color: #1e3818; }
+.onx-card2--phase .onx-card2__desc { color: #90a8d0; }
+
+.onx-card2__tags {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.onx-card2__tag {
+  font-size: 11px;
+  font-weight: 600;
+  padding: 5px 14px;
+  border-radius: 50px;
+  border: 1.5px solid;
+  letter-spacing: 0.02em;
+}
+
+.onx-card2--mapper .onx-card2__tag:first-child {
+  background: #2a6420;
+  color: #d8f0c4;
+  border-color: #2a6420;
+}
+
+.onx-card2--mapper .onx-card2__tag:last-child {
+  background: rgba(255, 255, 255, 0.35);
+  color: #2a6420;
+  border-color: rgba(58, 106, 48, 0.4);
+}
+
+.onx-card2--phase .onx-card2__tag:first-child {
+  background: rgba(255, 255, 255, 0.14);
+  color: #d8e8ff;
+  border-color: rgba(255, 255, 255, 0.28);
+}
+
+.onx-card2--phase .onx-card2__tag:last-child {
+  background: transparent;
+  color: #88a8d8;
+  border-color: rgba(100, 150, 220, 0.35);
+}
+
+.onx-card2__footer {
+  position: relative;
+  height: 100px;
+  flex-shrink: 0;
+}
+
+.onx-card2__wave {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+}
+
+.onx-card2__wave svg {
+  display: block;
+  width: 100%;
+  height: 84px;
+}
+
+.onx-card2--phase .onx-card2__wave {
+  filter: drop-shadow(0 0 10px rgba(80, 160, 255, 0.5));
+}
+
+.onx-card2__metrics {
+  position: absolute;
+  bottom: 14px;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  gap: 36px;
+  z-index: 3;
+  padding: 0 28px;
+}
+
+.onx-card2__metric {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+}
+
+.onx-card2__metric-icon { line-height: 1; }
+
+.onx-card2__metric-label {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.onx-card2--mapper .onx-card2__metric-icon,
+.onx-card2--mapper .onx-card2__metric-label { color: #1e3818; }
+
+.onx-card2--phase .onx-card2__metric-icon { color: #98c0ff; }
+.onx-card2--phase .onx-card2__metric-label { color: #6890c0; }
+
+.onx-card2__arrow {
+  position: absolute;
+  right: 20px;
+  bottom: 46px;
+  z-index: 4;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(180, 210, 255, 0.2);
+  border: 1.5px solid rgba(150, 190, 255, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 17px;
+  color: #c8d8ff;
+  box-shadow: 0 4px 16px rgba(40, 80, 200, 0.25);
+  transition: all 0.25s;
+}
+
+.onx-card2--phase:hover .onx-card2__arrow {
+  background: rgba(180, 210, 255, 0.35);
+  transform: translateX(4px);
+}
+
+@media (max-width: 820px) {
+  .onx-tools__grid { grid-template-columns: 1fr; }
+  .onx-tools__header { flex-direction: column; align-items: flex-start; }
+  .onx-tools__sub { text-align: left; max-width: none; }
+}
+
+@media (max-width: 600px) {
+  .onx-tools { padding: 40px 16px 48px; }
+  .onx-card2 { height: auto; min-height: 340px; }
+  .onx-card2__name { font-size: 21px; }
+  .onx-card2__metrics { gap: 22px; }
+}

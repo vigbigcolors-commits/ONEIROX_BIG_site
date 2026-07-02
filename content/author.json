@@ -1,0 +1,55 @@
+{
+  "name": "Vigen",
+  "name_full": "Vigen G.R.",
+  "title": "Sleep Physiology & Somatic Signals Researcher",
+  "title_secondary": "Independent Researcher & Developer",
+  "years_research": "5+",
+  "books_read": "50+",
+  "studies_cited": 14,
+
+  "headline": "I read dreams as physiology — not symbols.",
+  "tagline": "Sleep neurophysiology, somatic feedback, and the physical architecture of dreaming — built into instruments, not essays.",
+
+  "bio": "My name is Vigen. I spent more than five years at the intersection of sleep neuroscience, clinical attachment theory, and Jungian depth psychology — not as an academic, but as someone who found it necessary to understand what actually happens in dreams. I analyze dreams not as abstract symbols, but as direct physiological signals — neurobiological responses of the amygdala and thalamus during sleep, and somatic feedback loops your nervous system carries into REM. At Oneirox, my work focuses on deconstructing sleep cycles and translating somatic nervous-system activity into structured readings. I am not a clinician. I am not a therapist. I am a sleep physiology and somatic signals researcher — and the independent developer who built the instruments that apply this methodology at 3am.",
+
+  "bio_about_page": "Not what they mean in the abstract. What the brain was specifically doing when it produced a specific image on a specific night of a specific life. I read not to build a citation library. I read because I wanted to know why existing tools kept giving symbol tables instead of answers.",
+
+  "methodology_quote": "The image is never the point. The feeling that generated the image is the point. I start there.",
+
+  "pages": {
+    "about": "https://oneirox.com/about/",
+    "methodology": "https://oneirox.com/methodology/"
+  },
+
+  "bio_short": "Vigen — sleep physiology & somatic signals researcher. I decode dreams as amygdalar and thalamic activity during sleep, not as symbol tables. Independent. Five years of research. Fifty books. Oneirox.",
+
+  "bio_card": "Vigen analyzes dreams not as abstract symbols, but as physiological signals — neurobiological responses of the amygdala and thalamus during sleep, and somatic activity your nervous system carries into REM. At Oneirox, that research becomes tools: sleep-cycle deconstruction, somatic-to-data translation, and readings grounded in mechanism rather than metaphor.",
+
+  "research_areas": [
+    "Sleep neurophysiology",
+    "Somatic feedback loops during REM",
+    "Amygdalar threat processing in dreams",
+    "Thalamic gating and dream imagery",
+    "The physical architecture of dreaming",
+    "Chronobiology and sleep-phase effects"
+  ],
+
+  "credentials": [
+    { "value": "5+", "label": "Years of focused research" },
+    { "value": "50+", "label": "Books on sleep & neuroscience" },
+    { "value": "14", "label": "Peer-reviewed studies in the engine" }
+  ],
+
+  "positioning": {
+    "is_clinical_neuroscientist": false,
+    "is_independent_researcher": true,
+    "is_developer": true,
+    "voice": "Precise, somatic-first, mechanism over mysticism. Clinician-dictation clarity for readers awake at 3am."
+  },
+
+  "photo": "/images/vigen.jpg",
+  "sameAs": [],
+  "email": "",
+
+  "disclaimer": "Oneirox is a research-informed interpretation instrument. It is not medical advice, diagnosis, or therapy. Vigen is an independent researcher and developer — not a licensed clinician."
+}

@@ -1,0 +1,131 @@
+{
+  "_note": "Vigen: подтверди, замени или дополни до 14. DOI добавь где знаешь.",
+  "studies": [
+    {
+      "id": "revonsuo",
+      "authors": "Revonsuo",
+      "year": 2000,
+      "title": "The reinterpretation of dreams: an evolutionary hypothesis of the function of dreaming",
+      "mechanism": "Threat simulation",
+      "oneirox_use": "Amygdala rehearses survival scenarios — the core of threat dreams.",
+      "doi_or_url": "TODO"
+    },
+    {
+      "id": "walker",
+      "authors": "Walker",
+      "year": 2017,
+      "title": "Why We Sleep",
+      "mechanism": "REM emotional regulation",
+      "oneirox_use": "REM depotentiates emotional charge — why dreams feel so intense at 3am.",
+      "doi_or_url": "https://www.sleepdiplomat.com/"
+    },
+    {
+      "id": "cartwright",
+      "authors": "Cartwright",
+      "year": 2010,
+      "title": "The Twenty-four Hour Mind",
+      "mechanism": "Emotional processing in sleep",
+      "oneirox_use": "Dreams continue emotional work the waking mind has not finished.",
+      "doi_or_url": "TODO"
+    },
+    {
+      "id": "damasio",
+      "authors": "Damasio",
+      "year": 1999,
+      "title": "The Feeling of What Happens",
+      "mechanism": "Somatic marker / interoception",
+      "oneirox_use": "Body state leaks into dream narrative — chest tight, jaw clenched.",
+      "doi_or_url": "TODO"
+    },
+    {
+      "id": "stickgold",
+      "authors": "Stickgold & Walker",
+      "year": 2007,
+      "title": "Sleep-dependent memory consolidation and reconsolidation",
+      "mechanism": "Memory consolidation",
+      "oneirox_use": "Hippocampus replays and integrates recent experience in REM.",
+      "doi_or_url": "TODO"
+    },
+    {
+      "id": "solms",
+      "authors": "Solms",
+      "year": 1997,
+      "title": "The Neuropsychology of Dreams",
+      "mechanism": "Motivational conflict",
+      "oneirox_use": "Dopaminergic drive systems surface suppressed wants.",
+      "doi_or_url": "TODO"
+    },
+    {
+      "id": "hobson",
+      "authors": "Hobson",
+      "year": 2009,
+      "title": "REM sleep and dreaming: towards a theory of protoconsciousness",
+      "mechanism": "Cognitive offloading",
+      "oneirox_use": "Cortex narrativizes random activation into meaning.",
+      "doi_or_url": "TODO"
+    },
+    {
+      "id": "ledoux",
+      "authors": "LeDoux",
+      "year": 2015,
+      "title": "Anxious",
+      "mechanism": "Fear circuitry",
+      "oneirox_use": "Amygdala-driven threat processing in dream imagery.",
+      "doi_or_url": "TODO"
+    },
+    {
+      "id": "porges",
+      "authors": "Porges",
+      "year": 2011,
+      "title": "The Polyvagal Theory",
+      "mechanism": "Social safety / neuroception",
+      "oneirox_use": "Attachment and status-threat processing in social dreams.",
+      "doi_or_url": "TODO"
+    },
+    {
+      "id": "vanderkolk",
+      "authors": "van der Kolk",
+      "year": 2014,
+      "title": "The Body Keeps the Score",
+      "mechanism": "Trauma replay",
+      "oneirox_use": "Unresolved somatic memory resurfacing in REM.",
+      "doi_or_url": "TODO"
+    },
+    {
+      "id": "levine",
+      "authors": "Levine",
+      "year": 1997,
+      "title": "Waking the Tiger",
+      "mechanism": "Somatic experiencing",
+      "oneirox_use": "Body-held charge completing its cycle in dream imagery.",
+      "doi_or_url": "TODO"
+    },
+    {
+      "id": "cajochen",
+      "authors": "Cajochen et al.",
+      "year": 2013,
+      "title": "Evidence that the lunar cycle influences human sleep",
+      "mechanism": "Chronobiology",
+      "oneirox_use": "Dream Phase Calculator — lunar influence on deep sleep and REM density.",
+      "doi_or_url": "https://doi.org/10.1016/j.cub.2013.07.029"
+    },
+    {
+      "id": "sapolsky",
+      "authors": "Sapolsky",
+      "year": 2004,
+      "title": "Why Zebras Don't Get Ulcers",
+      "mechanism": "Stress physiology",
+      "oneirox_use": "Chronic stress load shaping what the sleeping brain rehearses.",
+      "doi_or_url": "TODO"
+    },
+    {
+      "id": "placeholder",
+      "authors": "TODO — Vigen",
+      "year": 0,
+      "title": "14th study — your choice",
+      "mechanism": "",
+      "oneirox_use": "Which paper most shaped your methodology?",
+      "doi_or_url": ""
+    }
+  ]
+}

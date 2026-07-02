@@ -1,0 +1,58 @@
+<!--
+  ONEIROX DECODE BLOCK
+  Paste into WordPress homepage. Styles + logic from plugin.
+
+  DO NOT change: .onx-search-wrap, form, input[type="search"], button[type="submit"]
+  Safe to edit: titles, sub text, ECG link, panel labels
+-->
+
+<section class="onx-block onx-hero" id="decode">
+  <div class="onx-hero__inner">
+
+    <p class="onx-hero__eyebrow">Dream Interpretation · Sleep Neuroscience · Somatic Decoding</p>
+    <h2 class="onx-hero__title">Your body decoded the dream <span class="onx-highlight">before you woke up.</span></h2>
+
+    <div class="onx-decode-panel">
+      <div class="onx-decode-panel__header">
+        <span class="onx-decode-panel__icon" aria-hidden="true">
+          <img class="onx-decode-panel__icon-img" src="/images/neiro.webp" alt="" width="150" height="150" decoding="async" />
+          <svg class="onx-neiro-synapses" viewBox="0 0 150 150" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+            <g class="onx-neiro-synapses__links" fill="none" stroke-linecap="round">
+              <path class="onx-neiro-synapses__link onx-neiro-synapses__link--a" d="M72 70 L88 58 L98 72" />
+              <path class="onx-neiro-synapses__link onx-neiro-synapses__link--b" d="M68 82 L78 70 L92 78" />
+              <path class="onx-neiro-synapses__link onx-neiro-synapses__link--c" d="M88 58 L95 68 L92 86" />
+              <path class="onx-neiro-synapses__link onx-neiro-synapses__link--d" d="M76 56 L82 68 L70 78" />
+              <path class="onx-neiro-synapses__pulse onx-neiro-synapses__pulse--1" d="M72 70 L88 58 L98 72" />
+              <path class="onx-neiro-synapses__pulse onx-neiro-synapses__pulse--2" d="M68 82 L78 70 L92 78" />
+            </g>
+            <g class="onx-neiro-synapses__nodes">
+              <circle class="onx-neiro-synapses__node onx-neiro-synapses__node--1" cx="72" cy="70" r="2.4" />
+              <circle class="onx-neiro-synapses__node onx-neiro-synapses__node--2" cx="88" cy="58" r="2" />
+              <circle class="onx-neiro-synapses__node onx-neiro-synapses__node--3" cx="98" cy="72" r="1.8" />
+              <circle class="onx-neiro-synapses__node onx-neiro-synapses__node--4" cx="92" cy="86" r="2.2" />
+              <circle class="onx-neiro-synapses__node onx-neiro-synapses__node--5" cx="68" cy="82" r="1.9" />
+              <circle class="onx-neiro-synapses__node onx-neiro-synapses__node--6" cx="76" cy="56" r="1.7" />
+              <circle class="onx-neiro-synapses__node onx-neiro-synapses__node--7" cx="82" cy="68" r="2.6" />
+            </g>
+          </svg>
+        </span>
+        <div class="onx-decode-panel__titles">
+          <p class="onx-decode-panel__label">Type your dream here</p>
+          <p class="onx-decode-panel__hint">Snakes, falling, water, teeth, being chased — or how your body felt</p>
+        </div>
+      </div>
+
+      <div class="onx-search-wrap">
+        <form role="search" method="get" action="https://oneirox.com/">
+          <input type="search" name="s" placeholder="e.g. I dreamed a white snake was chasing me and my chest felt tight…" autocomplete="off" aria-label="Describe your dream" />
+          <button type="submit">Decode</button>
+        </form>
+      </div>
+
+      <p class="onx-decode-panel__footer">Press <strong>Decode</strong> — Oneirox reads the neural echo, not a symbol dictionary.</p>
+    </div>
+
+  </div>
+</section>
+
+<div class="onx-divider"></div>

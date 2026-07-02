@@ -1,0 +1,83 @@
+{
+  "source": "https://oneirox.com/about/",
+  "hero": {
+    "eyebrow": "About Oneirox · AI Dream Interpretation · Dream Decoder",
+    "title": "The First Scientific AI Dream Interpretation Engine. Built Because Nothing Else Was.",
+    "lead": "Most dream tools give you a symbol table. Snake = betrayal. Water = emotion. Falling = loss of control.",
+    "lead_strong": "Oneirox answers the question those tables never could: not what your dream means in general — what your brain was specifically doing while it produced that image, on that night, in your life.",
+    "cta": "Decode Your Dream Now"
+  },
+  "stats": [
+    { "value": "5+", "label": "Years of research" },
+    { "value": "50+", "label": "Books on sleep science" },
+    { "value": "14", "label": "Researchers in the engine", "note": "About page listed 12; engine uses 14 — use 14 on new site" }
+  ],
+  "what_is": {
+    "title": "An AI Dream Decoder Grounded in Sleep Neuroscience",
+    "paragraphs": [
+      "Oneirox is a free AI-powered dream interpretation tool — a dream decoder that reads what your brain was actually doing during sleep, not what ancient symbol tables say your dream should mean.",
+      "The Decode engine was built on a specific insight: every dream is a neurobiological event. The images your sleeping brain generates are precise, physiologically determined outputs of systems that were running while you slept.",
+      "The question isn't what a dream means. The question is what the brain was processing. Oneirox answers the second question, which automatically answers the first."
+    ]
+  },
+  "comparison": {
+    "other": {
+      "label": "Every Other Dream Site",
+      "flow": "Symbol → Vague Meaning",
+      "text": "You type \"snake.\" You get five possible meanings depending on tradition. You leave with no way to know which one is yours."
+    },
+    "oneirox": {
+      "label": "Oneirox Dream Decoder",
+      "flow": "Neural State → Specific Insight",
+      "text": "You describe your dream. The AI identifies which neurobiological mechanism was active and explains what it means for your specific situation. One precise reading."
+    }
+  },
+  "decode_output": {
+    "title": "Describe your dream. Get the neurobiological truth.",
+    "subtitle": "Three structured sections. Each one precise, grounded in peer-reviewed sleep research, written for the person who woke at 3am with a question — not a reader of textbooks.",
+    "bullets": [
+      "The core diagnostic truth — what your brain was actually doing, in one sentence",
+      "The active mechanism: threat simulation, emotional tagging, somatic signal, or memory consolidation",
+      "The question this dream was trying to deliver to your waking mind"
+    ]
+  },
+  "why_no_analogs": {
+    "title": "Every Dream Tool Gets This Wrong",
+    "intro": "It took five years and fifty books to understand why every existing dream interpretation product produces the same result: symbol tables dressed in new technology. The problem isn't the technology. It's the premise.",
+    "points": [
+      { "n": "01", "title": "They start with the symbol, not the brain", "text": "Dream dictionaries predate REM research by a century. Most AI tools digitize those tables at scale. Oneirox was built from the neuroscience up." },
+      { "n": "02", "title": "They ignore the body entirely", "text": "The chest pressure on waking. The cold that didn't lift. These are the most diagnostically accurate data points — and every existing tool discards them." },
+      { "n": "03", "title": "They give you five possible meanings", "text": "When a tool gives you every possible interpretation, it has given you nothing. Oneirox commits to one neurobiological reading based on what actually happened in your brain." },
+      { "n": "04", "title": "They never ask what your body felt", "text": "The Sensory Dream Mapper was built for exactly this gap. Nine neurobiological somatic profiles. The body knows first — Damasio established this." }
+    ]
+  },
+  "author_section": {
+    "title": "The Science Behind Every Interpretation",
+    "intro": "My name is Vigen. I spent more than five years at the intersection of sleep neuroscience, clinical attachment theory, and Jungian depth psychology — not as an academic, but as someone who found it necessary to understand what actually happens in dreams.",
+    "intro_strong": "Not what they \"mean\" in the abstract. What the brain was specifically doing when it produced a specific image on a specific night of a specific life.",
+    "closing": "I read not to build a citation library. I read because I wanted to know why this specific image, on this specific night, in this specific person's life — and why existing tools kept giving symbol tables instead of answers."
+  },
+  "researchers": [
+    { "names": "Matthew Walker + Rosalind Cartwright", "insight": "What REM sleep does to emotional memory" },
+    { "names": "Antonio Damasio", "insight": "Somatic markers — the body's own records of what matters" },
+    { "names": "Joseph LeDoux", "insight": "Two fear pathways — the body moves before the cortex" },
+    { "names": "Stephen Porges", "insight": "Social threat is physiologically identical to physical danger" },
+    { "names": "Mark Solms", "insight": "Images explain physiological states already running" },
+    { "names": "Robert Sapolsky", "insight": "Stress, cortisol, and the hippocampus under load" },
+    { "names": "Bessel van der Kolk", "insight": "The body's record of what the mind didn't fully process" },
+    { "names": "Carl Jung + Marie-Louise von Franz", "insight": "Patterns that precede the individual mind" }
+  ],
+  "mechanisms": [
+    { "id": "threat", "label": "MECHANISM 01", "title": "Threat Simulation — Revonsuo", "text": "The amygdala generates rehearsal scenarios for unresolved threats — not as metaphor but as preparation." },
+    { "id": "emotional", "label": "MECHANISM 02", "title": "Emotional Memory Consolidation — Walker, Cartwright", "text": "REM sleep processes unresolved emotional charge. Recurring dreams about the same person or situation are frequently this process, looping because it hasn't completed." },
+    { "id": "somatic", "label": "MECHANISM 03", "title": "Somatic Signal — Damasio", "text": "Physical sensations on waking are often the most diagnostically accurate data. The Sensory Dream Mapper was built to read this layer before the narrative dissolves." }
+  ],
+  "instruments": {
+    "decoder": "Describe your dream, receive a neurobiological analysis. The core diagnostic truth, the active mechanism, and the question your brain was trying to deliver.",
+    "mapper": "Nine neurobiological somatic profiles. Map thermal state, tactile signatures, and body zones in 90 seconds. Send somatic context directly to Decode."
+  },
+  "footer_cta": {
+    "title": "The signal was there when you woke up. Decode it now.",
+    "sub": "Free. No account required. Grounded in sleep neuroscience."
+  }
+}

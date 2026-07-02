@@ -1,0 +1,47 @@
+/* ════════════════════════════════════════════════════════
+   ONEIROX DESIGN TOKENS — зафиксированная палитра
+   Использовать везде. Не добавлять случайные оттенки.
+════════════════════════════════════════════════════════ */
+
+:root {
+  /* ── Primary greens ── */
+  --onx-forest:       #3a4435;   /* заголовки, основной текст */
+  --onx-moss:         #566e58;   /* кнопки, иконки, акцент UI */
+  --onx-sage:         #5c7a58;   /* highlight в заголовках */
+  --onx-leaf:         #73a563;   /* акцентный текст, ссылки hover */
+  --onx-mist:         #9aaa90;   /* вторичный текст, labels */
+
+  /* ── Surfaces ── */
+  --onx-canvas:        #cbd4c2;   /* фон страницы / hero */
+  --onx-panel:         #b9c6ad;   /* мягкие секции */
+  --onx-card:          #c4d8b4;   /* карточки, панели */
+  --onx-glow:          #cfedaf;   /* highlight glow, badges */
+  --onx-white:         #f8faf5;   /* белые карточки, input bg */
+
+  /* ── Semantic ── */
+  --onx-ink:           var(--onx-forest);
+  --onx-ink-soft:      var(--onx-mist);
+  --onx-cta:           var(--onx-moss);
+  --onx-cta-hover:     #4a5e48;
+  --onx-highlight:     var(--onx-sage);
+
+  /* ── Night / Phase tool ── */
+  --onx-rem-deep:      #1a2848;
+  --onx-rem-mid:       #2a4070;
+  --onx-rem-glow:      #6090c8;
+
+  /* ── Typography ── */
+  --onx-font-serif:    "Playfair Display", Georgia, "Times New Roman", serif;
+  --onx-font-sans:     "Work Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+
+  /* ── Layout ── */
+  --onx-max-width:     1200px;
+  --onx-content-width: 900px;
+  --onx-radius-lg:     28px;
+  --onx-radius-md:     18px;
+  --onx-radius-pill:   50px;
+
+  /* ── Shadows ── */
+  --onx-shadow-card:   0 20px 60px rgba(58, 68, 53, 0.12);
+  --onx-shadow-cta:    0 6px 20px rgba(86, 110, 88, 0.4);
+}

@@ -1,0 +1,1009 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <meta name="theme-color" content="#1e3224">
+  <title>Oneirox — Scientific AI Dream Decoder | Sleep Neurobiology</title>
+  <meta name="description" content="Decode dreams through sleep neuroscience, not symbol dictionaries. Free AI dream decoder by Vigen G.R. — 5+ years research, 50+ books, 14 peer-reviewed frameworks.">
+  <meta name="oneirox-api" content="">
+  <link rel="canonical" href="https://oneirox.com/">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/tokens.css">
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/decode.css">
+  <link rel="stylesheet" href="/css/flow.css">
+  <link rel="stylesheet" href="/css/why-decode.css">
+  <link rel="stylesheet" href="/css/tools.css">
+  <link rel="stylesheet" href="/css/insight.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "name": "Oneirox",
+        "url": "https://oneirox.com/",
+        "description": "Scientific AI dream decoder grounded in sleep neurobiology"
+      },
+      {
+        "@type": "WebApplication",
+        "name": "Oneirox Dream Decoder",
+        "url": "https://oneirox.com/",
+        "applicationCategory": "HealthApplication",
+        "operatingSystem": "Web",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+        "author": { "@type": "Person", "name": "Vigen G.R." }
+      },
+      {
+        "@type": "Person",
+        "name": "Vigen G.R.",
+        "jobTitle": "Sleep Physiology & Somatic Signals Researcher",
+        "description": "Independent researcher and developer. Architect of Oneirox.com.",
+        "url": "https://oneirox.com/about/"
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "How is Oneirox different from dream dictionaries?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Dream dictionaries map symbols to fixed meanings. Oneirox Decode identifies which neurobiological mechanism was active during REM sleep — threat simulation, emotional consolidation, or somatic signal — and returns one mechanism-based reading for your specific dream." }
+          },
+          {
+            "@type": "Question",
+            "name": "What do SIGNAL, BODY, and MORNING mean?",
+            "acceptedAnswer": { "@type": "Answer", "text": "SIGNAL is the core truth in one sentence. BODY explains the active sleep neurobiology mechanism. MORNING is the question your brain was trying to deliver — written for the person awake at 3am." }
+          },
+          {
+            "@type": "Question",
+            "name": "Should I use the Sensory Dream Mapper before Decode?",
+            "acceptedAnswer": { "@type": "Answer", "text": "If you remember how your body felt on waking — temperature, pressure, body zones — the Sensory Dream Mapper captures interoceptive data in 90 seconds and sends somatic context into Decode automatically." }
+          },
+          {
+            "@type": "Question",
+            "name": "Is Oneirox medical advice?",
+            "acceptedAnswer": { "@type": "Answer", "text": "No. Oneirox is built by an independent sleep physiology researcher, not a licensed clinician. Decode readings are mechanism-based interpretations, not psychiatric diagnosis or therapy." }
+          },
+          {
+            "@type": "Question",
+            "name": "Why one reading instead of five dream meanings?",
+            "acceptedAnswer": { "@type": "Answer", "text": "When a dream tool offers every possible interpretation, it offers none. Your brain was running a specific neurobiological process that night. Decode commits to one mechanism-based reading." }
+          },
+          {
+            "@type": "Question",
+            "name": "Is Oneirox free?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Yes. Dream Decode, Sensory Dream Mapper, and Dream Phase Calculator are free. No login required." }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a href="/" class="site-logo" aria-label="Oneirox home">
+        <svg class="site-logo__glyph" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+          <defs>
+            <linearGradient id="onx-lg" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#1e4a38"/>
+              <stop offset="50%" stop-color="#00a5a8"/>
+              <stop offset="100%" stop-color="#2d6a6a"/>
+            </linearGradient>
+          </defs>
+          <circle cx="18" cy="18" r="15" fill="none" stroke="url(#onx-lg)" stroke-width="1.4" opacity="0.55"/>
+          <circle cx="18" cy="18" r="9" fill="none" stroke="#00a5a8" stroke-width="0.85" opacity="0.32"/>
+          <circle cx="18" cy="18" r="3.2" fill="#00a5a8"/>
+          <path d="M18 3v5M18 28v5M3 18h5M28 18h5" stroke="#00a5a8" stroke-width="1.1" stroke-linecap="round" opacity="0.42"/>
+        </svg>
+        <span class="site-logo__word"><span class="site-logo__one">One</span><span class="site-logo__irox">irox</span></span>
+      </a>
+      <nav class="site-nav" aria-label="Main">
+        <ul>
+          <li><a href="#decode">Decode</a></li>
+          <li><a href="#how">How it works</a></li>
+          <li><a href="#onx-tools">Tools</a></li>
+          <li><a href="#science">Science</a></li>
+          <li><a href="/about/">About</a></li>
+          <li><a href="/methodology/">Methodology</a></li>
+        </ul>
+      </nav>
+      <a href="#decode" class="btn btn--primary">Decode →</a>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- DECODE FIRST — sacred form contract -->
+    <section class="onx-block onx-hero" id="decode" aria-labelledby="decode-title">
+
+      <div class="onx-neural-bg" aria-hidden="true"></div>
+
+      <div class="onx-hero__inner">
+
+        <p class="onx-hero__eyebrow">Neuro-somatic decoding · Dream interpretation</p>
+
+        <div class="onx-decode-scene">
+          <div class="onx-decode-glass-wrap">
+            <div class="onx-decode-panel">
+              <h1 class="onx-decode-panel__hero-title" id="decode-title">Your body decoded the dream <span class="onx-highlight">before you woke up.</span></h1>
+
+              <div class="onx-decode-panel__header">
+                <span class="onx-decode-panel__icon" aria-hidden="true">
+                  <img class="onx-decode-panel__icon-img" src="/images/neiro.webp" alt="" width="150" height="150" decoding="async" />
+                  <svg class="onx-neiro-synapses" viewBox="0 0 150 150" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+                    <g class="onx-neiro-synapses__links" fill="none" stroke-linecap="round">
+                      <path class="onx-neiro-synapses__link onx-neiro-synapses__link--a" d="M72 70 L88 58 L98 72" />
+                      <path class="onx-neiro-synapses__link onx-neiro-synapses__link--b" d="M68 82 L78 70 L92 78" />
+                      <path class="onx-neiro-synapses__link onx-neiro-synapses__link--c" d="M88 58 L95 68 L92 86" />
+                      <path class="onx-neiro-synapses__link onx-neiro-synapses__link--d" d="M76 56 L82 68 L70 78" />
+                      <path class="onx-neiro-synapses__pulse onx-neiro-synapses__pulse--1" d="M72 70 L88 58 L98 72" />
+                      <path class="onx-neiro-synapses__pulse onx-neiro-synapses__pulse--2" d="M68 82 L78 70 L92 78" />
+                    </g>
+                    <g class="onx-neiro-synapses__nodes">
+                      <circle class="onx-neiro-synapses__node onx-neiro-synapses__node--1" cx="72" cy="70" r="2.4" />
+                      <circle class="onx-neiro-synapses__node onx-neiro-synapses__node--2" cx="88" cy="58" r="2" />
+                      <circle class="onx-neiro-synapses__node onx-neiro-synapses__node--3" cx="98" cy="72" r="1.8" />
+                      <circle class="onx-neiro-synapses__node onx-neiro-synapses__node--4" cx="92" cy="86" r="2.2" />
+                      <circle class="onx-neiro-synapses__node onx-neiro-synapses__node--5" cx="68" cy="82" r="1.9" />
+                      <circle class="onx-neiro-synapses__node onx-neiro-synapses__node--6" cx="76" cy="56" r="1.7" />
+                      <circle class="onx-neiro-synapses__node onx-neiro-synapses__node--7" cx="82" cy="68" r="2.6" />
+                    </g>
+                  </svg>
+                </span>
+                <div class="onx-decode-panel__titles">
+                  <p class="onx-decode-panel__label">Type your dream here</p>
+                  <p class="onx-decode-panel__hint">Snakes, falling, water, teeth, being chased — or <em>how your body felt</em></p>
+                </div>
+              </div>
+
+              <div class="onx-search-wrap">
+                <form role="search" method="get" action="/">
+                  <input type="search" name="dream" placeholder="e.g. I dreamed a white snake was chasing me and my chest felt tight…" autocomplete="off" aria-label="Describe your dream" />
+                  <button type="submit">Decode</button>
+                </form>
+              </div>
+
+              <p class="onx-decode-panel__footer">Press <strong>Decode</strong> — Oneirox reads the neural echo, not a symbol dictionary.</p>
+
+              <div class="onx-decode-panel__body">
+
+                <div class="onx-decode-how" aria-labelledby="decode-how-title">
+                  <p class="onx-decode-section__label" id="decode-how-title">How to use</p>
+                  <ol class="onx-decode-steps">
+                    <li><strong>Write the dream</strong> — images, who was there, what happened. Don't polish it.</li>
+                    <li><strong>Add the body</strong> — chest pressure, jaw tension, cold on waking. This is the signal dictionaries ignore.</li>
+                    <li><strong>Press Decode</strong> — one mechanism-based reading: SIGNAL · BODY · MORNING. Not five symbol meanings.</li>
+                  </ol>
+                  <div class="onx-decode-chips" aria-label="What to include in your dream">
+                    <span class="onx-decode-chip">Images</span>
+                    <span class="onx-decode-chip">Body sensations</span>
+                    <span class="onx-decode-chip">Emotions on waking</span>
+                    <span class="onx-decode-chip">What lingered after eyes opened</span>
+                  </div>
+                </div>
+
+                <div class="onx-decode-why" aria-labelledby="decode-why-title">
+                  <p class="onx-decode-section__label" id="decode-why-title">Why Decode is different</p>
+                  <div class="onx-decode-strengths">
+                    <div class="onx-decode-strength onx-decode-strength--mechanism">
+                      <span class="onx-decode-strength__icon" aria-hidden="true">◎</span>
+                      <div>
+                        <p class="onx-decode-strength__title">Mechanism, not metaphor</p>
+                        <p class="onx-decode-strength__text">Reads which neurobiological process was active — threat simulation, emotional consolidation, somatic signal.</p>
+                      </div>
+                    </div>
+                    <div class="onx-decode-strength onx-decode-strength--body">
+                      <span class="onx-decode-strength__icon" aria-hidden="true">◇</span>
+                      <div>
+                        <p class="onx-decode-strength__title">Body-first data</p>
+                        <p class="onx-decode-strength__text">What you felt on waking is often more honest than the story. Optional Mapper pre-loads somatic context.</p>
+                      </div>
+                    </div>
+                    <div class="onx-decode-strength onx-decode-strength--reading">
+                      <span class="onx-decode-strength__icon" aria-hidden="true">◈</span>
+                      <div>
+                        <p class="onx-decode-strength__title">One true reading</p>
+                        <p class="onx-decode-strength__text">Five years · 50+ books · 14 researchers — encoded into one committed answer per dream.</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="onx-decode-output-hint" aria-label="Your reading format">
+                  <div class="onx-output-hint__item onx-output-hint__item--signal">
+                    <span class="onx-output-hint__tag">SIGNAL</span>
+                    <span class="onx-output-hint__desc">Core truth — what your brain was doing</span>
+                  </div>
+                  <div class="onx-output-hint__item onx-output-hint__item--body">
+                    <span class="onx-output-hint__tag">BODY</span>
+                    <span class="onx-output-hint__desc">Active mechanism in plain language</span>
+                  </div>
+                  <div class="onx-output-hint__item onx-output-hint__item--morning">
+                    <span class="onx-output-hint__tag">MORNING</span>
+                    <span class="onx-output-hint__desc">The question your mind was delivering</span>
+                  </div>
+                </div>
+
+                <p class="onx-decode-panel__meta" aria-label="Service details">
+                  <span>Free</span>
+                  <span class="onx-decode-panel__meta-dot" aria-hidden="true"></span>
+                  <span>No login</span>
+                  <span class="onx-decode-panel__meta-dot" aria-hidden="true"></span>
+                  <span>Scientific dream interpretation</span>
+                </p>
+
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="decode-stats" role="list">
+          <div class="decode-stats__item" role="listitem">
+            <div class="decode-stats__val">5+</div>
+            <div class="decode-stats__lbl">Years of research</div>
+          </div>
+          <div class="decode-stats__item" role="listitem">
+            <div class="decode-stats__val">50+</div>
+            <div class="decode-stats__lbl">Books on sleep science</div>
+          </div>
+          <div class="decode-stats__item" role="listitem">
+            <div class="decode-stats__val">14</div>
+            <div class="decode-stats__lbl">Researchers in the engine</div>
+          </div>
+        </div>
+
+        <aside class="onx-neuro-spotlight" aria-labelledby="neuro-spotlight-title">
+          <header class="onx-neuro-spotlight__head">
+            <p class="onx-neuro-spotlight__eyebrow">Sleep neuroscience</p>
+            <h2 class="onx-neuro-spotlight__title" id="neuro-spotlight-title">What your body already knows <em>before you wake</em></h2>
+          </header>
+
+          <figure class="onx-neuro-spotlight__visual">
+            <div class="onx-neuro-spotlight__frame">
+              <img
+                src="/images/banner-neurobiology.webp"
+                alt="Oneirox — neurobiology meets dream decoding: neurons, brain activity, and peaceful sleep"
+                width="1024"
+                height="512"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+          </figure>
+
+          <ul class="onx-neuro-spotlight__facts" aria-label="Neurobiology facts">
+            <li class="onx-neuro-fact onx-neuro-fact--rem">
+              <span class="onx-neuro-fact__n">01</span>
+              <p class="onx-neuro-fact__text"><strong>REM · ~90 min</strong> Amygdala replays threat — chest tightness, chase, not symbols.</p>
+            </li>
+            <li class="onx-neuro-fact onx-neuro-fact--gut">
+              <span class="onx-neuro-fact__n">02</span>
+              <p class="onx-neuro-fact__text"><strong>500M gut neurons</strong> Pressure &amp; nausea map to enteric signals, not random images.</p>
+            </li>
+            <li class="onx-neuro-fact onx-neuro-fact--mind">
+              <span class="onx-neuro-fact__n">03</span>
+              <p class="onx-neuro-fact__text"><strong>Prefrontal downshift</strong> Logic absent — brain processes, doesn't narrate.</p>
+            </li>
+            <li class="onx-neuro-fact onx-neuro-fact--temp">
+              <span class="onx-neuro-fact__n">04</span>
+              <p class="onx-neuro-fact__text"><strong>−1–2°C core temp</strong> Lingering cold is thermoregulatory residue after sleep.</p>
+            </li>
+          </ul>
+        </aside>
+
+      </div>
+    </section>
+
+    <section class="flow-strip-outer" aria-label="How Oneirox instruments connect">
+    <div class="flow-strip flow-strip--atelier">
+      <svg class="flow-strip__defs" width="0" height="0" aria-hidden="true">
+        <defs>
+          <linearGradient id="flow-conn-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#8ab068"/>
+            <stop offset="35%" stop-color="#73a563"/>
+            <stop offset="65%" stop-color="#4dadb8"/>
+            <stop offset="100%" stop-color="#268571"/>
+          </linearGradient>
+          <linearGradient id="flow-frame-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#9bc47a"/>
+            <stop offset="40%" stop-color="#4dadb8"/>
+            <stop offset="70%" stop-color="#73a563"/>
+            <stop offset="100%" stop-color="#1e6b52"/>
+          </linearGradient>
+          <pattern id="flow-marble" width="120" height="120" patternUnits="userSpaceOnUse">
+            <rect width="120" height="120" fill="#f7f6f2"/>
+            <path d="M0,60 Q30,40 60,55 T120,48" fill="none" stroke="#c8c6be" stroke-width="0.6" opacity="0.5"/>
+            <path d="M10,0 Q40,25 25,60 T5,120" fill="none" stroke="#b8b6ae" stroke-width="0.8" opacity="0.35"/>
+            <path d="M80,0 Q95,35 70,70 T90,120" fill="none" stroke="#d0cec6" stroke-width="0.5" opacity="0.45"/>
+            <path d="M0,90 Q50,75 80,95 T120,85" fill="none" stroke="#a8a69e" stroke-width="0.7" opacity="0.3"/>
+          </pattern>
+        </defs>
+      </svg>
+
+      <div class="flow-strip__brain" aria-hidden="true">
+        <svg viewBox="0 0 800 520" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
+          <g fill="none" stroke="#566e58" stroke-width="0.65" stroke-linecap="round" opacity="0.42">
+            <path d="M400,480 C400,420 385,360 365,310 C345,260 320,210 290,165 C260,120 230,85 195,55 C165,30 135,15 105,8"/>
+            <path d="M400,480 C400,420 415,360 435,310 C455,260 480,210 510,165 C540,120 570,85 605,55 C635,30 665,15 695,8"/>
+            <path d="M400,480 C400,440 392,400 375,360 C358,320 340,285 315,250 C290,215 265,185 235,155"/>
+            <path d="M400,480 C400,440 408,400 425,360 C442,320 460,285 485,250 C510,215 535,185 565,155"/>
+            <path d="M105,8 C75,22 50,55 38,95 C26,135 30,180 48,225 C66,270 95,310 130,345"/>
+            <path d="M695,8 C725,22 750,55 762,95 C774,135 770,180 752,225 C734,270 705,310 670,345"/>
+            <path d="M195,55 C170,75 150,105 140,140 C130,175 135,215 155,255 C175,295 205,330 240,360"/>
+            <path d="M605,55 C630,75 650,105 660,140 C670,175 665,215 645,255 C625,295 595,330 560,360"/>
+            <path d="M290,165 C265,185 245,215 235,250 C225,285 232,320 252,355"/>
+            <path d="M510,165 C535,185 555,215 565,250 C575,285 568,320 548,355"/>
+            <path d="M235,155 C215,175 200,200 192,230 C184,260 190,290 208,318"/>
+            <path d="M565,155 C585,175 600,200 608,230 C616,260 610,290 592,318"/>
+            <path d="M315,250 C300,270 288,295 282,320 C276,345 282,370 295,395"/>
+            <path d="M485,250 C500,270 512,295 518,320 C524,345 518,370 505,395"/>
+            <path d="M350,200 C330,210 315,228 308,248 C301,268 305,288 318,305"/>
+            <path d="M450,200 C470,210 485,228 492,248 C499,268 495,288 482,305"/>
+            <ellipse cx="400" cy="265" rx="155" ry="130" stroke-width="0.5" opacity="0.28"/>
+            <ellipse cx="400" cy="265" rx="95" ry="78" stroke-width="0.4" opacity="0.22"/>
+          </g>
+          <g fill="none" stroke="#73a563" stroke-width="0.4" opacity="0.35">
+            <path d="M130,345 L155,255 L195,55"/>
+            <path d="M670,345 L645,255 L605,55"/>
+            <path d="M240,360 L290,165 L400,480"/>
+            <path d="M560,360 L510,165 L400,480"/>
+            <path d="M252,355 L315,250 L375,360"/>
+            <path d="M548,355 L485,250 L425,360"/>
+          </g>
+          <g fill="#4dadb8" opacity="0.55">
+            <circle cx="105" cy="8" r="3.5"/><circle cx="695" cy="8" r="3.5"/>
+            <circle cx="195" cy="55" r="3"/><circle cx="605" cy="55" r="3"/>
+            <circle cx="290" cy="165" r="2.5"/><circle cx="510" cy="165" r="2.5"/>
+            <circle cx="400" cy="480" r="4.5"/>
+            <circle cx="400" cy="265" r="2"/>
+          </g>
+        </svg>
+      </div>
+
+      <div class="flow-strip__wrap">
+        <p class="flow-strip__eyebrow">How Oneirox works</p>
+        <h2 class="flow-strip__heading">From body signal to <em>one</em> true reading</h2>
+
+        <div class="flow-strip__track">
+          <article class="flow-card flow-card--light flow-card--mapper">
+            <div class="flow-card__surface">
+              <span class="flow-card__num">01</span>
+              <div class="flow-icon flow-icon--sphere" aria-hidden="true">
+                <span class="flow-icon__ring flow-icon__ring--outer"></span>
+                <span class="flow-icon__ring flow-icon__ring--inner"></span>
+                <span class="flow-icon__sphere"></span>
+                <span class="flow-icon__dot flow-icon__dot--n"></span>
+              </div>
+              <p class="flow-card__label">Optional · 90 seconds</p>
+              <h3 class="flow-card__title">Sensory Mapper</h3>
+              <p class="flow-card__text">Map temperature, pressure, body zones — nine somatic profiles before you write.</p>
+              <div class="flow-card__foot">
+                <a href="/tools/oneirox-dream-mapper.html" class="flow-card__btn-marble"><span>Open Mapper</span><span class="flow-card__btn-knob" aria-hidden="true"></span></a>
+              </div>
+            </div>
+          </article>
+
+          <article class="flow-card flow-card--dark flow-card--decode">
+            <div class="flow-card__surface">
+              <span class="flow-card__num">02</span>
+              <div class="flow-icon flow-icon--prism" aria-hidden="true">
+                <span class="flow-icon__pedestal"></span>
+                <span class="flow-icon__prism"><span class="flow-icon__prism-face"></span></span>
+              </div>
+              <p class="flow-card__label">Core · you are here</p>
+              <h3 class="flow-card__title">Dream Decoder</h3>
+              <p class="flow-card__text">Write your dream above. Mapper signals load automatically — one mechanism, not five meanings.</p>
+              <div class="flow-card__foot">
+                <a href="#decode" class="flow-card__btn-dark">↑ Write your dream</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="flow-card flow-card--light flow-card--reading">
+            <div class="flow-card__surface">
+              <span class="flow-card__num">03</span>
+              <div class="flow-icon flow-icon--layers" aria-hidden="true">
+                <span class="flow-icon__layer flow-icon__layer--back"></span>
+                <span class="flow-icon__layer flow-icon__layer--mid"></span>
+                <span class="flow-icon__layer flow-icon__layer--front">
+                  <span class="flow-icon__layer-line"></span>
+                  <span class="flow-icon__layer-line"></span>
+                  <span class="flow-icon__layer-line flow-icon__layer-line--short"></span>
+                </span>
+              </div>
+              <p class="flow-card__label">Your reading</p>
+              <h3 class="flow-card__title flow-card__title--caps">SIGNAL · BODY · MORNING</h3>
+              <p class="flow-card__text">One neurobiological truth — what your brain was doing, in language you can use at 3am.</p>
+              <div class="flow-card__foot">
+                <div class="flow-card__tags">
+                  <span>[SIGNAL]</span><span>[BODY]</span><span>[MORNING]</span>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+    </section>
+
+    <section class="onx-tools" id="onx-tools">
+      <div class="onx-tools__inner">
+        <div class="onx-tools__header">
+          <h2 class="onx-tools__label" id="tools-title">Oneirox Instruments</h2>
+          <p class="onx-tools__sub">Built on peer-reviewed sleep research — not symbol dictionaries.</p>
+        </div>
+        <div class="onx-tools__grid">
+
+          <a href="/tools/oneirox-dream-mapper.html" class="onx-card2 onx-card2--mapper" aria-label="Open Sensory Dream Mapper">
+            <div class="onx-card2__body">
+              <div class="onx-card2__toprow">
+                <div class="onx-card2__icon">
+                  <svg class="icon-neuro" width="32" height="32" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+                    <circle cx="20" cy="20" r="7" fill="#fff" opacity=".95"/>
+                    <circle cx="20" cy="20" r="3.2" fill="#2e6a22"/>
+                    <path d="M20 13 L20 4 M16 14 L9 7 M14 18 L4 15 M14 23 L5 27 M18 26 L13 35 M26 24 L34 30 M27 19 L37 18 M26 15 L33 9" stroke="#fff" stroke-width="2" stroke-linecap="round" opacity=".9"/>
+                    <circle cx="20" cy="3.5" r="2" fill="#fff"/>
+                    <circle cx="8" cy="6" r="1.8" fill="#fff"/>
+                    <circle cx="3.5" cy="14.5" r="1.8" fill="#fff"/>
+                    <circle cx="4.5" cy="27.5" r="1.8" fill="#fff"/>
+                    <circle cx="12.5" cy="35.5" r="1.8" fill="#fff"/>
+                    <circle cx="34.5" cy="30.5" r="1.8" fill="#fff"/>
+                    <circle cx="37.5" cy="17.5" r="1.8" fill="#fff"/>
+                    <circle cx="33.5" cy="8.5" r="1.8" fill="#fff"/>
+                  </svg>
+                </div>
+                <span class="onx-card2__badge onx-card2__badge--feeds">Feeds Decode</span>
+              </div>
+              <h3 class="onx-card2__name">Sensory Dream Mapper</h3>
+              <p class="onx-card2__desc">Map what your body felt while you slept. Temperature, pressure, weight, resistance — the physical language of the dream before the narrative takes over. Nine neurobiological profiles.</p>
+              <div class="onx-card2__tags">
+                <span class="onx-card2__tag">Somatic</span>
+                <span class="onx-card2__tag">Body first</span>
+              </div>
+            </div>
+            <div class="onx-card2__footer">
+              <div class="onx-card2__wave">
+                <svg viewBox="0 0 600 130" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" aria-hidden="true">
+                  <path d="M0,80 C60,80 80,50 120,50 C160,50 180,75 220,72 C260,69 290,40 340,38 C390,36 420,60 460,62 C500,64 530,50 600,48 L600,130 L0,130 Z" fill="rgba(60,130,40,.18)"/>
+                  <path d="M0,95 C50,95 70,65 110,62 C150,59 175,85 215,83 C255,81 285,55 330,52 C375,49 410,72 450,70 C490,68 520,55 600,52 L600,130 L0,130 Z" fill="rgba(45,110,30,.22)"/>
+                  <path d="M0,108 C40,108 65,82 100,80 C135,78 160,95 200,94 C240,93 270,72 310,70 C350,68 390,84 430,83 C470,82 510,70 600,68 L600,130 L0,130 Z" fill="rgba(30,90,20,.28)"/>
+                </svg>
+              </div>
+              <div class="onx-card2__metrics">
+                <div class="onx-card2__metric">
+                  <svg class="onx-card2__metric-icon" width="20" height="26" viewBox="0 0 22 28" fill="none" aria-hidden="true">
+                    <rect x="8" y="0" width="6" height="18" rx="3" fill="currentColor" opacity=".7"/>
+                    <circle cx="11" cy="21" r="5" fill="currentColor" opacity=".85"/>
+                  </svg>
+                  <span class="onx-card2__metric-label">Temperature</span>
+                </div>
+                <div class="onx-card2__metric">
+                  <svg class="onx-card2__metric-icon" width="24" height="22" viewBox="0 0 26 24" fill="none" aria-hidden="true">
+                    <path d="M13,22 C13,22 2,14 2,7.5 C2,4.4 4.4,2 7.5,2 C9.5,2 11.3,3 13,5 C14.7,3 16.5,2 18.5,2 C21.6,2 24,4.4 24,7.5 C24,14 13,22 13,22Z" fill="currentColor" opacity=".9"/>
+                  </svg>
+                  <span class="onx-card2__metric-label">Heart rate</span>
+                </div>
+                <div class="onx-card2__metric">
+                  <svg class="onx-card2__metric-icon" width="26" height="20" viewBox="0 0 28 22" fill="none" aria-hidden="true">
+                    <rect x="2" y="6" width="24" height="12" rx="3" fill="none" stroke="currentColor" stroke-width="2" opacity=".8"/>
+                    <circle cx="14" cy="12" r="3.5" fill="currentColor" opacity=".7"/>
+                  </svg>
+                  <span class="onx-card2__metric-label">Weight</span>
+                </div>
+              </div>
+            </div>
+          </a>
+
+          <a href="/phase/" class="onx-card2 onx-card2--phase" aria-label="Open Dream Phase Calculator">
+            <div class="onx-card2__body">
+              <div class="onx-card2__toprow">
+                <div class="onx-card2__icon">
+                  <div class="icon-moon" aria-hidden="true">
+                    <div class="icon-moon__full"></div>
+                    <div class="icon-moon__shadow"></div>
+                  </div>
+                </div>
+              </div>
+              <h3 class="onx-card2__name">Dream Phase Calculator</h3>
+              <p class="onx-card2__desc">Enter the date of your dream and read what the moon was doing that night. Cajochen et al. (2013): around the full moon, deep sleep shrinks 30% and REM density rises 25%. Chronobiology, not astrology.</p>
+              <div class="onx-card2__tags">
+                <span class="onx-card2__tag">Lunar</span>
+                <span class="onx-card2__tag">Chronobiology</span>
+              </div>
+            </div>
+            <div class="onx-card2__footer">
+              <div class="onx-card2__wave">
+                <svg viewBox="0 0 600 130" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" aria-hidden="true">
+                  <path d="M0,90 C60,90 90,55 140,50 C190,45 210,78 255,75 C300,72 330,40 385,36 C440,32 470,62 510,60 C550,58 575,45 600,42 L600,130 L0,130 Z" fill="rgba(40,90,200,.12)"/>
+                  <path d="M0,100 C50,100 80,68 125,64 C170,60 195,88 240,86 C285,84 315,58 365,54 C415,50 450,75 490,73 C530,71 560,58 600,55 L600,130 L0,130 Z" fill="rgba(60,120,255,.18)"/>
+                  <path d="M0,112 C45,112 72,86 112,83 C152,80 178,98 218,97 C258,96 285,76 325,73 C365,70 400,88 438,87 C476,86 510,74 600,70 L600,130 L0,130 Z" fill="rgba(80,150,255,.22)"/>
+                </svg>
+              </div>
+              <div class="onx-card2__metrics">
+                <div class="onx-card2__metric">
+                  <svg class="onx-card2__metric-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2"/>
+                    <path d="M12 3a9 9 0 0 1 0 18" fill="currentColor" opacity=".4"/>
+                  </svg>
+                  <span class="onx-card2__metric-label">Lunar Phase</span>
+                </div>
+                <div class="onx-card2__metric">
+                  <svg class="onx-card2__metric-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <path d="M2 12h4l3 9 6-18 3 9h4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                  <span class="onx-card2__metric-label">Deep Sleep</span>
+                </div>
+                <div class="onx-card2__metric">
+                  <svg class="onx-card2__metric-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                  </svg>
+                  <span class="onx-card2__metric-label">REM Density</span>
+                </div>
+              </div>
+            </div>
+          </a>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="onx-why-decode" id="what-decode" aria-labelledby="what-decode-title">
+      <div class="onx-why-decode__inner">
+        <div class="onx-why-decode__hero">
+          <div class="onx-why-decode__copy">
+            <p class="onx-why-decode__kicker">Why Decode exists</p>
+            <h2 class="onx-why-decode__title" id="what-decode-title">An AI Dream Decoder That Reads<br><em>Mechanism</em>, Not Metaphor</h2>
+            <p class="onx-why-decode__text">Every dream is a neurobiological event. The images your sleeping brain generates are outputs of systems that were running while you slept — amygdala, thalamus, hippocampus, brainstem.</p>
+            <p class="onx-why-decode__text"><strong>The question isn't what a dream means. The question is what the brain was processing.</strong> Decode answers the second question — which automatically answers the first.</p>
+          </div>
+
+          <figure class="onx-why-decode__visual">
+            <div class="onx-why-decode__visual-frame">
+              <img
+                class="onx-why-decode__brain-photo"
+                src="/images/why-decode-banner.webp"
+                alt="Human brain — neurobiology of sleep and dreaming"
+                width="560"
+                height="400"
+                loading="lazy"
+                decoding="async"
+              />
+              <div class="onx-why-decode__visual-glow" aria-hidden="true"></div>
+            </div>
+            <figcaption class="onx-why-decode__visual-caption">Sleep neuroscience · REM · limbic processing</figcaption>
+          </figure>
+        </div>
+
+        <p class="onx-why-decode__guides-kicker">Brain structures Decode reads</p>
+        <div class="onx-why-decode__guides" aria-label="Brain structures Decode reads">
+          <article class="onx-brain-guide onx-brain-guide--amygdala">
+            <header class="onx-brain-guide__header">
+              <span class="onx-brain-guide__index">01</span>
+              <div>
+                <p class="onx-brain-guide__system">Limbic system</p>
+                <h3 class="onx-brain-guide__title">Amygdala</h3>
+              </div>
+            </header>
+            <figure class="onx-brain-guide__diagram" aria-hidden="true">
+              <svg viewBox="0 0 200 160" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                  <radialGradient id="onx-amy-hit" cx="50%" cy="50%" r="50%">
+                    <stop offset="0%" stop-color="#00a5a8" stop-opacity="0.9"/>
+                    <stop offset="100%" stop-color="#00a5a8" stop-opacity="0"/>
+                  </radialGradient>
+                </defs>
+                <path d="M28 28 C55 18 95 22 118 42 C138 60 148 88 142 118 C136 142 110 152 82 148 C52 144 32 124 26 96 C20 68 28 38 28 28Z" fill="#e8ece8" stroke="#8a9a88" stroke-width="1.2"/>
+                <path d="M38 38 C58 32 88 36 102 52 C114 66 118 88 114 108 C110 126 92 134 72 132 C50 130 38 116 36 96 C34 76 38 48 38 38Z" fill="#f4f6f2" stroke="#b0bab0" stroke-width="0.8"/>
+                <ellipse cx="78" cy="88" rx="14" ry="10" fill="url(#onx-amy-hit)"/>
+                <ellipse cx="78" cy="88" rx="9" ry="6.5" fill="#00a5a8" opacity="0.85"/>
+                <path d="M92 88 L118 72" fill="none" stroke="#00a5a8" stroke-width="1" opacity="0.6"/>
+                <text x="122" y="74" font-family="Work Sans,sans-serif" font-size="8" font-weight="600" fill="#2d6a6a">Amygdala</text>
+              </svg>
+            </figure>
+            <dl class="onx-brain-guide__facts">
+              <div class="onx-brain-guide__fact">
+                <dt>Function</dt>
+                <dd>Threat detection and emotional tagging — assigns salience before the cortex explains the scene.</dd>
+              </div>
+              <div class="onx-brain-guide__fact">
+                <dt>During REM</dt>
+                <dd>Rehearses fear and arousal without motor output. High amygdala activity = charged, vivid dreams.</dd>
+              </div>
+              <div class="onx-brain-guide__fact onx-brain-guide__fact--decode">
+                <dt>Decode reads</dt>
+                <dd>Chase dreams, predators, panic on waking — mapped to threat-simulation, not symbol dictionaries.</dd>
+              </div>
+            </dl>
+          </article>
+
+          <article class="onx-brain-guide onx-brain-guide--thalamus">
+            <header class="onx-brain-guide__header">
+              <span class="onx-brain-guide__index">02</span>
+              <div>
+                <p class="onx-brain-guide__system">Diencephalon</p>
+                <h3 class="onx-brain-guide__title">Thalamus</h3>
+              </div>
+            </header>
+            <figure class="onx-brain-guide__diagram" aria-hidden="true">
+              <svg viewBox="0 0 200 160" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                  <radialGradient id="onx-thal-hit" cx="50%" cy="50%" r="50%">
+                    <stop offset="0%" stop-color="#3189cc" stop-opacity="0.85"/>
+                    <stop offset="100%" stop-color="#3189cc" stop-opacity="0"/>
+                  </radialGradient>
+                </defs>
+                <path d="M28 28 C55 18 95 22 118 42 C138 60 148 88 142 118 C136 142 110 152 82 148 C52 144 32 124 26 96 C20 68 28 38 28 28Z" fill="#e8ece8" stroke="#8a9a88" stroke-width="1.2"/>
+                <ellipse cx="88" cy="72" rx="22" ry="12" fill="url(#onx-thal-hit)"/>
+                <ellipse cx="88" cy="72" rx="16" ry="8" fill="#3189cc" opacity="0.8"/>
+                <path d="M88 58 L88 38" fill="none" stroke="#3189cc" stroke-width="1" stroke-dasharray="2 2" opacity="0.5"/>
+                <path d="M88 84 L88 108" fill="none" stroke="#3189cc" stroke-width="1" stroke-dasharray="2 2" opacity="0.5"/>
+                <path d="M110 72 L132 72" fill="none" stroke="#3189cc" stroke-width="1" opacity="0.6"/>
+                <text x="136" y="75" font-family="Work Sans,sans-serif" font-size="8" font-weight="600" fill="#1a4a78">Thalamus</text>
+                <text x="72" y="34" font-family="Work Sans,sans-serif" font-size="6.5" fill="#6a7a68">Sensory relay ↑</text>
+              </svg>
+            </figure>
+            <dl class="onx-brain-guide__facts">
+              <div class="onx-brain-guide__fact">
+                <dt>Function</dt>
+                <dd>Central relay station — filters and routes sensory signals toward cortex and limbic targets.</dd>
+              </div>
+              <div class="onx-brain-guide__fact">
+                <dt>During sleep</dt>
+                <dd>Gating changes in REM: internal generated imagery can feel as vivid as perception.</dd>
+              </div>
+              <div class="onx-brain-guide__fact onx-brain-guide__fact--decode">
+                <dt>Decode reads</dt>
+                <dd>Hyper-real textures, sounds, spatial presence — signal that thalamic-cortical loops were active.</dd>
+              </div>
+            </dl>
+          </article>
+
+          <article class="onx-brain-guide onx-brain-guide--hippocampus">
+            <header class="onx-brain-guide__header">
+              <span class="onx-brain-guide__index">03</span>
+              <div>
+                <p class="onx-brain-guide__system">Medial temporal lobe</p>
+                <h3 class="onx-brain-guide__title">Hippocampus</h3>
+              </div>
+            </header>
+            <figure class="onx-brain-guide__diagram" aria-hidden="true">
+              <svg viewBox="0 0 200 160" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                  <radialGradient id="onx-hip-hit" cx="50%" cy="50%" r="50%">
+                    <stop offset="0%" stop-color="#5cb888" stop-opacity="0.85"/>
+                    <stop offset="100%" stop-color="#5cb888" stop-opacity="0"/>
+                  </radialGradient>
+                </defs>
+                <path d="M28 28 C55 18 95 22 118 42 C138 60 148 88 142 118 C136 142 110 152 82 148 C52 144 32 124 26 96 C20 68 28 38 28 28Z" fill="#e8ece8" stroke="#8a9a88" stroke-width="1.2"/>
+                <path d="M58 108 C68 98 82 96 92 102 C102 108 108 118 104 128 C100 136 86 138 74 132 C62 126 54 118 58 108Z" fill="url(#onx-hip-hit)"/>
+                <path d="M62 112 C72 104 86 104 94 110 C100 116 102 124 98 130 C94 134 82 134 72 128 C64 122 60 118 62 112Z" fill="#5cb888" opacity="0.82"/>
+                <path d="M98 118 L128 108" fill="none" stroke="#3d8a62" stroke-width="1" opacity="0.6"/>
+                <text x="132" y="110" font-family="Work Sans,sans-serif" font-size="8" font-weight="600" fill="#2a5c42">Hippocampus</text>
+              </svg>
+            </figure>
+            <dl class="onx-brain-guide__facts">
+              <div class="onx-brain-guide__fact">
+                <dt>Function</dt>
+                <dd>Binds episodes into narrative memory — links people, places, and sequence.</dd>
+              </div>
+              <div class="onx-brain-guide__fact">
+                <dt>During REM</dt>
+                <dd>Replays recent experience and emotional material; fragments get woven into dream plots.</dd>
+              </div>
+              <div class="onx-brain-guide__fact onx-brain-guide__fact--decode">
+                <dt>Decode reads</dt>
+                <dd>Recurring people, old locations, déjà vu — consolidation patterns, not random symbolism.</dd>
+              </div>
+            </dl>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="onx-insight onx-insight--how" id="how" aria-labelledby="how-title">
+      <div class="onx-insight__inner">
+        <header class="onx-insight__header">
+          <p class="onx-insight__kicker">How Decode works</p>
+          <h2 class="onx-insight__title" id="how-title">From Dream Text to <em>Neurobiological Insight</em></h2>
+          <p class="onx-insight__lead">A scientific dream interpretation workflow: describe what you saw and what your body felt on waking. Oneirox maps your narrative to the sleep mechanism that produced it — not a symbol dictionary.</p>
+        </header>
+
+        <ol class="onx-pipeline" itemscope itemtype="https://schema.org/HowTo">
+          <meta itemprop="name" content="How to decode a dream with Oneirox">
+          <meta itemprop="description" content="Three steps from dream text to neurobiological insight using Oneirox Dream Decoder.">
+          <li class="onx-pipeline__step" itemprop="step" itemscope itemtype="https://schema.org/HowToStep">
+            <div class="onx-pipeline__marker" aria-hidden="true"><span class="onx-pipeline__n">01</span></div>
+            <div class="onx-pipeline__body">
+              <h3 itemprop="name">Describe the dream — and the body</h3>
+              <p itemprop="text">Type what you remember: images, emotions, physical sensations on waking. Optional: run the <a href="/tools/oneirox-dream-mapper.html">Sensory Dream Mapper</a> first — somatic context flows into Decode automatically.</p>
+            </div>
+          </li>
+          <li class="onx-pipeline__step" itemprop="step" itemscope itemtype="https://schema.org/HowToStep">
+            <div class="onx-pipeline__marker" aria-hidden="true"><span class="onx-pipeline__n">02</span></div>
+            <div class="onx-pipeline__body">
+              <h3 itemprop="name">The engine reads the signal</h3>
+              <p itemprop="text">Five years of research, fifty books, fourteen researchers — encoded into a methodology that asks <strong>which sleep mechanism was active</strong>, not which symbol matches your dream image.</p>
+            </div>
+          </li>
+          <li class="onx-pipeline__step" itemprop="step" itemscope itemtype="https://schema.org/HowToStep">
+            <div class="onx-pipeline__marker" aria-hidden="true"><span class="onx-pipeline__n">03</span></div>
+            <div class="onx-pipeline__body">
+              <h3 itemprop="name">Receive SIGNAL · BODY · MORNING</h3>
+              <p itemprop="text">One structured reading per dream. <strong>SIGNAL</strong> is the core truth. <strong>BODY</strong> names the mechanism. <strong>MORNING</strong> is the question your brain was delivering. Share it, save it, return to it.</p>
+            </div>
+          </li>
+        </ol>
+
+        <div class="onx-contrast" aria-labelledby="contrast-title">
+          <h3 id="contrast-title" class="visually-hidden">Oneirox vs traditional dream dictionaries</h3>
+          <div class="onx-contrast__col onx-contrast__col--old">
+            <p class="onx-contrast__eyebrow">Every other dream site</p>
+            <p class="onx-contrast__formula">Symbol → vague meaning</p>
+            <p class="onx-contrast__text">You type &ldquo;snake.&rdquo; You get five possible meanings. You leave with no way to know which one is yours — because the tool never asked what your brain was doing that night.</p>
+          </div>
+          <div class="onx-contrast__divider" aria-hidden="true"></div>
+          <div class="onx-contrast__col onx-contrast__col--oneirox">
+            <p class="onx-contrast__eyebrow">Oneirox Dream Decoder</p>
+            <p class="onx-contrast__formula">Neural state → specific insight</p>
+            <p class="onx-contrast__text">You describe your dream and somatic signals. Oneirox identifies which neurobiological mechanism was active during REM sleep. <strong>One precise reading</strong> — mechanism first, metaphor second.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="onx-insight onx-insight--why" id="why" aria-labelledby="why-title">
+      <div class="onx-insight__inner">
+        <header class="onx-insight__header">
+          <p class="onx-insight__kicker">Why Oneirox exists</p>
+          <h2 class="onx-insight__title" id="why-title">Every Dream Tool Gets This <em>Wrong</em></h2>
+          <p class="onx-insight__lead">Five years and fifty books to understand why every existing dream product produces symbol tables dressed in new technology. The problem isn&rsquo;t the AI. It&rsquo;s the premise: dreams are not dictionaries waiting to be looked up.</p>
+        </header>
+
+        <ul class="onx-manifesto">
+          <li class="onx-manifesto__item">
+            <span class="onx-manifesto__n" aria-hidden="true">01</span>
+            <div class="onx-manifesto__body">
+              <h3>They start with the symbol, not the brain</h3>
+              <p>Dream dictionaries predate REM research by a century. Oneirox was built from sleep neuroscience up — amygdala, thalamus, hippocampus, not archetype tables.</p>
+            </div>
+          </li>
+          <li class="onx-manifesto__item">
+            <span class="onx-manifesto__n" aria-hidden="true">02</span>
+            <div class="onx-manifesto__body">
+              <h3>They ignore the body entirely</h3>
+              <p>Chest pressure on waking. Cold that didn&rsquo;t lift. Jaw tension before your eyes opened. The most diagnostically accurate dream data — discarded by every symbol-based tool.</p>
+            </div>
+          </li>
+          <li class="onx-manifesto__item">
+            <span class="onx-manifesto__n" aria-hidden="true">03</span>
+            <div class="onx-manifesto__body">
+              <h3>They give you five possible meanings</h3>
+              <p>When a dream interpreter offers every interpretation, it has offered nothing. Oneirox commits to one reading grounded in the mechanism your brain was running.</p>
+            </div>
+          </li>
+          <li class="onx-manifesto__item">
+            <span class="onx-manifesto__n" aria-hidden="true">04</span>
+            <div class="onx-manifesto__body">
+              <h3>They never ask what your body felt</h3>
+              <p>The <a href="/tools/oneirox-dream-mapper.html">Sensory Dream Mapper</a> captures nine somatic profiles before you decode. The body knows first — Damasio&rsquo;s somatic marker theory is not optional here.</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="onx-insight onx-insight--mechanisms" id="mechanisms" aria-labelledby="mechanisms-title">
+      <div class="onx-insight__inner">
+        <header class="onx-insight__header">
+          <p class="onx-insight__kicker">What Decode looks for</p>
+          <h2 class="onx-insight__title" id="mechanisms-title">Three Mechanisms Behind Most <em>Vivid</em> Dreams</h2>
+          <p class="onx-insight__lead">Vivid dreams are not random cinema. During REM sleep, specific limbic and brainstem circuits become active while prefrontal logic is downshifted. Decode asks which of these three neurobiological processes was running on the night you describe.</p>
+        </header>
+
+        <ol class="onx-mech-list">
+          <li class="onx-mech-list__item">
+            <p class="onx-mech-list__tag">Mechanism 01 · Threat simulation</p>
+            <h3 class="onx-mech-list__title">Amygdala rehearsal — Antti Revonsuo</h3>
+            <p class="onx-mech-list__text">The threat simulation theory holds that REM sleep evolved as a biological sandbox: the amygdala generates high-arousal scenarios — chase, fall, invasion, predator — without motor output. The dream image is not a symbol waiting for translation; it is the <strong>rehearsal content</strong> of a survival circuit that was active while you slept. Decode maps chase dreams, panic on waking, and chest tightness to this limbic rehearsal state — not to a dictionary entry for &ldquo;snake&rdquo; or &ldquo;water.&rdquo;</p>
+          </li>
+          <li class="onx-mech-list__item">
+            <p class="onx-mech-list__tag">Mechanism 02 · Emotional consolidation</p>
+            <h3 class="onx-mech-list__title">REM memory processing — Walker, Cartwright</h3>
+            <p class="onx-mech-list__text">Matthew Walker&rsquo;s work on REM and emotional memory, together with Rosalind Cartwright&rsquo;s dream continuity research, shows that unresolved affect gets replayed and re-indexed during sleep. The hippocampus binds episodes; the amygdala tags emotional salience. When consolidation is incomplete, dreams <strong>loop the same person, place, or conflict</strong> — not because the universe sends messages, but because the brain has not finished processing the charge. Decode reads recurring dreams as consolidation-in-progress, not prophecy.</p>
+          </li>
+          <li class="onx-mech-list__item">
+            <p class="onx-mech-list__tag">Mechanism 03 · Somatic signal</p>
+            <h3 class="onx-mech-list__title">Interoceptive truth — Antonio Damasio</h3>
+            <p class="onx-mech-list__text">Damasio&rsquo;s somatic marker hypothesis: the body registers what matters before the cortex names it. On waking, cold that will not lift, jaw tension, nausea, or pressure in the chest are often <strong>more diagnostically honest than the dream plot</strong>. The Sensory Dream Mapper captures this interoceptive layer — temperature, weight, resistance across nine body zones — before narrative memory dissolves. Decode weights somatic data alongside dream imagery because neurobiology does.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="onx-insight onx-insight--science" id="science" aria-labelledby="science-title">
+      <div class="onx-insight__inner">
+        <header class="onx-insight__header">
+          <p class="onx-insight__kicker">Research foundation</p>
+          <h2 class="onx-insight__title" id="science-title">The Science Behind <em>Every</em> Interpretation</h2>
+          <p class="onx-insight__lead">Five years of independent study. Fifty books across sleep neuroscience, affective science, and somatic psychology. Fourteen researchers whose frameworks are encoded into how Decode reads a dream — not as a citation wall, but as a <strong>methodology for identifying which brain process was active on a specific night</strong>.</p>
+        </header>
+
+        <dl class="onx-canon">
+          <div class="onx-canon__entry">
+            <dt class="onx-canon__name">Matthew Walker &amp; Rosalind Cartwright</dt>
+            <dd class="onx-canon__insight">REM sleep strips emotional charge from memory while preserving narrative structure. Cartwright&rsquo;s continuity hypothesis: dreams carry forward waking concerns until resolution. Decode uses this to read recurring emotional loops as incomplete consolidation — not random symbolism.</dd>
+          </div>
+          <div class="onx-canon__entry">
+            <dt class="onx-canon__name">Antonio Damasio</dt>
+            <dd class="onx-canon__insight">Somatic markers — bodily records of what the nervous system has tagged as significant. The insula and brainstem register threat and reward before conscious narrative forms. This is why Decode asks what your body felt on waking, not only what you saw in the dream.</dd>
+          </div>
+          <div class="onx-canon__entry">
+            <dt class="onx-canon__name">Joseph LeDoux</dt>
+            <dd class="onx-canon__insight">Two fear pathways: a fast subcortical route through the amygdala and a slower cortical route through the prefrontal cortex. During REM, the fast pathway dominates. Dreams of danger often reflect subcortical threat detection already running — not a metaphor for &ldquo;betrayal.&rdquo;</dd>
+          </div>
+          <div class="onx-canon__entry">
+            <dt class="onx-canon__name">Stephen Porges</dt>
+            <dd class="onx-canon__insight">Polyvagal theory: social threat activates the same autonomic circuits as physical danger. Dreams of exclusion, humiliation, or pursuit by a crowd map to dorsal vagal and sympathetic arousal — physiological states, not Jungian archetypes.</dd>
+          </div>
+          <div class="onx-canon__entry">
+            <dt class="onx-canon__name">Mark Solms</dt>
+            <dd class="onx-canon__insight">Dream images are generated to explain physiological and motivational states already active in the brainstem and limbic system. The picture is never the point — the <strong>feeling that generated the image</strong> is. This is the core premise of Oneirox Decode.</dd>
+          </div>
+          <div class="onx-canon__entry">
+            <dt class="onx-canon__name">Robert Sapolsky</dt>
+            <dd class="onx-canon__insight">Chronic stress, cortisol load, and hippocampal suppression shape what gets consolidated during sleep. Dreams under sustained stress often fragment or intensify — a glucocorticoid and memory interaction, not a mystical warning.</dd>
+          </div>
+          <div class="onx-canon__entry">
+            <dt class="onx-canon__name">Bessel van der Kolk</dt>
+            <dd class="onx-canon__insight">The body keeps the score: trauma and unresolved experience are stored as somatic patterns before they become conscious narrative. Decode&rsquo;s somatic-first approach reflects this — the body&rsquo;s record is primary data.</dd>
+          </div>
+          <div class="onx-canon__entry">
+            <dt class="onx-canon__name">Antti Revonsuo</dt>
+            <dd class="onx-canon__insight">Threat simulation during REM rehearses survival scenarios without real-world risk. The amygdala drives content; the dream is the rehearsal output. Chase, fall, and invasion dreams are often threat-simulation artifacts — Decode names the mechanism directly.</dd>
+          </div>
+        </dl>
+
+        <p class="onx-insight__cta"><a href="/methodology/" class="btn btn--outline">Read the full methodology →</a></p>
+      </div>
+    </section>
+
+    <section class="onx-insight onx-insight--trust" id="trust" aria-labelledby="trust-title">
+      <div class="onx-insight__inner onx-insight__inner--narrow">
+        <header class="onx-insight__header onx-insight__header--center">
+          <p class="onx-insight__kicker">Trust · limits · honesty</p>
+          <h2 class="onx-insight__title" id="trust-title">What Oneirox Is — and <em>Is Not</em></h2>
+          <p class="onx-insight__lead">Honesty is part of the methodology. Oneirox is a research-informed dream interpretation instrument grounded in sleep neurobiology — built for the person awake at 3am who wants one true reading, not five dictionary meanings.</p>
+        </header>
+
+        <div class="onx-trust-split">
+          <div class="onx-trust-split__col onx-trust-split__col--is">
+            <h3 class="onx-trust-split__heading">Oneirox is</h3>
+            <ul class="onx-trust-split__list">
+              <li>A <strong>free scientific dream decoder</strong> that reads neurobiological mechanism — amygdala threat simulation, REM consolidation, somatic interoception — not symbol tables</li>
+              <li>One committed reading per dream in <strong>SIGNAL · BODY · MORNING</strong> format: core truth, active mechanism, the question your brain was delivering</li>
+              <li>Built by independent researcher <a href="/about/">Vigen G.R.</a> — five years of study, fifty books, fourteen research frameworks. Not a clinical practice, not a guru platform</li>
+              <li>An instrument for <strong>sleep neuroscience literacy</strong>: helping you understand what your brain was processing, not what a snake &ldquo;means&rdquo;</li>
+            </ul>
+          </div>
+          <div class="onx-trust-split__rule" aria-hidden="true"></div>
+          <div class="onx-trust-split__col onx-trust-split__col--not">
+            <h3 class="onx-trust-split__heading">Oneirox is not</h3>
+            <ul class="onx-trust-split__list">
+              <li><strong>Medical advice</strong>, psychiatric diagnosis, psychotherapy, or a substitute for licensed clinical care</li>
+              <li>A symbol dictionary, horoscope, or archetype generator dressed in artificial intelligence</li>
+              <li>A login wall, subscription funnel, data harvester, or engagement-optimized content farm</li>
+              <li>A tool that offers five possible meanings and calls it insight — when every interpretation is offered, <strong>none is yours</strong></li>
+            </ul>
+          </div>
+        </div>
+
+        <nav class="onx-trust-nav" aria-label="Trust and legal">
+          <a href="/about/">About Vigen G.R.</a>
+          <a href="/disclaimer/">Disclaimer</a>
+          <a href="/privacy/">Privacy</a>
+          <a href="/terms/">Terms</a>
+        </nav>
+      </div>
+    </section>
+
+    <section class="onx-insight onx-insight--faq" id="faq" aria-labelledby="faq-title" itemscope itemtype="https://schema.org/FAQPage">
+      <div class="onx-insight__inner onx-insight__inner--faq">
+        <header class="onx-insight__header">
+          <p class="onx-insight__kicker">Dream decoder FAQ</p>
+          <h2 class="onx-insight__title" id="faq-title">Questions About <em>Decode</em></h2>
+          <p class="onx-insight__lead">Clear answers about how Oneirox reads dreams through sleep neurobiology — not symbol dictionaries, not clinical diagnosis, not five vague meanings.</p>
+        </header>
+
+        <div class="onx-faq">
+          <article class="onx-faq__item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+            <h3 class="onx-faq__q" itemprop="name">How is Oneirox different from dream dictionaries?</h3>
+            <div class="onx-faq__a" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+              <p itemprop="text">Dream dictionaries map images to fixed meanings — snake means betrayal, water means emotion. <strong>Decode reads mechanism, not metaphor.</strong> It asks which neurobiological process was active during your REM cycle: amygdala threat simulation, hippocampal emotional consolidation, or somatic interoception. One reading, grounded in sleep science — not a lookup table.</p>
+            </div>
+          </article>
+
+          <article class="onx-faq__item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+            <h3 class="onx-faq__q" itemprop="name">What do SIGNAL, BODY, and MORNING mean?</h3>
+            <div class="onx-faq__a" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+              <p itemprop="text"><strong>SIGNAL</strong> — the core truth in one sentence: what your brain was doing while you slept. <strong>BODY</strong> — the active mechanism in plain language (limbic rehearsal, memory consolidation, somatic marker). <strong>MORNING</strong> — the question your nervous system was trying to deliver to waking-you. Written for the person awake at 3am, not for a textbook.</p>
+            </div>
+          </article>
+
+          <article class="onx-faq__item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+            <h3 class="onx-faq__q" itemprop="name">Should I use the Sensory Dream Mapper first?</h3>
+            <div class="onx-faq__a" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+              <p itemprop="text">If you remember how your body felt — temperature, pressure, weight, resistance across nine zones — run the <a href="/tools/oneirox-dream-mapper.html">Sensory Dream Mapper</a> first (~90 seconds). Interoceptive data is often more honest than dream narrative. Mapper context flows into Decode automatically, so the reading weights somatic signal alongside imagery.</p>
+            </div>
+          </article>
+
+          <article class="onx-faq__item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+            <h3 class="onx-faq__q" itemprop="name">Is this medical advice?</h3>
+            <div class="onx-faq__a" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+              <p itemprop="text"><strong>No.</strong> Oneirox is built by independent researcher <a href="/about/">Vigen G.R.</a> — not a licensed physician, psychiatrist, or therapist. Decode produces mechanism-based dream interpretations grounded in published sleep neuroscience. If distress persists, consult a qualified professional. See our <a href="/disclaimer/">Disclaimer</a>.</p>
+            </div>
+          </article>
+
+          <article class="onx-faq__item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+            <h3 class="onx-faq__q" itemprop="name">Why one reading instead of five meanings?</h3>
+            <div class="onx-faq__a" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+              <p itemprop="text">When a tool offers every possible interpretation, it has offered nothing. Your amygdala, hippocampus, and brainstem were running <em>something specific</em> that night — not five parallel symbol tracks. Decode commits to one mechanism-based reading because neuroscience does not produce five equally valid answers for the same REM event.</p>
+            </div>
+          </article>
+
+          <article class="onx-faq__item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+            <h3 class="onx-faq__q" itemprop="name">Is Oneirox free?</h3>
+            <div class="onx-faq__a" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+              <p itemprop="text">Yes. <strong>Dream Decode</strong>, <strong>Sensory Dream Mapper</strong>, and <strong>Dream Phase Calculator</strong> are free. No login, no subscription funnel, no paywall after your reading.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-band" aria-labelledby="cta-title">
+      <div class="container">
+        <h2 class="cta-band__title" id="cta-title">The signal was there when you woke up.<br><em>Decode it now.</em></h2>
+        <p class="cta-band__sub">Free · No login · Grounded in sleep neuroscience</p>
+        <a href="#decode" class="btn btn--primary btn--light">Open the Dream Decoder →</a>
+      </div>
+    </section>
+
+  </main>
+
+  <button type="button" class="back-to-top" id="back-to-top" aria-label="Back to top" aria-hidden="true" tabindex="-1">
+    <svg class="back-to-top__icon" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false">
+      <path d="M12 19V6M12 6 L6 12M12 6 L18 12" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    <span class="back-to-top__label">Top</span>
+  </button>
+
+  <footer class="site-footer">
+    <nav aria-label="Footer">
+      <a href="/about/">About</a>
+      <a href="/methodology/">Methodology</a>
+      <a href="/tools/oneirox-dream-mapper.html">Sensory Mapper</a>
+      <a href="/phase/">Phase Calculator</a>
+      <a href="/disclaimer/">Disclaimer</a>
+      <a href="/privacy/">Privacy</a>
+      <a href="/terms/">Terms</a>
+    </nav>
+    <p>© 2026 Oneirox · Vigen G.R. · Independent researcher &amp; developer</p>
+  </footer>
+
+  <script src="/js/oneirox-neural-bg.js" data-cfasync="false" defer></script>
+  <script src="/js/oneirox-decode.js" data-cfasync="false" defer></script>
+  <script src="/js/oneirox-share.js" data-cfasync="false" defer></script>
+  <script src="/js/back-to-top.js" data-cfasync="false" defer></script>
+</body>
+</html>

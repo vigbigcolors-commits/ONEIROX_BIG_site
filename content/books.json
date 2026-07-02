@@ -1,0 +1,85 @@
+{
+  "_source": "https://oneirox.com/methodology/ — flagship books with 'what changed'",
+  "_note": "Expand to 50+ with Vigen's full list. These are core citations for E-E-A-T.",
+  "total": "50+",
+  "flagship": [
+    {
+      "author": "Matthew Walker",
+      "title": "Why We Sleep",
+      "changed": "REM as the night therapist — strips emotional charge from memories while preserving content. Foundation for why recurring dreams exist and what their cessation means.",
+      "category": "sleep"
+    },
+    {
+      "author": "Rosalind Cartwright",
+      "title": "The Twenty-Four Hour Mind",
+      "changed": "Longitudinal dimension — dream content tracks life transitions. Undergirds everything about dream timing.",
+      "category": "dreams"
+    },
+    {
+      "author": "Antonio Damasio",
+      "title": "The Feeling of What Happens",
+      "changed": "Somatic markers — the body's emotional record is neurologically primary. Changed the 'body knows first' dimension of every reading.",
+      "category": "somatic",
+      "also": "Self Comes to Mind"
+    },
+    {
+      "author": "Joseph LeDoux",
+      "title": "The Emotional Brain",
+      "changed": "Two-pathway model of fear — body responds before conscious appraisal. Foundation of 'body knows first.'",
+      "category": "neuro"
+    },
+    {
+      "author": "Robert Sapolsky",
+      "title": "Behave",
+      "changed": "Social and status threat processed like physical danger — basis for money dreams, being-watched dreams, professional-height dreams.",
+      "category": "neuro",
+      "also": "Why Zebras Don't Get Ulcers"
+    },
+    {
+      "author": "Bessel van der Kolk",
+      "title": "The Body Keeps the Score",
+      "changed": "Somatic dimension of trauma — recurring dreams and nightmares that return long after the original event.",
+      "category": "trauma",
+      "also": "Waking the Tiger — Peter Levine"
+    },
+    {
+      "author": "Antonio Damasio",
+      "title": "Self Comes to Mind",
+      "category": "neuro"
+    },
+    {
+      "author": "Peter Levine",
+      "title": "Waking the Tiger",
+      "category": "trauma"
+    },
+    {
+      "author": "Allan Hobson",
+      "title": "The Dreaming Brain",
+      "category": "dreams"
+    },
+    {
+      "author": "Mark Solms",
+      "title": "The Neuropsychology of Dreams",
+      "category": "dreams"
+    },
+    {
+      "author": "Stephen Porges",
+      "title": "The Polyvagal Theory",
+      "category": "somatic"
+    },
+    {
+      "author": "Carl Jung",
+      "title": "Collected works (depth patterns)",
+      "category": "philosophy",
+      "also": "Marie-Louise von Franz"
+    }
+  ],
+  "categories": [
+    { "id": "sleep", "label": "Sleep Science" },
+    { "id": "dreams", "label": "Dreams & Consciousness" },
+    { "id": "neuro", "label": "Neuroscience" },
+    { "id": "somatic", "label": "Body & Somatic" },
+    { "id": "trauma", "label": "Trauma & Stress" },
+    { "id": "philosophy", "label": "Depth & Pattern" }
+  ]
+}

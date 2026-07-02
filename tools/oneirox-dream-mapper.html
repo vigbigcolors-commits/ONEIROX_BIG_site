@@ -1,0 +1,856 @@
+<!DOCTYPE html>
+<!--
+╔══════════════════════════════════════════════════════════════════╗
+║                                                                  ║
+║   ONEIROX SENSORY DREAM MAPPER                                   ║
+║   © 2024–2025 Oneirox.com — All Rights Reserved                 ║
+║                                                                  ║
+║   This tool, its design system, somatic classification           ║
+║   profiles, neurobiological framework, Signal Analysis           ║
+║   methodology, and all associated copy are the exclusive         ║
+║   intellectual property of Oneirox.com.                         ║
+║                                                                  ║
+║   Unauthorised reproduction, distribution, modification,         ║
+║   or commercial use of any part of this file is strictly        ║
+║   prohibited without prior written permission.                   ║
+║                                                                  ║
+║   The nine somatic profiles (SP-07, SH-02, NST-04, VC-09,       ║
+║   CD-11, LS-03, PD-06, AS-12, RSD-∞) and their diagnostic       ║
+║   descriptions are original works created by Oneirox.com.       ║
+║                                                                  ║
+║   Contact: oneirox.com                                           ║
+║   First published: 2024                                          ║
+║   File fingerprint: ONX-SDM-v2.6-©2025                          ║
+║                                                                  ║
+╚══════════════════════════════════════════════════════════════════╝
+-->
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Sensory Dream Mapper — Decode What Your Body Felt While You Slept | Oneirox</title>
+<meta name="description" content="Map the physical sensations from your dreams. The Oneirox Sensory Dream Mapper translates thermal, tactile, and somatic signals into neurobiological insight — not symbols. Free interactive tool."/>
+<meta name="robots" content="index, follow"/>
+<link rel="canonical" href="https://oneirox.com/sensory-dream-mapper/"/>
+<meta name="keywords" content="somatic dream interpretation, what my body felt in a dream, dream body sensations meaning, physical dream signals, dream temperature meaning, chest pressure in dreams, nervous system dream patterns, somatic mapping tool, dream body map, dream interpretation without symbols, neurobiological dream analysis"/>
+<meta name="copyright" content="© 2024–2025 Oneirox.com — All Rights Reserved"/>
+<meta name="author" content="Oneirox.com"/>
+<meta name="identifier" content="ONX-SDM-v2.6-2025"/>
+<meta name="generator" content="Oneirox Somatic Intelligence System"/>
+<meta property="og:type" content="website"/>
+<meta property="og:url" content="https://oneirox.com/sensory-dream-mapper/"/>
+<meta property="og:title" content="Sensory Dream Mapper — Decode What Your Body Felt While You Slept"/>
+<meta property="og:description" content="Not every dream speaks in symbols. Some speak in pressure, heat, and the weight of a hand you couldn’t see. Map what your nervous system recorded — not what your memory edited."/>
+<meta property="og:site_name" content="Oneirox"/>
+<meta property="og:locale" content="en_US"/>
+<meta property="og:image" content="https://oneirox.com/wp-content/uploads/sensory-mapper-og.jpg"/>
+<meta property="og:image:width" content="1200"/>
+<meta property="og:image:height" content="630"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="Sensory Dream Mapper — Oneirox"/>
+<meta name="twitter:description" content="Translate the physical residue of your dreams into neurobiological insight. Free somatic dream mapping tool."/>
+<meta name="twitter:site" content="@oneirox"/>
+<meta name="twitter:image" content="https://oneirox.com/wp-content/uploads/sensory-mapper-og.jpg"/>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Oneirox Sensory Dream Mapper","url":"https://oneirox.com/sensory-dream-mapper/","applicationCategory":"HealthApplication","isAccessibleForFree":true,"inLanguage":"en","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"publisher":{"@type":"Organization","name":"Oneirox","url":"https://oneirox.com"}}</script>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"HowTo",
+  "name":"How to Use the Oneirox Sensory Dream Mapper",
+  "description":"A step-by-step guide to mapping the physical and somatic sensations from your dreams.",
+  "totalTime":"PT2M",
+  "step":[
+    {"@type":"HowToStep","name":"Set Thermal State","text":"Use the slider to calibrate the thermal quality of your dream body — from Glacial to Scorching.","position":1},
+    {"@type":"HowToStep","name":"Select Tactile Signatures","text":"Choose textures describing the physical feeling: Viscous, Sharp, Void, Gritty, Fluid, or Numb.","position":2},
+    {"@type":"HowToStep","name":"Map Somatic Zones","text":"Tap the body zones where you felt sensation, pressure, or discomfort.","position":3},
+    {"@type":"HowToStep","name":"Set Soundscape","text":"Choose the ambient sonic quality: Silent, Hum, Voices, or Chaotic.","position":4},
+    {"@type":"HowToStep","name":"Read Your Sensory Profile","text":"Your personalised somatic classification appears with neurobiological description and recovery protocol.","position":5}
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"FAQPage",
+  "mainEntity":[
+    {"@type":"Question","name":"Why do dreams feel physical?","acceptedAnswer":{"@type":"Answer","text":"During REM sleep the brain runs full-body simulations activating the autonomic nervous system, proprioceptive pathways, and thermal regulation. The physical sensations — heaviness, heat, paralysis, floating — are the residue of these neurobiological processes."}},
+    {"@type":"Question","name":"What does chest pressure in a dream mean?","acceptedAnswer":{"@type":"Answer","text":"Thoracic zone activation in dreams frequently accompanies elevated respiratory rate or cardiac arousal during REM. It maps to the Thoracic/Chest zone in the Somatic Map and often produces the Somatic Purgation or Visceral Containment profile."}},
+    {"@type":"Question","name":"What does a cold dream mean neurobiologically?","acceptedAnswer":{"@type":"Answer","text":"Sub-baseline thermal sensation correlates with parasympathetic withdrawal or active limbic suppression — the brain protecting itself from something not yet ready to be processed."}},
+    {"@type":"Question","name":"How is this different from dream dictionaries?","acceptedAnswer":{"@type":"Answer","text":"Dream dictionaries decode symbols. The Sensory Dream Mapper reads the body’s physiological state during sleep — thermal index, tactile encoding, somatic zone activation — and returns neurobiologically grounded insight rather than symbolic interpretation."}}
+  ]
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@200;300;400;500&family=DM+Mono:wght@300;400&display=swap"/>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#8a9880;--c0:rgba(8,14,5,.80);--c1:rgba(12,20,8,.70);--c2:rgba(18,28,12,.65);--c3:rgba(5,10,3,.88);
+  --t0:#e8f0d8;--t1:#bfcfa8;--t2:#8aa070;--t3:#587048;--t4:#3a5030;
+  --a0:#d2eca0;--a1:#a8d870;--a2:#78b848;--a3:#508038;--a4:#304820;
+  --b0:rgba(168,216,112,.07);--b1:rgba(168,216,112,.15);--b2:rgba(168,216,112,.28);--b3:rgba(168,216,112,.48);
+  --r:18px;--r2:12px;
+}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',system-ui,sans-serif;background:var(--bg);color:var(--t0);min-height:100vh;overflow-x:hidden}
+::-webkit-scrollbar{width:3px}
+::-webkit-scrollbar-thumb{background:var(--a4);border-radius:3px}
+
+/* ── RENDER OPTIMIZATION (GPU) ── */
+.navbar,.sighero,.gc,.pcard,.idle{
+  transform:translateZ(0);
+  will-change:transform;
+  backface-visibility:hidden;
+}
+.navbar{position:sticky;top:0;z-index:300;background:rgba(5,10,3,.92);backdrop-filter:blur(28px);border-bottom:1px solid var(--b1);padding:.55rem 1.25rem;display:flex;align-items:center;gap:.5rem;flex-wrap:wrap}
+.nav-logo{font-family:'DM Mono',monospace;font-size:.76rem;letter-spacing:.18em;color:var(--a0);text-decoration:none;margin-right:auto;display:flex;align-items:center;gap:.5rem}
+.nav-logo small{color:var(--t3);font-size:.62rem;letter-spacing:.06em}
+.nbtn{font-family:'DM Mono',monospace;font-size:.64rem;letter-spacing:.12em;text-transform:uppercase;background:transparent;border:1px solid var(--b1);color:var(--t2);border-radius:8px;padding:.4rem .8rem;cursor:pointer;transition:all .2s;white-space:nowrap}
+.nbtn:hover,.nbtn.home{border-color:var(--b2);color:var(--a1);background:var(--b0)}
+.mo{display:none;position:fixed;inset:0;z-index:600;background:rgba(3,8,2,.75);backdrop-filter:blur(10px);align-items:center;justify-content:center;padding:1rem}
+.mo.open{display:flex;animation:fIn .22s ease}
+@keyframes fIn{from{opacity:0}to{opacity:1}}
+.mbox{background:rgba(8,14,5,.97);border:1px solid var(--b2);border-radius:20px;max-width:660px;width:100%;max-height:88vh;overflow-y:auto;padding:2rem;position:relative;animation:sUp .28s cubic-bezier(.22,1,.36,1);scrollbar-width:thin;scrollbar-color:var(--a4) transparent}
+@keyframes sUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+.mcls{float:right;font-family:'DM Mono',monospace;font-size:.72rem;letter-spacing:.08em;color:var(--t3);background:var(--b0);border:1px solid var(--b1);border-radius:7px;padding:.28rem .65rem;cursor:pointer;transition:all .2s;margin-bottom:.9rem}
+.mcls:hover{color:var(--a0);border-color:var(--b2)}
+.mcls::before{content:'✕  ';font-size:.6rem}
+.mtit{font-size:1.22rem;font-weight:300;letter-spacing:.07em;color:var(--a0);margin-bottom:.3rem}
+.msub{font-family:'DM Mono',monospace;font-size:.66rem;letter-spacing:.12em;color:var(--t4);margin-bottom:1.4rem;text-transform:uppercase}
+.mdiv{height:1px;background:var(--b1);margin:1.2rem 0}
+.mh{font-family:'DM Mono',monospace;font-size:.68rem;letter-spacing:.22em;color:var(--t3);text-transform:uppercase;margin:.8rem 0 .6rem}
+.mb{font-size:.9rem;color:var(--t1);line-height:1.9;margin-bottom:.85rem}
+.mb strong{color:var(--a1);font-weight:500}
+.mstep{display:flex;gap:.85rem;padding:.75rem 1rem;margin-bottom:.45rem;background:var(--b0);border:1px solid var(--b1);border-radius:11px}
+.msn{font-family:'DM Mono',monospace;font-size:1rem;font-weight:300;color:var(--a2);flex-shrink:0;line-height:1.7}
+.msb{font-size:.87rem;color:var(--t1);line-height:1.75}
+.msb strong{color:var(--a0);display:block;margin-bottom:.18rem}
+.pgrid{display:grid;grid-template-columns:1fr 1fr;gap:.55rem}
+@media(max-width:460px){.pgrid{grid-template-columns:1fr}}
+.pc2{padding:.8rem 1rem;background:var(--b0);border:1px solid var(--b1);border-radius:11px;transition:border-color .2s}
+.pc2:hover{border-color:var(--b2)}
+.pc2-code{font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.15em;color:var(--t4);margin-bottom:.25rem}
+.pc2-name{font-size:.88rem;font-weight:400;margin-bottom:.25rem}
+.pc2-cls{font-family:'DM Mono',monospace;font-size:.6rem;color:var(--t3);margin-bottom:.45rem}
+.pc2-desc{font-size:.78rem;color:var(--t2);line-height:1.65}
+.fq{border-bottom:1px solid var(--b0);padding:.8rem 0}
+.fq-q{font-size:.88rem;color:var(--a1);margin-bottom:.35rem}
+.fq-a{font-size:.8rem;color:var(--t2);line-height:1.75}
+.wrap{max-width:940px;margin:0 auto;padding:2rem 1.25rem 5rem}
+.hdr{text-align:center;margin-bottom:1.75rem}
+.ey{font-family:'DM Mono',monospace;font-size:.68rem;letter-spacing:.42em;color:var(--t4);text-transform:uppercase;margin-bottom:.6rem}
+.ht{font-size:clamp(1.6rem,5vw,2.4rem);font-weight:200;letter-spacing:.1em;color:var(--a0);margin-bottom:.35rem}
+.hs{font-family:'DM Mono',monospace;font-size:.7rem;color:var(--t3);letter-spacing:.07em;margin-bottom:1rem}
+.ecg-wrap{display:flex;justify-content:center;margin-top:.25rem}
+.ecg-svg{overflow:visible}
+.ecg-path{fill:none;stroke:var(--a3);stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:320;stroke-dashoffset:320;animation:ecgDraw 5s ease-in-out infinite}
+@keyframes ecgDraw{0%{stroke-dashoffset:320;opacity:0}8%{opacity:1}60%{stroke-dashoffset:0;opacity:.9}80%{stroke-dashoffset:0;opacity:.5}100%{stroke-dashoffset:0;opacity:0}}
+.sighero{background:var(--c0);border:1px solid var(--b1);border-radius:var(--r);padding:1.2rem 1.6rem;margin-bottom:1.1rem;backdrop-filter:blur(22px);display:flex;align-items:center;gap:1.4rem;flex-wrap:wrap}
+.lamp-tip{position:relative;flex-shrink:0;cursor:help}
+.lamp-tip .tip{position:absolute;left:50%;bottom:calc(100% + 10px);transform:translateX(-50%);width:220px;padding:.75rem;background:rgba(5,10,3,.96);border:1px solid var(--b2);border-radius:12px;font-family:'DM Mono',monospace;font-size:.68rem;color:var(--t1);line-height:1.75;pointer-events:none;opacity:0;transition:opacity .2s;z-index:100;letter-spacing:.02em}
+.lamp-tip .tip::after{content:'';position:absolute;left:50%;top:100%;transform:translateX(-50%);border:6px solid transparent;border-top-color:var(--b2)}
+.lamp-tip:hover .tip{opacity:1}
+.sig-data{flex:1;min-width:140px}
+.sig-num{font-family:'DM Mono',monospace;font-size:clamp(2rem,7vw,3.5rem);font-weight:200;line-height:1;margin-bottom:7px;transition:color .5s}
+.sig-bg{height:3px;background:var(--b0);border-radius:3px;overflow:hidden;margin-bottom:6px}
+.sig-fill{height:100%;border-radius:3px;transition:width .65s ease,background .5s}
+.sig-st{font-family:'DM Mono',monospace;font-size:.68rem;letter-spacing:.1em;color:var(--t4)}
+.sig-rt{flex-shrink:0;text-align:right}
+.sig-ey{font-family:'DM Mono',monospace;font-size:.63rem;letter-spacing:.35em;color:var(--t4);text-transform:uppercase;margin-bottom:4px}
+.sig-pn{font-size:.82rem;color:var(--t3);line-height:1.5}
+.sig-mt{font-family:'DM Mono',monospace;font-size:.62rem;color:var(--t4);margin-top:4px}
+.mgrid{display:grid;grid-template-columns:92px 1fr 1fr;gap:1.1rem;margin-bottom:1.1rem}
+@media(max-width:750px){.mgrid{grid-template-columns:1fr 1fr}.col-th{grid-column:1/3;display:flex;align-items:center;gap:1.25rem}.thv{display:none!important}.thh{display:flex!important}}
+@media(max-width:500px){.mgrid{grid-template-columns:1fr}.col-th,.col-bm,.col-rt{grid-column:auto}}
+.gc{background:var(--c1);border:1px solid var(--b1);border-radius:var(--r);padding:1.25rem;backdrop-filter:blur(20px)}
+.lbl{font-family:'DM Mono',monospace;font-size:.66rem;letter-spacing:.35em;color:var(--t4);text-transform:uppercase;margin-bottom:.95rem;display:block}
+.thv{display:flex;flex-direction:column;align-items:center;gap:.75rem;width:100%}
+.th-val{font-family:'DM Mono',monospace;font-size:.68rem;letter-spacing:.1em;text-align:center;transition:color .4s}
+.vsl{writing-mode:vertical-lr;direction:rtl;-webkit-appearance:slider-vertical;appearance:slider-vertical;width:22px;height:142px;cursor:pointer;background:transparent;outline:none;border:none}
+.vsl::-webkit-slider-runnable-track{width:2px;background:var(--b1);border-radius:2px}
+.vsl::-webkit-slider-thumb{-webkit-appearance:none;width:14px;height:14px;border-radius:50%;margin-left:-6px;border:1.5px solid rgba(232,240,216,.5);box-shadow:0 1px 7px rgba(0,0,0,.5);transition:transform .15s}
+.vsl:active::-webkit-slider-thumb{transform:scale(1.5)}
+.thdots{display:flex;flex-direction:column;gap:5px;align-items:center}
+.tdot{width:6px;height:6px;border-radius:50%;background:var(--b0);transition:all .4s}
+.thh{display:none;flex-direction:column;gap:7px;width:100%;flex:1}
+.thh-row{display:flex;justify-content:space-between;align-items:center}
+.thh-l{font-family:'DM Mono',monospace;font-size:.62rem;color:var(--t4)}
+.thh-t{height:5px;border-radius:5px;position:relative;overflow:visible}
+.thh-i{-webkit-appearance:none;appearance:none;width:100%;height:5px;background:transparent;outline:none;cursor:pointer;position:absolute;top:0;left:0}
+.thh-i::-webkit-slider-thumb{-webkit-appearance:none;width:17px;height:17px;border-radius:50%;border:2px solid rgba(232,240,216,.55);box-shadow:0 1px 7px rgba(0,0,0,.45);cursor:pointer;margin-top:-6px}
+.bmi{display:flex;gap:1rem;align-items:flex-start}
+.bsvgw{flex-shrink:0;position:relative;width:clamp(100px,30%,125px);cursor:default}
+.bsvgw:hover #hg{animation:wiggle 1.1s ease-in-out}
+@keyframes wiggle{0%{transform:rotate(0)}18%{transform:rotate(5deg)}45%{transform:rotate(-4deg)}70%{transform:rotate(2.5deg)}88%{transform:rotate(-1.5deg)}100%{transform:rotate(0)}}
+#hg{transform-origin:80px 44px;transform-box:view-box;transition:filter .3s}
+.bsvgw:hover #hg{filter:drop-shadow(0 0 8px rgba(200,236,150,.45))}
+.zs{transition:fill .2s,stroke .2s,filter .2s;cursor:pointer}
+.zs:hover{opacity:.75}
+.zleg{display:flex;flex-direction:column;gap:4px;padding-top:2px;padding-left:8px;flex:1}
+.zrow{display:flex;align-items:center;gap:7px;cursor:pointer}
+.zdot{width:6px;height:6px;border-radius:50%;flex-shrink:0;background:var(--b2);transition:all .25s}
+.znm{font-family:'DM Mono',monospace;font-size:.68rem;letter-spacing:.02em;color:var(--t2);transition:color .25s}
+.znm.on{color:var(--t0)}
+.radw{margin-top:1rem;padding-top:1rem;border-top:1px solid var(--b0)}
+.rnote{font-family:'DM Mono',monospace;font-size:.63rem;color:var(--t4);letter-spacing:.04em;text-align:center;margin-top:6px;line-height:1.6}
+.txg{display:grid;grid-template-columns:1fr 1fr;gap:6px}
+.txb{background:rgba(8,14,5,.6);border:1px solid var(--b0);border-radius:var(--r2);padding:10px 6px;cursor:pointer;text-align:center;transition:all .2s;color:var(--t4);font-family:'DM Sans',sans-serif}
+.txb:hover{border-color:var(--b2);color:var(--t2)}
+.txb.on{background:var(--b0);border-color:var(--b3);color:var(--a0);box-shadow:0 0 12px rgba(168,216,112,.09)}
+.txg2{font-size:1.1rem;display:block;margin-bottom:2px}
+.txn{font-size:.8rem;font-weight:500;display:block}
+.txs{font-size:.62rem;display:block;margin-top:1px;opacity:.5}
+.sndl{display:flex;flex-direction:column;gap:5px}
+.sndb{display:flex;align-items:center;gap:10px;width:100%;background:rgba(8,14,5,.6);border:1px solid var(--b0);border-radius:var(--r2);padding:9px 12px;cursor:pointer;color:var(--t4);font-family:'DM Sans',sans-serif;font-size:.85rem;transition:all .2s;text-align:left}
+.sndb:hover{border-color:var(--b2);color:var(--t2)}
+.sndb.on{background:var(--b0);border-color:var(--b3);color:var(--a0)}
+.sndg{font-family:'DM Mono',monospace;font-size:.9rem;min-width:21px}
+.pcard{background:var(--c3);border:1px solid var(--b1);border-radius:var(--r);padding:2rem;backdrop-filter:blur(24px);display:none}
+.pcard.on{display:block}
+.ptop{display:flex;align-items:flex-start;justify-content:space-between;gap:1rem;margin-bottom:1.5rem;flex-wrap:wrap}
+.pcode{font-family:'DM Mono',monospace;font-size:.66rem;letter-spacing:.35em;color:var(--t4);text-transform:uppercase;margin-bottom:7px;display:block}
+.pname{font-size:clamp(1.2rem,4vw,1.8rem);font-weight:200;letter-spacing:.08em;margin-bottom:4px;transition:color .5s}
+.pcls{font-family:'DM Mono',monospace;font-size:.68rem;color:var(--t2);letter-spacing:.04em}
+.pbadge{background:var(--b0);border:1px solid var(--b1);border-radius:10px;padding:9px 14px;flex-shrink:0}
+.pbsig{font-family:'DM Mono',monospace;font-size:.68rem;color:var(--t1);letter-spacing:.05em}
+.pbmet{font-family:'DM Mono',monospace;font-size:.6rem;color:var(--t3);margin-top:3px}
+.hdiv{height:1px;background:var(--b0);margin:1.4rem 0}
+.pdx{font-size:.92rem;line-height:1.95;color:var(--t1);margin-bottom:1.5rem;max-width:700px}
+.sbd{background:rgba(168,216,112,.03);border:1px solid var(--b1);border-radius:14px;padding:1.1rem;margin-bottom:1.6rem}
+.sbd-title{font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:.3em;color:var(--t4);text-transform:uppercase;margin-bottom:.8rem}
+.sbd-grid{display:flex;flex-direction:column;gap:.5rem}
+.sbd-row{display:grid;grid-template-columns:130px 1fr;gap:.5rem;align-items:start;padding:.5rem .6rem;background:var(--b0);border-radius:8px}
+@media(max-width:520px){.sbd-row{grid-template-columns:1fr}}
+.sbd-key{font-family:'DM Mono',monospace;font-size:.62rem;letter-spacing:.08em;color:var(--a2);padding-top:.15rem;flex-shrink:0}
+.sbd-val{font-size:.8rem;color:var(--t2);line-height:1.7}
+.rxlbl{font-family:'DM Mono',monospace;font-size:.66rem;letter-spacing:.35em;color:var(--t4);text-transform:uppercase;margin-bottom:.85rem;display:block}
+.rxl{display:flex;flex-direction:column;gap:8px;margin-bottom:1.5rem}
+.rxrow{display:flex;gap:11px;align-items:flex-start}
+.rxn{font-family:'DM Mono',monospace;font-size:.66rem;margin-top:4px;flex-shrink:0;letter-spacing:.05em;transition:color .5s}
+.rxt{font-size:.9rem;color:var(--t1);line-height:1.75}
+.disc{background:rgba(168,216,112,.04);border:1px solid var(--b1);border-left:2px solid var(--a4);border-radius:10px;padding:1rem 1.1rem;display:flex;gap:10px;align-items:flex-start}
+.disct{font-size:.75rem;color:var(--t2);line-height:1.85}
+.dischl{color:var(--a2)}
+.idle{background:var(--c1);border:1px dashed var(--b1);border-radius:var(--r);padding:2.5rem;text-align:center;backdrop-filter:blur(16px)}
+.idle-l{font-family:'DM Mono',monospace;font-size:.68rem;letter-spacing:.35em;color:var(--t4);text-transform:uppercase;display:block;margin-bottom:1rem}
+.idle-g{font-size:1.4rem;color:var(--a4);margin-bottom:1rem;letter-spacing:.3em}
+.idle-t{font-family:'DM Mono',monospace;font-size:.76rem;color:var(--t4);line-height:2.2;letter-spacing:.03em}
+.pcard-meta{display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;margin-bottom:1.4rem}
+.reading-ts{font-family:'DM Mono',monospace;font-size:.64rem;letter-spacing:.08em;color:var(--t3);display:flex;align-items:center;gap:.5rem}
+.reading-ts::before{content:'◷';font-size:.72rem;color:var(--a3)}
+.save-btn{font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:.14em;text-transform:uppercase;background:var(--b0);border:1px solid var(--b2);color:var(--a1);border-radius:9px;padding:.4rem .9rem;cursor:pointer;transition:all .22s;display:flex;align-items:center;gap:.45rem;white-space:nowrap}
+.save-btn:hover{background:var(--b1);border-color:var(--b3);color:var(--a0)}
+.save-btn.saved{background:rgba(120,184,72,.15);border-color:rgba(120,184,72,.5);color:#a8e870}
+.save-btn::before{content:'⬇';font-size:.72rem}
+.save-btn.saved::before{content:'✓'}
+@keyframes savedPulse{0%{box-shadow:0 0 0 0 rgba(120,184,72,.4)}100%{box-shadow:0 0 0 10px rgba(120,184,72,0)}}
+.save-btn.saved{animation:savedPulse .5s ease-out}
+/* ── DECODE BUTTON ── */
+.decode-btn{
+  font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:.14em;text-transform:uppercase;
+  background:rgba(125,145,107,0.15);border:1px solid rgba(125,145,107,0.5);color:#a8c890;
+  border-radius:9px;padding:.4rem .9rem;cursor:pointer;
+  transition:all .22s;display:flex;align-items:center;gap:.45rem;white-space:nowrap;
+}
+.decode-btn:hover{background:rgba(125,145,107,0.28);border-color:#7d916b;color:#c8e8a8}
+.decode-btn::before{content:'→  '}
+.related-sec{margin-top:1.5rem}
+.rel-slider-wrap{position:relative;margin-top:.85rem;overflow:hidden}
+.rel-track{display:flex;flex-direction:column;gap:.6rem;transition:transform .38s cubic-bezier(.4,0,.2,1)}
+.rel-card{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:.9rem;background:var(--b0);border:1px solid var(--b1);border-radius:13px;padding:.9rem 1.1rem;text-decoration:none;transition:all .22s;flex-shrink:0}
+.rel-card:hover{background:var(--b1);border-color:var(--b2);transform:translateX(3px)}
+.rel-icon{font-size:1rem;color:var(--a3);flex-shrink:0}
+.rel-body{min-width:0}
+.rel-title{font-size:.88rem;font-weight:400;color:var(--t0);margin-bottom:.2rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.rel-desc{font-size:.73rem;color:var(--t2);line-height:1.55}
+.rel-arr{font-family:'DM Mono',monospace;font-size:.8rem;color:var(--t3);flex-shrink:0;transition:color .2s}
+.rel-card:hover .rel-arr{color:var(--a1)}
+.rel-nav{display:none;align-items:center;justify-content:center;gap:.65rem;margin-top:.85rem}
+.rel-nav.visible{display:flex}
+.rel-dot{width:5px;height:5px;border-radius:50%;background:var(--b2);cursor:pointer;transition:all .2s}
+.rel-dot.on{background:var(--a2);transform:scale(1.3)}
+.rel-prev,.rel-next{font-family:'DM Mono',monospace;font-size:.72rem;background:var(--b0);border:1px solid var(--b1);color:var(--t3);border-radius:7px;padding:.28rem .6rem;cursor:pointer;transition:all .2s;line-height:1}
+.rel-prev:hover,.rel-next:hover{border-color:var(--b2);color:var(--a1)}
+.rel-count{font-family:'DM Mono',monospace;font-size:.6rem;color:var(--t4);letter-spacing:.08em;min-width:32px;text-align:center}
+.hist-empty{font-family:'DM Mono',monospace;font-size:.75rem;color:var(--t4);text-align:center;padding:2rem;letter-spacing:.05em;line-height:2}
+.hist-list{display:flex;flex-direction:column;gap:.6rem}
+.hist-item{background:var(--b0);border:1px solid var(--b1);border-radius:12px;padding:.9rem 1.1rem;cursor:pointer;transition:border-color .2s;border-left:3px solid}
+.hist-item:hover{border-color:var(--b2)}
+.hist-item-top{display:flex;align-items:center;justify-content:space-between;gap:.5rem;margin-bottom:.3rem}
+.hist-pname{font-size:.9rem;font-weight:400}
+.hist-code{font-family:'DM Mono',monospace;font-size:.6rem;color:var(--t4);letter-spacing:.1em}
+.hist-ts{font-family:'DM Mono',monospace;font-size:.62rem;color:var(--t3);margin-bottom:.4rem}
+.hist-tags{display:flex;gap:.4rem;flex-wrap:wrap}
+.hist-tag{font-family:'DM Mono',monospace;font-size:.58rem;letter-spacing:.06em;background:rgba(168,216,112,.06);border:1px solid var(--b1);border-radius:5px;padding:.15rem .4rem;color:var(--t3)}
+.hist-clear{font-family:'DM Mono',monospace;font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;background:transparent;border:1px solid rgba(200,80,60,.3);color:rgba(200,120,100,.6);border-radius:8px;padding:.35rem .8rem;cursor:pointer;transition:all .2s;margin-top:1rem}
+.hist-clear:hover{border-color:rgba(200,80,60,.6);color:rgba(220,120,100,.9)}
+.nbtn-badge{display:inline-flex;align-items:center;justify-content:center;background:var(--a3);color:rgba(5,10,3,.9);border-radius:50%;width:14px;height:14px;font-size:.58rem;font-family:'DM Mono',monospace;margin-left:.3rem;font-weight:700}
+.mp-wrap{margin-top:.9rem;padding-top:.9rem;border-top:1px solid var(--b0)}
+.mp-row1{display:flex;align-items:center;gap:.6rem;margin-bottom:.55rem}
+.mp-dot{width:6px;height:6px;border-radius:50%;background:var(--a4);flex-shrink:0;transition:all .3s}
+.mp-dot.on{background:var(--a1);box-shadow:0 0 5px var(--a2);animation:mpdot 1.8s ease-in-out infinite}
+@keyframes mpdot{0%,100%{opacity:.45}50%{opacity:1}}
+.mp-name{font-family:'DM Mono',monospace;font-size:.63rem;color:var(--t2);letter-spacing:.04em;flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.mp-row2{display:flex;align-items:center;gap:.45rem}
+.mpb{font-family:'DM Mono',monospace;font-size:.7rem;background:var(--b0);border:1px solid var(--b1);color:var(--t3);border-radius:7px;padding:.32rem .6rem;cursor:pointer;transition:all .2s;flex-shrink:0;line-height:1}
+.mpb:hover{border-color:var(--b2);color:var(--a1)}
+.mpb.on{background:var(--b1);border-color:var(--b2);color:var(--a0)}
+.vol-wrap{display:flex;align-items:center;gap:.5rem;flex:1}
+.vol-icon{font-size:.72rem;color:var(--t4);flex-shrink:0;cursor:pointer;transition:color .2s;user-select:none;font-style:normal}
+.vol-icon:hover{color:var(--t2)}
+.vol-sl{-webkit-appearance:none;appearance:none;flex:1;height:3px;border-radius:3px;outline:none;cursor:pointer;background:linear-gradient(to right,var(--a2) var(--vp,50%),rgba(168,216,112,.1) var(--vp,50%))}
+.vol-sl::-webkit-slider-thumb{-webkit-appearance:none;width:11px;height:11px;border-radius:50%;background:var(--a0);border:1px solid rgba(255,255,255,.3);box-shadow:0 0 8px rgba(168,216,112,.6);cursor:pointer;transition:transform .15s}
+.vol-sl:active::-webkit-slider-thumb{transform:scale(1.45)}
+.mp-hint{font-family:'DM Mono',monospace;font-size:.56rem;color:var(--t4);letter-spacing:.08em;margin-top:.4rem;text-align:center}
+.share-btn{font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:.12em;text-transform:uppercase;background:var(--b0);border:1px solid var(--b1);color:var(--t2);border-radius:9px;padding:.38rem .85rem;cursor:pointer;transition:all .22s;display:flex;align-items:center;gap:.4rem;white-space:nowrap}
+.share-btn:hover{background:var(--b1);border-color:var(--b2);color:var(--a1)}
+.share-btn.ok{background:rgba(120,184,72,.12);border-color:rgba(120,184,72,.4);color:#a8e870}
+.share-btn::before{content:'↗  '}
+.hstats{display:grid;grid-template-columns:1fr 1fr 1fr;gap:.55rem;margin-bottom:1.25rem}
+.hstat{background:var(--b0);border:1px solid var(--b1);border-radius:11px;padding:.7rem .8rem;text-align:center}
+.hstat-n{font-family:'DM Mono',monospace;font-size:1.4rem;font-weight:200;color:var(--a1);line-height:1;margin-bottom:.2rem}
+.hstat-l{font-family:'DM Mono',monospace;font-size:.58rem;color:var(--t4);letter-spacing:.1em;text-transform:uppercase}
+@media print{body{background:#fff!important;color:#1a2a14!important}.navbar,.sighero,.mgrid,.idle,.mo,.disc,.sbd,.save-btn,.pcard-meta,.ecg-wrap{display:none!important}.pcard{display:block!important;background:#fff!important;border:none!important;border-top:3px solid #78b848!important;padding:1rem 0!important}.pname{color:#2a5040!important}.pdx,.rxt,.sbd-val{color:#2a3a1e!important}.rxn{color:#78b848!important}}
+</style>
+</head>
+<body>
+
+<div class="mo" id="mo-why" onclick="closeBg(event,'mo-why')"><div class="mbox">
+  <button class="mcls" onclick="closeMo('mo-why')">Close</button>
+  <div class="mtit">Why Do Dreams Feel Physical?</div>
+  <div class="msub">Neurobiology of Somatic Dream Experience</div>
+  <p class="mb">Many people wake from a dream not with a clear image or story, but with a <strong>physical sensation</strong> — a weight in the chest, cold in the bones, a sharpness at the back of the neck they can't explain. This is not imagination. This is the nervous system completing work it began during sleep.</p>
+  <div class="mdiv"></div>
+  <div class="mh">The Body Is the Dream</div>
+  <p class="mb">During REM sleep, the brain runs <strong>full-body simulations</strong>: activating the autonomic nervous system, engaging proprioceptive pathways, modulating thermal regulation and muscle tone. The physical sensations — heaviness, heat, paralysis, floating — are the <strong>residue of these processes</strong>.</p>
+  <div class="mh">Thermal Signals</div>
+  <p class="mb"><strong>Warm or hot</strong> dream sensations accompany elevated sympathetic arousal. <strong>Cold or glacial</strong> sensations correlate with parasympathetic withdrawal or active emotional suppression.</p>
+  <div class="mh">Tactile Architecture</div>
+  <p class="mb"><strong>Viscous</strong> = enteric restriction. <strong>Sharp</strong> = prefrontal hyperactivation. <strong>Void</strong> = limbic downregulation. <strong>Gritty</strong> = surface threat processing. <strong>Fluid</strong> = proprioceptive loosening. <strong>Numb</strong> = sensory attenuation.</p>
+  <div class="fq"><div class="fq-q">Why doesn't this use dream symbols?</div><div class="fq-a">Symbols require interpretation — they pass through the cognitive filter. Somatic signals arrive before interpretation begins.</div></div>
+</div></div>
+
+<div class="mo" id="mo-pro" onclick="closeBg(event,'mo-pro')"><div class="mbox">
+  <button class="mcls" onclick="closeMo('mo-pro')">Close</button>
+  <div class="mtit">The Nine Somatic Profiles</div>
+  <div class="msub">Neurobiological Classification System</div>
+  <p class="mb">Each profile represents a recognisable nervous system state — not a personality type, but a <strong>functional description of what the body was doing during sleep</strong>.</p>
+  <div class="mdiv"></div>
+  <div class="pgrid" id="mpgrid"></div>
+</div></div>
+
+<div class="mo" id="mo-help" onclick="closeBg(event,'mo-help')"><div class="mbox">
+  <button class="mcls" onclick="closeMo('mo-help')">Close</button>
+  <div class="mtit">How to Use the Dream Mapper</div>
+  <div class="msub">Best used within 10 minutes of waking</div>
+  <p class="mb">Somatic memory <strong>dissipates faster than visual memory</strong>. Before coffee, before your phone: 90 seconds. Map what your body carried through the night.</p>
+  <div class="mdiv"></div>
+  <div class="mstep"><div class="msn">01</div><div class="msb"><strong>Thermal State</strong>Adjust the slider to match how your body felt — not the dream's weather.</div></div>
+  <div class="mstep"><div class="msn">02</div><div class="msb"><strong>Tactile Matrix</strong>Select textures describing the physical feeling.</div></div>
+  <div class="mstep"><div class="msn">03</div><div class="msb"><strong>Somatic Map</strong>Tap zones where you felt sensation or pressure.</div></div>
+  <div class="mstep"><div class="msn">04</div><div class="msb"><strong>Soundscape</strong>The texture of the sonic environment.</div></div>
+  <div class="mstep"><div class="msn">05</div><div class="msb"><strong>Read Your Results + Send to Decode</strong>Your Sensory Profile appears. Use "→ Decode Dream" to send your somatic context to the Oneirox AI engine.</div></div>
+</div></div>
+
+<div class="mo" id="mo-hist" onclick="closeBg(event,'mo-hist')"><div class="mbox">
+  <button class="mcls" onclick="closeMo('mo-hist')">Close</button>
+  <div class="mtit">My Readings</div>
+  <div class="msub">Saved locally in this browser · max 30 entries</div>
+  <div id="hist-body"></div>
+</div></div>
+
+<nav class="navbar">
+  <a href="https://oneirox.com" class="nav-logo">ONEIROX <small>· DREAM MAPPER</small></a>
+  <button class="nbtn home" onclick="location.href='https://oneirox.com'">← Home</button>
+  <button class="nbtn" onclick="openMo('mo-why')">Why Physical?</button>
+  <button class="nbtn" onclick="openMo('mo-pro')">9 Profiles</button>
+  <button class="nbtn" onclick="openMo('mo-help')">Help</button>
+  <button class="nbtn" id="hist-nav-btn" onclick="openHistory()">My Readings</button>
+</nav>
+
+<div class="wrap">
+  <div class="hdr">
+    <div class="ey">Oneirox · Somatic Intelligence System · v2.6</div>
+    <h1 class="ht">Sensory Dream Mapper</h1>
+    <p class="hs">translate what your body felt into neurobiological signal</p>
+    <div class="ecg-wrap">
+      <svg class="ecg-svg" viewBox="0 0 260 32" width="260" height="32">
+        <path class="ecg-path" d="M0,16 L42,16 L48,14 L52,18 L55,4 L59,28 L63,16 L70,16 L76,13 L80,16 L120,16 L126,14 L130,18 L133,4 L137,28 L141,16 L148,16 L154,13 L158,16 L260,16"/>
+      </svg>
+    </div>
+  </div>
+
+  <div class="sighero">
+    <div class="lamp-tip">
+      <svg id="lsvg" viewBox="0 0 44 58" width="44" height="58">
+        <defs>
+          <radialGradient id="lg" cx="50%" cy="38%">
+            <stop id="lg0" offset="0%" stop-color="#fffde0" stop-opacity=".28"/>
+            <stop id="lg1" offset="55%" stop-color="#98b880" stop-opacity=".18"/>
+            <stop id="lg2" offset="100%" stop-color="#98b880" stop-opacity=".04"/>
+          </radialGradient>
+          <filter id="lgf" x="-80%" y="-80%" width="260%" height="260%">
+            <feGaussianBlur id="lbl" stdDeviation="2.5" result="b"/>
+            <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+          </filter>
+        </defs>
+        <ellipse id="lorb" cx="22" cy="20" rx="12" ry="12" fill="#98b880" opacity=".06"/>
+        <path id="lbul" d="M13,22 Q13,9 22,9 Q31,9 31,22 Q31,30 27,34 L17,34 Q13,30 13,22Z" fill="url(#lg)" stroke="rgba(168,216,112,.32)" stroke-width=".9" filter="url(#lgf)"/>
+        <ellipse cx="18.5" cy="15" rx="2.5" ry="4" fill="rgba(255,255,240,0.26)" transform="rotate(-18,18.5,15)"/>
+        <path id="lfil" d="M18,32 L18,27 Q20,24 22,24 Q24,24 26,27 L26,32" fill="none" stroke="#fffde0" stroke-width=".9" stroke-opacity=".28" stroke-linecap="round"/>
+        <rect x="17.5" y="34" width="9" height="3" rx="1.2" fill="rgba(168,216,112,.35)"/>
+        <rect x="17.5" y="37" width="9" height="1.7" rx=".8" fill="rgba(168,216,112,.26)"/>
+        <rect x="17.5" y="38.7" width="9" height="1.7" rx=".8" fill="rgba(168,216,112,.18)"/>
+        <rect x="16" y="40.4" width="12" height="7" rx="2.2" fill="rgba(168,216,112,.3)" stroke="rgba(168,216,112,.18)" stroke-width=".6"/>
+        <rect x="18.5" y="41.3" width="2.5" height="4.8" rx="1.1" fill="rgba(255,255,255,0.1)"/>
+      </svg>
+      <div class="tip"><strong style="color:var(--a1);display:block;margin-bottom:.35rem">Bio-Signal Index</strong>Measures combined somatic activation intensity. Higher signal = more physiological processing during sleep.</div>
+    </div>
+    <div class="sig-data">
+      <div class="sig-num" id="signum">14</div>
+      <div class="sig-bg"><div class="sig-fill" id="sigbar" style="width:14%"></div></div>
+      <div class="sig-st" id="sigst">LOW · suppressed</div>
+    </div>
+    <div class="sig-rt">
+      <div class="sig-ey">Bio-Signal</div>
+      <div class="sig-pn" id="sigpn">Awaiting data</div>
+      <div class="sig-mt" id="sigmt">Neutral · 0 textures · 0 zones</div>
+    </div>
+  </div>
+
+  <div class="mgrid">
+    <div class="gc col-th">
+      <span class="lbl">Thermal State</span>
+      <div class="thv">
+        <div class="th-val" id="thvl">Neutral</div>
+        <input type="range" min="0" max="6" step="1" value="3" class="vsl" id="vsl" oninput="onThermal(+this.value)"/>
+        <div class="thdots" id="thdots"></div>
+      </div>
+      <div class="thh">
+        <div class="thh-row">
+          <span class="thh-l">Glacial</span>
+          <span class="th-val" id="thhl">Neutral</span>
+          <span class="thh-l">Scorching</span>
+        </div>
+        <div class="thh-t" style="background:linear-gradient(90deg,#5ab0e0,#60c8c0,#70d0a0,#a0d070,#e8c050,#e08030,#d84020)">
+          <input type="range" min="0" max="6" step="1" value="3" class="thh-i" id="hsl" oninput="onThermal(+this.value)"/>
+        </div>
+      </div>
+    </div>
+
+    <div class="gc col-bm">
+      <span class="lbl">Somatic Map — tap zones</span>
+      <div class="bmi">
+        <div class="bsvgw">
+          <svg viewBox="0 0 160 215" width="100%" id="bsvg">
+            <g id="hg">
+              <circle id="z-cranial" class="zs" cx="80" cy="26" r="19" data-zone="cranial" fill="rgba(168,216,112,.15)" stroke="rgba(168,216,112,.48)" stroke-width="1.2"/>
+              <rect id="z-cervical" class="zs" x="72" y="47" width="16" height="12" rx="6" data-zone="cervical" fill="rgba(168,216,112,.12)" stroke="rgba(168,216,112,.40)" stroke-width="1"/>
+            </g>
+            <rect id="z-thoracic" class="zs" x="48" y="61" width="64" height="38" rx="8" data-zone="thoracic" fill="rgba(168,216,112,.12)" stroke="rgba(168,216,112,.40)" stroke-width="1"/>
+            <rect id="z-lArm" class="zs" x="23" y="61" width="22" height="55" rx="9" data-zone="lArm" fill="rgba(168,216,112,.12)" stroke="rgba(168,216,112,.40)" stroke-width="1"/>
+            <rect id="z-rArm" class="zs" x="115" y="61" width="22" height="55" rx="9" data-zone="rArm" fill="rgba(168,216,112,.12)" stroke="rgba(168,216,112,.40)" stroke-width="1"/>
+            <rect id="z-lumbar" class="zs" x="51" y="101" width="58" height="30" rx="7" data-zone="lumbar" fill="rgba(168,216,112,.12)" stroke="rgba(168,216,112,.40)" stroke-width="1"/>
+            <rect id="z-lLeg" class="zs" x="48" y="133" width="27" height="62" rx="9" data-zone="lLeg" fill="rgba(168,216,112,.12)" stroke="rgba(168,216,112,.40)" stroke-width="1"/>
+            <rect id="z-rLeg" class="zs" x="85" y="133" width="27" height="62" rx="9" data-zone="rLeg" fill="rgba(168,216,112,.12)" stroke="rgba(168,216,112,.40)" stroke-width="1"/>
+            <rect id="z-lDistal" class="zs" x="46" y="197" width="31" height="14" rx="7" data-zone="lDistal" fill="rgba(168,216,112,.12)" stroke="rgba(168,216,112,.40)" stroke-width="1"/>
+            <rect id="z-rDistal" class="zs" x="83" y="197" width="31" height="14" rx="7" data-zone="rDistal" fill="rgba(168,216,112,.12)" stroke="rgba(168,216,112,.40)" stroke-width="1"/>
+          </svg>
+        </div>
+        <div class="zleg" id="zleg"></div>
+      </div>
+      <div class="radw">
+        <span class="lbl" style="margin-bottom:.55rem">Somatic Resonance Field</span>
+        <svg viewBox="0 0 160 160" style="width:100%;max-width:190px;margin:0 auto;display:block" id="rsvg"></svg>
+        <div class="rnote" id="rnote">activate zones to map resonance field</div>
+      </div>
+    </div>
+
+    <div class="col-rt" style="display:flex;flex-direction:column;gap:1.1rem">
+      <div class="gc">
+        <span class="lbl">Tactile Matrix</span>
+        <div class="txg" id="txg"></div>
+      </div>
+      <div class="gc">
+        <span class="lbl">Soundscape</span>
+        <div class="sndl" id="sndl"></div>
+        <div class="mp-wrap">
+          <div class="mp-row1">
+            <div class="mp-dot" id="mp-dot"></div>
+            <div class="mp-name" id="mp-name">Nature Sounds</div>
+          </div>
+          <div class="mp-row2">
+            <button class="mpb" onclick="audio.prev()" title="Prev">‹</button>
+            <button class="mpb" id="mp-play" onclick="togglePlay()">▶</button>
+            <button class="mpb" onclick="audio.next()" title="Next">›</button>
+            <div class="vol-wrap">
+              <i class="vol-icon" id="vol-icon" onclick="toggleMute()" title="Mute">♪</i>
+              <input type="range" class="vol-sl" id="vol-sl" min="0" max="100" value="50" oninput="setVolume(+this.value)" style="--vp:50%"/>
+            </div>
+          </div>
+          <div class="mp-hint">space · ← →</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PROFILE CARD -->
+  <div class="pcard" id="pcard">
+    <div class="pcard-meta">
+      <div class="reading-ts" id="reading-ts">—</div>
+      <div style="display:flex;gap:.5rem;align-items:center;flex-wrap:wrap">
+        <button class="share-btn" id="share-btn" onclick="shareReading()">Share</button>
+        <button class="save-btn" id="save-btn" onclick="saveReading()">Save Reading</button>
+        <button class="decode-btn" id="decode-btn" onclick="sendToDecode()">Decode Dream</button>
+      </div>
+    </div>
+    <div class="ptop">
+      <div>
+        <span class="pcode" id="pc">—</span>
+        <div class="pname" id="pn">—</div>
+        <div class="pcls" id="pcl">—</div>
+      </div>
+      <div class="pbadge">
+        <div class="pbsig" id="pbs">—</div>
+        <div class="pbmet" id="pbm">—</div>
+      </div>
+    </div>
+    <div class="hdiv"></div>
+    <p class="pdx" id="pdx">—</p>
+    <div class="sbd" id="sbd">
+      <div class="sbd-title">Signal Analysis — Input Breakdown</div>
+      <div class="sbd-grid" id="sbdg"></div>
+    </div>
+    <span class="rxlbl">Practical Recovery Protocol</span>
+    <div class="rxl" id="rxl"></div>
+    <div class="disc">
+      <span style="color:var(--a2);font-size:.78rem;flex-shrink:0;margin-top:1px">◈</span>
+      <p class="disct">These observations are for reflective and educational purposes only — not a medical diagnosis. <span class="dischl">Before trying any supplement, breathing exercise, or physical practice — consult a qualified physician first.</span></p>
+    </div>
+    <div class="related-sec" id="related-sec"></div>
+  </div>
+
+  <div class="idle" id="idlec">
+    <span class="idle-l">System Idle · Awaiting Somatic Input</span>
+    <div class="idle-g">◈</div>
+    <p class="idle-t">Set the thermal index.<br>Select the textures the dream left in the body.<br>Mark the zones that are still holding something.</p>
+  </div>
+
+  <section style="margin-top:2.5rem" aria-label="About the Sensory Dream Mapper">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:.9rem">
+      <div style="background:rgba(10,18,6,.42);border:1px solid rgba(168,216,112,.07);border-radius:14px;padding:1.1rem">
+        <p style="font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.22em;color:#78a058;text-transform:uppercase;margin-bottom:.55rem">What This Tool Does</p>
+        <p style="font-size:.78rem;color:#8aa870;line-height:1.9">Translates the physical sensations from your dreams into neurobiological insight. Not symbols — physiological state. Thermal index, tactile encoding, somatic zone pressure, and soundscape combine to produce one of nine evidence-informed somatic profiles.</p>
+      </div>
+      <div style="background:rgba(10,18,6,.42);border:1px solid rgba(168,216,112,.07);border-radius:14px;padding:1.1rem">
+        <p style="font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.22em;color:#78a058;text-transform:uppercase;margin-bottom:.55rem">When to Use It</p>
+        <p style="font-size:.78rem;color:#8aa870;line-height:1.9">Best used within 10 minutes of waking — before coffee, before your phone. Somatic memory dissipates faster than visual memory. Use when you wake with a physical residue you cannot explain: chest pressure, unexpected cold, heat, or bodily weight.</p>
+      </div>
+      <div style="background:rgba(10,18,6,.42);border:1px solid rgba(168,216,112,.07);border-radius:14px;padding:1.1rem">
+        <p style="font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.22em;color:#78a058;text-transform:uppercase;margin-bottom:.55rem">The 9 Profiles</p>
+        <p style="font-size:.78rem;color:#8aa870;line-height:1.9">Somatic Purgation · Static Hypoxia · Neuro-Somatic Tension · Visceral Containment · Cortical Discharge · Limbic Suppression · Peripheral Dissolution · Autonomic Surge · The Residue. Each represents a distinct nervous system state — functional, not symbolic.</p>
+      </div>
+    </div>
+    <p style="font-size:.65rem;color:#587848;text-align:center;margin-top:1.1rem;font-family:'DM Mono',monospace;letter-spacing:.06em;line-height:2;opacity:.85">
+      somatic dream interpretation · physical dream sensations meaning · dream body map · neurobiological dream analysis · dream temperature meaning · chest pressure in dreams · somatic mapping tool · why dreams feel physical
+    </p>
+  </section>
+</div>
+
+<div class="mo" id="mo-detail" onclick="closeBg(event,'mo-detail')"><div class="mbox">
+  <button class="mcls" onclick="closeMo('mo-detail')">Close</button>
+  <div id="detail-body"></div>
+</div></div>
+
+<span aria-hidden="true" style="position:absolute;width:1px;height:1px;overflow:hidden;opacity:0;pointer-events:none;user-select:none" data-copyright="© 2024–2025 Oneirox.com" data-tool="Sensory Dream Mapper" data-id="ONX-SDM-v2.6" data-url="https://oneirox.com/sensory-dream-mapper/">Oneirox Sensory Dream Mapper © 2024–2025 Oneirox.com — All Rights Reserved.</span>
+
+<script>
+const TH=[{label:"Glacial",c:"#5ab0e0"},{label:"Frozen",c:"#60c8c0"},{label:"Cold",c:"#70d0a0"},{label:"Neutral",c:"#a0d070"},{label:"Warm",c:"#e8c050"},{label:"Hot",c:"#e08030"},{label:"Scorching",c:"#d84020"}];
+const TX=[{id:"viscous",label:"Viscous",g:"⬟",sub:"thick · adhesive"},{id:"sharp",label:"Sharp",g:"◈",sub:"cutting · precise"},{id:"void",label:"Void",g:"◯",sub:"absent · hollow"},{id:"gritty",label:"Gritty",g:"▦",sub:"abrasive · dense"},{id:"fluid",label:"Fluid",g:"≋",sub:"flowing · free"},{id:"numb",label:"Numb",g:"⊘",sub:"electric · distant"}];
+const ZS=[{id:"cranial",l:"Cranial / Prefrontal"},{id:"cervical",l:"Cervical Spine"},{id:"thoracic",l:"Thoracic / Chest"},{id:"lArm",l:"Left Brachial"},{id:"rArm",l:"Right Brachial"},{id:"lumbar",l:"Lumbar / Abdomen"},{id:"lLeg",l:"Left Femoral"},{id:"rLeg",l:"Right Femoral"},{id:"lDistal",l:"Left Distal"},{id:"rDistal",l:"Right Distal"}];
+const SND=[{id:"silent",label:"Silent",g:"—"},{id:"hum",label:"Hum",g:"≋"},{id:"voices",label:"Voices",g:"◈◈"},{id:"chaotic",label:"Chaotic",g:"※"}];
+const RL=["Cranial","Cervical","Thoracic","Brachial","Lumbar","Distal"];
+const RI=[["cranial"],["cervical"],["thoracic"],["lArm","rArm"],["lumbar"],["lDistal","rDistal","lLeg","rLeg"]];
+const TH_DX=["Extreme thermal suppression. Peripheral vasoconstriction, reduced cerebral blood flow. The nervous system retreated inward — maximum self-protection protocol active during sleep.","Below-baseline thermal state. Parasympathetic withdrawal pattern. The body chose stillness and containment over activation.","Mild thermal suppression. Slightly reduced arousal state. The body was present but not fully engaged with its environment.","Regulated thermal baseline. The body maintained homeostatic balance. Neither suppressed nor activated — a clean, undisturbed processing state.","Elevated thermal index. Rising sympathetic activation. The body was processing something with building energy — emotional or somatic tension accumulating.","High thermal activation. Significant sympathetic nervous system engagement. Cortisol likely elevated. The body was running its stress-management protocols during sleep.","Maximum thermal index. Full sympatho-adrenal engagement. This is the signature of a body in crisis-simulation mode — running its most demanding physiological protocols."];
+const TX_DX={viscous:"Enteric nervous system under load. Unresolved movement patterns stored in the smooth muscle of the gut and thorax. Processing that couldn't complete during waking hours — the body still holding it.",sharp:"Prefrontal hyperactivation. Unresolved cognitive load translated into somatic precision. The nervous system trying to cut through something it couldn't resolve in daylight.",void:"Active limbic downregulation. The brain protecting itself from something not yet ready to be processed. The emptiness was intentional — not absence. A chosen silence.",gritty:"Surface-level threat processing active. The social and environmental alarm systems were running. Something in the external world didn't feel safe — the body recorded it.",fluid:"Distal proprioceptive loosening. The peripheral nervous system releasing its grip on body-boundary definition. Associated with dehydration or extended physical inactivity.",numb:"Systemic sensory attenuation. The body deliberately reducing its own signal volume — a form of neural volume control during high-load processing. Shutdown before overload."};
+const SND_DX={silent:"Auditory cortex suppressed or fully disengaged. Deep internal processing with minimal environmental signal. The mind turned entirely inward — one of the strongest self-processing states.",hum:"Continuous low-frequency ambient signal registered. Low-level vigilance maintained throughout sleep — aware but not threatened. A held attention. The body watching something.",voices:"Social-threat processing system active. The brain was working through interpersonal dynamics, perceived judgment, or relational tension. The audience arrived in the night.",chaotic:"Auditory overwhelm signature. The brainstem's threat-detection systems fired across multiple channels simultaneously. Sensory fragmentation — the dream's architecture was unstable."};
+const ZN_DX={cranial:"Prefrontal cognitive load or cranial pressure — the brain's executive processing centre was heavily active during this sleep cycle.",cervical:"C-spine tension detected — unresolved cognitive load held in the musculature of the neck. The body was still thinking.",thoracic:"Thoracic zone active — cardiac or respiratory processing, thoracic muscular holding, or emotional compression stored in the chest.",lArm:"Left brachial activation — reaching, restraint, or action-preparation patterns. The left arm holds holding patterns.",rArm:"Right brachial activation — output, action, or social gesture processing. The right arm holds execution patterns.",lumbar:"Lumbar and enteric activation — lower back load, gut processing, pelvic floor tension. The abdomen stores what is unspoken.",lLeg:"Left femoral activation — movement, flight, or standing-ground patterns. The legs carry the decision to stay or go.",rLeg:"Right femoral activation — same movement processing with lateral asymmetry. A directional quality to the somatic holding.",lDistal:"Left distal activation — peripheral dissolution, boundary softening. The extremities register what the core cannot yet acknowledge.",rDistal:"Right distal activation — peripheral signal at the edge of the body's map. Often the last zone to register and the first to disappear on waking."};
+const SND_ADD={silent:" The silent soundscape deepens this reading — the auditory cortex was turned fully inward, amplifying the somatic signal and removing the social layer from processing.",hum:" The hum soundscape adds a vigilance layer — the body maintained low-level environmental awareness throughout, suggesting incomplete nervous system shutdown into true rest.",voices:" The voices soundscape adds a relational dimension — social processing was active during this somatic event, suggesting interpersonal stress may be contributing to this pattern.",chaotic:" The chaotic soundscape intensifies this profile significantly — the nervous system was managing sensory fragmentation alongside the primary somatic pattern, compounding the load."};
+const RV=[{dx:"The system has registered a signal that does not map to any established somatic classification. This is not an absence of data — it is data that is too specific. Some physiological states are individual enough to resist taxonomy. The pattern library simply has not encountered it yet. That is a gap in the catalogue. Not in the body.",rx:["Record somatic details in writing within 10 minutes — specificity decays rapidly","Return to this mapping in 3–5 days: individual patterns become classifiable through repetition","Observation is the correct first response to an unknown signal"]},{dx:"Something was processed tonight that the system cannot categorise. This is not failure — it is the edge of the map. The nervous system ran a protocol that hasn't been formally described. That doesn't make it less real. It makes it more specific than the available language. You are operating in undocumented territory.",rx:["Stay with the sensation rather than translating it immediately into narrative","Sketch or draw the physical geometry of the feeling if words feel inadequate","Consider whether this signal has appeared before under similar life conditions"]},{dx:"Your body produced a somatic signature with no matching entry in this library. High-specificity signals of this type are often the most diagnostically meaningful — they appear at thresholds, at turning points, in the moments before something changes. The system doesn't have a name for this. You might.",rx:["Speak the sensation aloud — not to explain it, but to hear what word the body chooses","5-minute body scan: head to feet, noting without interpreting","If this recurs, bring it to a somatic practitioner — it is significant"]},{dx:"Unclassified does not mean unknown to the body. The nervous system knew exactly what it was doing. The classification system — built from population-level patterns — simply hasn't encountered this particular configuration. You are, in this moment, outside the standard distribution. That is not a problem. That is data.",rx:["Hydrate slowly on waking — unclassified high-specificity states often involve unusual nervous system load","Light movement for 5 minutes before any cognitive task — let the body continue its processing","Journal the physical geography of the dream in precise anatomical language, not metaphor"]},{dx:"The signal is present. The pattern is real. The taxonomy hasn't caught up. Some somatic states are generated by conditions so particular to a person's specific neurobiological history that no general classification fits. This tool maps common patterns. What happened tonight was uncommon. Uncommon is not the same as concerning.",rx:["Avoid rushing to interpret — some signals need 24–48 hours to become legible","4-count box breathing: 4 in, hold 4, out 4, hold 4 — parasympathetic reset","What was physiologically unusual in the prior 72 hours? Sleep timing, food, stress, exercise — one of those is the origin"]},{dx:"This reading sits outside the nine established profiles. Not beyond them — beside them. A tenth pattern, not yet formally described. The body is ahead of the library. The sensation was precise. The nervous system knew its coordinates. The gap is ours, not yours.",rx:["Do not force categorisation today — let the signal sit without a label for 24 hours","Note the specific body zones activated and revisit the Somatic Map in 2–3 days","If this pattern appears in three or more consecutive sessions, it represents an emerging personal signature worth tracking"]},{dx:"High signal. No match. The somatic architecture of this dream was specific enough to escape the pattern library entirely. This happens when the nervous system is processing at a level of nuance that statistical classification doesn't capture. The signal is not noise. It is resolution so fine it requires a different kind of attention.",rx:["Slow expressive movement — stretching, walking, anything that lets the body continue telling its story","Write three sentences: what the sensation felt like, where it lived, what it reminded you of — not what it meant","This is worth mentioning to anyone you work with therapeutically. It is a significant somatic event"]},{dx:"The Residue is not an error state. It is the system's honest response to a signal that doesn't fit a box. Some nights the nervous system runs operations that are entirely personal — built from your specific history, your specific chemistry, your specific unfinished work. The library knows nine patterns. Tonight you generated something else.",rx:["Rest without agenda this morning — the unclassified pattern needs space, not analysis","A gradual cold-to-warm shower can help metabolise residual somatic activation without forcing interpretation","If you are working with a therapist, bring the body-level data: zones activated, thermal state, textures — that language is more useful than the narrative"]}];
+let rvi=0;
+const PROFILES=[
+  {id:"purgation",name:"Somatic Purgation",code:"SP-07",match:(t,tx,z)=>t>=5&&z.includes("thoracic")&&(tx.includes("gritty")||tx.includes("sharp")),cls:"Thermal-Muscular Release Event",color:"#e07840",dx:"Elevated thermal index combined with thoracic zone activation and high-friction tactile encoding indicates a sympathetic discharge event. The musculature initiated a heat-based cathartic protocol — typically linked to unprocessed cortisol accumulation in the 18–48hr pre-sleep window. Not symbolic. Biochemical.",rx:["4-7-8 diaphragmatic breathing · 3 cycles immediately post-waking","Progressive muscle release: shoulders → jaw → pelvic floor · 5 minutes","Cold forearm immersion · 60 seconds — thermal reset without full-body shock"]},
+  {id:"hypoxia",name:"Static Hypoxia",code:"SH-02",match:(t,tx,z)=>t<=1&&(tx.includes("void")||tx.includes("fluid"))&&z.length>=2,cls:"Vascular-Respiratory Suppression",color:"#50b8d8",dx:"Sub-baseline thermal state with peripheral zone activation and fluid or void tactile encoding suggests restricted cerebral perfusion during REM. The void-fluid signature maps to reduced proprioceptive feedback — consistent with hypnic suppression of the reticular activating system. The body was not fully present inside itself.",rx:["Wim Hof retention breathing · 2 controlled rounds on waking — no hyperventilation","Bilateral EFT tapping at the collarbone and sternum · 90 seconds","Avoid screens for 20 minutes post-waking — light disruption compounds this pattern"]},
+  {id:"tension",name:"Neuro-Somatic Tension",code:"NST-04",match:(t,tx,z)=>tx.includes("sharp")&&(z.includes("cranial")||z.includes("cervical")),cls:"Cervical-Prefrontal Hypertonicity",color:"#b8d860",dx:"Sharp tactile encoding at cranial or cervical zones indicates sustained trapezius and sternocleidomastoid tension persisting into sleep architecture. The sharp signature is the nervous system's somatic translation of unresolved cognitive load. The C-spine held the day's unfinished processing and the dream encoded the pressure as sensation.",rx:["Cervical lateral flexion hold · 45 seconds each side — do not force range","Suboccipital release: thumbs at skull base, gentle upward traction · 2 minutes","Reduce blue-light exposure 90 minutes before sleep — prefrontal overactivation compounds this"]},
+  {id:"containment",name:"Visceral Containment",code:"VC-09",match:(t,tx,z)=>tx.includes("viscous")&&(z.includes("lumbar")||z.includes("thoracic")),cls:"Vagal-Enteric Restriction Pattern",color:"#60c888",dx:"Viscous tactile encoding with abdominal or thoracic pressure activation is the signature of the enteric nervous system under chronic sympathetic dominance. The gut-brain axis is registering what the prefrontal cortex refused to process during waking hours. Movement is restricted because the body is still holding the signal — not as memory. As unresolved motor programme.",rx:["Left nostril breathing (Chandra Bhedana) · 5 minutes — direct parasympathetic activation","Supine spinal twist · 2 minutes per side — releases ilioinguinal tension","500ml warm water before any stimulant — vagal tone reset via gastric stretch receptors"]},
+  {id:"discharge",name:"Cortical Discharge",code:"CD-11",match:(t,tx,z)=>z.includes("cranial")&&tx.length>=3,cls:"Prefrontal Consolidation Overload",color:"#d8e870",dx:"High tactile complexity combined with cranial zone activation indicates a cortical consolidation event operating beyond normal REM parameters. The prefrontal cortex is running deferred emotional-memory integration — the processing that didn't complete during waking hours. High signal strength here is not pathological. It is necessary. The brain is completing what the day interrupted.",rx:["7–9 hours total sleep is non-negotiable with this pattern","Journal within 10 minutes of waking — before any external input; residue dissipates in 20–30 minutes","Avoid caffeine for 90 minutes post-waking — adenosine clearance is still completing"]},
+  {id:"suppression",name:"Limbic Suppression",code:"LS-03",match:(t,tx,z)=>t<=2&&tx.includes("void")&&z.length<=1,cls:"Amygdala-Hippocampal Downregulation",color:"#6090d0",dx:"Low thermal state with void tactile encoding and minimal somatic activation suggests active limbic suppression. This is a protective architecture, not a failure state. The system prioritised structural integrity over emotional processing. Something needed to not be felt yet. The body made that decision in the night.",rx:["Do not force emotional processing immediately after this classification","10-minute walk before any cognitive engagement — no audio","NSDR (yoga nidra) · 20 minutes in the afternoon — deferred integration window"]},
+  {id:"dissolution",name:"Peripheral Dissolution",code:"PD-06",match:(t,tx,z)=>tx.includes("fluid")&&(z.includes("lLeg")||z.includes("rLeg")||z.includes("lDistal")||z.includes("rDistal")),cls:"Distal Proprioceptive Collapse",color:"#50c8b0",dx:"Fluid tactile encoding with distal limb zone activation indicates a breakdown in peripheral body schema during sleep. The somatosensory cortex lost reliable positional data for the extremities — typically linked to dehydration or extended sedentary periods in the preceding 24 hours. The body became approximate. Outline without interior.",rx:["Hydration throughout the day supports distal nerve signalling — speak with a physician about your specific needs","Barefoot walking on uneven surface · 5 minutes post-waking — proprioceptive reset","500ml water on waking — distal somatic signal can normalise within 20 minutes of rehydration"]},
+  {id:"surge",name:"Autonomic Surge",code:"AS-12",match:(t,tx,z)=>t>=4&&z.length>=4,cls:"Sympatho-Adrenal Activation Event",color:"#e05838",dx:"High thermal state with multi-zone somatic activation is the clearest marker of a nocturnal sympatho-adrenal surge. Cortisol and norepinephrine both elevated. The body was running a threat-response simulation. The nervous system does not distinguish between rehearsal and reality — this pattern felt real because neurochemically it was. Full sympathetic activation. No actual threat required.",rx:["Box breathing immediately: 4-4-4-4 pattern · 4 cycles — fastest accessible vagal reset","Cold face immersion · 30 seconds — mammalian dive reflex produces rapid sympathetic shutdown","Audit the prior 72 hours: this pattern rarely appears without a specific unresolved stressor"]},
+  {id:"residue",name:"The Residue",code:"RSD-∞",match:()=>true,cls:"Unclassified High-Specificity Signal",color:"#98b880",get dx(){return RV[rvi].dx+(S.snd&&SND_ADD[S.snd]||"")},get rx(){return RV[rvi].rx}},
+];
+function getProf(){for(const p of PROFILES)if(p.id!=="residue"&&p.match(S.th,[...S.tx],[...S.zn]))return p;return PROFILES[PROFILES.length-1]}
+function sigT(){return Math.min(95,8+Math.abs(S.th-3)*9+S.tx.size*10+S.zn.size*7)}
+function hasInput(){return S.tx.size>0||S.zn.size>0||S.th!==3}
+const S={th:3,tx:new Set(),zn:new Set(),snd:null,sig:14};
+let lastPid=null;
+const tdw=document.getElementById('thdots');
+TH.forEach((_,i)=>{const d=document.createElement('div');d.className='tdot';d.id=`td${i}`;tdw.appendChild(d)});
+const txgEl=document.getElementById('txg');
+TX.forEach(t=>{const b=document.createElement('button');b.className='txb';b.id=`tx-${t.id}`;b.innerHTML=`<span class="txg2">${t.g}</span><span class="txn">${t.label}</span><span class="txs">${t.sub}</span>`;b.onclick=()=>{S.tx.has(t.id)?S.tx.delete(t.id):S.tx.add(t.id);update()};txgEl.appendChild(b)});
+const sndEl=document.getElementById('sndl');
+SND.forEach(s=>{const b=document.createElement('button');b.className='sndb';b.id=`snd-${s.id}`;b.innerHTML=`<span class="sndg">${s.g}</span>${s.label}`;b.onclick=()=>{S.snd=S.snd===s.id?null:s.id;update()};sndEl.appendChild(b)});
+const zlegEl=document.getElementById('zleg');
+ZS.forEach(z=>{const r=document.createElement('div');r.className='zrow';r.id=`zrow-${z.id}`;r.innerHTML=`<div class="zdot" id="zdot-${z.id}"></div><span class="znm" id="znm-${z.id}">${z.l}</span>`;r.onclick=()=>{S.zn.has(z.id)?S.zn.delete(z.id):S.zn.add(z.id);update()};zlegEl.appendChild(r)});
+document.querySelectorAll('.zs').forEach(el=>{el.addEventListener('click',()=>{const id=el.dataset.zone;S.zn.has(id)?S.zn.delete(id):S.zn.add(id);update()})});
+const mpg=document.getElementById('mpgrid');
+PROFILES.forEach(p=>{const c=document.createElement('div');c.className='pc2';c.style.borderLeft=`2px solid ${p.color}40`;const desc=p.id==='residue'?'8 rotating variants. Activates when your somatic signature is too specific to match any established pattern.':p.dx.substring(0,108)+'…';c.innerHTML=`<div class="pc2-code">${p.code}</div><div class="pc2-name" style="color:${p.color}">${p.name}</div><div class="pc2-cls">${p.cls}</div><div class="pc2-desc">${desc}</div>`;mpg.appendChild(c)});
+const NS="http://www.w3.org/2000/svg";
+const rsvgEl=document.getElementById('rsvg');
+function buildRadar(){
+  rsvgEl.innerHTML='';const N=6,cx=80,cy=80,R=55;
+  const df=document.createElementNS(NS,'defs');
+  const rg=document.createElementNS(NS,'radialGradient');rg.id='rg';rg.setAttribute('cx','50%');rg.setAttribute('cy','50%');
+  const s0=document.createElementNS(NS,'stop');s0.id='rgs0';s0.setAttribute('offset','0%');
+  const s1=document.createElementNS(NS,'stop');s1.id='rgs1';s1.setAttribute('offset','100%');
+  rg.append(s0,s1);df.append(rg);
+  const f=document.createElementNS(NS,'filter');f.id='rgf';f.setAttribute('x','-60%');f.setAttribute('y','-60%');f.setAttribute('width','220%');f.setAttribute('height','220%');
+  const fb=document.createElementNS(NS,'feGaussianBlur');fb.setAttribute('stdDeviation','2.5');fb.setAttribute('result','b');
+  const fm=document.createElementNS(NS,'feMerge');const fm0=document.createElementNS(NS,'feMergeNode');fm0.setAttribute('in','b');const fm1=document.createElementNS(NS,'feMergeNode');fm1.setAttribute('in','SourceGraphic');fm.append(fm0,fm1);f.append(fb,fm);df.append(f);rsvgEl.append(df);
+  [.25,.5,.75,1].forEach((r,i)=>{const pts=Array.from({length:N},(_,j)=>{const a=(2*Math.PI*j)/N-Math.PI/2;return`${cx+r*R*Math.cos(a)},${cy+r*R*Math.sin(a)}`}).join(' ');const poly=document.createElementNS(NS,'polygon');poly.setAttribute('points',pts);poly.setAttribute('fill','none');poly.setAttribute('stroke',`rgba(168,216,112,${.04+i*.025})`);poly.setAttribute('stroke-width','.6');rsvgEl.append(poly)});
+  for(let i=0;i<N;i++){const a=(2*Math.PI*i)/N-Math.PI/2;const l=document.createElementNS(NS,'line');l.setAttribute('x1',cx);l.setAttribute('y1',cy);l.setAttribute('x2',cx+R*Math.cos(a));l.setAttribute('y2',cy+R*Math.sin(a));l.setAttribute('stroke','rgba(168,216,112,.1)');l.setAttribute('stroke-width','.6');rsvgEl.append(l)}
+  const ar=document.createElementNS(NS,'polygon');ar.id='ra';ar.setAttribute('fill','url(#rg)');ar.setAttribute('stroke-width','1.2');ar.setAttribute('stroke-opacity','.75');ar.setAttribute('filter','url(#rgf)');ar.style.transition='all .4s ease';ar.style.display='none';rsvgEl.append(ar);
+  for(let i=0;i<N;i++){const d=document.createElementNS(NS,'circle');d.id=`rd${i}`;d.setAttribute('r','2.8');d.setAttribute('opacity','0');d.style.transition='all .3s';rsvgEl.append(d)}
+  for(let i=0;i<N;i++){const a=(2*Math.PI*i)/N-Math.PI/2;const lx=cx+(R+14)*Math.cos(a),ly=cy+(R+14)*Math.sin(a);const t=document.createElementNS(NS,'text');t.id=`rt${i}`;t.setAttribute('x',lx);t.setAttribute('y',ly);t.setAttribute('text-anchor','middle');t.setAttribute('dominant-baseline','middle');t.setAttribute('font-size','7.5');t.setAttribute('font-family','DM Mono,monospace');t.setAttribute('letter-spacing','0.05em');t.textContent=RL[i].slice(0,3).toUpperCase();t.style.transition='fill .3s';rsvgEl.append(t)}
+  const nd=document.createElementNS(NS,'text');nd.id='rnd';nd.setAttribute('x',cx);nd.setAttribute('y',cy);nd.setAttribute('text-anchor','middle');nd.setAttribute('dominant-baseline','middle');nd.setAttribute('font-size','8');nd.setAttribute('font-family','DM Mono,monospace');nd.setAttribute('fill','rgba(168,216,112,.18)');nd.setAttribute('letter-spacing','0.06em');nd.textContent='NO DATA';rsvgEl.append(nd);
+}
+buildRadar();
+function rPt(i,v,N=6,cx=80,cy=80,R=55){const a=(2*Math.PI*i)/N-Math.PI/2;return[cx+v*R*Math.cos(a),cy+v*R*Math.sin(a)]}
+function updateLamp(c,s){
+  const p=s/99,g=3+p*24;
+  document.getElementById('lsvg').style.filter=`drop-shadow(0 0 ${g}px ${c})`;
+  const orb=document.getElementById('lorb');orb.setAttribute('rx',10+p*8);orb.setAttribute('ry',10+p*8);orb.setAttribute('fill',c);orb.setAttribute('opacity',p*.18);
+  document.getElementById('lg0').setAttribute('stop-opacity',.18+p*.65);
+  document.getElementById('lg1').setAttribute('stop-color',c);document.getElementById('lg1').setAttribute('stop-opacity',.1+p*.45);
+  document.getElementById('lg2').setAttribute('stop-color',c);
+  document.getElementById('lbl').setAttribute('stdDeviation',2+p*3.5);
+  const f=document.getElementById('lfil');f.setAttribute('stroke',p>.3?'#fffde0':c);f.setAttribute('stroke-opacity',.25+p*.7);f.setAttribute('stroke-width',p>.5?1.4:.9);
+}
+const tsSt=document.createElement('style');document.head.appendChild(tsSt);
+function updateThumb(c){tsSt.textContent=`.vsl::-webkit-slider-thumb{background:${c};box-shadow:0 0 9px ${c}90}.thh-i::-webkit-slider-thumb{background:${c};box-shadow:0 0 9px ${c}90}`}
+function buildBreakdown(profile){
+  const rows=[];
+  rows.push({k:`Thermal · ${TH[S.th].label}`,v:TH_DX[S.th],c:TH[S.th].c});
+  [...S.tx].forEach(id=>{if(TX_DX[id])rows.push({k:`Texture · ${id.charAt(0).toUpperCase()+id.slice(1)}`,v:TX_DX[id],c:'#a8d870'})});
+  if(S.snd&&SND_DX[S.snd])rows.push({k:`Sound · ${S.snd.charAt(0).toUpperCase()+S.snd.slice(1)}`,v:SND_DX[S.snd],c:'#70c0b0'});
+  if(S.zn.size>0){[...S.zn].forEach(id=>{if(ZN_DX[id])rows.push({k:`Zone · ${ZS.find(z=>z.id===id)?.l||id}`,v:ZN_DX[id],c:'#98b880'})})}
+  const g=document.getElementById('sbdg');g.innerHTML='';
+  rows.forEach(r=>{const row=document.createElement('div');row.className='sbd-row';row.innerHTML=`<div class="sbd-key" style="color:${r.c}">${r.k}</div><div class="sbd-val">${r.v}</div>`;g.appendChild(row)});
+}
+function update(){
+  const prof=getProf();const pc=prof.color,tc=TH[S.th].c;
+  if(prof.id==='residue'&&lastPid!=='residue')rvi=(rvi+1)%RV.length;
+  lastPid=prof.id;
+  ['vsl','hsl'].forEach(id=>document.getElementById(id).value=S.th);
+  ['thvl','thhl'].forEach(id=>{const e=document.getElementById(id);e.textContent=TH[S.th].label;e.style.color=tc});
+  updateThumb(tc);
+  TH.forEach((_,i)=>{const d=document.getElementById(`td${i}`);if(i<=S.th){d.style.background=TH[i].c;d.style.boxShadow=`0 0 6px ${TH[i].c}80`}else{d.style.background='rgba(168,216,112,.10)';d.style.boxShadow='none'}});
+  TX.forEach(t=>document.getElementById(`tx-${t.id}`).classList.toggle('on',S.tx.has(t.id)));
+  SND.forEach(s=>document.getElementById(`snd-${s.id}`).classList.toggle('on',S.snd===s.id));
+  ZS.forEach(z=>{
+    const on=S.zn.has(z.id),el=document.getElementById(`z-${z.id}`);
+    if(el){el.style.fill=on?`${pc}38`:'rgba(168,216,112,.13)';el.style.stroke=on?pc:'rgba(168,216,112,.45)';el.style.strokeWidth=on?'1.8':'1.2';el.style.filter=on?`drop-shadow(0 0 6px ${pc}90)`:'none'}
+    const dot=document.getElementById(`zdot-${z.id}`);dot.style.background=on?pc:'rgba(168,216,112,.18)';dot.style.boxShadow=on?`0 0 5px ${pc}`:'none';
+    const nm=document.getElementById(`znm-${z.id}`);nm.classList.toggle('on',on);nm.style.color=on?'var(--t1)':'var(--t4)';
+  });
+  document.getElementById('signum').textContent=S.sig;document.getElementById('signum').style.color=pc;
+  document.getElementById('sigbar').style.width=S.sig+'%';document.getElementById('sigbar').style.background=`linear-gradient(90deg,var(--a4),${pc})`;
+  document.getElementById('sigst').textContent=S.sig<25?'LOW · suppressed':S.sig<55?'MODERATE · processing':S.sig<80?'HIGH · active':'CRITICAL · surge';
+  document.getElementById('sigpn').textContent=hasInput()?prof.name:'Awaiting data';
+  document.getElementById('sigmt').textContent=`${TH[S.th].label} · ${S.tx.size} texture${S.tx.size!==1?'s':''} · ${S.zn.size} zone${S.zn.size!==1?'s':''}`;
+  updateLamp(pc,S.sig);
+  const N=6,cx=80,cy=80,R=55;
+  const vals=RI.map(ids=>{const h=ids.filter(id=>[...S.zn].includes(id)).length;return Math.min(1,h/ids.length+(ids.some(id=>[...S.zn].includes(id))?.3:0))});
+  const pts=vals.map((v,i)=>{const[x,y]=rPt(i,v);return`${x},${y}`}).join(' ');
+  const ar=document.getElementById('ra'),nd=document.getElementById('rnd');
+  if(S.zn.size>0){ar.setAttribute('points',pts);ar.setAttribute('stroke',pc);document.getElementById('rgs0').setAttribute('stop-color',pc);document.getElementById('rgs0').setAttribute('stop-opacity','.2');document.getElementById('rgs1').setAttribute('stop-color',pc);document.getElementById('rgs1').setAttribute('stop-opacity','.03');ar.style.display='';nd.style.display='none'}
+  else{ar.style.display='none';nd.style.display=''}
+  for(let i=0;i<N;i++){
+    const d=document.getElementById(`rd${i}`),t=document.getElementById(`rt${i}`);
+    const on=RI[i].some(id=>[...S.zn].includes(id));
+    if(vals[i]>.05){const[x,y]=rPt(i,vals[i]);d.setAttribute('cx',x);d.setAttribute('cy',y);d.setAttribute('fill',pc);d.setAttribute('opacity','.9');d.style.filter=`drop-shadow(0 0 3px ${pc})`}else{d.setAttribute('opacity','0')}
+    t.setAttribute('fill',on?pc:'rgba(168,216,112,0.28)');
+  }
+  const strongest=S.zn.size>0?RL[RI.reduce((b,ids,i)=>ids.filter(id=>[...S.zn].includes(id)).length>RI[b].filter(id=>[...S.zn].includes(id)).length?i:b,0)].toLowerCase():null;
+  document.getElementById('rnote').textContent=strongest?`${S.zn.size} zone${S.zn.size>1?'s':''} · strongest: ${strongest}`:'activate zones to map resonance field';
+  const card=document.getElementById('pcard'),idle=document.getElementById('idlec');
+  if(hasInput()){
+    card.classList.add('on');idle.style.display='none';
+    card.style.borderTop=`2px solid ${pc}70`;
+    document.getElementById('pc').textContent=`Somatic Classification · ${prof.code}`;
+    const pn=document.getElementById('pn');pn.textContent=prof.name;pn.style.color=pc;
+    document.getElementById('pcl').textContent=prof.cls;
+    const dxText=prof.dx+(S.snd&&prof.id!=='residue'&&SND_ADD[S.snd]?SND_ADD[S.snd]:'');
+    document.getElementById('pdx').textContent=dxText;
+    document.getElementById('pbs').textContent=`Signal ${S.sig} · ${TH[S.th].label}`;
+    document.getElementById('pbm').textContent=`${S.zn.size} zone${S.zn.size!==1?'s':''} · ${S.tx.size} texture${S.tx.size!==1?'s':''}`;
+    buildBreakdown(prof);
+    const rxList=document.getElementById('rxl');rxList.innerHTML='';
+    prof.rx.forEach((r,i)=>{const row=document.createElement('div');row.className='rxrow';row.innerHTML=`<span class="rxn" style="color:${pc}">0${i+1}</span><span class="rxt">${r}</span>`;rxList.appendChild(row)});
+  } else {card.classList.remove('on');idle.style.display=''}
+}
+function onThermal(v){S.th=v;document.getElementById('vsl').value=v;document.getElementById('hsl').value=v;update()}
+/* ── OPTIMIZED: skip when no input ── */
+setInterval(()=>{
+  if(!hasInput())return;
+  const t=sigT();
+  S.sig=Math.round(Math.min(99,Math.max(3,t+(Math.random()-.5)*18)));
+  const pc=getProf().color;
+  document.getElementById('signum').textContent=S.sig;
+  document.getElementById('sigbar').style.width=S.sig+'%';
+  document.getElementById('sigst').textContent=S.sig<25?'LOW · suppressed':S.sig<55?'MODERATE · processing':S.sig<80?'HIGH · active':'CRITICAL · surge';
+  if(document.getElementById('pcard').classList.contains('on')){
+    document.getElementById('pbs').textContent=`Signal ${S.sig} · ${TH[S.th].label}`;
+  }
+  updateLamp(pc,S.sig);
+},720);
+function openMo(id){document.getElementById(id).classList.add('open');document.body.style.overflow='hidden'}
+function closeMo(id){document.getElementById(id).classList.remove('open');document.body.style.overflow=''}
+function closeBg(e,id){if(e.target===document.getElementById(id))closeMo(id)}
+document.addEventListener('keydown',e=>{
+  if(e.key==='Escape'){document.querySelectorAll('.mo.open').forEach(m=>m.classList.remove('open'));document.body.style.overflow=''}
+  if(e.key===' '&&document.activeElement.tagName!=='INPUT'){e.preventDefault();togglePlay()}
+  if(e.key==='ArrowRight'&&document.activeElement.tagName!=='INPUT'){audio.next()}
+  if(e.key==='ArrowLeft'&&document.activeElement.tagName!=='INPUT'){audio.prev()}
+});
+
+/* ── AUDIO ENGINE ── */
+const TRACKS=[{name:"Soft Rain",emoji:"🌧"},{name:"Ocean Tide",emoji:"🌊"},{name:"Forest Dawn",emoji:"🌲"},{name:"Mountain River",emoji:"💧"},{name:"Night Wind",emoji:"🌬"},{name:"Tibetan Bowl",emoji:"🎵"},{name:"Theta Deep",emoji:"✦"},{name:"Earth Drone",emoji:"◎"}];
+class NatureAudio{
+  constructor(){this.ctx=null;this.master=null;this.nodes=[];this.playing=false;this.idx=0;this._timers=[];this.vol=0.5;this.muted=false}
+  init(){if(this.ctx)return;this.ctx=new(window.AudioContext||window.webkitAudioContext)();this.master=this.ctx.createGain();this.master.gain.value=this.vol;this.master.connect(this.ctx.destination)}
+  _noise(color,g){const sr=this.ctx.sampleRate,buf=this.ctx.createBuffer(1,sr*4,sr),d=buf.getChannelData(0);let lo=0,b0=0,b1=0,b2=0;for(let i=0;i<sr*4;i++){const w=Math.random()*2-1;if(color==='brown'){d[i]=(lo+.02*w)/1.02;lo=d[i];d[i]*=3.5}else if(color==='pink'){b0=.99886*b0+w*.0555179;b1=.99332*b1+w*.0750759;b2=.96900*b2+w*.1538520;d[i]=(b0+b1+b2+w*.0168980)*0.11}else{d[i]=w}}const src=this.ctx.createBufferSource(),gn=this.ctx.createGain(),flt=this.ctx.createBiquadFilter();src.buffer=buf;src.loop=true;flt.type='lowpass';flt.frequency.value=color==='brown'?1000:color==='pink'?2000:4000;gn.gain.setValueAtTime(0,this.ctx.currentTime);gn.gain.linearRampToValueAtTime(g,this.ctx.currentTime+3);src.connect(flt);flt.connect(gn);gn.connect(this.master);src.start();this.nodes.push({src,gn});return{src,gn}}
+  _osc(f,type,g){const o=this.ctx.createOscillator(),gn=this.ctx.createGain();o.type=type||'sine';o.frequency.value=f;gn.gain.setValueAtTime(0,this.ctx.currentTime);gn.gain.linearRampToValueAtTime(g,this.ctx.currentTime+3);o.connect(gn);gn.connect(this.master);o.start();this.nodes.push({src:o,gn});return{o,gn}}
+  _lfo(target,rate,depth){const l=this.ctx.createOscillator(),lg=this.ctx.createGain();l.frequency.value=rate;lg.gain.value=depth;l.connect(lg);lg.connect(target);l.start();this.nodes.push({src:l,gn:lg})}
+  _later(fn,ms){const id=setTimeout(fn,ms);this._timers.push(id)}
+  _stopTimers(){this._timers.forEach(clearTimeout);this._timers=[]}
+  stopAll(fade){this._stopTimers();this.nodes.forEach(n=>{try{if(fade){n.gn.gain.setTargetAtTime(0,this.ctx.currentTime,.5);setTimeout(()=>{try{n.src.stop()}catch(e){}},2200)}else{n.src.stop()}}catch(e){}});this.nodes=[]}
+  _rain(){this._noise('white',.07);this._drop()}
+  _drop(){if(!this.playing)return;const ctx=this.ctx;const osc=ctx.createOscillator(),env=ctx.createGain();osc.frequency.value=1800+Math.random()*3500;env.gain.setValueAtTime(0,ctx.currentTime);env.gain.linearRampToValueAtTime(.012+Math.random()*.018,ctx.currentTime+.008);env.gain.exponentialRampToValueAtTime(.0001,ctx.currentTime+.1+Math.random()*.08);osc.connect(env);env.connect(this.master);osc.start();osc.stop(ctx.currentTime+.2);this._later(()=>this._drop(),25+Math.random()*80)}
+  _ocean(){const deep=this._noise('pink',.13);this._lfo(deep.gn.gain,.055,.09);this._noise('white',.025);this._osc(60,'sine',.04);this._lfo(this.nodes[this.nodes.length-1].gn.gain,.055,.03)}
+  _forest(){this._noise('brown',.035);const wind=this._noise('pink',.025);this._lfo(wind.gn.gain,.08,.02);this._chirp()}
+  _chirp(){if(!this.playing)return;const ctx=this.ctx,t=ctx.currentTime;const n=1+Math.floor(Math.random()*3);for(let i=0;i<n;i++){const osc=ctx.createOscillator(),env=ctx.createGain();const f=2200+Math.random()*4000;const delay=i*.12;osc.frequency.setValueAtTime(f,t+delay);osc.frequency.exponentialRampToValueAtTime(f*(0.75+Math.random()*.5),t+delay+.12);env.gain.setValueAtTime(0,t+delay);env.gain.linearRampToValueAtTime(.015+Math.random()*.02,t+delay+.015);env.gain.exponentialRampToValueAtTime(.0001,t+delay+.18);osc.connect(env);env.connect(this.master);osc.start(t+delay);osc.stop(t+delay+.22)}this._later(()=>this._chirp(),600+Math.random()*3500)}
+  _river(){[200,500,1100,2200].forEach((f,i)=>{const n=this._noise('white',.032);const bpf=this.ctx.createBiquadFilter();bpf.type='bandpass';bpf.frequency.value=f;bpf.Q.value=1.2;n.src.disconnect();n.src.connect(bpf);bpf.connect(n.gn);this._lfo(bpf.frequency,.07+i*.04,f*.08)});const low=this._osc(80,'sine',.035);this._lfo(low.gn.gain,.09,.02)}
+  _wind(){const w=this._noise('pink',.08);this._lfo(w.gn.gain,.04,.06);const howl=this._osc(180,'sine',.025);this._lfo(howl.o.frequency,.06,35);this._lfo(howl.gn.gain,.04,.02)}
+  _bowl(){[432,864,1296,1728].forEach((f,i)=>{const o=this._osc(f,'sine',.055/(i+1));this._lfo(o.gn.gain,.12+i*.03,.015)});this._noise('brown',.02);this._bowl_strike()}
+  _bowl_strike(){if(!this.playing)return;const ctx=this.ctx,t=ctx.currentTime;const osc=ctx.createOscillator(),env=ctx.createGain();osc.frequency.value=432;env.gain.setValueAtTime(.08,t);env.gain.exponentialRampToValueAtTime(.0001,t+8);osc.connect(env);env.connect(this.master);osc.start(t);osc.stop(t+9);this._later(()=>this._bowl_strike(),9000+Math.random()*4000)}
+  _theta(){const base=this._noise('pink',.055);this._lfo(base.gn.gain,.13,.03);[220,330,440,528].forEach((f,i)=>{const o=this._osc(f,'sine',.045/(i+1));this._lfo(o.gn.gain,6+i,.025)})}
+  _earth(){this._osc(40,'sine',.12);this._osc(55,'sine',.08);this._osc(80,'sine',.055);const n=this._noise('brown',.06);this._lfo(n.gn.gain,.04,.04)}
+  _start(idx){const k=TRACKS[idx%TRACKS.length].name;if(k.includes('Rain'))this._rain();else if(k.includes('Ocean'))this._ocean();else if(k.includes('Forest'))this._forest();else if(k.includes('River'))this._river();else if(k.includes('Wind'))this._wind();else if(k.includes('Bowl'))this._bowl();else if(k.includes('Theta'))this._theta();else this._earth()}
+  play(idx){this.init();if(this.ctx.state==='suspended')this.ctx.resume();this.stopAll(true);this._later(()=>this._start(idx),1500);this.idx=idx;this.playing=true}
+  pause(){if(this.ctx)this.ctx.suspend();this.playing=false}
+  resume(){if(this.ctx)this.ctx.resume();this.playing=true}
+  stop(){this.stopAll(false);if(this.ctx)this.ctx.suspend();this.playing=false}
+  next(){this.idx=(this.idx+1)%TRACKS.length;this.play(this.idx);updatePlayerUI()}
+  prev(){this.idx=(this.idx-1+TRACKS.length)%TRACKS.length;this.play(this.idx);updatePlayerUI()}
+  setVol(v){this.vol=v/100;if(this.master)this.master.gain.linearRampToValueAtTime(this.muted?0:this.vol,this.ctx?.currentTime+.05||0)}
+  toggleMute(){this.muted=!this.muted;if(this.master&&this.ctx)this.master.gain.linearRampToValueAtTime(this.muted?0:this.vol,this.ctx.currentTime+.08)}
+}
+const audio=new NatureAudio();
+function updatePlayerUI(){const t=TRACKS[audio.idx%TRACKS.length];document.getElementById('mp-name').textContent=`${t.emoji} ${t.name}`;const pb=document.getElementById('mp-play');pb.textContent=audio.playing?'⏸':'▶';pb.classList.toggle('on',audio.playing);document.getElementById('mp-dot').classList.toggle('on',audio.playing);document.getElementById('vol-icon').textContent=audio.muted?'🔇':'♪'}
+function setVolume(v){audio.setVol(v);const sl=document.getElementById('vol-sl');sl.style.setProperty('--vp',v+'%');if(audio.muted&&v>0){audio.muted=false}document.getElementById('vol-icon').textContent=v===0?'🔇':'♪'}
+function toggleMute(){audio.toggleMute();document.getElementById('vol-icon').textContent=audio.muted?'🔇':'♪'}
+function togglePlay(){if(!audio.playing){if(!audio.ctx){audio.play(audio.idx)}else{audio.resume()}}else{audio.pause()}updatePlayerUI()}
+
+/* ── SHARE ── */
+function shareReading(){
+  const prof=getProf();const btn=document.getElementById('share-btn');
+  const text=`My dream profile: ${prof.name} (${prof.code}) — ${prof.cls}\nThermal: ${TH[S.th].label} · Bio-Signal: ${S.sig}/99\nMapped with Oneirox.com`;
+  const url='https://oneirox.com/sensory-dream-mapper/';
+  if(navigator.share){navigator.share({title:'My Somatic Dream Profile — Oneirox',text,url}).catch(()=>{})}
+  else{navigator.clipboard?.writeText(text+'\n'+url).then(()=>{btn.textContent='Copied ✓';btn.classList.add('ok');setTimeout(()=>{btn.textContent='Share';btn.classList.remove('ok')},2200)})}
+}
+
+/* ── SEND TO DECODE ── */
+function sendToDecode() {
+  var prof = getProf();
+  var data = {
+    profile:   { name: prof.name, code: prof.code, cls: prof.cls },
+    thermal:   TH[S.th].label,
+    textures:  [...S.tx],
+    zones:     [...S.zn].map(function(id) {
+      var z = ZS.find(function(z) { return z.id === id; });
+      return z ? z.l : id;
+    }),
+    sound:     S.snd,
+    signal:    S.sig,
+    timestamp: Date.now()
+  };
+  try { localStorage.setItem('onx_mapper_data', JSON.stringify(data)); } catch(e) {}
+  window.location.href = 'https://oneirox.com/#decode';
+}
+
+update();
+
+/* ── SAVE + HISTORY ── */
+const LS_KEY='oneirox_readings';
+function getTimestamp(){const d=new Date();const days=['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];const months=['January','February','March','April','May','June','July','August','September','October','November','December'];const h=d.getHours().toString().padStart(2,'0');const m=d.getMinutes().toString().padStart(2,'0');return`${days[d.getDay()]}, ${d.getDate()} ${months[d.getMonth()]} ${d.getFullYear()} · ${h}:${m}`}
+function saveReading(){
+  const prof=getProf();const btn=document.getElementById('save-btn');
+  const breakdown=[];
+  breakdown.push({k:`Thermal · ${TH[S.th].label}`,v:TH_DX[S.th]});
+  [...S.tx].forEach(id=>{if(TX_DX[id])breakdown.push({k:`Texture · ${id.charAt(0).toUpperCase()+id.slice(1)}`,v:TX_DX[id]})});
+  if(S.snd&&SND_DX[S.snd])breakdown.push({k:`Sound · ${S.snd.charAt(0).toUpperCase()+S.snd.slice(1)}`,v:SND_DX[S.snd]});
+  [...S.zn].forEach(id=>{if(ZN_DX[id])breakdown.push({k:`Zone · ${ZS.find(z=>z.id===id)?.l||id}`,v:ZN_DX[id]})});
+  const reading={id:Date.now(),ts:getTimestamp(),profile:{name:prof.name,code:prof.code,color:prof.color,cls:prof.cls},thermal:TH[S.th].label,thermalColor:TH[S.th].c,textures:[...S.tx],zones:[...S.zn],sound:S.snd,signal:S.sig,dx:document.getElementById('pdx').textContent,rx:prof.rx.slice(),breakdown};
+  let all=JSON.parse(localStorage.getItem(LS_KEY)||'[]');all.unshift(reading);if(all.length>30)all=all.slice(0,30);localStorage.setItem(LS_KEY,JSON.stringify(all));
+  btn.textContent='✓ Saved';btn.classList.add('saved');updateHistBadge();setTimeout(()=>{btn.textContent='Save Reading';btn.classList.remove('saved')},2500);
+}
+function loadReadings(){return JSON.parse(localStorage.getItem(LS_KEY)||'[]')}
+function updateHistBadge(){const n=loadReadings().length;const btn=document.getElementById('hist-nav-btn');btn.innerHTML=n>0?`My Readings <span class="nbtn-badge">${n}</span>`:'My Readings'}
+function openReadingDetail(r){
+  const db=document.getElementById('detail-body');const pc=r.profile.color;
+  const tags=[r.thermal,...(r.textures||[]),r.sound,r.zones?.length>0?`${r.zones.length} zones`:null].filter(Boolean);
+  const bdRows=(r.breakdown||[]).map(row=>`<div class="sbd-row"><div class="sbd-key" style="color:${pc}">${row.k}</div><div class="sbd-val">${row.v}</div></div>`).join('');
+  const rxRows=(r.rx||[]).map((t,i)=>`<div class="rxrow"><span class="rxn" style="color:${pc}">0${i+1}</span><span class="rxt">${t}</span></div>`).join('');
+  db.innerHTML=`<div style="margin-bottom:.35rem"><span style="font-family:'DM Mono',monospace;font-size:.62rem;letter-spacing:.35em;color:var(--t4);text-transform:uppercase">${r.profile.code} · ${r.ts}</span></div><div style="font-size:clamp(1.1rem,4vw,1.6rem);font-weight:200;letter-spacing:.08em;color:${pc};margin-bottom:.3rem">${r.profile.name}</div><div style="font-family:'DM Mono',monospace;font-size:.66rem;color:var(--t2);margin-bottom:1.25rem">${r.profile.cls}</div><div style="display:flex;gap:.4rem;flex-wrap:wrap;margin-bottom:1.25rem">${tags.map(t=>`<span class="hist-tag" style="border-color:${pc}30;color:${pc};font-size:.65rem">${t}</span>`).join('')}<span class="hist-tag" style="color:var(--t3)">Signal ${r.signal||'—'}</span></div><div class="mdiv"></div><div class="mh">Profile Description</div><p class="mb" style="color:var(--t1)">${r.dx||'—'}</p>${bdRows?`<div class="mdiv"></div><div class="mh">Signal Analysis</div><div class="sbd" style="margin-bottom:0">${bdRows}</div>`:''}${rxRows?`<div class="mdiv"></div><div class="mh">Recovery Protocol</div><div class="rxl">${rxRows}</div>`:''}<div class="mdiv"></div><div style="font-family:'DM Mono',monospace;font-size:.62rem;color:var(--t4);text-align:center;line-height:1.9">Saved on ${r.ts}<br><span style="color:var(--t3)">For reflective purposes only — not medical advice</span></div>`;
+  closeMo('mo-hist');openMo('mo-detail');
+}
+function openHistory(){
+  const readings=loadReadings();const body=document.getElementById('hist-body');body.innerHTML='';
+  if(readings.length===0){body.innerHTML=`<div class="hist-empty">No readings saved yet.<br>Complete a mapping and tap "Save Reading"<br>to begin your somatic archive.</div>`}
+  else{
+    const counts={};readings.forEach(r=>{counts[r.profile.name]=(counts[r.profile.name]||0)+1});const top=Object.entries(counts).sort((a,b)=>b[1]-a[1])[0];const avgSig=Math.round(readings.reduce((a,r)=>a+(r.signal||0),0)/readings.length);
+    const statsDiv=document.createElement('div');statsDiv.className='hstats';statsDiv.innerHTML=`<div class="hstat"><div class="hstat-n">${readings.length}</div><div class="hstat-l">Sessions</div></div><div class="hstat"><div class="hstat-n" style="font-size:.72rem;margin-top:.25rem">${top[0].split(' ').slice(0,2).join(' ')}</div><div class="hstat-l">Top Pattern</div></div><div class="hstat"><div class="hstat-n">${avgSig}</div><div class="hstat-l">Avg Signal</div></div>`;body.appendChild(statsDiv);
+    const hint=document.createElement('p');hint.style.cssText='font-family:DM Mono,monospace;font-size:.62rem;color:var(--t4);text-align:center;margin-bottom:.85rem;letter-spacing:.06em';hint.textContent='tap any reading to open the full report';body.appendChild(hint);
+    const list=document.createElement('div');list.className='hist-list';
+    readings.forEach(r=>{const item=document.createElement('div');item.className='hist-item';item.style.borderLeftColor=r.profile.color;item.style.cursor='pointer';const tags=[r.thermal,...(r.textures||[]).slice(0,2),r.sound,r.zones?.length>0?`${r.zones.length} zones`:null].filter(Boolean);item.innerHTML=`<div class="hist-item-top"><div class="hist-pname" style="color:${r.profile.color}">${r.profile.name}</div><div style="display:flex;align-items:center;gap:.5rem"><div class="hist-code">${r.profile.code}</div><span style="font-family:DM Mono,monospace;font-size:.62rem;color:var(--t3)">→</span></div></div><div class="hist-ts">${r.ts}</div><div class="hist-tags">${tags.map(t=>`<span class="hist-tag">${t}</span>`).join('')}</div>`;item.onclick=()=>openReadingDetail(r);list.appendChild(item)});body.appendChild(list);
+    const clr=document.createElement('button');clr.className='hist-clear';clr.textContent='Clear all readings';clr.onclick=()=>{localStorage.removeItem(LS_KEY);updateHistBadge();openHistory()};body.appendChild(clr);
+  }
+  openMo('mo-hist');
+}
+
+/* ── RELATED ARTICLES ── */
+const ART_POOL=[{id:"death",url:"/dream-about-death-of-a-loved-one-meaning/",title:"Dream About Death of a Loved One",tags:["suppression","limbic","loss","void","cold"]},{id:"illness",url:"/dream-about-serious-illness-meaning/",title:"Dream About Serious Illness",tags:["surge","thoracic","hot","body","cranial","purgation"]},{id:"lottery",url:"/dream-about-winning-the-lottery-meaning/",title:"Dream About Winning the Lottery",tags:["discharge","warm","cortical","residue","neutral"]},{id:"lockdown",url:"/dream-about-losing-control-of-your-body-the-somatic-lockdown/",title:"Dream About Losing Control of Your Body",tags:["surge","dissolution","fluid","lumbar","lLeg","rLeg","purgation","containment"]},{id:"ignored",url:"/dream-about-being-ignored-the-social-deletion/",title:"Dream About Being Ignored",tags:["suppression","voices","void","social","hypoxia","limbic"]},{id:"exam",url:"/dream-about-failing-an-exam-meaning/",title:"Dream About Failing an Exam",tags:["tension","sharp","cranial","discharge","stress","cervical"]},{id:"cheating",url:"/dream-about-being-caught-cheating-in-exam/",title:"Dream About Being Caught Cheating in an Exam",tags:["tension","sharp","gritty","exposure","cervical","voices"]},{id:"numbers",url:"/numbers-in-dreams-meaning-111-222-333/",title:"Numbers in Dreams: 111, 222, 333",tags:["discharge","cortical","cranial","residue","pattern","neutral"]}];
+function getRelatedArticles(profileId,zones,textures,sound){const ctx=[profileId,...[...zones],...[...textures],sound||''];return ART_POOL.map(a=>({...a,score:a.tags.filter(t=>ctx.includes(t)).length})).sort((a,b)=>b.score-a.score||Math.random()-.5)}
+let relArticles=[],relPage=0;const REL_PER=3;
+function renderRelatedPage(){const sec=document.getElementById('related-sec');const track=sec.querySelector('.rel-track');const dots=sec.querySelectorAll('.rel-dot');const count=sec.querySelector('.rel-count');if(!track)return;const start=relPage*REL_PER;const visible=relArticles.slice(start,start+REL_PER);const prof=getProf();const pc=prof.color;track.innerHTML=visible.map(a=>`<a class="rel-card" href="https://oneirox.com${a.url}" target="_blank" rel="noopener"><div class="rel-icon" style="color:${pc}">◈</div><div class="rel-body"><div class="rel-title">${a.title}</div><div class="rel-desc">${a.tags.slice(0,3).join(' · ')}</div></div><div class="rel-arr">→</div></a>`).join('');dots.forEach((d,i)=>d.classList.toggle('on',i===relPage));if(count)count.textContent=`${relPage+1}/${Math.ceil(relArticles.length/REL_PER)}`}
+function renderRelated(profileId,profileColor){const sec=document.getElementById('related-sec');relArticles=getRelatedArticles(profileId,S.zn,S.tx,S.snd);relPage=0;const totalPages=Math.ceil(relArticles.length/REL_PER);const showNav=totalPages>1;sec.innerHTML=`<div class="hdiv"></div><span class="lbl">Continue Reading on Oneirox</span><div class="rel-slider-wrap"><div class="rel-track"></div></div><div class="rel-nav${showNav?' visible':''}"><button class="rel-prev" onclick="relSlide(-1)">‹</button>${Array.from({length:totalPages},(_,i)=>`<div class="rel-dot${i===0?' on':''}" onclick="relGoTo(${i})"></div>`).join('')}<button class="rel-next" onclick="relSlide(1)">›</button><span class="rel-count"></span></div>`;renderRelatedPage()}
+function relSlide(dir){const total=Math.ceil(relArticles.length/REL_PER);relPage=(relPage+dir+total)%total;renderRelatedPage()}
+function relGoTo(i){relPage=i;renderRelatedPage()}
+let _lastRenderedPid=null;
+const _origUpdate=update;
+update=function(){_origUpdate();if(hasInput()){document.getElementById('reading-ts').textContent=getTimestamp();const currentPid=getProf().id;if(currentPid!==_lastRenderedPid){_lastRenderedPid=currentPid;renderRelated(currentPid,getProf().color)}}else{_lastRenderedPid=null}};
+updateHistBadge();
+try{const isChrome=/Chrome/.test(navigator.userAgent);if(isChrome){console.log('%c ONEIROX SENSORY DREAM MAPPER ','background:#304820;color:#d2eca0;font-family:monospace;font-size:13px;padding:6px 12px;border-radius:4px;font-weight:bold');console.log('%c © 2024–2025 Oneirox.com — All Rights Reserved ','background:#1a2810;color:#78b848;font-family:monospace;font-size:11px;padding:4px 12px;border-radius:4px')}else{console.info('ONEIROX SENSORY DREAM MAPPER | © 2024–2025 Oneirox.com | ONX-SDM-v2.6')}}catch(e){}
+</script>
+
+<footer style="background:rgba(5,10,3,.75);border-top:1px solid rgba(168,216,112,.1);padding:.85rem 1.25rem;text-align:center;backdrop-filter:blur(12px)">
+  <p style="font-family:'DM Mono',monospace;font-size:.64rem;color:#3a5030;letter-spacing:.12em;line-height:1.9">
+    © 2024–2025 <a href="https://oneirox.com" target="_blank" rel="noopener" style="color:#587848;text-decoration:none;border-bottom:1px solid rgba(88,120,72,.3)">Oneirox.com</a>
+    — All Rights Reserved · Sensory Dream Mapper · Somatic profiles &amp; neurobiological framework are original works of Oneirox.com · Unauthorised reproduction prohibited
+    <br><span style="color:#2a4020;font-size:.58rem">ONX-SDM-v2.6 · oneirox.com/sensory-dream-mapper/</span>
+  </p>
+</footer>
+</body>
+</html>

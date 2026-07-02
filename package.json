@@ -1,0 +1,11 @@
+{
+  "name": "oneirox-site",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Oneirox — Scientific Dream Decoder",
+  "scripts": {
+    "dev": "npx --yes serve public -p 3000",
+    "preview": "npx --yes serve public -p 3000",
+    "favicons": "node scripts/generate-favicons.mjs"
+  }
+}

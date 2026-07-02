@@ -1,0 +1,105 @@
+/* Heart link — 55 BPM realistic lub-dub */
+
+#decode .onx-ecg {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  text-decoration: none;
+  position: relative;
+  margin: 28px auto 0;
+  padding: 12px 0;
+  max-width: var(--onx-max-width);
+  cursor: pointer;
+  background: transparent;
+  border: none;
+}
+
+.onx-ecg__heart {
+  display: inline-block;
+  transform-origin: center center;
+  font-size: 32px;
+  line-height: 1;
+  color: #00a5a8;
+  opacity: 1;
+  background: transparent;
+  will-change: transform, filter;
+  animation:
+    onx-heart-lubdub 1.0909s linear infinite,
+    onx-heart-glow 1.0909s linear infinite;
+}
+
+#decode .onx-ecg:hover .onx-ecg__label {
+  color: #00a5a8;
+}
+
+.onx-ecg__label {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--onx-mist);
+  pointer-events: none;
+}
+
+/* 55 BPM ≈ 1.0909s — systole ~28%, diastole ~72% */
+@keyframes onx-heart-lubdub {
+  0%,
+  28%,
+  100% {
+    transform: scale(1);
+  }
+
+  /* lub — sharp systolic kick */
+  4% {
+    transform: scale(1.26);
+  }
+  7% {
+    transform: scale(1.08);
+  }
+  10% {
+    transform: scale(1.14);
+  }
+
+  /* dub — softer second beat */
+  16% {
+    transform: scale(1.18);
+  }
+  20% {
+    transform: scale(1.04);
+  }
+  24% {
+    transform: scale(1.06);
+  }
+}
+
+@keyframes onx-heart-glow {
+  0%,
+  28%,
+  100% {
+    filter:
+      drop-shadow(0 0 5px rgba(0, 165, 168, 0.55))
+      drop-shadow(0 0 14px rgba(0, 165, 168, 0.28));
+  }
+
+  4% {
+    filter:
+      drop-shadow(0 0 10px rgba(0, 165, 168, 0.95))
+      drop-shadow(0 0 26px rgba(0, 165, 168, 0.55))
+      drop-shadow(0 0 40px rgba(0, 165, 168, 0.25));
+  }
+
+  16% {
+    filter:
+      drop-shadow(0 0 8px rgba(0, 165, 168, 0.8))
+      drop-shadow(0 0 20px rgba(0, 165, 168, 0.42));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .onx-ecg__heart {
+    animation: none;
+    filter: drop-shadow(0 0 6px rgba(0, 165, 168, 0.6));
+  }
+}
