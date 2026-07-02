@@ -6,8 +6,7 @@
 
   var DEFERRED = [
     '/js/oneirox-neural-bg.js',
-    '/js/oneirox-share.js',
-    '/js/back-to-top.js'
+    '/js/oneirox-share.js'
   ];
 
   function loadDeferred() {
