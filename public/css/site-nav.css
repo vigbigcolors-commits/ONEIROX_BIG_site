@@ -23,17 +23,10 @@
   font-family: var(--onx-font-serif);
   display: inline-flex;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
   text-decoration: none;
   letter-spacing: -0.02em;
   flex-shrink: 0;
-}
-
-.site-logo__glyph {
-  width: 30px;
-  height: 30px;
-  flex-shrink: 0;
-  display: block;
 }
 
 .site-logo__word {
@@ -53,6 +46,51 @@
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
+}
+
+.site-logo__heart {
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+  display: block;
+  color: #00a5a8;
+  transform-origin: center center;
+  will-change: transform;
+  animation: onx-logo-heart-pulse 1s linear infinite;
+}
+
+@keyframes onx-logo-heart-pulse {
+  0%,
+  30%,
+  100% {
+    transform: scale(1);
+  }
+
+  5% {
+    transform: scale(1.22);
+  }
+  8% {
+    transform: scale(1.06);
+  }
+  11% {
+    transform: scale(1.14);
+  }
+
+  17% {
+    transform: scale(1.16);
+  }
+  21% {
+    transform: scale(1.03);
+  }
+  25% {
+    transform: scale(1.05);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .site-logo__heart {
+    animation: none;
+  }
 }
 
 .site-logo:hover .site-logo__one {
@@ -132,6 +170,6 @@
 @media (max-width: 720px) {
   .site-header .btn--primary { display: none; }
   .site-header__inner { padding: 12px 18px; }
-  .site-logo__glyph { width: 26px; height: 26px; }
+  .site-logo__heart { width: 21px; height: 21px; }
   .site-logo__word { font-size: 19px; }
 }

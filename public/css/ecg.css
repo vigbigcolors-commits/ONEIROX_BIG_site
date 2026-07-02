@@ -1,15 +1,15 @@
-/* Heart link — 55 BPM realistic lub-dub */
+/* Heart link — 60 BPM realistic lub-dub · green somatic pulse */
 
 #decode .onx-ecg {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 8px;
+  gap: 10px;
   text-decoration: none;
   position: relative;
-  margin: 28px auto 0;
-  padding: 12px 0;
+  margin: 32px auto 8px;
+  padding: 16px 0 8px;
   max-width: var(--onx-max-width);
   cursor: pointer;
   background: transparent;
@@ -17,21 +17,27 @@
 }
 
 .onx-ecg__heart {
-  display: inline-block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
   transform-origin: center center;
-  font-size: 32px;
-  line-height: 1;
-  color: #00a5a8;
-  opacity: 1;
-  background: transparent;
   will-change: transform, filter;
   animation:
-    onx-heart-lubdub 1.0909s linear infinite,
-    onx-heart-glow 1.0909s linear infinite;
+    onx-heart-lubdub 1s linear infinite,
+    onx-heart-glow 1s linear infinite;
+}
+
+.onx-ecg__heart-svg {
+  width: 52px;
+  height: 52px;
+  display: block;
+  overflow: visible;
 }
 
 #decode .onx-ecg:hover .onx-ecg__label {
-  color: #00a5a8;
+  color: #3d9e47;
 }
 
 .onx-ecg__label {
@@ -41,65 +47,68 @@
   text-transform: uppercase;
   color: var(--onx-mist);
   pointer-events: none;
+  text-align: center;
+  max-width: 28ch;
+  line-height: 1.5;
 }
 
-/* 55 BPM ≈ 1.0909s — systole ~28%, diastole ~72% */
+/* 60 BPM = 1.0s per cardiac cycle — systole ~30%, diastole ~70% */
 @keyframes onx-heart-lubdub {
   0%,
-  28%,
+  30%,
   100% {
     transform: scale(1);
   }
 
   /* lub — sharp systolic kick */
-  4% {
-    transform: scale(1.26);
+  5% {
+    transform: scale(1.28);
   }
-  7% {
-    transform: scale(1.08);
+  8% {
+    transform: scale(1.07);
   }
-  10% {
-    transform: scale(1.14);
+  11% {
+    transform: scale(1.16);
   }
 
   /* dub — softer second beat */
-  16% {
-    transform: scale(1.18);
+  17% {
+    transform: scale(1.2);
   }
-  20% {
-    transform: scale(1.04);
+  21% {
+    transform: scale(1.03);
   }
-  24% {
-    transform: scale(1.06);
+  25% {
+    transform: scale(1.05);
   }
 }
 
 @keyframes onx-heart-glow {
   0%,
-  28%,
+  30%,
   100% {
     filter:
-      drop-shadow(0 0 5px rgba(0, 165, 168, 0.55))
-      drop-shadow(0 0 14px rgba(0, 165, 168, 0.28));
+      drop-shadow(0 0 6px rgba(76, 175, 80, 0.5))
+      drop-shadow(0 0 16px rgba(76, 175, 80, 0.28));
   }
 
-  4% {
+  5% {
     filter:
-      drop-shadow(0 0 10px rgba(0, 165, 168, 0.95))
-      drop-shadow(0 0 26px rgba(0, 165, 168, 0.55))
-      drop-shadow(0 0 40px rgba(0, 165, 168, 0.25));
+      drop-shadow(0 0 12px rgba(76, 175, 80, 0.95))
+      drop-shadow(0 0 28px rgba(129, 199, 132, 0.6))
+      drop-shadow(0 0 44px rgba(76, 175, 80, 0.28));
   }
 
-  16% {
+  17% {
     filter:
-      drop-shadow(0 0 8px rgba(0, 165, 168, 0.8))
-      drop-shadow(0 0 20px rgba(0, 165, 168, 0.42));
+      drop-shadow(0 0 9px rgba(76, 175, 80, 0.82))
+      drop-shadow(0 0 22px rgba(129, 199, 132, 0.45));
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
   .onx-ecg__heart {
     animation: none;
-    filter: drop-shadow(0 0 6px rgba(0, 165, 168, 0.6));
+    filter: drop-shadow(0 0 8px rgba(76, 175, 80, 0.65));
   }
 }

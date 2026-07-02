@@ -1,0 +1,557 @@
+/* ── RESET ───────────────────────────────────────────────────────── */
+.dpc3 *, .dpc3 *::before, .dpc3 *::after {
+  box-sizing: border-box; margin: 0; padding: 0;
+}
+
+/* ── OUTER ───────────────────────────────────────────────────────── */
+.dpc3 {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px 60px;
+  font-family: inherit;
+}
+
+/* ══════════════════════════════════════
+   TEASER CARD
+══════════════════════════════════════ */
+.dpc3-card {
+  position: relative;
+  border-radius: 24px;
+  /* overflow removed — was clipping the moon */
+  background: linear-gradient(145deg, #2e4028 0%, #3a5030 35%, #2c3e25 70%, #243320 100%);
+  padding: 52px 52px 48px;
+  cursor: default;
+}
+
+/* Stars clipped separately inside card */
+.dpc3-stars {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  border-radius: 24px;
+  overflow: hidden;
+  /* Static stars via CSS background — zero JS, zero animation, zero paint cost */
+  background-image:
+    radial-gradient(1px 1px at 8% 15%, rgba(255,255,255,0.5) 0%, transparent 100%),
+    radial-gradient(1px 1px at 18% 72%, rgba(255,255,255,0.35) 0%, transparent 100%),
+    radial-gradient(1.5px 1.5px at 28% 35%, rgba(255,255,255,0.4) 0%, transparent 100%),
+    radial-gradient(1px 1px at 38% 88%, rgba(255,255,255,0.3) 0%, transparent 100%),
+    radial-gradient(1px 1px at 52% 22%, rgba(255,255,255,0.45) 0%, transparent 100%),
+    radial-gradient(1.5px 1.5px at 62% 58%, rgba(255,255,255,0.35) 0%, transparent 100%),
+    radial-gradient(1px 1px at 72% 12%, rgba(255,255,255,0.4) 0%, transparent 100%),
+    radial-gradient(1px 1px at 82% 78%, rgba(255,255,255,0.3) 0%, transparent 100%),
+    radial-gradient(1px 1px at 91% 42%, rgba(255,255,255,0.45) 0%, transparent 100%),
+    radial-gradient(1px 1px at 6% 55%, rgba(255,255,255,0.25) 0%, transparent 100%),
+    radial-gradient(1px 1px at 45% 68%, rgba(255,255,255,0.3) 0%, transparent 100%),
+    radial-gradient(1.5px 1.5px at 75% 32%, rgba(255,255,255,0.4) 0%, transparent 100%);
+}
+/* No individual star elements needed */
+.dpc3-star { display: none; }
+
+/* ── Glow orb ──── */
+.dpc3-glow {
+  position: absolute;
+  top: -80px; right: -80px;
+  width: 360px; height: 360px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(140,190,120,0.12) 0%, transparent 65%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ── Layout ──── */
+.dpc3-inner {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  gap: 48px;
+  align-items: center;
+}
+
+/* ══════════════════════════════════════
+   3D MOON
+══════════════════════════════════════ */
+.dpc3-moon-wrap {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Float wrapper — handles vertical float */
+/* Float wrapper */
+.dpc3-moon-float {
+  animation: dpc3-float 5s ease-in-out infinite;
+  padding-top: 18px;
+  padding-left: 14px;
+}
+@keyframes dpc3-float {
+  0%,100% { transform: translateY(0); }
+  50%     { transform: translateY(-5px); }
+}
+
+/* Globe container — NO 3D transforms here */
+.dpc3-moon-sphere {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  position: relative;
+  cursor: pointer;
+  overflow: hidden;
+  /* Simplified shadow — one layer instead of 4 */
+  box-shadow:
+    inset -10px -10px 22px rgba(0,0,0,0.38),
+    inset 5px 5px 12px rgba(255,255,255,0.18),
+    0 0 28px rgba(140,190,120,0.22);
+}
+
+/* Hover on moon — NO speed change, only subtle glow */
+.dpc3-moon-sphere:hover {
+  box-shadow:
+    inset -12px -12px 28px rgba(0,0,0,0.42),
+    inset 6px 6px 16px rgba(255,255,255,0.22),
+    0 0 0 1px rgba(200,192,176,0.25),
+    0 0 40px rgba(140,190,120,0.38),
+    0 0 80px rgba(140,190,120,0.14);
+}
+.moon-surface {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(ellipse at 38% 38%,
+    #e8e0cc 0%,
+    #d8d0ba 30%,
+    #c4bcaa 58%,
+    #b0a898 100%);
+  /* No rotation — no seam artifact */
+}
+
+/* Fixed sphere shading — 3D look without rotation */
+.moon-light {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background:
+    radial-gradient(ellipse 52% 100% at 80% 50%,
+      rgba(20,30,14,0.72) 0%,
+      rgba(20,30,14,0.38) 32%,
+      transparent 58%),
+    radial-gradient(circle at 30% 26%,
+      rgba(255,255,240,0.20) 0%,
+      transparent 52%);
+  pointer-events: none;
+}
+
+/* Craters — static positions */
+.moon-craters {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  /* No rotation */
+}
+.moon-crater-dot {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(circle,
+    rgba(0,0,0,0.13) 0%, rgba(0,0,0,0.06) 50%, transparent 100%);
+  border: 1px solid rgba(0,0,0,0.07);
+}
+
+/* Outer rim */
+.moon-rim {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  box-shadow: inset 0 0 0 1px rgba(180,170,155,0.22);
+  pointer-events: none;
+}
+
+/* Click pulse only — no rotation animation */
+.dpc3-moon-sphere.pulse {
+  animation: dpc3-pulse-anim 0.55s ease;
+}
+@keyframes dpc3-pulse-anim {
+  0%   { box-shadow: inset -10px -10px 22px rgba(0,0,0,0.38), inset 5px 5px 12px rgba(255,255,255,0.18), 0 0 0 0 rgba(140,190,120,0.5), 0 0 28px rgba(140,190,120,0.22); }
+  50%  { box-shadow: inset -10px -10px 22px rgba(0,0,0,0.38), inset 5px 5px 12px rgba(255,255,255,0.18), 0 0 0 20px rgba(140,190,120,0.08), 0 0 40px rgba(140,190,120,0.35); }
+  100% { box-shadow: inset -10px -10px 22px rgba(0,0,0,0.38), inset 5px 5px 12px rgba(255,255,255,0.18), 0 0 0 0 rgba(140,190,120,0), 0 0 28px rgba(140,190,120,0.22); }
+}
+
+
+/* Phase label under moon */
+.dpc3-moon-label {
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #7aaa68;
+  text-align: center;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.dpc3-moon-wrap:hover .dpc3-moon-label { opacity: 1; }
+
+/* Moon cycle dots */
+.dpc3-cycle-dots {
+  display: flex;
+  gap: 5px;
+  margin-top: 4px;
+}
+.dpc3-cycle-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: rgba(122,170,104,0.3);
+  transition: background 0.2s;
+}
+.dpc3-cycle-dot.active { background: #7aaa68; }
+
+/* ══════════════════════════════════════
+   TEASER TEXT
+══════════════════════════════════════ */
+.dpc3-text { }
+
+.dpc3-eyebrow {
+  font-size: 10px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: #7aaa68;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.dpc3-eyebrow::before {
+  content: '';
+  width: 24px; height: 1px;
+  background: #7aaa68;
+  flex-shrink: 0;
+}
+
+.dpc3-title {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 32px;
+  font-weight: 300;
+  color: #f5f0e8;
+  line-height: 1.25;
+  margin-bottom: 18px;
+  letter-spacing: 0.02em;
+}
+.dpc3-title em {
+  font-style: italic;
+  color: #a8d490;
+  font-weight: 400;
+}
+
+.dpc3-desc {
+  font-size: 14.5px;
+  line-height: 1.85;
+  color: #b8cca8;
+  margin-bottom: 28px;
+  max-width: 460px;
+}
+.dpc3-desc strong { color: #d4e8c0; font-weight: 500; }
+
+.dpc3-desc a {
+  color: #8fd070;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-color: rgba(143,208,112,0.4);
+  transition: color 0.2s;
+}
+.dpc3-desc a:hover { color: #aae088; }
+
+/* Stat badges */
+.dpc3-stats {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 28px;
+  flex-wrap: wrap;
+}
+.dpc3-stat {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 14px;
+  background: rgba(122,170,104,0.12);
+  border: 1px solid rgba(122,170,104,0.2);
+  border-radius: 20px;
+}
+.dpc3-stat-num {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 20px;
+  font-weight: 400;
+  color: #a8d490;
+  line-height: 1;
+}
+.dpc3-stat-lbl {
+  font-size: 11px;
+  color: #88a878;
+  line-height: 1.3;
+}
+
+/* ══════════════════════════════════════
+   CTA BUTTON
+══════════════════════════════════════ */
+.dpc3-cta-wrap { display: flex; flex-direction: column; gap: 12px; }
+
+.dpc3-btn-main {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px 30px;
+  background: linear-gradient(135deg, #6a9658 0%, #5a8448 100%);
+  border: 1px solid rgba(140,190,120,0.3);
+  border-radius: 50px;
+  color: #f0f8e8;
+  font-size: 14.5px;
+  font-weight: 500;
+  font-family: inherit;
+  cursor: pointer;
+  letter-spacing: 0.04em;
+  transition: transform 0.2s, box-shadow 0.25s, background 0.2s;
+  box-shadow:
+    0 4px 20px rgba(106,150,88,0.4),
+    0 1px 0 rgba(255,255,255,0.1) inset,
+    0 0 50px rgba(106,150,88,0.1);
+  align-self: flex-start;
+}
+.dpc3-btn-main:hover {
+  transform: translateY(-2px);
+  background: linear-gradient(135deg, #78a866 0%, #68965a 100%);
+  box-shadow: 0 8px 30px rgba(106,150,88,0.5), 0 0 60px rgba(106,150,88,0.15);
+}
+.dpc3-btn-main:active { transform: translateY(0); }
+
+.dpc3-btn-icon {
+  width: 30px; height: 30px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.12);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 15px;
+  flex-shrink: 0;
+  transition: transform 0.3s;
+}
+.dpc3-btn-main:hover .dpc3-btn-icon { transform: rotate(15deg); }
+
+.dpc3-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  color: #627852;
+  letter-spacing: 0.04em;
+}
+.dpc3-badge::before { content: '◆'; font-size: 7px; color: #6a9658; }
+
+/* ══════════════════════════════════════
+   CALCULATOR PANEL
+══════════════════════════════════════ */
+.dpc3-panel {
+  display: none;
+  margin-top: 14px;
+  border: 1px solid #e0dbd0;
+  border-radius: 20px;
+  background: #ffffff;
+  overflow: hidden;
+  animation: dpc3-drop 0.38s cubic-bezier(0.4,0,0.2,1);
+}
+.dpc3-panel.open { display: block; }
+
+@keyframes dpc3-drop {
+  from { opacity:0; transform: translateY(-10px); }
+  to   { opacity:1; transform: translateY(0); }
+}
+
+.dpc3-panel-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 28px;
+  border-bottom: 1px solid #f0ece4;
+  background: #faf8f5;
+}
+.dpc3-panel-title {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 20px;
+  font-weight: 400;
+  color: #1a1612;
+}
+.dpc3-x {
+  width: 32px; height: 32px;
+  border-radius: 50%;
+  border: 1px solid #e0dbd0;
+  background: #fff;
+  color: #a09585;
+  font-size: 18px;
+  cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  transition: background 0.15s, color 0.15s;
+  font-family: inherit;
+  line-height: 1;
+}
+.dpc3-x:hover { background: #f5f0e8; color: #1a1612; }
+
+.dpc3-panel-body { padding: 28px; }
+
+/* Input */
+.dpc3-input-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 24px;
+}
+.dpc3-input-row label { font-size: 13px; color: #6b6155; }
+.dpc3-date-in {
+  padding: 11px 20px;
+  border: 1.5px solid #d4cbbf;
+  border-radius: 50px;
+  font-size: 14px; color: #1a1612;
+  font-family: inherit; outline: none;
+  background: #faf8f5;
+  transition: border-color .2s, box-shadow .2s;
+  cursor: pointer;
+}
+.dpc3-date-in:focus { border-color:#7d916b; box-shadow:0 0 0 3px rgba(125,145,107,.1); }
+.dpc3-read-btn {
+  padding: 11px 24px;
+  background: #78856c; border: none; border-radius: 50px;
+  color: #fff; font-size: 13.5px; font-weight: 500;
+  cursor: pointer; font-family: inherit; letter-spacing:.04em;
+  transition: background .2s, transform .15s;
+}
+.dpc3-read-btn:hover { background:#5d6a53; transform:translateY(-1px); }
+
+/* Result */
+.dpc3-result { animation: dpc3-drop 0.35s ease; }
+
+.dpc3-result-moon-card {
+  display: flex; align-items: center; gap: 18px;
+  padding: 18px 20px;
+  background: #faf7f3; border: 1px solid #e8e4dc;
+  border-radius: 14px; margin-bottom: 12px;
+}
+.dpc3-r-phase { font-family:'Cormorant Garamond',Georgia,serif; font-size:22px; font-weight:400; color:#1a1612; margin-bottom:3px; }
+.dpc3-r-meta { font-size:12px; color:#a09585; margin-bottom:2px; }
+.dpc3-r-illum {
+  display:inline-flex; align-items:center; gap:5px; margin-top:5px;
+  font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:#7d916b; font-weight:500;
+}
+.dpc3-r-dot { width:6px; height:6px; border-radius:50%; background:#7d916b; }
+
+.dpc3-intensity {
+  padding:15px 18px; background:#faf7f3; border:1px solid #e8e4dc;
+  border-radius:12px; margin-bottom:12px;
+}
+.dpc3-bar-head { display:flex; justify-content:space-between; align-items:center; margin-bottom:7px; }
+.dpc3-bar-lbl { font-size:10px; letter-spacing:.18em; text-transform:uppercase; color:#a09585; }
+.dpc3-bar-num { font-family:'Cormorant Garamond',Georgia,serif; font-size:22px; font-weight:300; color:#1a1612; }
+.dpc3-bar-track { height:5px; background:#e8e4dc; border-radius:4px; overflow:hidden; margin-bottom:7px; }
+.dpc3-bar-fill { height:100%; border-radius:4px; background:linear-gradient(to right,#b8cfa6,#7d916b); transition:width .8s cubic-bezier(.4,0,.2,1); width:0%; }
+.dpc3-bar-desc { font-size:12.5px; color:#6b6155; line-height:1.65; }
+
+.dpc3-grid { display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:12px; }
+.dpc3-gc { padding:13px 16px; background:#fff; border:1px solid #e8e4dc; border-radius:10px; }
+.dpc3-gc-lbl { font-size:10px; letter-spacing:.16em; text-transform:uppercase; color:#a09585; margin-bottom:4px; }
+.dpc3-gc-val { font-size:13.5px; color:#1a1612; line-height:1.4; }
+
+.dpc3-insight {
+  padding:18px 20px; border-left:2px solid #c8b89a;
+  background:#f5f2ec; border-radius:0 10px 10px 0; margin-bottom:12px;
+}
+.dpc3-insight-lbl { font-size:10px; letter-spacing:.2em; text-transform:uppercase; color:#a09585; margin-bottom:7px; }
+.dpc3-insight-txt {
+  font-family:'Cormorant Garamond',Georgia,serif;
+  font-style:italic; font-size:15.5px; color:#2a231a; line-height:1.82;
+}
+
+.dpc3-next { padding:16px 18px; background:#fff; border:1px solid #e8e4dc; border-radius:10px; margin-bottom:16px; }
+.dpc3-next-lbl { font-size:10px; letter-spacing:.18em; text-transform:uppercase; color:#a09585; margin-bottom:9px; }
+.dpc3-next-list { display:flex; flex-direction:column; gap:7px; }
+.dpc3-next-item {
+  display:flex; align-items:center; gap:10px; padding:8px 10px;
+  background:#faf7f3; border-radius:8px; border:1px solid #f0ece4;
+}
+.dpc3-next-sym { font-size:18px; width:24px; text-align:center; flex-shrink:0; }
+.dpc3-next-info { flex:1; }
+.dpc3-next-name { font-size:13px; font-weight:500; color:#1a1612; }
+.dpc3-next-date { font-size:11px; color:#a09585; margin-top:1px; }
+.dpc3-next-days { font-size:11px; font-weight:500; color:#7d916b; background:#edf2e8; border-radius:20px; padding:3px 9px; flex-shrink:0; white-space:nowrap; }
+
+/* ══════════════════════════════════════
+   SHARE
+══════════════════════════════════════ */
+.dpc3-share { display:flex; align-items:center; gap:12px; flex-wrap:wrap; margin-bottom:16px; padding:14px 18px; background:#faf7f3; border:1px solid #e8e4dc; border-radius:10px; }
+.dpc3-share-lbl { font-size:11px; letter-spacing:.15em; text-transform:uppercase; color:#a09585; }
+.dpc3-share-btns { display:flex; gap:8px; }
+.dpc3-share-btn {
+  width:36px; height:36px; border-radius:50%;
+  border:1px solid; cursor:pointer;
+  display:flex; align-items:center; justify-content:center;
+  font-size:14px; transition:transform 0.2s, box-shadow 0.2s;
+  text-decoration:none; font-family:inherit;
+}
+.dpc3-share-btn:hover { transform:translateY(-3px) scale(1.08); box-shadow:0 4px 12px rgba(0,0,0,0.15); }
+.dpc3-share-x    { background:#000; border-color:#333; color:#fff; }
+.dpc3-share-rd   { background:#FF4500; border-color:#e03d00; color:#fff; }
+.dpc3-share-ql   { background:#B92B27; border-color:#a02520; color:#fff; }
+.dpc3-share-cp   { background:#fff; border-color:#d4cbbf; color:#6b6155; }
+.dpc3-copy-tip { font-size:11px; color:#7d916b; opacity:0; transition:opacity 0.3s; font-style:italic; }
+.dpc3-copy-tip.show { opacity:1; }
+
+/* ══════════════════════════════════════
+   CITE
+══════════════════════════════════════ */
+.dpc3-cite {
+  font-size:10.5px; color:#b8b0a4; text-align:center; line-height:1.7; font-style:italic;
+}
+.dpc3-cite a { color:#a09585; }
+
+/* ══════════════════════════════════════
+   EASTER EGG TOAST
+══════════════════════════════════════ */
+.dpc3-toast {
+  position:fixed; bottom:24px; left:50%; transform:translateX(-50%) translateY(20px);
+  background:#1c2818; border:1px solid rgba(122,170,104,0.3);
+  color:#a8d490; padding:12px 22px; border-radius:40px;
+  font-size:13px; letter-spacing:0.04em;
+  opacity:0; transition:opacity 0.35s, transform 0.35s;
+  pointer-events:none; z-index:9999; white-space:nowrap;
+  box-shadow:0 4px 20px rgba(0,0,0,0.3);
+}
+.dpc3-toast.show { opacity:1; transform:translateX(-50%) translateY(0); }
+
+/* ══════════════════════════════════════
+   PERFORMANCE
+══════════════════════════════════════ */
+/* Pause animations when calculator is off-screen */
+.dpc3-paused .dpc3-star,
+.dpc3-paused .dpc3-moon-float,
+.dpc3-paused .moon-surface,
+.dpc3-paused .moon-craters {
+  animation-play-state: paused;
+}
+
+/* Browser skips render until scrolled into view */
+.dpc3-panel {
+  content-visibility: auto;
+  contain-intrinsic-size: 0 600px;
+}
+
+/* ══════════════════════════════════════
+   RESPONSIVE
+══════════════════════════════════════ */
+@media(max-width:680px){
+  .dpc3-card { padding:32px 24px 32px; }
+  .dpc3-inner { grid-template-columns:1fr; gap:28px; }
+  .dpc3-moon-wrap { flex-direction:row; align-items:center; }
+  .dpc3-moon-sphere { width:80px; height:80px; }
+  .dpc3-title { font-size:24px; }
+  .dpc3-grid { grid-template-columns:1fr; }
+  .dpc3-panel-body { padding:20px 16px; }
+  .dpc3 { padding:36px 16px 44px; }
+  .dpc3-input-row { flex-direction:column; align-items:flex-start; }
+  .dpc3-stats { gap:10px; }
+}

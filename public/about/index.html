@@ -9,30 +9,72 @@
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="manifest" href="/site.webmanifest">
   <meta name="theme-color" content="#1e3224">
-  <title>About — Vigen G.R. · Oneirox</title>
-  <meta name="description" content="About Vigen G.R., independent researcher and developer behind Oneirox scientific dream decoder.">
+  <title>About Vigen G.R. — Sleep Physiology Researcher &amp; Oneirox Founder</title>
+  <meta name="description" content="Vigen G.R. is an independent sleep physiology and somatic signals researcher who built Oneirox — a scientific AI dream decoder grounded in REM neuroscience, not symbol dictionaries. Five years of research. Fifty books. Fourteen frameworks.">
+  <meta name="author" content="Vigen G.R.">
+  <meta property="og:type" content="profile">
+  <meta property="og:title" content="About Vigen G.R. — Sleep Physiology Researcher &amp; Oneirox Founder">
+  <meta property="og:description" content="Independent researcher who built Oneirox — scientific AI dream decoder grounded in REM neuroscience, amygdalar threat processing, and somatic body signals.">
+  <meta property="og:url" content="https://oneirox.com/about/">
+  <meta property="og:site_name" content="Oneirox">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="About Vigen G.R. — Oneirox">
+  <meta name="twitter:description" content="Sleep physiology researcher. Five years. Fifty books. One mechanism-based dream decoder.">
   <link rel="canonical" href="https://oneirox.com/about/">
   <link rel="stylesheet" href="/css/page.css">
+  <link rel="stylesheet" href="/css/about.css">
+  <link rel="stylesheet" href="/css/main.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "ProfilePage",
+        "@id": "https://oneirox.com/about/#profilepage",
+        "name": "About Vigen G.R. — Oneirox",
+        "url": "https://oneirox.com/about/",
+        "description": "Independent sleep physiology researcher and developer behind the Oneirox Dream Decoder web application.",
+        "isPartOf": { "@id": "https://oneirox.com/#website" },
+        "about": { "@id": "https://oneirox.com/#decode-app" },
+        "mainEntity": { "@id": "https://oneirox.com/about/#vigen" }
+      },
+      {
+        "@type": "Person",
+        "@id": "https://oneirox.com/about/#vigen",
+        "name": "Vigen G.R.",
+        "jobTitle": "Sleep Physiology & Somatic Signals Researcher",
+        "description": "Independent researcher and developer. Creator of the Oneirox Dream Decoder — a free scientific AI web application for mechanism-based dream interpretation.",
+        "url": "https://oneirox.com/about/",
+        "worksFor": { "@id": "https://oneirox.com/#organization" },
+        "knowsAbout": [
+          "Sleep neurophysiology",
+          "REM sleep",
+          "Dream interpretation",
+          "Somatic markers",
+          "Amygdala threat processing",
+          "Emotional memory consolidation"
+        ]
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Oneirox", "item": "https://oneirox.com/" },
+          { "@type": "ListItem", "position": 2, "name": "About", "item": "https://oneirox.com/about/" }
+        ]
+      }
+    ]
+  }
+  </script>
 </head>
-<body class="page-oneirox">
+<body class="page-oneirox" itemscope itemtype="https://schema.org/ProfilePage">
 
   <header class="site-header">
     <div class="site-header__inner">
       <a href="/" class="site-logo" aria-label="Oneirox home">
-        <svg class="site-logo__glyph" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
-          <defs>
-            <linearGradient id="onx-lg" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stop-color="#1e4a38"/>
-              <stop offset="50%" stop-color="#00a5a8"/>
-              <stop offset="100%" stop-color="#2d6a6a"/>
-            </linearGradient>
-          </defs>
-          <circle cx="18" cy="18" r="15" fill="none" stroke="url(#onx-lg)" stroke-width="1.4" opacity="0.55"/>
-          <circle cx="18" cy="18" r="9" fill="none" stroke="#00a5a8" stroke-width="0.85" opacity="0.32"/>
-          <circle cx="18" cy="18" r="3.2" fill="#00a5a8"/>
-          <path d="M18 3v5M18 28v5M3 18h5M28 18h5" stroke="#00a5a8" stroke-width="1.1" stroke-linecap="round" opacity="0.42"/>
-        </svg>
         <span class="site-logo__word"><span class="site-logo__one">One</span><span class="site-logo__irox">irox</span></span>
+        <svg class="site-logo__heart" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+          <path d="M12 20.5s-6.5-4.6-6.5-9.2C5.5 8.1 7.6 6 10.1 6c1.4 0 2.7.7 3.4 1.8.7-1.1 2-1.8 3.4-1.8 2.5 0 4.6 2.1 4.6 5.3 0 4.6-6.5 9.2-6.5 9.2z" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
       </a>
       <nav class="site-nav" aria-label="Main">
         <ul>
@@ -40,7 +82,7 @@
           <li><a href="/#how">How it works</a></li>
           <li><a href="/#onx-tools">Tools</a></li>
           <li><a href="/#science">Science</a></li>
-          <li><a href="/about/">About</a></li>
+          <li><a href="/about/" aria-current="page">About</a></li>
           <li><a href="/methodology/">Methodology</a></li>
         </ul>
       </nav>
@@ -48,16 +90,244 @@
     </div>
   </header>
 
-  <main class="page-main">
-    <p class="page-eyebrow">About Oneirox</p>
-    <h1 class="page-title">About Vigen G.R.</h1>
-    <div class="page-content">
-      <p>Vigen G.R. is the independent researcher and developer behind Oneirox — a scientific AI dream decoder grounded in sleep neurobiology, not symbol dictionaries.</p>
-      <p>Five years of research. Fifty books. Fourteen peer-reviewed frameworks integrated into one mechanism-based reading per dream.</p>
-      <p>Full biography and methodology are being expanded. For now, use <a href="/">Decode</a> or read the <a href="/methodology/">methodology</a>.</p>
-      <p><a href="/">← Back to Decode</a></p>
+  <main>
+
+    <header class="onx-about-hero">
+      <div class="onx-about-hero__inner">
+        <div>
+          <p class="onx-about-hero__kicker">About · Experience · Expertise</p>
+          <h1 class="onx-about-hero__title" itemprop="name">I read dreams as <em>physiology</em> — not symbols.</h1>
+          <p class="onx-about-hero__lead">My name is <strong>Vigen G.R.</strong> I am an independent sleep physiology and somatic signals researcher — and the developer who built <a href="/">Oneirox</a>, a scientific AI dream decoder grounded in REM neuroscience, amygdalar threat processing, and interoceptive body data.</p>
+          <p class="onx-about-hero__lead">I am <strong>not</strong> a licensed clinician. I am not a therapist. I am someone who spent five years reading what actually happens in the sleeping brain — because every existing dream tool kept answering the wrong question.</p>
+          <p class="onx-about-hero__role">Sleep Physiology &amp; Somatic Signals Researcher · Independent · Developer</p>
+        </div>
+        <figure class="onx-about-hero__visual">
+          <div class="onx-about-hero__frame">
+            <img src="/images/vigen.jpg" alt="Vigen G.R. — Sleep physiology researcher" width="200" height="200" decoding="async" onerror="this.src='/images/neiro.webp';this.alt='Oneirox — neurobiology of dreaming';">
+          </div>
+          <figcaption class="onx-about-hero__caption">Vigen G.R. · Oneirox</figcaption>
+        </figure>
+      </div>
+    </header>
+
+    <div class="onx-about-stats" aria-label="Research credentials">
+      <div class="onx-about-stats__item">
+        <p class="onx-about-stats__val">5+</p>
+        <p class="onx-about-stats__lbl">Years of focused research</p>
+      </div>
+      <div class="onx-about-stats__item">
+        <p class="onx-about-stats__val">50+</p>
+        <p class="onx-about-stats__lbl">Books on sleep &amp; neuroscience</p>
+      </div>
+      <div class="onx-about-stats__item">
+        <p class="onx-about-stats__val">14</p>
+        <p class="onx-about-stats__lbl">Researchers in the Decode engine</p>
+      </div>
     </div>
+
+    <section class="onx-about-section" aria-labelledby="about-origin">
+      <div class="onx-about-section__inner">
+        <p class="onx-about-section__kicker">Why Oneirox exists</p>
+        <h2 class="onx-about-section__title" id="about-origin">The question no dream dictionary could answer</h2>
+        <div class="onx-about-prose">
+          <p>Every dream interpretation product I tested made the same move. You type a symbol — snake, water, teeth, falling — and you receive a table of possible meanings drawn from folklore, Jungian archetypes, or crowdsourced superstition dressed in modern interface design. Sometimes the table had five entries. Sometimes fifty. Never once did it ask the only question that mattered: <strong>what was your brain doing when it produced that image, on that night, in your body?</strong></p>
+          <p>I did not set out to build a website. I set out to understand why I kept waking at 3am with a physical sensation that outlasted the dream narrative — chest pressure that did not match panic, cold that did not lift when I pulled the blanket higher, jaw tension that arrived before I could name what I had dreamed. The images dissolved within minutes. The body did not lie.</p>
+          <p>That gap — between the story the mind tells on waking and the signal the nervous system carried through REM — became the center of five years of reading. Sleep neurophysiology. Somatic marker theory. Threat simulation. Emotional consolidation. Chronobiology. Attachment and limbic rehearsal. I read Walker on REM and memory. Damasio on what the body knows before the cortex names it. Revonsuo on why the amygdala rehearses chase scenes. LeDoux on fear pathways that move faster than thought. I read clinicians and I read skeptics. I read Jung — not to resurrect symbol tables, but to understand why the human mind reaches for metaphor when mechanism would be more honest.</p>
+          <p>Oneirox is the instrument that came out the other side. Not a citation library. Not a horoscope engine. A dream decoder that treats every report as a neurobiological event — and returns one mechanism-based reading in plain language, written for the person who just opened their eyes in the dark.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="onx-about-section onx-about-section--panel" aria-labelledby="about-wrong">
+      <div class="onx-about-section__inner onx-about-section__inner--wide">
+        <p class="onx-about-section__kicker">Expertise</p>
+        <h2 class="onx-about-section__title" id="about-wrong">Why every dream tool gets this wrong</h2>
+        <div class="onx-about-prose">
+          <p>It took five years and fifty books to understand why every existing dream interpretation product produces the same hollow result: symbol tables dressed in new technology. The problem is not the interface. It is the premise. Here is what I learned — and what Oneirox was built to correct.</p>
+        </div>
+        <ol class="onx-about-points" aria-label="Four flaws in conventional dream interpretation">
+          <li class="onx-about-points__item">
+            <span class="onx-about-points__n" aria-hidden="true">01</span>
+            <div>
+              <h3 class="onx-about-points__title">They start with the symbol, not the brain</h3>
+              <p class="onx-about-points__text">Dream dictionaries predate REM research by a century. Most AI tools digitize those tables at industrial scale — snake, water, teeth, falling — and call it progress. Oneirox was built from the neuroscience up: which system was active, which mechanism was running, what somatic state accompanied the image on that specific night.</p>
+            </div>
+          </li>
+          <li class="onx-about-points__item">
+            <span class="onx-about-points__n" aria-hidden="true">02</span>
+            <div>
+              <h3 class="onx-about-points__title">They ignore the body entirely</h3>
+              <p class="onx-about-points__text">The chest pressure on waking. The cold that did not lift when you pulled the blanket higher. Jaw tension that arrived before you could name the dream. These are often the most diagnostically accurate data points in the entire report — and conventional tools discard them because symbol tables have no column for interoception.</p>
+            </div>
+          </li>
+          <li class="onx-about-points__item">
+            <span class="onx-about-points__n" aria-hidden="true">03</span>
+            <div>
+              <h3 class="onx-about-points__title">They give you five possible meanings</h3>
+              <p class="onx-about-points__text">When a tool offers every interpretation, it offers none. Your brain was not running five processes simultaneously. It was running something specific — threat simulation, emotional consolidation, somatic signal, memory replay. Oneirox commits to one neurobiological reading and shows its reasoning plainly enough that you can test it against your own experience.</p>
+            </div>
+          </li>
+          <li class="onx-about-points__item">
+            <span class="onx-about-points__n" aria-hidden="true">04</span>
+            <div>
+              <h3 class="onx-about-points__title">They never ask what your body felt</h3>
+              <p class="onx-about-points__text">The Sensory Dream Mapper exists because Damasio established what dream dictionaries ignored: the body often knows first. Nine somatic profiles — temperature, pressure, weight, resistance across body zones — capture interoceptive truth in about ninety seconds and send it into Decode. That layer is not optional decoration. It is often the signal the narrative was assembled to explain.</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="onx-about-section onx-about-section--alt" aria-labelledby="about-who">
+      <div class="onx-about-section__inner">
+        <p class="onx-about-section__kicker">Experience · E-E-A-T</p>
+        <h2 class="onx-about-section__title" id="about-who">Who I am — and what I am <em>not</em></h2>
+        <div class="onx-about-prose">
+          <p>I work at the intersection of sleep neuroscience, somatic psychology, and instrument design. My training is not a medical degree — I want to state that clearly, because clarity is part of the methodology. I am an <strong>independent researcher and developer</strong>. I synthesize peer-reviewed frameworks into a repeatable method for reading dreams as outputs of active brain systems: the amygdala during threat simulation, the hippocampus during emotional consolidation, the thalamus during sensory gating in REM, the brainstem during sleep-stage transitions, the enteric and interoceptive networks that register on waking as temperature, pressure, and weight.</p>
+          <p>Over five years I moved through more than fifty books and dozens of primary sources — not to collect credentials, but to answer a practical question: <em>can a person awake at 3am understand what their nervous system was processing without learning a symbol dictionary first?</em> The answer, I believe, is yes — if the tool starts with mechanism and somatic truth, not metaphor.</p>
+          <p>At Oneirox I do three things. I research how sleep physiology expresses itself in dream imagery and waking body state. I translate that research into structured readings — SIGNAL, BODY, MORNING — that name the active process in one committed answer. And I build the instruments that apply the method: the <a href="/">Dream Decoder</a>, the <a href="/tools/oneirox-dream-mapper.html">Sensory Dream Mapper</a>, and the <a href="/phase/">Dream Phase Calculator</a>.</p>
+          <h3>What I do not claim</h3>
+          <p>I do not diagnose psychiatric conditions. I do not provide medical advice, crisis intervention, or therapy. I do not present myself as a clinical neuroscientist employed by a university or hospital. If your distress persists, please consult a qualified licensed professional. Oneirox is a research-informed interpretation instrument — rigorous, honest, and free — not a substitute for care.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="onx-about-section" aria-labelledby="about-method">
+      <div class="onx-about-section__inner">
+        <p class="onx-about-section__kicker">Methodology</p>
+        <h2 class="onx-about-section__title" id="about-method">How I read a dream</h2>
+        <div class="onx-about-prose">
+          <p>The image is never the point. The feeling that generated the image is the point. I start there — with what your body registered on waking, what emotional charge survived the transition from REM, and what narrative your cortex assembled after the fact to explain states that were already running in the limbic system.</p>
+          <p>When you submit a dream to Decode, the engine does not search a symbol table. It evaluates which neurobiological mechanism best fits the combined evidence: dream content, emotional tone, somatic data from the Mapper if you used it, and sleep-phase context if relevant. The output is structured deliberately. <strong>SIGNAL</strong> states the core truth in one sentence — what your brain was doing. <strong>BODY</strong> names the mechanism in accessible language: threat simulation, emotional consolidation, somatic interoception, memory replay, social-threat autonomic arousal. <strong>MORNING</strong> is the question your nervous system was trying to deliver — not a fortune, not a diagnosis, but a precise prompt for waking reflection.</p>
+          <p>This method rejects the comfort of five possible meanings. When a tool offers every interpretation, it offers none. Your brain was running something specific that night. My job — and the engine&rsquo;s job — is to commit to one reading grounded in sleep science, and to show the reasoning plainly enough that you can disagree intelligently if the fit is wrong.</p>
+          <p>The full framework — principles, limitations, researcher lineage — is documented in the <a href="/methodology/">Oneirox Methodology</a>. Transparency is not a footer disclaimer. It is how trust is built at 3am.</p>
+          <div class="onx-about-quote">
+            <blockquote cite="https://oneirox.com/about/">&ldquo;The image is never the point. The feeling that generated the image is the point. I start there.&rdquo;</blockquote>
+            <cite>— Vigen G.R., Oneirox methodology</cite>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="onx-about-section onx-about-section--panel" aria-labelledby="about-built">
+      <div class="onx-about-section__inner onx-about-section__inner--wide">
+        <p class="onx-about-section__kicker">What I built</p>
+        <h2 class="onx-about-section__title" id="about-built">Three instruments, one neurobiological lens</h2>
+        <div class="onx-about-prose">
+          <p>Research without application is a library. I build tools because the person awake at 3am does not need a literature review — they need one true reading and the dignity of a method that takes their body seriously.</p>
+          <h3>Dream Decoder</h3>
+          <p>The core instrument. Describe your dream in plain language — images, people, emotions, and critically, what your body felt when you woke. Decode returns one mechanism-based analysis grounded in fourteen integrated research frameworks. Free. No login. No subscription funnel.</p>
+          <h3>Sensory Dream Mapper</h3>
+          <p>Nine somatic profiles map temperature, pressure, weight, and resistance across body zones in about ninety seconds. Interoceptive data flows into Decode automatically because Damasio was right: the body often knows first. This is the layer symbol dictionaries have ignored for a century.</p>
+          <h3>Dream Phase Calculator</h3>
+          <p>Chronobiology matters. Cajochen et al. demonstrated lunar-phase effects on deep sleep and REM density. The calculator reads the date of your dream against lunar context — not astrology, but sleep science — so Decode can weight chronobiological factors when relevant.</p>
+        </div>
+        <ul class="onx-about-areas" aria-label="Research focus areas">
+          <li>Sleep neurophysiology &amp; REM architecture</li>
+          <li>Amygdalar threat processing in dreams</li>
+          <li>Thalamic gating &amp; dream imagery vividness</li>
+          <li>Hippocampal emotional consolidation</li>
+          <li>Somatic feedback loops during sleep</li>
+          <li>Interoception &amp; waking body signals</li>
+          <li>Chronobiology &amp; sleep-phase effects</li>
+          <li>Mechanism-based dream interpretation</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="onx-about-section" aria-labelledby="about-science">
+      <div class="onx-about-section__inner onx-about-section__inner--wide">
+        <p class="onx-about-section__kicker">Authority · lineage</p>
+        <h2 class="onx-about-section__title" id="about-science">The science behind every interpretation</h2>
+        <div class="onx-about-prose">
+          <p>Decode does not invent mechanisms. It synthesizes fourteen research frameworks — sleep neurophysiology, threat simulation, somatic marker theory, emotional consolidation, chronobiology, attachment and social-threat physiology — into one committed reading per dream. I did not read Jung to resurrect archetype tables. I read Jung and von Franz to understand why the human mind reaches for metaphor when mechanism would be more honest — and then I built an engine that starts with mechanism.</p>
+          <p>Not what dreams mean in the abstract. What the brain was specifically doing when it produced a specific image on a specific night of a specific life. That is the question Oneirox answers. The researchers below are not decorative citations. They are the intellectual spine of every SIGNAL · BODY · MORNING output.</p>
+        </div>
+        <div class="onx-about-canon" role="list" aria-label="Researchers integrated in the Decode engine">
+          <article class="onx-about-canon__entry" role="listitem">
+            <p class="onx-about-canon__name">Matthew Walker · Rosalind Cartwright</p>
+            <p class="onx-about-canon__insight"><strong>REM and emotional memory.</strong> What sleep does to unresolved charge — why recurring dreams loop, and why the same person or situation returns night after night until consolidation completes.</p>
+          </article>
+          <article class="onx-about-canon__entry" role="listitem">
+            <p class="onx-about-canon__name">Antonio Damasio</p>
+            <p class="onx-about-canon__insight"><strong>Somatic markers.</strong> The body registers what matters before the cortex names it. Waking temperature, pressure, and weight are often more honest than the plot your mind assembles on transition from REM.</p>
+          </article>
+          <article class="onx-about-canon__entry" role="listitem">
+            <p class="onx-about-canon__name">Joseph LeDoux</p>
+            <p class="onx-about-canon__insight"><strong>Two fear pathways.</strong> The body moves before thought catches up. Chase dreams and sudden drops are not random symbolism — they are amygdalar rehearsal running faster than narrative explanation.</p>
+          </article>
+          <article class="onx-about-canon__entry" role="listitem">
+            <p class="onx-about-canon__name">Stephen Porges</p>
+            <p class="onx-about-canon__insight"><strong>Social threat physiology.</strong> Rejection, humiliation, and abandonment in dreams can trigger autonomic responses identical to physical danger — because the nervous system does not distinguish the categories we use on waking.</p>
+          </article>
+          <article class="onx-about-canon__entry" role="listitem">
+            <p class="onx-about-canon__name">Mark Solms</p>
+            <p class="onx-about-canon__insight"><strong>Images as explanation.</strong> Dream imagery often explains physiological states already running — not the other way around. The image is the caption; the mechanism is the story.</p>
+          </article>
+          <article class="onx-about-canon__entry" role="listitem">
+            <p class="onx-about-canon__name">Robert Sapolsky</p>
+            <p class="onx-about-canon__insight"><strong>Stress, cortisol, hippocampus.</strong> Chronic load changes what gets consolidated in sleep and what the amygdala flags as unresolved threat worth rehearsing.</p>
+          </article>
+          <article class="onx-about-canon__entry" role="listitem">
+            <p class="onx-about-canon__name">Bessel van der Kolk</p>
+            <p class="onx-about-canon__insight"><strong>The body keeps the score.</strong> What the mind did not fully process often returns as somatic signal on waking — pressure, nausea, tension — before it returns as narrative.</p>
+          </article>
+          <article class="onx-about-canon__entry" role="listitem">
+            <p class="onx-about-canon__name">Carl Jung · Marie-Louise von Franz</p>
+            <p class="onx-about-canon__insight"><strong>Pattern beneath the individual.</strong> Not symbol tables — but respect for why the psyche reaches for archetypal form when naming states the cortex cannot yet articulate.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="onx-about-section onx-about-section--alt" aria-labelledby="about-trust">
+      <div class="onx-about-section__inner onx-about-section__inner--wide">
+        <p class="onx-about-section__kicker">Trust · limits · honesty</p>
+        <h2 class="onx-about-section__title" id="about-trust">What Oneirox is — and is not</h2>
+        <div class="onx-about-trust">
+          <div class="onx-about-trust__col onx-about-trust__col--is">
+            <h3 class="onx-about-trust__heading">Oneirox is</h3>
+            <ul class="onx-about-trust__list">
+              <li>A free scientific dream decoder grounded in sleep neurobiology — amygdala, hippocampus, thalamus, brainstem, somatic interoception</li>
+              <li>One committed mechanism-based reading per dream: SIGNAL · BODY · MORNING</li>
+              <li>Built by an independent researcher who read fifty books so you do not have to open a symbol table at 3am</li>
+              <li>An instrument for sleep science literacy — mechanism first, metaphor second</li>
+            </ul>
+          </div>
+          <div class="onx-about-trust__rule" aria-hidden="true"></div>
+          <div class="onx-about-trust__col onx-about-trust__col--not">
+            <h3 class="onx-about-trust__heading">Oneirox is not</h3>
+            <ul class="onx-about-trust__list">
+              <li>Medical advice, psychiatric diagnosis, psychotherapy, or crisis support</li>
+              <li>A dream dictionary, horoscope, or archetype generator with AI branding</li>
+              <li>A platform that harvests your dreams for engagement metrics or sells your data</li>
+              <li>A tool that offers five meanings and calls it insight</li>
+            </ul>
+          </div>
+        </div>
+        <nav class="onx-about-links" aria-label="Related pages">
+          <a href="/methodology/">Full methodology</a>
+          <a href="/disclaimer/">Disclaimer</a>
+          <a href="/privacy/">Privacy</a>
+          <a href="/terms/">Terms</a>
+        </nav>
+      </div>
+    </section>
+
+    <section class="onx-about-cta" aria-labelledby="about-cta-title">
+      <h2 class="onx-about-cta__title" id="about-cta-title">The signal was there when you woke up.<br><em>Decode it now.</em></h2>
+      <p class="onx-about-cta__sub">Free · No login · Grounded in sleep neuroscience</p>
+      <a href="/#decode" class="btn btn--light">Open the Dream Decoder →</a>
+    </section>
+
   </main>
+
+  <button type="button" class="back-to-top" id="back-to-top" aria-label="Back to top" aria-hidden="true" tabindex="-1">
+    <svg class="back-to-top__icon" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false">
+      <path d="M12 19V6M12 6 L6 12M12 6 L18 12" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    <span class="back-to-top__label">Top</span>
+  </button>
 
   <footer class="page-footer">
     <nav aria-label="Footer">
@@ -67,8 +337,9 @@
       <a href="/terms/">Terms</a>
       <a href="/disclaimer/">Disclaimer</a>
     </nav>
-    <p>© 2026 Oneirox · Vigen G.R.</p>
+    <p>© 2026 Oneirox · Vigen G.R. · Independent researcher &amp; developer</p>
   </footer>
 
+  <script src="/js/back-to-top.js" defer></script>
 </body>
 </html>

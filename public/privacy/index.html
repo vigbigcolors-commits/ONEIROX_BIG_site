@@ -9,37 +9,55 @@
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="manifest" href="/site.webmanifest">
   <meta name="theme-color" content="#1e3224">
-  <title>Privacy Policy — Oneirox</title>
-  <meta name="description" content="Oneirox privacy policy: what data we collect when you decode dreams, and what we do not store.">
+  <title>Privacy Policy — Oneirox Dream Decoder</title>
+  <meta name="description" content="Oneirox privacy policy: no accounts, no dream data sales. What we collect when you use Decode, Mapper, and Phase Calculator — and what stays on your device.">
+  <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://oneirox.com/privacy/">
+  <meta property="og:title" content="Privacy Policy — Oneirox">
+  <meta property="og:description" content="Transparent privacy for a free dream decoder. No login. No selling your dreams.">
+  <meta property="og:url" content="https://oneirox.com/privacy/">
   <link rel="stylesheet" href="/css/page.css">
+  <link rel="stylesheet" href="/css/legal.css">
+  <link rel="stylesheet" href="/css/main.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "name": "Privacy Policy — Oneirox",
+        "url": "https://oneirox.com/privacy/",
+        "description": "Privacy policy for the Oneirox Dream Decoder web application.",
+        "isPartOf": { "@id": "https://oneirox.com/#website" },
+        "about": { "@id": "https://oneirox.com/#decode-app" },
+        "dateModified": "2026-07-01"
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Oneirox", "item": "https://oneirox.com/" },
+          { "@type": "ListItem", "position": 2, "name": "Privacy", "item": "https://oneirox.com/privacy/" }
+        ]
+      }
+    ]
+  }
+  </script>
 </head>
 <body class="page-oneirox">
 
   <header class="site-header">
     <div class="site-header__inner">
       <a href="/" class="site-logo" aria-label="Oneirox home">
-        <svg class="site-logo__glyph" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
-          <defs>
-            <linearGradient id="onx-lg" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stop-color="#1e4a38"/>
-              <stop offset="50%" stop-color="#00a5a8"/>
-              <stop offset="100%" stop-color="#2d6a6a"/>
-            </linearGradient>
-          </defs>
-          <circle cx="18" cy="18" r="15" fill="none" stroke="url(#onx-lg)" stroke-width="1.4" opacity="0.55"/>
-          <circle cx="18" cy="18" r="9" fill="none" stroke="#00a5a8" stroke-width="0.85" opacity="0.32"/>
-          <circle cx="18" cy="18" r="3.2" fill="#00a5a8"/>
-          <path d="M18 3v5M18 28v5M3 18h5M28 18h5" stroke="#00a5a8" stroke-width="1.1" stroke-linecap="round" opacity="0.42"/>
-        </svg>
         <span class="site-logo__word"><span class="site-logo__one">One</span><span class="site-logo__irox">irox</span></span>
+        <svg class="site-logo__heart" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+          <path d="M12 20.5s-6.5-4.6-6.5-9.2C5.5 8.1 7.6 6 10.1 6c1.4 0 2.7.7 3.4 1.8.7-1.1 2-1.8 3.4-1.8 2.5 0 4.6 2.1 4.6 5.3 0 4.6-6.5 9.2-6.5 9.2z" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
       </a>
       <nav class="site-nav" aria-label="Main">
         <ul>
           <li><a href="/#decode">Decode</a></li>
           <li><a href="/#how">How it works</a></li>
           <li><a href="/#onx-tools">Tools</a></li>
-          <li><a href="/#science">Science</a></li>
           <li><a href="/about/">About</a></li>
           <li><a href="/methodology/">Methodology</a></li>
         </ul>
@@ -48,40 +66,116 @@
     </div>
   </header>
 
-  <main class="page-main">
-    <p class="page-eyebrow">Legal · Oneirox</p>
-    <h1 class="page-title">Privacy Policy</h1>
-    <p class="page-lead">Oneirox is built without accounts. We collect the minimum data needed to run the decoder and improve the service.</p>
+  <main>
 
-    <div class="page-content">
-      <h2>What You Submit</h2>
-      <p>When you use Decode, your dream text is sent to our API to generate a reading. We do not require registration, email, or payment to use the core decoder.</p>
+    <header class="onx-legal-hero">
+      <div class="onx-legal-hero__inner">
+        <p class="onx-legal-hero__kicker">Legal · Transparency · YMYL</p>
+        <h1 class="onx-legal-hero__title">Privacy Policy</h1>
+        <p class="onx-legal-hero__lead">Oneirox is built without accounts. We do not sell dream data. This policy explains exactly what happens when you use the Dream Decoder and related tools.</p>
+      </div>
+    </header>
 
-      <h2>Local Storage</h2>
-      <p>The Sensory Dream Mapper may save somatic context in your browser's <code>localStorage</code> (key: <code>onx_mapper_data</code>) for up to 30 minutes so Decode can include body-signal context. This data stays on your device until you clear it or it expires.</p>
+    <p class="onx-legal-meta">
+      <span>Effective: July 2026</span>
+      <span>Applies to: oneirox.com</span>
+      <span>Operator: Vigen G.R. / Oneirox</span>
+    </p>
 
-      <h2>Server Logs</h2>
-      <p>Our hosting and API providers may log standard request metadata (IP address, timestamp, user agent) for security and reliability. We do not sell personal data.</p>
+    <section class="onx-legal-section" aria-labelledby="privacy-summary">
+      <div class="onx-legal-section__inner onx-legal-section__inner--wide">
+        <h2 class="onx-legal-section__title" id="privacy-summary">At a glance</h2>
+        <div class="onx-legal-grid">
+          <div class="onx-legal-card">
+            <p class="onx-legal-card__tag">We collect</p>
+            <p class="onx-legal-card__title">Dream text you submit to Decode</p>
+            <p class="onx-legal-card__text">Sent to our API solely to generate your reading. Standard server logs (IP, timestamp, user agent) for security.</p>
+          </div>
+          <div class="onx-legal-card">
+            <p class="onx-legal-card__tag">We do not</p>
+            <p class="onx-legal-card__title">Require login or payment</p>
+            <p class="onx-legal-card__text">No accounts. No subscription funnel. No selling or licensing your dream content to third parties for advertising.</p>
+          </div>
+          <div class="onx-legal-card">
+            <p class="onx-legal-card__tag">On your device</p>
+            <p class="onx-legal-card__title">Mapper somatic context</p>
+            <p class="onx-legal-card__text"><code>localStorage</code> key <code>onx_mapper_data</code> — expires after ~30 minutes. Cleared when you clear browser data.</p>
+          </div>
+          <div class="onx-legal-card">
+            <p class="onx-legal-card__tag">Your control</p>
+            <p class="onx-legal-card__title">Clear browser storage anytime</p>
+            <p class="onx-legal-card__text">Delete site data in browser settings. Do not submit content you are not comfortable processing through an API.</p>
+          </div>
+        </div>
+      </div>
+    </section>
 
-      <h2>Third Parties</h2>
-      <p>Dream analysis is processed via our API infrastructure. Share features (email, social) use third-party services only when you explicitly choose to share a reading.</p>
+    <section class="onx-legal-section onx-legal-section--alt" aria-labelledby="privacy-decode">
+      <div class="onx-legal-section__inner">
+        <h2 class="onx-legal-section__title" id="privacy-decode">Dream Decoder (Decode)</h2>
+        <div class="onx-legal-prose">
+          <p>When you press <strong>Decode</strong>, the dream text you enter is transmitted to the Oneirox API (<code>oneirox-api-production.up.railway.app</code>) over HTTPS. The API processes your submission and returns a mechanism-based reading (SIGNAL · BODY · MORNING). We use this interaction to operate the service — not to build marketing profiles.</p>
+          <p>Do not submit information you would not want processed by a web application: full names of third parties, addresses, medical record numbers, or other highly sensitive identifiers. Describe dreams in plain language; you remain responsible for what you type.</p>
+        </div>
+      </div>
+    </section>
 
-      <h2>Contact</h2>
-      <p>Questions about privacy: use the contact method listed on <a href="/about/">About</a> when available.</p>
+    <section class="onx-legal-section" aria-labelledby="privacy-mapper">
+      <div class="onx-legal-section__inner">
+        <h2 class="onx-legal-section__title" id="privacy-mapper">Sensory Dream Mapper</h2>
+        <div class="onx-legal-prose">
+          <p>The Mapper may store somatic profile data locally in your browser (<code>localStorage</code>, key <code>onx_mapper_data</code>) so Decode can include interoceptive context automatically. This data does not leave your device until you run Decode — at which point relevant somatic context is included in the API request you initiate.</p>
+        </div>
+      </div>
+    </section>
 
-      <p><em>Last updated: 2026</em></p>
-      <p><a href="/">← Back to Decode</a></p>
-    </div>
+    <section class="onx-legal-section onx-legal-section--alt" aria-labelledby="privacy-logs">
+      <div class="onx-legal-section__inner">
+        <h2 class="onx-legal-section__title" id="privacy-logs">Hosting, logs &amp; third parties</h2>
+        <div class="onx-legal-prose">
+          <p>Oneirox is served via Cloudflare Pages. Our API runs on Railway. These providers may process standard technical logs — IP address, request time, user agent, error traces — for reliability and abuse prevention.</p>
+          <p>If you explicitly use a <strong>share</strong> feature (email, social), that action invokes the third-party service you choose. We do not auto-post your readings.</p>
+          <p>We do not use third-party advertising trackers on the core Decode experience. If analytics are added in future, this policy will be updated before they go live.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="onx-legal-section" aria-labelledby="privacy-rights">
+      <div class="onx-legal-section__inner">
+        <h2 class="onx-legal-section__title" id="privacy-rights">Retention, rights &amp; children</h2>
+        <div class="onx-legal-prose">
+          <p>Server-side retention of API submissions follows our infrastructure provider policies and operational needs (debugging, abuse prevention). We do not maintain a user account system — therefore there is no profile to export or delete by login. Clear local Mapper data via your browser.</p>
+          <p>Depending on your jurisdiction (GDPR, CCPA, and others), you may have rights to access, correct, or request deletion of personal data. Contact us via the method listed on <a href="/about/">About</a> when available.</p>
+          <p>Oneirox is not directed at children under 13. We do not knowingly collect data from children.</p>
+        </div>
+        <nav class="onx-legal-links" aria-label="Related legal pages">
+          <a href="/terms/">Terms of Use</a>
+          <a href="/disclaimer/">Disclaimer</a>
+          <a href="/methodology/">Methodology</a>
+          <a href="/">Decode</a>
+        </nav>
+      </div>
+    </section>
+
   </main>
+
+  <button type="button" class="back-to-top" id="back-to-top" aria-label="Back to top" aria-hidden="true" tabindex="-1">
+    <svg class="back-to-top__icon" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false">
+      <path d="M12 19V6M12 6 L6 12M12 6 L18 12" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    <span class="back-to-top__label">Top</span>
+  </button>
 
   <footer class="page-footer">
     <nav aria-label="Footer">
       <a href="/">Decode</a>
       <a href="/disclaimer/">Disclaimer</a>
       <a href="/terms/">Terms</a>
+      <a href="/about/">About</a>
     </nav>
-    <p>© 2026 Oneirox</p>
+    <p>© 2026 Oneirox · Vigen G.R.</p>
   </footer>
 
+  <script src="/js/back-to-top.js" defer></script>
 </body>
 </html>

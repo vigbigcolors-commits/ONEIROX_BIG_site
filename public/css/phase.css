@@ -1,0 +1,299 @@
+/* PHASE PAGE — shell + editorial (calculator UI in phase-calc.css) */
+
+.onx-phase-hero {
+  position: relative;
+  padding: 48px 0 40px;
+  background: linear-gradient(175deg, #1a2218 0%, #243320 42%, #2e3a2c 100%);
+  color: #e8ece4;
+  overflow: hidden;
+}
+
+.onx-phase-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    radial-gradient(1px 1px at 12% 22%, rgba(255, 255, 255, 0.35) 0%, transparent 100%),
+    radial-gradient(1px 1px at 78% 18%, rgba(255, 255, 255, 0.25) 0%, transparent 100%),
+    radial-gradient(1.5px 1.5px at 44% 68%, rgba(255, 255, 255, 0.2) 0%, transparent 100%),
+    linear-gradient(to right, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+  background-size: auto, auto, auto, 32px 32px, 32px 32px;
+}
+
+.onx-phase-hero__inner {
+  position: relative;
+  z-index: 1;
+  max-width: var(--onx-max-width);
+  margin: 0 auto;
+  padding: 0 28px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 32px 48px;
+  align-items: end;
+}
+
+.onx-phase-hero__kicker {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: #9ed4d6;
+  margin: 0 0 14px;
+}
+
+.onx-phase-hero__title {
+  font-family: var(--onx-font-serif);
+  font-size: clamp(30px, 3.8vw, 44px);
+  font-weight: 600;
+  line-height: 1.12;
+  letter-spacing: -0.03em;
+  color: #f4f6ef;
+  margin: 0 0 14px;
+  max-width: 18ch;
+}
+
+.onx-phase-hero__title em {
+  font-style: italic;
+  color: #a8d490;
+}
+
+.onx-phase-hero__lead {
+  font-size: 16px;
+  line-height: 1.72;
+  color: rgba(220, 228, 210, 0.88);
+  margin: 0;
+  max-width: 52ch;
+}
+
+.onx-phase-hero__stats {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 20px 22px;
+  border: 1px solid rgba(168, 212, 144, 0.25);
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  min-width: 140px;
+}
+
+.onx-phase-hero__stat {
+  text-align: center;
+}
+
+.onx-phase-hero__stat-val {
+  font-family: var(--onx-font-serif);
+  font-size: 28px;
+  font-weight: 700;
+  color: #a8d490;
+  line-height: 1;
+}
+
+.onx-phase-hero__stat-lbl {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(200, 220, 180, 0.7);
+  margin-top: 4px;
+  line-height: 1.35;
+}
+
+.onx-phase-tool {
+  background: var(--onx-canvas);
+  padding: 0 0 24px;
+}
+
+.onx-phase-tool .dpc3 {
+  margin-top: -28px;
+  padding-top: 0;
+}
+
+.onx-phase-section {
+  padding: 56px 0 64px;
+  border-top: 1px solid rgba(58, 68, 53, 0.08);
+}
+
+.onx-phase-section--alt {
+  background: #fafbf8;
+}
+
+.onx-phase-section__inner {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 0 28px;
+}
+
+.onx-phase-section__inner--wide {
+  max-width: var(--onx-max-width);
+}
+
+.onx-phase-section__kicker {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--onx-moss);
+  margin: 0 0 14px;
+}
+
+.onx-phase-section__title {
+  font-family: var(--onx-font-serif);
+  font-size: clamp(24px, 2.8vw, 32px);
+  font-weight: 600;
+  line-height: 1.15;
+  color: var(--onx-forest);
+  margin: 0 0 18px;
+  letter-spacing: -0.02em;
+}
+
+.onx-phase-section__title em {
+  font-style: italic;
+  color: var(--onx-emerald);
+}
+
+.onx-phase-prose {
+  font-size: 16px;
+  line-height: 1.78;
+  color: #3f4a3a;
+}
+
+.onx-phase-prose p { margin: 0 0 16px; }
+.onx-phase-prose p:last-child { margin-bottom: 0; }
+.onx-phase-prose strong { color: #2a3228; font-weight: 600; }
+
+.onx-phase-prose a {
+  color: #2d6a6a;
+  font-weight: 600;
+  text-decoration: underline;
+  text-decoration-color: rgba(0, 165, 168, 0.35);
+  text-underline-offset: 3px;
+}
+
+.onx-phase-flow {
+  list-style: none;
+  margin: 28px 0 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  border: 1px solid rgba(58, 68, 53, 0.12);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.onx-phase-flow__step {
+  padding: 24px 22px;
+  border-right: 1px solid rgba(58, 68, 53, 0.1);
+  background: rgba(255, 255, 255, 0.5);
+}
+
+.onx-phase-flow__step:last-child { border-right: none; }
+
+.onx-phase-flow__n {
+  font-family: var(--onx-font-serif);
+  font-size: 22px;
+  font-weight: 700;
+  color: rgba(0, 165, 168, 0.45);
+  margin-bottom: 8px;
+  line-height: 1;
+}
+
+.onx-phase-flow__title {
+  font-size: 14px;
+  font-weight: 700;
+  color: #1e261c;
+  margin: 0 0 8px;
+  letter-spacing: 0.02em;
+}
+
+.onx-phase-flow__text {
+  font-size: 13px;
+  line-height: 1.65;
+  color: #5a6454;
+  margin: 0;
+}
+
+.onx-phase-cta {
+  text-align: center;
+  padding: 48px 28px 64px;
+  background: linear-gradient(168deg, #2e3a2c 0%, #1a2218 55%, #121812 100%);
+}
+
+.onx-phase-cta__title {
+  font-family: var(--onx-font-serif);
+  font-size: clamp(24px, 3vw, 32px);
+  font-weight: 600;
+  color: #f0f5ea;
+  margin: 0 0 12px;
+  letter-spacing: -0.02em;
+}
+
+.onx-phase-cta__title em {
+  font-style: italic;
+  color: #9ed4d6;
+}
+
+.onx-phase-cta__sub {
+  font-size: 13px;
+  color: rgba(220, 228, 215, 0.8);
+  margin: 0 0 22px;
+}
+
+.onx-phase-cta .btn--light {
+  display: inline-block;
+  padding: 14px 32px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: #1a2218;
+  background: #cfedaf;
+  border-radius: 50px;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.25);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.onx-phase-cta .btn--light:hover {
+  transform: translateY(-2px);
+  color: #1a2218;
+}
+
+/* Calculator typography — align with site */
+.dpc3-title,
+.dpc3-panel-title,
+.dpc3-r-phase,
+.dpc3-bar-num,
+.dpc3-insight-txt,
+.dpc3-stat-num {
+  font-family: var(--onx-font-serif) !important;
+}
+
+@media (max-width: 860px) {
+  .onx-phase-hero__inner {
+    grid-template-columns: 1fr;
+  }
+
+  .onx-phase-hero__stats {
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .onx-phase-flow {
+    grid-template-columns: 1fr;
+  }
+
+  .onx-phase-flow__step {
+    border-right: none;
+    border-bottom: 1px solid rgba(58, 68, 53, 0.1);
+  }
+
+  .onx-phase-flow__step:last-child { border-bottom: none; }
+}
+
+@media (max-width: 560px) {
+  .onx-phase-hero__inner,
+  .onx-phase-section__inner { padding: 0 18px; }
+}

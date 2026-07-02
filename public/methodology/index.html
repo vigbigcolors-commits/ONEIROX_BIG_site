@@ -9,31 +9,80 @@
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="manifest" href="/site.webmanifest">
   <meta name="theme-color" content="#1e3224">
-  <title>Methodology — How Oneirox Reads Dreams | Vigen G.R.</title>
-  <meta name="description" content="Oneirox methodology: not a clinician, not a dictionary. Five principles for reading dreams as neurobiological events.">
+  <title>Oneirox Methodology — How I Read Dreams | Vigen G.R.</title>
+  <meta name="description" content="The Oneirox methodology: five principles for reading dreams as neurobiological events — not symbol tables. Written by Vigen G.R. after 50+ books and five years of research. Still evolving.">
+  <meta name="author" content="Vigen G.R.">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Oneirox Methodology — How I Read Dreams">
+  <meta property="og:description" content="Not a clinician. Not a dictionary. A human-written methodology grounded in REM neuroscience, somatic markers, and five years of reading.">
+  <meta property="og:url" content="https://oneirox.com/methodology/">
+  <meta property="og:site_name" content="Oneirox">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Oneirox Methodology">
+  <meta name="twitter:description" content="Five principles. One reading sequence. Fifty books. Written by a researcher, not an algorithm.">
   <link rel="canonical" href="https://oneirox.com/methodology/">
   <link rel="stylesheet" href="/css/page.css">
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Oneirox Methodology","author":{"@type":"Person","name":"Vigen G.R."},"about":"Dream interpretation methodology grounded in sleep neuroscience"}</script>
+  <link rel="stylesheet" href="/css/methodology.css">
+  <link rel="stylesheet" href="/css/main.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Article",
+        "@id": "https://oneirox.com/methodology/#article",
+        "headline": "Oneirox Methodology — How I Read Dreams",
+        "description": "Documentation for the Oneirox Dream Decoder web application: five principles and a reading sequence for interpreting dreams as neurobiological events.",
+        "url": "https://oneirox.com/methodology/",
+        "datePublished": "2026-01-01",
+        "dateModified": "2026-07-01",
+        "author": { "@id": "https://oneirox.com/about/#vigen" },
+        "publisher": { "@id": "https://oneirox.com/#organization" },
+        "isPartOf": { "@id": "https://oneirox.com/#website" },
+        "about": { "@id": "https://oneirox.com/#decode-app" },
+        "keywords": "dream interpretation methodology, sleep neuroscience, REM dreams, somatic markers, Oneirox Dream Decoder"
+      },
+      {
+        "@type": "HowTo",
+        "@id": "https://oneirox.com/methodology/#how-to-read",
+        "name": "How to read a dream using the Oneirox methodology",
+        "description": "Five-step reading sequence implemented by the Oneirox Dream Decoder web application.",
+        "tool": { "@id": "https://oneirox.com/#decode-app" },
+        "step": [
+          { "@type": "HowToStep", "position": 1, "name": "The Feeling", "text": "Identify the felt quality of the dream and where it lives in the body on waking." },
+          { "@type": "HowToStep", "position": 2, "name": "The Timing", "text": "Map the waking-life context generating this emotional charge right now." },
+          { "@type": "HowToStep", "position": 3, "name": "The Neuroscience", "text": "Determine which brain mechanism was active when the image was produced." },
+          { "@type": "HowToStep", "position": 4, "name": "The Specificity", "text": "Distinguish this version of the dream from other versions of the same image." },
+          { "@type": "HowToStep", "position": 5, "name": "The Honest Sentence", "text": "State what the dreaming mind was building toward — the direct message behind the image." }
+        ]
+      },
+      {
+        "@type": "Person",
+        "@id": "https://oneirox.com/about/#vigen",
+        "name": "Vigen G.R.",
+        "jobTitle": "Sleep Physiology & Somatic Signals Researcher",
+        "url": "https://oneirox.com/about/"
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Oneirox", "item": "https://oneirox.com/" },
+          { "@type": "ListItem", "position": 2, "name": "Methodology", "item": "https://oneirox.com/methodology/" }
+        ]
+      }
+    ]
+  }
+  </script>
 </head>
 <body class="page-oneirox">
 
   <header class="site-header">
     <div class="site-header__inner">
       <a href="/" class="site-logo" aria-label="Oneirox home">
-        <svg class="site-logo__glyph" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
-          <defs>
-            <linearGradient id="onx-lg" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stop-color="#1e4a38"/>
-              <stop offset="50%" stop-color="#00a5a8"/>
-              <stop offset="100%" stop-color="#2d6a6a"/>
-            </linearGradient>
-          </defs>
-          <circle cx="18" cy="18" r="15" fill="none" stroke="url(#onx-lg)" stroke-width="1.4" opacity="0.55"/>
-          <circle cx="18" cy="18" r="9" fill="none" stroke="#00a5a8" stroke-width="0.85" opacity="0.32"/>
-          <circle cx="18" cy="18" r="3.2" fill="#00a5a8"/>
-          <path d="M18 3v5M18 28v5M3 18h5M28 18h5" stroke="#00a5a8" stroke-width="1.1" stroke-linecap="round" opacity="0.42"/>
-        </svg>
         <span class="site-logo__word"><span class="site-logo__one">One</span><span class="site-logo__irox">irox</span></span>
+        <svg class="site-logo__heart" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+          <path d="M12 20.5s-6.5-4.6-6.5-9.2C5.5 8.1 7.6 6 10.1 6c1.4 0 2.7.7 3.4 1.8.7-1.1 2-1.8 3.4-1.8 2.5 0 4.6 2.1 4.6 5.3 0 4.6-6.5 9.2-6.5 9.2z" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
       </a>
       <nav class="site-nav" aria-label="Main">
         <ul>
@@ -42,62 +91,354 @@
           <li><a href="/#onx-tools">Tools</a></li>
           <li><a href="/#science">Science</a></li>
           <li><a href="/about/">About</a></li>
-          <li><a href="/methodology/">Methodology</a></li>
+          <li><a href="/methodology/" aria-current="page">Methodology</a></li>
         </ul>
       </nav>
       <a href="/#decode" class="btn btn--primary">Decode →</a>
     </div>
   </header>
 
-  <main class="page-main">
-    <p class="page-eyebrow">Methodology · Oneirox · How I Read Dreams</p>
-    <h1 class="page-title">Not a Clinician. Not a Dictionary. <em>Something More Honest.</em></h1>
-    <p class="page-lead">Most dream interpretation has a methodology problem. The method is: look up the symbol, return the meaning. Fast, scalable, and completely indifferent to the person who had the dream. <strong>The person who had the dream is the entire point.</strong></p>
+  <main>
 
-    <div class="page-content">
-      <blockquote>The image is never the point. The feeling that generated the image is the point. I start there.</blockquote>
-
-      <div class="page-callout page-callout--warn">
-        <p>I am not a clinician. I am not a therapist. I'm a researcher with an obsession and a methodology. This is not a medical resource. See our <a href="/disclaimer/">Disclaimer</a>.</p>
+    <header class="onx-meth-hero">
+      <div class="onx-meth-hero__inner">
+        <p class="onx-meth-hero__kicker">Methodology · Oneirox · How I Read Dreams</p>
+        <h1 class="onx-meth-hero__title">Not a Clinician. Not a Dictionary. <em>Something More Honest.</em></h1>
+        <p class="onx-meth-hero__lead">Most dream interpretation has a methodology problem. The method is: look up the symbol, return the meaning. Fast, scalable, and completely indifferent to the person who had the dream.</p>
+        <p class="onx-meth-hero__lead"><strong>The person who had the dream is the entire point.</strong> Five years of reading. Fifty books. This is what I actually do instead — and why the Oneirox Dream Decoder works differently from anything else that exists.</p>
+        <p class="onx-meth-hero__byline">Written by Vigen G.R. · I am still researching · This page is a living document</p>
       </div>
+    </header>
 
-      <h2>Five Principles</h2>
-
-      <h3>01 — The Emotional Signature Is Primary</h3>
-      <p>Standard dream interpretation starts with the image. What the neuroscience of REM sleep suggests is the opposite: the emotional state is primary. The image is selected by the dreaming brain to encode and process that emotional state as efficiently as possible.</p>
-      <p><em>Citation: Cartwright — The Twenty-Four Hour Mind</em></p>
-
-      <h3>02 — The Body Knows Before the Mind Names It</h3>
-      <p>The amygdala receives threat-relevant information from the thalamus before that information reaches the cortex. The physical residue after waking is not a side effect of the dream. It is the most honest available data about what the dream was processing.</p>
-      <p><em>Citation: LeDoux — The Emotional Brain · Damasio — The Feeling of What Happens</em></p>
-
-      <h3>03 — The Neuroscience Tells You What. The Life Tells You Why.</h3>
-      <p>The human brain cannot distinguish between financial threat, social status threat, and physical danger at the level of the amygdala's alarm response. The neuroscience gives me the structure. The life gives me the address.</p>
-      <p><em>Citation: Sapolsky — Behave · Why Zebras Don't Get Ulcers</em></p>
-
-      <h3>04 — Timing Is the Most Diagnostic Element</h3>
-      <p>Dreams track life transitions with remarkable precision — and often slightly before those changes are fully consciously acknowledged. The amygdala updates before the cortex has finished its assessment.</p>
-      <p><em>Citation: Cartwright — longitudinal dream research, Rush University</em></p>
-
-      <h3>05 — The Dream Is Not Prophetic. It Is Diagnostic.</h3>
-      <p>The dreaming brain does not know the future. It generates accurate current assessments of the emotional state of ongoing situations. Dreams are the nervous system's most honest available communication. They are not oracular. They are diagnostic.</p>
-      <p><em>Citation: Walker — Why We Sleep · Hobson — The Dreaming Brain</em></p>
-
-      <h2>Reading Sequence</h2>
-      <ol>
-        <li><strong>The Feeling</strong> — What is the felt quality of this dream? Where does it live in the body?</li>
-        <li><strong>The Timing</strong> — What is the waking-life context that generates this specific emotional charge right now?</li>
-        <li><strong>The Neuroscience</strong> — What is the brain actually doing when it produces this image?</li>
-        <li><strong>The Specificity</strong> — What distinguishes this version of the dream from other versions of the same image?</li>
-        <li><strong>The Honest Sentence</strong> — The thing the dreaming mind would have said directly if waking management hadn't required images instead.</li>
-      </ol>
-
-      <h2>What This Methodology Cannot Do</h2>
-      <p>It cannot diagnose mental illness, predict the future, or replace therapy when you need it. What it can do is deliver the most honest available account of what your brain was doing while you slept. Not comfort. Not prediction. Precision.</p>
-
-      <p><a href="/">← Back to Decode</a></p>
+    <div class="onx-meth-stats" aria-label="Methodology credentials">
+      <div class="onx-meth-stats__item">
+        <p class="onx-meth-stats__val">5</p>
+        <p class="onx-meth-stats__lbl">Years studying</p>
+      </div>
+      <div class="onx-meth-stats__item">
+        <p class="onx-meth-stats__val">50+</p>
+        <p class="onx-meth-stats__lbl">Books that shaped this method</p>
+      </div>
+      <div class="onx-meth-stats__item">
+        <p class="onx-meth-stats__val">14</p>
+        <p class="onx-meth-stats__lbl">Researchers in the engine</p>
+      </div>
     </div>
+
+    <section class="onx-meth-section" aria-labelledby="meth-letter">
+      <div class="onx-meth-section__inner">
+        <p class="onx-meth-section__kicker">A note from me</p>
+        <h2 class="onx-meth-section__title" id="meth-letter">A human wrote this methodology</h2>
+        <div class="onx-meth-prose">
+          <p>I want to say that plainly, because in 2026 most &ldquo;methodologies&rdquo; on dream sites are either ancient folklore repackaged as AI, or AI repackaged as ancient folklore. Neither was good enough for the question I kept waking up with at 3am.</p>
+          <p>Fifty books helped me understand what happens in the sleeping brain — but understanding is not a finish line. I am still reading. Still testing readings against real dreams people send me. Still adjusting how Decode weights somatic data against narrative content. This methodology is the best honest account I can give you today. Tomorrow I may know something Walker or Cartwright or Damasio clarified in a passage I had not yet reached.</p>
+          <p>That is not weakness. That is how research actually works when one person is obsessed with getting the answer right instead of getting the answer comfortable.</p>
+        </div>
+        <div class="onx-meth-letter">
+          <p>If you are reading this because you want a symbol table — snake means betrayal, water means emotion — you are on the wrong page. If you are reading this because you woke with a feeling your body will not release and an image that already feels like a caption for something deeper, you are in the right place.</p>
+          <p>I built Oneirox because I needed this method myself. Every principle below came from a book, a paper, or a night I could not explain with folklore. I wrote every word on this page. The engine applies what I learned. It does not replace the thinking — it carries it to you at the hour when thinking is hardest.</p>
+          <p class="onx-meth-letter__sign">— Vigen G.R.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="onx-meth-section onx-meth-section--alt" aria-labelledby="meth-origin">
+      <div class="onx-meth-section__inner">
+        <p class="onx-meth-section__kicker">Origin</p>
+        <h2 class="onx-meth-section__title" id="meth-origin">The gap between what people say and what the body registers</h2>
+        <div class="onx-meth-prose">
+          <p>Standard dream interpretation asks you to describe the image first. My method asks you to describe the feeling first — and the body state on waking second — because that is what the neuroscience of REM sleep suggests the dreaming brain was actually processing.</p>
+          <p>The image is the encoding mechanism. The emotional signature is the payload. When you tell me you dreamed of falling, I am not reaching for a dictionary entry about loss of control. I am asking: what was your amygdala rehearsing? What somatic residue survived the transition from REM? What life context makes this charge acute right now?</p>
+          <p>That shift — from symbol to mechanism — is the entire methodology in one sentence. Everything below is what five years of reading taught me about how to do it rigorously.</p>
+        </div>
+        <div class="onx-meth-quote">
+          <blockquote cite="https://oneirox.com/methodology/">&ldquo;The image is never the point. The feeling that generated the image is the point. I start there.&rdquo;</blockquote>
+          <cite>— Vigen G.R., founding principle</cite>
+        </div>
+        <div class="onx-meth-disclaimer" role="note">
+          <p><strong>Important:</strong> I am not a clinician. I am not a therapist. I am a researcher with an obsession and a methodology. This is not a medical resource. If you need clinical care, please consult a licensed professional. See our <a href="/disclaimer/">Disclaimer</a>.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="onx-meth-section onx-meth-section--panel" aria-labelledby="meth-principles">
+      <div class="onx-meth-section__inner onx-meth-section__inner--wide">
+        <p class="onx-meth-section__kicker">Core principles</p>
+        <h2 class="onx-meth-section__title" id="meth-principles">Five principles I will not compromise on</h2>
+        <div class="onx-meth-prose">
+          <p>These are not marketing bullets. They are the rules I use when I read a dream — and the rules encoded in Decode. Each one cost me a book, sometimes several.</p>
+        </div>
+        <ol class="onx-meth-principles" aria-label="Five methodology principles">
+          <li class="onx-meth-principles__item">
+            <span class="onx-meth-principles__n" aria-hidden="true">01</span>
+            <div>
+              <h3 class="onx-meth-principles__title">The emotional signature is primary. The visual content is secondary.</h3>
+              <p class="onx-meth-principles__text">Standard dream interpretation starts with the image. What the neuroscience of REM sleep suggests is the opposite: the emotional state is primary. The image is selected by the dreaming brain to encode and process that emotional state as efficiently as possible. When I read your dream, I start with felt quality — dread, grief, shame, relief, unnamed pressure — before I touch the plot.</p>
+              <p class="onx-meth-principles__cite">Cartwright — <em>The Twenty-Four Hour Mind</em></p>
+            </div>
+          </li>
+          <li class="onx-meth-principles__item">
+            <span class="onx-meth-principles__n" aria-hidden="true">02</span>
+            <div>
+              <h3 class="onx-meth-principles__title">The body knows before the mind names it.</h3>
+              <p class="onx-meth-principles__text">The amygdala receives threat-relevant information from the thalamus before that information reaches the cortex. The physical residue after waking — chest pressure, cold, jaw tension, nausea — is not a side effect of the dream. It is the most honest available data about what the dream was processing. That is why I built the Sensory Dream Mapper. The body is not decoration in this methodology. It is primary evidence.</p>
+              <p class="onx-meth-principles__cite">LeDoux — <em>The Emotional Brain</em> · Damasio — <em>The Feeling of What Happens</em></p>
+            </div>
+          </li>
+          <li class="onx-meth-principles__item">
+            <span class="onx-meth-principles__n" aria-hidden="true">03</span>
+            <div>
+              <h3 class="onx-meth-principles__title">The neuroscience tells you what. The life tells you why.</h3>
+              <p class="onx-meth-principles__text">The human brain cannot distinguish between financial threat, social status threat, and physical danger at the level of the amygdala&rsquo;s alarm response. A dream of being chased by a boss and a dream of being chased by a predator can share identical autonomic architecture. The neuroscience gives me the structure — threat simulation, consolidation, somatic signal. Your life gives me the address. Both are required. Neither alone is sufficient.</p>
+              <p class="onx-meth-principles__cite">Sapolsky — <em>Behave</em> · <em>Why Zebras Don&rsquo;t Get Ulcers</em></p>
+            </div>
+          </li>
+          <li class="onx-meth-principles__item">
+            <span class="onx-meth-principles__n" aria-hidden="true">04</span>
+            <div>
+              <h3 class="onx-meth-principles__title">Timing is the most diagnostic element.</h3>
+              <p class="onx-meth-principles__text">Dreams track life transitions with remarkable precision — and often slightly before those changes are fully consciously acknowledged. The amygdala updates before the cortex has finished its assessment. When someone tells me a dream arrived the week before a breakup, a job loss, or a reconciliation they had not yet named, I do not call it prophecy. I call it diagnostic timing — the nervous system processing what consciousness has not yet filed.</p>
+              <p class="onx-meth-principles__cite">Cartwright — longitudinal dream research, Rush University</p>
+            </div>
+          </li>
+          <li class="onx-meth-principles__item">
+            <span class="onx-meth-principles__n" aria-hidden="true">05</span>
+            <div>
+              <h3 class="onx-meth-principles__title">The dream is not prophetic. It is diagnostic.</h3>
+              <p class="onx-meth-principles__text">The dreaming brain does not know the future. It generates accurate current assessments of the emotional state of ongoing situations. Dreams are the nervous system&rsquo;s most honest available communication. They are not oracular. They are diagnostic. I will not tell you what will happen. I will tell you what your brain was assessing while you slept — and that is often more useful than prediction.</p>
+              <p class="onx-meth-principles__cite">Walker — <em>Why We Sleep</em> · Hobson — <em>The Dreaming Brain</em></p>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="onx-meth-section" aria-labelledby="meth-sequence">
+      <div class="onx-meth-section__inner onx-meth-section__inner--wide">
+        <p class="onx-meth-section__kicker">Reading sequence</p>
+        <h2 class="onx-meth-section__title" id="meth-sequence">How I actually read a dream — step by step</h2>
+        <div class="onx-meth-prose">
+          <p>When I sit with a dream report — or when Decode processes one — this is the sequence. Not optional steps. Not reorderable. The order matters because each layer constrains the next.</p>
+        </div>
+        <ol class="onx-meth-seq" itemscope itemtype="https://schema.org/HowTo">
+          <li class="onx-meth-seq__step" itemprop="step" itemscope itemtype="https://schema.org/HowToStep">
+            <div class="onx-meth-seq__marker" aria-hidden="true">1</div>
+            <div>
+              <h3 class="onx-meth-seq__title" itemprop="name">The Feeling</h3>
+              <p class="onx-meth-seq__text" itemprop="text">What is the felt quality of this dream? Where does it live in the body on waking? This is the primary data — not the plot, not the cast of characters, not whether you dreamed of water or snakes. The feeling is the payload the image was built to carry.</p>
+            </div>
+          </li>
+          <li class="onx-meth-seq__step" itemprop="step" itemscope itemtype="https://schema.org/HowToStep">
+            <div class="onx-meth-seq__marker" aria-hidden="true">2</div>
+            <div>
+              <h3 class="onx-meth-seq__title" itemprop="name">The Timing</h3>
+              <p class="onx-meth-seq__text" itemprop="text">What is the waking-life context that generates this specific emotional charge right now? Dreams are time-stamped. The same image means something different the week before a transition than the week after. Cartwright taught me to always ask: what is happening in the life that makes this charge acute tonight?</p>
+            </div>
+          </li>
+          <li class="onx-meth-seq__step" itemprop="step" itemscope itemtype="https://schema.org/HowToStep">
+            <div class="onx-meth-seq__marker" aria-hidden="true">3</div>
+            <div>
+              <h3 class="onx-meth-seq__title" itemprop="name">The Neuroscience</h3>
+              <p class="onx-meth-seq__text" itemprop="text">What is the brain actually doing when it produces this image? Threat simulation in the amygdala? Emotional consolidation in REM? Somatic interoception registering on waking? Memory replay? Social-threat autonomic arousal? Walker, Cartwright, LeDoux, Sapolsky, Damasio, Porges — this is where their work becomes a decision tree, not a bibliography.</p>
+            </div>
+          </li>
+          <li class="onx-meth-seq__step" itemprop="step" itemscope itemtype="https://schema.org/HowToStep">
+            <div class="onx-meth-seq__marker" aria-hidden="true">4</div>
+            <div>
+              <h3 class="onx-meth-seq__title" itemprop="name">The Specificity</h3>
+              <p class="onx-meth-seq__text" itemprop="text">What distinguishes this version of the dream from other versions of the same image? Two people dream of falling. Two people dream of the same ex. The mechanism may differ. The somatic profile may differ. The life context certainly differs. Specificity is where symbol tables fail — they treat every snake as the same snake. I do not.</p>
+            </div>
+          </li>
+          <li class="onx-meth-seq__step" itemprop="step" itemscope itemtype="https://schema.org/HowToStep">
+            <div class="onx-meth-seq__marker" aria-hidden="true">5</div>
+            <div>
+              <h3 class="onx-meth-seq__title" itemprop="name">The Honest Sentence</h3>
+              <p class="onx-meth-seq__text" itemprop="text">The sentence the dreaming mind was building toward — the thing it would have said directly if waking management had not required images instead. This becomes SIGNAL in the Decode output. One sentence. No hedging. No five possible meanings. The nervous system was trying to deliver something. My job is to name it.</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="onx-meth-section onx-meth-section--alt" aria-labelledby="meth-output">
+      <div class="onx-meth-section__inner onx-meth-section__inner--wide">
+        <p class="onx-meth-section__kicker">Decode output</p>
+        <h2 class="onx-meth-section__title" id="meth-output">What you receive: SIGNAL · BODY · MORNING</h2>
+        <div class="onx-meth-prose">
+          <p>The reading sequence above collapses into three sections in every Decode output. I designed this format for the person awake at 3am — not for a journal, not for a textbook. Each section has one job.</p>
+        </div>
+        <div class="onx-meth-output" role="list" aria-label="Decode output format">
+          <div class="onx-meth-output__col" role="listitem">
+            <span class="onx-meth-output__tag">Signal</span>
+            <p class="onx-meth-output__desc">The core truth in one sentence — what your brain was doing while you slept. This is the Honest Sentence from step five, committed without hedging.</p>
+          </div>
+          <div class="onx-meth-output__col" role="listitem">
+            <span class="onx-meth-output__tag">Body</span>
+            <p class="onx-meth-output__desc">The active mechanism in plain language: threat simulation, emotional consolidation, somatic marker, memory replay, social-threat arousal. Named so you can verify it against your experience.</p>
+          </div>
+          <div class="onx-meth-output__col" role="listitem">
+            <span class="onx-meth-output__tag">Morning</span>
+            <p class="onx-meth-output__desc">The question your nervous system was trying to deliver to waking-you. Not a fortune. Not a diagnosis. A precise prompt for reflection — the thing the dream was building toward.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="onx-meth-section onx-meth-section--panel" aria-labelledby="meth-journey">
+      <div class="onx-meth-section__inner onx-meth-section__inner--wide">
+        <p class="onx-meth-section__kicker">Five years · still counting</p>
+        <h2 class="onx-meth-section__title" id="meth-journey">How fifty books became a method</h2>
+        <div class="onx-meth-prose">
+          <p>This methodology did not arrive fully formed. It accumulated — year by year, book by book, reading by reading. The timeline below is honest about that progression. I am on year five and I am not done.</p>
+        </div>
+        <ol class="onx-meth-timeline" aria-label="Five-year research timeline">
+          <li class="onx-meth-timeline__item">
+            <p class="onx-meth-timeline__year">01</p>
+            <h3 class="onx-meth-timeline__title">Foundation — Walker, Cartwright, LeDoux</h3>
+            <p class="onx-meth-timeline__text">By the end of year one I understood: the emotion is primary, the image is the encoding mechanism. REM is not random cinema.</p>
+          </li>
+          <li class="onx-meth-timeline__item">
+            <p class="onx-meth-timeline__year">02</p>
+            <h3 class="onx-meth-timeline__title">The body layer — Damasio, Sapolsky, Porges</h3>
+            <p class="onx-meth-timeline__text">Somatic markers. Financial threat and physical danger produce identical alarm responses. The body became non-negotiable in every reading.</p>
+          </li>
+          <li class="onx-meth-timeline__item">
+            <p class="onx-meth-timeline__year">03</p>
+            <h3 class="onx-meth-timeline__title">Depth — Jung, van der Kolk, Levine</h3>
+            <p class="onx-meth-timeline__text">Images that carry weight beyond personal history. Trauma, recurring dreams, what returns when consolidation fails.</p>
+          </li>
+          <li class="onx-meth-timeline__item">
+            <p class="onx-meth-timeline__year">04</p>
+            <h3 class="onx-meth-timeline__title">Building Oneirox</h3>
+            <p class="onx-meth-timeline__text">Cluster architecture. Every dream type connected to a psychological root. Research becoming structure.</p>
+          </li>
+          <li class="onx-meth-timeline__item">
+            <p class="onx-meth-timeline__year">05</p>
+            <h3 class="onx-meth-timeline__title">Instruments · Decode Engine</h3>
+            <p class="onx-meth-timeline__text">Sensory Dream Mapper live. AI Dream Decoder live. Closing the distance between what the brain was doing and what the waking mind can understand.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="onx-meth-section" aria-labelledby="meth-books">
+      <div class="onx-meth-section__inner onx-meth-section__inner--wide">
+        <p class="onx-meth-section__kicker">What changed me</p>
+        <h2 class="onx-meth-section__title" id="meth-books">Books that built this methodology</h2>
+        <div class="onx-meth-prose">
+          <p>Fifty books is not a vanity metric. It is the actual count of what I read to understand why existing dream tools failed — and what a honest alternative would require. Below are the ones that changed the method most. The full shelf is larger. The research continues.</p>
+        </div>
+        <div class="onx-meth-books" role="list" aria-label="Flagship books">
+          <article class="onx-meth-books__entry" role="listitem">
+            <h3 class="onx-meth-books__title">Why We Sleep</h3>
+            <p class="onx-meth-books__author">Matthew Walker</p>
+            <p class="onx-meth-books__changed">REM as the night therapist — strips emotional charge from memories while preserving content. Foundation for why recurring dreams exist and what their cessation means.</p>
+          </article>
+          <article class="onx-meth-books__entry" role="listitem">
+            <h3 class="onx-meth-books__title">The Twenty-Four Hour Mind</h3>
+            <p class="onx-meth-books__author">Rosalind Cartwright</p>
+            <p class="onx-meth-books__changed">Longitudinal dimension — dream content tracks life transitions. Undergirds everything about dream timing in this methodology.</p>
+          </article>
+          <article class="onx-meth-books__entry" role="listitem">
+            <h3 class="onx-meth-books__title">The Feeling of What Happens</h3>
+            <p class="onx-meth-books__author">Antonio Damasio</p>
+            <p class="onx-meth-books__changed">Somatic markers — the body&rsquo;s emotional record is neurologically primary. Changed the &ldquo;body knows first&rdquo; dimension of every reading I write.</p>
+          </article>
+          <article class="onx-meth-books__entry" role="listitem">
+            <h3 class="onx-meth-books__title">The Emotional Brain</h3>
+            <p class="onx-meth-books__author">Joseph LeDoux</p>
+            <p class="onx-meth-books__changed">Two-pathway model of fear — body responds before conscious appraisal. Foundation of principle two.</p>
+          </article>
+          <article class="onx-meth-books__entry" role="listitem">
+            <h3 class="onx-meth-books__title">Behave</h3>
+            <p class="onx-meth-books__author">Robert Sapolsky</p>
+            <p class="onx-meth-books__changed">Social and status threat processed like physical danger — basis for money dreams, being-watched dreams, professional-height dreams.</p>
+          </article>
+          <article class="onx-meth-books__entry" role="listitem">
+            <h3 class="onx-meth-books__title">The Body Keeps the Score</h3>
+            <p class="onx-meth-books__author">Bessel van der Kolk</p>
+            <p class="onx-meth-books__changed">Somatic dimension of trauma — recurring dreams and nightmares that return long after the original event. When the body remembers what the mind filed away.</p>
+          </article>
+          <article class="onx-meth-books__entry" role="listitem">
+            <h3 class="onx-meth-books__title">The Polyvagal Theory</h3>
+            <p class="onx-meth-books__author">Stephen Porges</p>
+            <p class="onx-meth-books__changed">Social threat is physiologically identical to physical danger. Explains why rejection dreams feel like chase dreams in the body.</p>
+          </article>
+          <article class="onx-meth-books__entry" role="listitem">
+            <h3 class="onx-meth-books__title">The Dreaming Brain</h3>
+            <p class="onx-meth-books__author">Allan Hobson</p>
+            <p class="onx-meth-books__changed">Dreams as diagnostic assessments of current emotional state — not prophecy. Principle five in academic form.</p>
+          </article>
+        </div>
+        <p class="onx-meth-books__note">I am still reading. If you are a researcher and you think I have missed something essential — I want to hear it. This methodology is alive.</p>
+      </div>
+    </section>
+
+    <section class="onx-meth-section onx-meth-section--alt" aria-labelledby="meth-chrono">
+      <div class="onx-meth-section__inner onx-meth-section__inner--wide">
+        <p class="onx-meth-section__kicker">Chronobiology</p>
+        <h2 class="onx-meth-section__title" id="meth-chrono">Your brain dreamed differently that night. The moon knows why.</h2>
+        <div class="onx-meth-prose">
+          <p>Timing is not only life context — it is also sleep architecture. Cajochen et al. demonstrated measurable lunar-phase effects on deep sleep and REM density. This is not astrology. It is chronobiology. The Dream Phase Calculator reads the date of your dream against lunar context so Decode can weight chronobiological factors when relevant.</p>
+        </div>
+        <div class="onx-meth-chrono">
+          <div class="onx-meth-chrono__stats" aria-label="Cajochen study findings">
+            <div>
+              <p class="onx-meth-chrono__stat-val">30%</p>
+              <p class="onx-meth-chrono__stat-lbl">Less deep sleep near full moon</p>
+            </div>
+            <div>
+              <p class="onx-meth-chrono__stat-val">25%</p>
+              <p class="onx-meth-chrono__stat-lbl">More REM density near full moon</p>
+            </div>
+          </div>
+          <p class="onx-meth-chrono__cite">Cajochen et al., <em>Current Biology</em>, 2013 — <a href="https://doi.org/10.1016/j.cub.2013.07.029" rel="noopener noreferrer">doi.org/10.1016/j.cub.2013.07.029</a></p>
+        </div>
+      </div>
+    </section>
+
+    <section class="onx-meth-section" aria-labelledby="meth-limits">
+      <div class="onx-meth-section__inner">
+        <p class="onx-meth-section__kicker">Honest limits</p>
+        <h2 class="onx-meth-section__title" id="meth-limits">What this methodology cannot do</h2>
+        <div class="onx-meth-prose">
+          <p>I will not pretend this method is everything. Precision requires limits. Here is what I refuse to claim — because claiming it would make this page dishonest and the readings less trustworthy.</p>
+        </div>
+        <div class="onx-meth-limits">
+          <ul>
+            <li>Diagnose psychiatric conditions, sleep disorders, or neurological illness</li>
+            <li>Predict the future, lottery numbers, or outcomes you have not yet chosen</li>
+            <li>Replace therapy, crisis intervention, or medical care when you need it</li>
+            <li>Guarantee that every reading will feel correct on first contact — sometimes the honest sentence is the one you resist</li>
+            <li>Remain static — I update the engine and this page as the research evolves</li>
+          </ul>
+          <p class="onx-meth-limits__close">What it can do is deliver the most honest available account of what your brain was doing while you slept. Not comfort. Not prediction. Precision.</p>
+        </div>
+        <nav class="onx-meth-links" aria-label="Related pages">
+          <a href="/about/">About Vigen G.R.</a>
+          <a href="/disclaimer/">Disclaimer</a>
+          <a href="/privacy/">Privacy</a>
+          <a href="/terms/">Terms</a>
+        </nav>
+      </div>
+    </section>
+
+    <section class="onx-meth-section onx-meth-section--dark onx-meth-cta" aria-labelledby="meth-cta-title">
+      <div class="onx-meth-section__inner">
+        <h2 class="onx-meth-cta__title" id="meth-cta-title">You have the method.<br><em>Now decode the dream.</em></h2>
+        <p class="onx-meth-cta__sub">Free · No login · One mechanism-based reading</p>
+        <a href="/#decode" class="btn btn--light">Open the Dream Decoder →</a>
+      </div>
+    </section>
+
   </main>
+
+  <button type="button" class="back-to-top" id="back-to-top" aria-label="Back to top" aria-hidden="true" tabindex="-1">
+    <svg class="back-to-top__icon" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false">
+      <path d="M12 19V6M12 6 L6 12M12 6 L18 12" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    <span class="back-to-top__label">Top</span>
+  </button>
 
   <footer class="page-footer">
     <nav aria-label="Footer">
@@ -107,8 +448,9 @@
       <a href="/terms/">Terms</a>
       <a href="/disclaimer/">Disclaimer</a>
     </nav>
-    <p>© 2026 Oneirox · Vigen G.R.</p>
+    <p>© 2026 Oneirox · Vigen G.R. · Independent researcher &amp; developer</p>
   </footer>
 
+  <script src="/js/back-to-top.js" defer></script>
 </body>
 </html>

@@ -2,11 +2,13 @@
 
 Scientific dream decoder. Not a symbol dictionary.
 
+**Продолжение работы в новом чате:** читай **[CONTINUATION.md](./CONTINUATION.md)** — полный снимок проекта, TODO, контракт Decode, два репозитория.
+
 ## Quick start (local)
 
 ```powershell
-cd "D:\aONEIROX +++++++++\Oneirox"
-npx --yes serve public -p 3000
+cd C:\Users\Vigen\Downloads\Oneirox
+npm run dev
 ```
 
 Open http://localhost:3000

@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# Oneirox is a web application (Dream Decoder), not an article blog.
+Sitemap: https://oneirox.com/sitemap.xml

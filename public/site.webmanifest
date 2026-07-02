@@ -1,11 +1,13 @@
 {
   "name": "Oneirox — Scientific Dream Decoder",
-  "short_name": "Oneirox",
-  "description": "Decode dreams through sleep neuroscience, not symbol dictionaries.",
-  "start_url": "/",
+  "short_name": "Decode",
+  "description": "Free web app: decode dreams through sleep neuroscience. Interactive AI dream decoder — SIGNAL · BODY · MORNING.",
+  "start_url": "/#decode",
+  "scope": "/",
   "display": "standalone",
   "background_color": "#cbd4c2",
   "theme_color": "#1e3224",
+  "categories": ["health", "lifestyle", "utilities"],
   "icons": [
     {
       "src": "/favicon-32.png",

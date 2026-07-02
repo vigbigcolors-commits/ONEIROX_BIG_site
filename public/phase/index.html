@@ -1,1030 +1,311 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="icon" type="image/svg+xml" href="/favicon.svg">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-<link rel="manifest" href="/site.webmanifest">
-<meta name="theme-color" content="#1e3224">
-<title>Dream Phase Calculator — Oneirox</title>
-<meta name="description" content="Enter your dream date. Read lunar phase effects on REM and deep sleep — Cajochen et al. 2013. Chronobiology, not astrology.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/css/tokens.css">
-<link rel="stylesheet" href="/css/site-nav.css">
-<style>body{margin:0;background:#cbd4c2;font-family:'Work Sans',sans-serif;color:#3a4435}a{color:#566e58}</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <meta name="theme-color" content="#1e3224">
+  <title>Dream Phase Calculator — Lunar Chronobiology | Oneirox</title>
+  <meta name="description" content="Enter your dream date. Read lunar phase effects on REM and deep sleep — Cajochen et al. 2013. Chronobiology for dream decoding, not astrology.">
+  <meta name="application-name" content="Oneirox Dream Phase Calculator">
+  <link rel="canonical" href="https://oneirox.com/phase/">
+  <meta property="og:title" content="Dream Phase Calculator — Oneirox">
+  <meta property="og:description" content="What was the moon doing the night you dreamed? 30% less deep sleep, 25% more REM near full moon — peer-reviewed chronobiology.">
+  <meta property="og:url" content="https://oneirox.com/phase/">
+  <meta property="og:site_name" content="Oneirox">
+  <link rel="stylesheet" href="/css/page.css">
+  <link rel="stylesheet" href="/css/phase.css">
+  <link rel="stylesheet" href="/css/phase-calc.css">
+  <link rel="stylesheet" href="/css/main.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebApplication",
+        "@id": "https://oneirox.com/phase/#app",
+        "name": "Oneirox Dream Phase Calculator",
+        "url": "https://oneirox.com/phase/",
+        "description": "Free web tool: lunar phase chronobiology for dream dates — Cajochen et al. 2013 REM and deep-sleep context.",
+        "applicationCategory": "HealthApplication",
+        "operatingSystem": "Web browser",
+        "isAccessibleForFree": true,
+        "isPartOf": { "@id": "https://oneirox.com/#decode-app" },
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+      },
+      {
+        "@type": "WebPage",
+        "name": "Dream Phase Calculator — Oneirox",
+        "url": "https://oneirox.com/phase/",
+        "isPartOf": { "@id": "https://oneirox.com/#website" },
+        "about": { "@id": "https://oneirox.com/phase/#app" },
+        "mainEntity": { "@id": "https://oneirox.com/phase/#app" }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Oneirox", "item": "https://oneirox.com/" },
+          { "@type": "ListItem", "position": 2, "name": "Dream Phase Calculator", "item": "https://oneirox.com/phase/" }
+        ]
+      }
+    ]
+  }
+  </script>
 </head>
-<body>
-<header class="site-header">
-  <div class="site-header__inner">
-    <a href="/" class="site-logo" aria-label="Oneirox home">
-      <svg class="site-logo__glyph" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
-        <defs>
-          <linearGradient id="onx-lg" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stop-color="#1e4a38"/>
-            <stop offset="50%" stop-color="#00a5a8"/>
-            <stop offset="100%" stop-color="#2d6a6a"/>
-          </linearGradient>
-        </defs>
-        <circle cx="18" cy="18" r="15" fill="none" stroke="url(#onx-lg)" stroke-width="1.4" opacity="0.55"/>
-        <circle cx="18" cy="18" r="9" fill="none" stroke="#00a5a8" stroke-width="0.85" opacity="0.32"/>
-        <circle cx="18" cy="18" r="3.2" fill="#00a5a8"/>
-        <path d="M18 3v5M18 28v5M3 18h5M28 18h5" stroke="#00a5a8" stroke-width="1.1" stroke-linecap="round" opacity="0.42"/>
-      </svg>
-      <span class="site-logo__word"><span class="site-logo__one">One</span><span class="site-logo__irox">irox</span></span>
-    </a>
-    <nav class="site-nav" aria-label="Main">
-      <ul>
-        <li><a href="/#decode">Decode</a></li>
-        <li><a href="/#how">How it works</a></li>
-        <li><a href="/#onx-tools">Tools</a></li>
-        <li><a href="/#science">Science</a></li>
-        <li><a href="/about/">About</a></li>
-        <li><a href="/methodology/">Methodology</a></li>
-      </ul>
+<body class="page-oneirox">
+
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a href="/" class="site-logo" aria-label="Oneirox home">
+        <span class="site-logo__word"><span class="site-logo__one">One</span><span class="site-logo__irox">irox</span></span>
+        <svg class="site-logo__heart" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+          <path d="M12 20.5s-6.5-4.6-6.5-9.2C5.5 8.1 7.6 6 10.1 6c1.4 0 2.7.7 3.4 1.8.7-1.1 2-1.8 3.4-1.8 2.5 0 4.6 2.1 4.6 5.3 0 4.6-6.5 9.2-6.5 9.2z" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
+      <nav class="site-nav" aria-label="Main">
+        <ul>
+          <li><a href="/#decode">Decode</a></li>
+          <li><a href="/#how">How it works</a></li>
+          <li><a href="/#onx-tools">Tools</a></li>
+          <li><a href="/phase/" aria-current="page">Phase</a></li>
+          <li><a href="/#science">Science</a></li>
+          <li><a href="/about/">About</a></li>
+          <li><a href="/methodology/">Methodology</a></li>
+        </ul>
+      </nav>
+      <a href="/#decode" class="btn btn--primary">Decode →</a>
+    </div>
+  </header>
+
+  <main>
+
+    <header class="onx-phase-hero">
+      <div class="onx-phase-hero__inner">
+        <div>
+          <p class="onx-phase-hero__kicker">Tools · Chronobiology · Not astrology</p>
+          <h1 class="onx-phase-hero__title">Dream Phase <em>Calculator</em></h1>
+          <p class="onx-phase-hero__lead">Your brain dreamed differently that night. The moon is not a horoscope — it is a measurable variable in sleep architecture. Enter your dream date and read what the lunar cycle was doing to REM and deep sleep.</p>
+        </div>
+        <div class="onx-phase-hero__stats" aria-label="Cajochen study findings">
+          <div class="onx-phase-hero__stat">
+            <p class="onx-phase-hero__stat-val">30%</p>
+            <p class="onx-phase-hero__stat-lbl">less deep sleep<br>near full moon</p>
+          </div>
+          <div class="onx-phase-hero__stat">
+            <p class="onx-phase-hero__stat-val">25%</p>
+            <p class="onx-phase-hero__stat-lbl">more REM<br>density</p>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <section class="onx-phase-tool" aria-label="Dream Phase Calculator">
+      <div class="dpc3" id="dpc3-root">
+
+        <div class="dpc3-card" id="dpc3-card">
+          <div class="dpc3-stars" id="dpc3-stars" aria-hidden="true"></div>
+          <div class="dpc3-glow" aria-hidden="true"></div>
+
+          <div class="dpc3-inner">
+            <div class="dpc3-moon-wrap">
+              <div class="dpc3-moon-float">
+                <div class="dpc3-moon-sphere" id="dpc3-moon-teaser" title="Click the moon" role="button" tabindex="0" aria-label="Interactive moon">
+                  <div class="moon-surface"></div>
+                  <div class="moon-craters" aria-hidden="true">
+                    <div class="moon-crater-dot" style="width:16px;height:16px;top:26%;left:28%;"></div>
+                    <div class="moon-crater-dot" style="width:10px;height:10px;top:16%;left:55%;"></div>
+                    <div class="moon-crater-dot" style="width:12px;height:12px;top:54%;left:38%;"></div>
+                    <div class="moon-crater-dot" style="width:7px;height:7px;top:40%;left:70%;"></div>
+                    <div class="moon-crater-dot" style="width:9px;height:9px;top:68%;left:22%;"></div>
+                    <div class="moon-crater-dot" style="width:14px;height:14px;top:32%;left:78%;"></div>
+                    <div class="moon-crater-dot" style="width:8px;height:8px;top:72%;left:58%;"></div>
+                  </div>
+                  <div class="moon-light"></div>
+                  <div class="moon-rim"></div>
+                </div>
+              </div>
+              <div class="dpc3-moon-label">Click the moon</div>
+              <div class="dpc3-cycle-dots" aria-hidden="true">
+                <div class="dpc3-cycle-dot"></div>
+                <div class="dpc3-cycle-dot active"></div>
+                <div class="dpc3-cycle-dot"></div>
+                <div class="dpc3-cycle-dot"></div>
+                <div class="dpc3-cycle-dot"></div>
+                <div class="dpc3-cycle-dot"></div>
+                <div class="dpc3-cycle-dot"></div>
+                <div class="dpc3-cycle-dot"></div>
+              </div>
+            </div>
+
+            <div class="dpc3-text">
+              <p class="dpc3-eyebrow">Interactive instrument</p>
+              <h2 class="dpc3-title">Your brain dreamed differently<br>that night. <em>The moon knows why.</em></h2>
+              <p class="dpc3-desc">
+                Research in
+                <a href="https://doi.org/10.1016/j.cub.2013.07.029" target="_blank" rel="noopener noreferrer"><strong>Current Biology</strong></a>
+                confirmed it: around the full moon, deep sleep shrinks by <strong>30%</strong> and REM density rises by <strong>25%</strong>.
+                The lunar phase on the night of your dream shaped its intensity, emotional charge, and what your brain was processing.
+              </p>
+              <div class="dpc3-stats">
+                <div class="dpc3-stat">
+                  <div class="dpc3-stat-num">30%</div>
+                  <div class="dpc3-stat-lbl">less deep<br>sleep</div>
+                </div>
+                <div class="dpc3-stat">
+                  <div class="dpc3-stat-num">25%</div>
+                  <div class="dpc3-stat-lbl">more REM<br>density</div>
+                </div>
+                <div class="dpc3-stat">
+                  <div class="dpc3-stat-num">8</div>
+                  <div class="dpc3-stat-lbl">lunar<br>phases</div>
+                </div>
+              </div>
+              <div class="dpc3-cta-wrap">
+                <button class="dpc3-btn-main" id="dpc3-open" type="button">
+                  <span class="dpc3-btn-icon" aria-hidden="true">🌙</span>
+                  Read What the Moon Was Doing That Night
+                </button>
+                <p class="dpc3-badge">Cajochen et al., Current Biology, 2013</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="dpc3-panel" id="dpc3-panel">
+          <div class="dpc3-panel-head">
+            <p class="dpc3-panel-title">When did you have this dream?</p>
+            <button class="dpc3-x" id="dpc3-close" type="button" aria-label="Close calculator">×</button>
+          </div>
+          <div class="dpc3-panel-body">
+            <div class="dpc3-input-row">
+              <label for="dpc3-date">Date of dream</label>
+              <input type="date" id="dpc3-date" class="dpc3-date-in" />
+              <button type="button" id="dpc3-calc" class="dpc3-read-btn">Read This Night →</button>
+            </div>
+            <div id="dpc3-result" style="display:none" class="dpc3-result">
+              <div class="dpc3-result-moon-card">
+                <svg id="dpc3-result-svg" width="64" height="64" viewBox="0 0 72 72" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"></svg>
+                <div>
+                  <p class="dpc3-r-phase" id="dpc3-pname"></p>
+                  <p class="dpc3-r-meta" id="dpc3-age"></p>
+                  <p class="dpc3-r-meta" id="dpc3-datef"></p>
+                  <p class="dpc3-r-illum"><span class="dpc3-r-dot" aria-hidden="true"></span><span id="dpc3-illum"></span></p>
+                </div>
+              </div>
+              <div class="dpc3-intensity">
+                <div class="dpc3-bar-head">
+                  <span class="dpc3-bar-lbl">Dream intensity</span>
+                  <span class="dpc3-bar-num" id="dpc3-pct"></span>
+                </div>
+                <div class="dpc3-bar-track" role="presentation"><div class="dpc3-bar-fill" id="dpc3-bar"></div></div>
+                <p class="dpc3-bar-desc" id="dpc3-desc"></p>
+              </div>
+              <div class="dpc3-grid">
+                <div class="dpc3-gc"><div class="dpc3-gc-lbl">REM quality</div><div class="dpc3-gc-val" id="dpc3-rem"></div></div>
+                <div class="dpc3-gc"><div class="dpc3-gc-lbl">Emotional charge</div><div class="dpc3-gc-val" id="dpc3-emo"></div></div>
+                <div class="dpc3-gc"><div class="dpc3-gc-lbl">Recall clarity</div><div class="dpc3-gc-val" id="dpc3-recall"></div></div>
+                <div class="dpc3-gc"><div class="dpc3-gc-lbl">Recurring themes</div><div class="dpc3-gc-val" id="dpc3-themes"></div></div>
+              </div>
+              <div class="dpc3-insight">
+                <p class="dpc3-insight-lbl">What this phase means for your dream</p>
+                <p class="dpc3-insight-txt" id="dpc3-insight"></p>
+              </div>
+              <div class="dpc3-next">
+                <p class="dpc3-next-lbl">Next significant phases</p>
+                <div class="dpc3-next-list" id="dpc3-next"></div>
+              </div>
+              <div class="dpc3-share">
+                <span class="dpc3-share-lbl">Share your lunar profile</span>
+                <div class="dpc3-share-btns">
+                  <a class="dpc3-share-btn dpc3-share-x" id="dpc3-sx" href="#" target="_blank" rel="noopener" title="Share on X">𝕏</a>
+                  <a class="dpc3-share-btn dpc3-share-rd" id="dpc3-sr" href="#" target="_blank" rel="noopener" title="Share on Reddit">
+                    <svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M20 10c0-5.52-4.48-10-10-10S0 4.48 0 10s4.48 10 10 10 10-4.48 10-10zm-13.5 1a1.5 1.5 0 110-3 1.5 1.5 0 010 3zm7 0a1.5 1.5 0 110-3 1.5 1.5 0 010 3zm-3.5 3.5c-1.5 0-2.8-.7-3.5-1.8h7c-.7 1.1-2 1.8-3.5 1.8z"/></svg>
+                  </a>
+                  <a class="dpc3-share-btn dpc3-share-ql" id="dpc3-sq" href="#" target="_blank" rel="noopener" title="Share on Quora">Q</a>
+                  <button class="dpc3-share-btn dpc3-share-cp" id="dpc3-cp" type="button" title="Copy link">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+                  </button>
+                </div>
+                <span class="dpc3-copy-tip" id="dpc3-ctip">Link copied!</span>
+              </div>
+              <p class="dpc3-cite">
+                Cajochen et al. (2013), <a href="https://doi.org/10.1016/j.cub.2013.07.029" target="_blank" rel="noopener">Current Biology</a> —
+                &ldquo;Evidence that the Lunar Cycle Influences Human Sleep&rdquo;
+              </p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="onx-phase-section onx-phase-section--alt" aria-labelledby="phase-science">
+      <div class="onx-phase-section__inner">
+        <p class="onx-phase-section__kicker">Science · not superstition</p>
+        <h2 class="onx-phase-section__title" id="phase-science">Chronobiology, <em>not</em> astrology</h2>
+        <div class="onx-phase-prose">
+          <p>Cajochen and colleagues measured sleep in a controlled laboratory — no windows, no clocks — and still found lunar-phase effects on deep sleep and REM. The mechanism is not mystical. Light exposure, circadian timing, and melatonin dynamics interact with sleep architecture. Oneirox uses lunar phase as <strong>context for dream intensity</strong>, the same way we use somatic data from the Mapper: another layer of honest signal.</p>
+          <p>This calculator does not predict your future. It reads what the sleeping brain was likely working with on a specific night — then you take that context into <a href="/">Decode</a> for a mechanism-based reading.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="onx-phase-section" aria-labelledby="phase-flow">
+      <div class="onx-phase-section__inner onx-phase-section__inner--wide">
+        <p class="onx-phase-section__kicker">Workflow</p>
+        <h2 class="onx-phase-section__title" id="phase-flow">Three instruments, one reading</h2>
+        <ol class="onx-phase-flow">
+          <li class="onx-phase-flow__step">
+            <p class="onx-phase-flow__n">01</p>
+            <p class="onx-phase-flow__title">Phase Calculator</p>
+            <p class="onx-phase-flow__text">Enter the dream date. Know the lunar context — REM density, intensity, emotional charge for that night.</p>
+          </li>
+          <li class="onx-phase-flow__step">
+            <p class="onx-phase-flow__n">02</p>
+            <p class="onx-phase-flow__title">Sensory Mapper <span style="font-weight:400;color:#6a7a68">(optional)</span></p>
+            <p class="onx-phase-flow__text"><a href="/tools/oneirox-dream-mapper.html">Map body sensations</a> on waking — temperature, pressure, zones. Interoceptive truth before narrative fades.</p>
+          </li>
+          <li class="onx-phase-flow__step">
+            <p class="onx-phase-flow__n">03</p>
+            <p class="onx-phase-flow__title">Decode</p>
+            <p class="onx-phase-flow__text">Describe the dream. Receive SIGNAL · BODY · MORNING — one mechanism-based reading grounded in sleep neuroscience.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="onx-phase-cta" aria-labelledby="phase-cta-title">
+      <h2 class="onx-phase-cta__title" id="phase-cta-title">You know the moon.<br><em>Now decode the dream.</em></h2>
+      <p class="onx-phase-cta__sub">Free · No login · Mechanism-based interpretation</p>
+      <a href="/#decode" class="btn btn--light">Open Dream Decoder →</a>
+    </section>
+
+  </main>
+
+  <div class="dpc3-toast" id="dpc3-toast" role="status" aria-live="polite"></div>
+
+  <button type="button" class="back-to-top" id="back-to-top" aria-label="Back to top" aria-hidden="true" tabindex="-1">
+    <svg class="back-to-top__icon" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false">
+      <path d="M12 19V6M12 6 L6 12M12 6 L18 12" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    <span class="back-to-top__label">Top</span>
+  </button>
+
+  <footer class="page-footer">
+    <nav aria-label="Footer">
+      <a href="/">Decode</a>
+      <a href="/tools/oneirox-dream-mapper.html">Mapper</a>
+      <a href="/methodology/">Methodology</a>
+      <a href="/disclaimer/">Disclaimer</a>
     </nav>
-    <a href="/#decode" class="btn btn--primary">Decode →</a>
-  </div>
-</header>
-<!-- ═══════════════════════════════════════════════════════════════
-     ONEIROX · DREAM PHASE CALCULATOR · v3
-     © 2026 Oneirox. All rights reserved.
-     Design: Vigen · oneirox.com
-     Research: Cajochen et al., Current Biology, 2013
-═══════════════════════════════════════════════════════════════ -->
-<style>
-/* ── RESET ───────────────────────────────────────────────────────── */
-.dpc3 *, .dpc3 *::before, .dpc3 *::after {
-  box-sizing: border-box; margin: 0; padding: 0;
-}
-
-/* ── OUTER ───────────────────────────────────────────────────────── */
-.dpc3 {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 52px 24px 60px;
-  font-family: inherit;
-}
-
-/* ══════════════════════════════════════
-   TEASER CARD
-══════════════════════════════════════ */
-.dpc3-card {
-  position: relative;
-  border-radius: 24px;
-  /* overflow removed — was clipping the moon */
-  background: linear-gradient(145deg, #2e4028 0%, #3a5030 35%, #2c3e25 70%, #243320 100%);
-  padding: 52px 52px 48px;
-  cursor: default;
-}
-
-/* Stars clipped separately inside card */
-.dpc3-stars {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  z-index: 0;
-  border-radius: 24px;
-  overflow: hidden;
-  /* Static stars via CSS background — zero JS, zero animation, zero paint cost */
-  background-image:
-    radial-gradient(1px 1px at 8% 15%, rgba(255,255,255,0.5) 0%, transparent 100%),
-    radial-gradient(1px 1px at 18% 72%, rgba(255,255,255,0.35) 0%, transparent 100%),
-    radial-gradient(1.5px 1.5px at 28% 35%, rgba(255,255,255,0.4) 0%, transparent 100%),
-    radial-gradient(1px 1px at 38% 88%, rgba(255,255,255,0.3) 0%, transparent 100%),
-    radial-gradient(1px 1px at 52% 22%, rgba(255,255,255,0.45) 0%, transparent 100%),
-    radial-gradient(1.5px 1.5px at 62% 58%, rgba(255,255,255,0.35) 0%, transparent 100%),
-    radial-gradient(1px 1px at 72% 12%, rgba(255,255,255,0.4) 0%, transparent 100%),
-    radial-gradient(1px 1px at 82% 78%, rgba(255,255,255,0.3) 0%, transparent 100%),
-    radial-gradient(1px 1px at 91% 42%, rgba(255,255,255,0.45) 0%, transparent 100%),
-    radial-gradient(1px 1px at 6% 55%, rgba(255,255,255,0.25) 0%, transparent 100%),
-    radial-gradient(1px 1px at 45% 68%, rgba(255,255,255,0.3) 0%, transparent 100%),
-    radial-gradient(1.5px 1.5px at 75% 32%, rgba(255,255,255,0.4) 0%, transparent 100%);
-}
-/* No individual star elements needed */
-.dpc3-star { display: none; }
-
-/* ── Glow orb ──── */
-.dpc3-glow {
-  position: absolute;
-  top: -80px; right: -80px;
-  width: 360px; height: 360px;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(140,190,120,0.12) 0%, transparent 65%);
-  pointer-events: none;
-  z-index: 0;
-}
-
-/* ── Layout ──── */
-.dpc3-inner {
-  position: relative;
-  z-index: 1;
-  display: grid;
-  grid-template-columns: 140px 1fr;
-  gap: 48px;
-  align-items: center;
-}
-
-/* ══════════════════════════════════════
-   3D MOON
-══════════════════════════════════════ */
-.dpc3-moon-wrap {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 12px;
-}
-
-/* Float wrapper — handles vertical float */
-/* Float wrapper */
-.dpc3-moon-float {
-  animation: dpc3-float 5s ease-in-out infinite;
-  padding-top: 18px;
-  padding-left: 14px;
-}
-@keyframes dpc3-float {
-  0%,100% { transform: translateY(0); }
-  50%     { transform: translateY(-5px); }
-}
-
-/* Globe container — NO 3D transforms here */
-.dpc3-moon-sphere {
-  width: 110px;
-  height: 110px;
-  border-radius: 50%;
-  position: relative;
-  cursor: pointer;
-  overflow: hidden;
-  /* Simplified shadow — one layer instead of 4 */
-  box-shadow:
-    inset -10px -10px 22px rgba(0,0,0,0.38),
-    inset 5px 5px 12px rgba(255,255,255,0.18),
-    0 0 28px rgba(140,190,120,0.22);
-}
-
-/* Hover on moon — NO speed change, only subtle glow */
-.dpc3-moon-sphere:hover {
-  box-shadow:
-    inset -12px -12px 28px rgba(0,0,0,0.42),
-    inset 6px 6px 16px rgba(255,255,255,0.22),
-    0 0 0 1px rgba(200,192,176,0.25),
-    0 0 40px rgba(140,190,120,0.38),
-    0 0 80px rgba(140,190,120,0.14);
-}
-.moon-surface {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  background: radial-gradient(ellipse at 38% 38%,
-    #e8e0cc 0%,
-    #d8d0ba 30%,
-    #c4bcaa 58%,
-    #b0a898 100%);
-  /* No rotation — no seam artifact */
-}
-
-/* Fixed sphere shading — 3D look without rotation */
-.moon-light {
-  position: absolute;
-  inset: 0;
-  border-radius: 50%;
-  background:
-    radial-gradient(ellipse 52% 100% at 80% 50%,
-      rgba(20,30,14,0.72) 0%,
-      rgba(20,30,14,0.38) 32%,
-      transparent 58%),
-    radial-gradient(circle at 30% 26%,
-      rgba(255,255,240,0.20) 0%,
-      transparent 52%);
-  pointer-events: none;
-}
-
-/* Craters — static positions */
-.moon-craters {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  /* No rotation */
-}
-.moon-crater-dot {
-  position: absolute;
-  border-radius: 50%;
-  background: radial-gradient(circle,
-    rgba(0,0,0,0.13) 0%, rgba(0,0,0,0.06) 50%, transparent 100%);
-  border: 1px solid rgba(0,0,0,0.07);
-}
-
-/* Outer rim */
-.moon-rim {
-  position: absolute;
-  inset: 0;
-  border-radius: 50%;
-  box-shadow: inset 0 0 0 1px rgba(180,170,155,0.22);
-  pointer-events: none;
-}
-
-/* Click pulse only — no rotation animation */
-.dpc3-moon-sphere.pulse {
-  animation: dpc3-pulse-anim 0.55s ease;
-}
-@keyframes dpc3-pulse-anim {
-  0%   { box-shadow: inset -10px -10px 22px rgba(0,0,0,0.38), inset 5px 5px 12px rgba(255,255,255,0.18), 0 0 0 0 rgba(140,190,120,0.5), 0 0 28px rgba(140,190,120,0.22); }
-  50%  { box-shadow: inset -10px -10px 22px rgba(0,0,0,0.38), inset 5px 5px 12px rgba(255,255,255,0.18), 0 0 0 20px rgba(140,190,120,0.08), 0 0 40px rgba(140,190,120,0.35); }
-  100% { box-shadow: inset -10px -10px 22px rgba(0,0,0,0.38), inset 5px 5px 12px rgba(255,255,255,0.18), 0 0 0 0 rgba(140,190,120,0), 0 0 28px rgba(140,190,120,0.22); }
-}
-
-
-/* Phase label under moon */
-.dpc3-moon-label {
-  font-size: 10px;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: #7aaa68;
-  text-align: center;
-  opacity: 0;
-  transition: opacity 0.3s;
-}
-.dpc3-moon-wrap:hover .dpc3-moon-label { opacity: 1; }
-
-/* Moon cycle dots */
-.dpc3-cycle-dots {
-  display: flex;
-  gap: 5px;
-  margin-top: 4px;
-}
-.dpc3-cycle-dot {
-  width: 6px; height: 6px;
-  border-radius: 50%;
-  background: rgba(122,170,104,0.3);
-  transition: background 0.2s;
-}
-.dpc3-cycle-dot.active { background: #7aaa68; }
-
-/* ══════════════════════════════════════
-   TEASER TEXT
-══════════════════════════════════════ */
-.dpc3-text { }
-
-.dpc3-eyebrow {
-  font-size: 10px;
-  letter-spacing: 0.3em;
-  text-transform: uppercase;
-  color: #7aaa68;
-  margin-bottom: 16px;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-.dpc3-eyebrow::before {
-  content: '';
-  width: 24px; height: 1px;
-  background: #7aaa68;
-  flex-shrink: 0;
-}
-
-.dpc3-title {
-  font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: 32px;
-  font-weight: 300;
-  color: #f5f0e8;
-  line-height: 1.25;
-  margin-bottom: 18px;
-  letter-spacing: 0.02em;
-}
-.dpc3-title em {
-  font-style: italic;
-  color: #a8d490;
-  font-weight: 400;
-}
-
-.dpc3-desc {
-  font-size: 14.5px;
-  line-height: 1.85;
-  color: #b8cca8;
-  margin-bottom: 28px;
-  max-width: 460px;
-}
-.dpc3-desc strong { color: #d4e8c0; font-weight: 500; }
-
-.dpc3-desc a {
-  color: #8fd070;
-  text-decoration: underline;
-  text-underline-offset: 3px;
-  text-decoration-color: rgba(143,208,112,0.4);
-  transition: color 0.2s;
-}
-.dpc3-desc a:hover { color: #aae088; }
-
-/* Stat badges */
-.dpc3-stats {
-  display: flex;
-  gap: 16px;
-  margin-bottom: 28px;
-  flex-wrap: wrap;
-}
-.dpc3-stat {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  padding: 7px 14px;
-  background: rgba(122,170,104,0.12);
-  border: 1px solid rgba(122,170,104,0.2);
-  border-radius: 20px;
-}
-.dpc3-stat-num {
-  font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: 20px;
-  font-weight: 400;
-  color: #a8d490;
-  line-height: 1;
-}
-.dpc3-stat-lbl {
-  font-size: 11px;
-  color: #88a878;
-  line-height: 1.3;
-}
-
-/* ══════════════════════════════════════
-   CTA BUTTON
-══════════════════════════════════════ */
-.dpc3-cta-wrap { display: flex; flex-direction: column; gap: 12px; }
-
-.dpc3-btn-main {
-  display: inline-flex;
-  align-items: center;
-  gap: 14px;
-  padding: 16px 30px;
-  background: linear-gradient(135deg, #6a9658 0%, #5a8448 100%);
-  border: 1px solid rgba(140,190,120,0.3);
-  border-radius: 50px;
-  color: #f0f8e8;
-  font-size: 14.5px;
-  font-weight: 500;
-  font-family: inherit;
-  cursor: pointer;
-  letter-spacing: 0.04em;
-  transition: transform 0.2s, box-shadow 0.25s, background 0.2s;
-  box-shadow:
-    0 4px 20px rgba(106,150,88,0.4),
-    0 1px 0 rgba(255,255,255,0.1) inset,
-    0 0 50px rgba(106,150,88,0.1);
-  align-self: flex-start;
-}
-.dpc3-btn-main:hover {
-  transform: translateY(-2px);
-  background: linear-gradient(135deg, #78a866 0%, #68965a 100%);
-  box-shadow: 0 8px 30px rgba(106,150,88,0.5), 0 0 60px rgba(106,150,88,0.15);
-}
-.dpc3-btn-main:active { transform: translateY(0); }
-
-.dpc3-btn-icon {
-  width: 30px; height: 30px;
-  border-radius: 50%;
-  background: rgba(255,255,255,0.12);
-  display: flex; align-items: center; justify-content: center;
-  font-size: 15px;
-  flex-shrink: 0;
-  transition: transform 0.3s;
-}
-.dpc3-btn-main:hover .dpc3-btn-icon { transform: rotate(15deg); }
-
-.dpc3-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  font-size: 11px;
-  color: #627852;
-  letter-spacing: 0.04em;
-}
-.dpc3-badge::before { content: '◆'; font-size: 7px; color: #6a9658; }
-
-/* ══════════════════════════════════════
-   CALCULATOR PANEL
-══════════════════════════════════════ */
-.dpc3-panel {
-  display: none;
-  margin-top: 14px;
-  border: 1px solid #e0dbd0;
-  border-radius: 20px;
-  background: #ffffff;
-  overflow: hidden;
-  animation: dpc3-drop 0.38s cubic-bezier(0.4,0,0.2,1);
-}
-.dpc3-panel.open { display: block; }
-
-@keyframes dpc3-drop {
-  from { opacity:0; transform: translateY(-10px); }
-  to   { opacity:1; transform: translateY(0); }
-}
-
-.dpc3-panel-head {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 20px 28px;
-  border-bottom: 1px solid #f0ece4;
-  background: #faf8f5;
-}
-.dpc3-panel-title {
-  font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: 20px;
-  font-weight: 400;
-  color: #1a1612;
-}
-.dpc3-x {
-  width: 32px; height: 32px;
-  border-radius: 50%;
-  border: 1px solid #e0dbd0;
-  background: #fff;
-  color: #a09585;
-  font-size: 18px;
-  cursor: pointer;
-  display: flex; align-items: center; justify-content: center;
-  transition: background 0.15s, color 0.15s;
-  font-family: inherit;
-  line-height: 1;
-}
-.dpc3-x:hover { background: #f5f0e8; color: #1a1612; }
-
-.dpc3-panel-body { padding: 28px; }
-
-/* Input */
-.dpc3-input-row {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  flex-wrap: wrap;
-  margin-bottom: 24px;
-}
-.dpc3-input-row label { font-size: 13px; color: #6b6155; }
-.dpc3-date-in {
-  padding: 11px 20px;
-  border: 1.5px solid #d4cbbf;
-  border-radius: 50px;
-  font-size: 14px; color: #1a1612;
-  font-family: inherit; outline: none;
-  background: #faf8f5;
-  transition: border-color .2s, box-shadow .2s;
-  cursor: pointer;
-}
-.dpc3-date-in:focus { border-color:#7d916b; box-shadow:0 0 0 3px rgba(125,145,107,.1); }
-.dpc3-read-btn {
-  padding: 11px 24px;
-  background: #78856c; border: none; border-radius: 50px;
-  color: #fff; font-size: 13.5px; font-weight: 500;
-  cursor: pointer; font-family: inherit; letter-spacing:.04em;
-  transition: background .2s, transform .15s;
-}
-.dpc3-read-btn:hover { background:#5d6a53; transform:translateY(-1px); }
-
-/* Result */
-.dpc3-result { animation: dpc3-drop 0.35s ease; }
-
-.dpc3-result-moon-card {
-  display: flex; align-items: center; gap: 18px;
-  padding: 18px 20px;
-  background: #faf7f3; border: 1px solid #e8e4dc;
-  border-radius: 14px; margin-bottom: 12px;
-}
-.dpc3-r-phase { font-family:'Cormorant Garamond',Georgia,serif; font-size:22px; font-weight:400; color:#1a1612; margin-bottom:3px; }
-.dpc3-r-meta { font-size:12px; color:#a09585; margin-bottom:2px; }
-.dpc3-r-illum {
-  display:inline-flex; align-items:center; gap:5px; margin-top:5px;
-  font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:#7d916b; font-weight:500;
-}
-.dpc3-r-dot { width:6px; height:6px; border-radius:50%; background:#7d916b; }
-
-.dpc3-intensity {
-  padding:15px 18px; background:#faf7f3; border:1px solid #e8e4dc;
-  border-radius:12px; margin-bottom:12px;
-}
-.dpc3-bar-head { display:flex; justify-content:space-between; align-items:center; margin-bottom:7px; }
-.dpc3-bar-lbl { font-size:10px; letter-spacing:.18em; text-transform:uppercase; color:#a09585; }
-.dpc3-bar-num { font-family:'Cormorant Garamond',Georgia,serif; font-size:22px; font-weight:300; color:#1a1612; }
-.dpc3-bar-track { height:5px; background:#e8e4dc; border-radius:4px; overflow:hidden; margin-bottom:7px; }
-.dpc3-bar-fill { height:100%; border-radius:4px; background:linear-gradient(to right,#b8cfa6,#7d916b); transition:width .8s cubic-bezier(.4,0,.2,1); width:0%; }
-.dpc3-bar-desc { font-size:12.5px; color:#6b6155; line-height:1.65; }
-
-.dpc3-grid { display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:12px; }
-.dpc3-gc { padding:13px 16px; background:#fff; border:1px solid #e8e4dc; border-radius:10px; }
-.dpc3-gc-lbl { font-size:10px; letter-spacing:.16em; text-transform:uppercase; color:#a09585; margin-bottom:4px; }
-.dpc3-gc-val { font-size:13.5px; color:#1a1612; line-height:1.4; }
-
-.dpc3-insight {
-  padding:18px 20px; border-left:2px solid #c8b89a;
-  background:#f5f2ec; border-radius:0 10px 10px 0; margin-bottom:12px;
-}
-.dpc3-insight-lbl { font-size:10px; letter-spacing:.2em; text-transform:uppercase; color:#a09585; margin-bottom:7px; }
-.dpc3-insight-txt {
-  font-family:'Cormorant Garamond',Georgia,serif;
-  font-style:italic; font-size:15.5px; color:#2a231a; line-height:1.82;
-}
-
-.dpc3-next { padding:16px 18px; background:#fff; border:1px solid #e8e4dc; border-radius:10px; margin-bottom:16px; }
-.dpc3-next-lbl { font-size:10px; letter-spacing:.18em; text-transform:uppercase; color:#a09585; margin-bottom:9px; }
-.dpc3-next-list { display:flex; flex-direction:column; gap:7px; }
-.dpc3-next-item {
-  display:flex; align-items:center; gap:10px; padding:8px 10px;
-  background:#faf7f3; border-radius:8px; border:1px solid #f0ece4;
-}
-.dpc3-next-sym { font-size:18px; width:24px; text-align:center; flex-shrink:0; }
-.dpc3-next-info { flex:1; }
-.dpc3-next-name { font-size:13px; font-weight:500; color:#1a1612; }
-.dpc3-next-date { font-size:11px; color:#a09585; margin-top:1px; }
-.dpc3-next-days { font-size:11px; font-weight:500; color:#7d916b; background:#edf2e8; border-radius:20px; padding:3px 9px; flex-shrink:0; white-space:nowrap; }
-
-/* ══════════════════════════════════════
-   SHARE
-══════════════════════════════════════ */
-.dpc3-share { display:flex; align-items:center; gap:12px; flex-wrap:wrap; margin-bottom:16px; padding:14px 18px; background:#faf7f3; border:1px solid #e8e4dc; border-radius:10px; }
-.dpc3-share-lbl { font-size:11px; letter-spacing:.15em; text-transform:uppercase; color:#a09585; }
-.dpc3-share-btns { display:flex; gap:8px; }
-.dpc3-share-btn {
-  width:36px; height:36px; border-radius:50%;
-  border:1px solid; cursor:pointer;
-  display:flex; align-items:center; justify-content:center;
-  font-size:14px; transition:transform 0.2s, box-shadow 0.2s;
-  text-decoration:none; font-family:inherit;
-}
-.dpc3-share-btn:hover { transform:translateY(-3px) scale(1.08); box-shadow:0 4px 12px rgba(0,0,0,0.15); }
-.dpc3-share-x    { background:#000; border-color:#333; color:#fff; }
-.dpc3-share-rd   { background:#FF4500; border-color:#e03d00; color:#fff; }
-.dpc3-share-ql   { background:#B92B27; border-color:#a02520; color:#fff; }
-.dpc3-share-cp   { background:#fff; border-color:#d4cbbf; color:#6b6155; }
-.dpc3-copy-tip { font-size:11px; color:#7d916b; opacity:0; transition:opacity 0.3s; font-style:italic; }
-.dpc3-copy-tip.show { opacity:1; }
-
-/* ══════════════════════════════════════
-   CITE
-══════════════════════════════════════ */
-.dpc3-cite {
-  font-size:10.5px; color:#b8b0a4; text-align:center; line-height:1.7; font-style:italic;
-}
-.dpc3-cite a { color:#a09585; }
-
-/* ══════════════════════════════════════
-   EASTER EGG TOAST
-══════════════════════════════════════ */
-.dpc3-toast {
-  position:fixed; bottom:24px; left:50%; transform:translateX(-50%) translateY(20px);
-  background:#1c2818; border:1px solid rgba(122,170,104,0.3);
-  color:#a8d490; padding:12px 22px; border-radius:40px;
-  font-size:13px; letter-spacing:0.04em;
-  opacity:0; transition:opacity 0.35s, transform 0.35s;
-  pointer-events:none; z-index:9999; white-space:nowrap;
-  box-shadow:0 4px 20px rgba(0,0,0,0.3);
-}
-.dpc3-toast.show { opacity:1; transform:translateX(-50%) translateY(0); }
-
-/* ══════════════════════════════════════
-   PERFORMANCE
-══════════════════════════════════════ */
-/* Pause animations when calculator is off-screen */
-.dpc3-paused .dpc3-star,
-.dpc3-paused .dpc3-moon-float,
-.dpc3-paused .moon-surface,
-.dpc3-paused .moon-craters {
-  animation-play-state: paused;
-}
-
-/* Browser skips render until scrolled into view */
-.dpc3-panel {
-  content-visibility: auto;
-  contain-intrinsic-size: 0 600px;
-}
-
-/* ══════════════════════════════════════
-   RESPONSIVE
-══════════════════════════════════════ */
-@media(max-width:680px){
-  .dpc3-card { padding:32px 24px 32px; }
-  .dpc3-inner { grid-template-columns:1fr; gap:28px; }
-  .dpc3-moon-wrap { flex-direction:row; align-items:center; }
-  .dpc3-moon-sphere { width:80px; height:80px; }
-  .dpc3-title { font-size:24px; }
-  .dpc3-grid { grid-template-columns:1fr; }
-  .dpc3-panel-body { padding:20px 16px; }
-  .dpc3 { padding:36px 16px 44px; }
-  .dpc3-input-row { flex-direction:column; align-items:flex-start; }
-  .dpc3-stats { gap:10px; }
-}
-</style>
-
-<div class="dpc3" id="dpc3-root">
-
-  <!-- ═══ TEASER CARD ═══════════════════════════════════════════════ -->
-  <div class="dpc3-card" id="dpc3-card">
-
-    <!-- Stars -->
-    <div class="dpc3-stars" id="dpc3-stars"></div>
-    <div class="dpc3-glow"></div>
-
-    <div class="dpc3-inner">
-
-      <!-- Moon -->
-      <div class="dpc3-moon-wrap">
-        <div class="dpc3-moon-float">
-          <div class="dpc3-moon-sphere" id="dpc3-moon-teaser" title="Click the moon">
-            <!-- Scrolling surface = globe rotation -->
-            <div class="moon-surface"></div>
-            <!-- Craters ride the surface -->
-            <div class="moon-craters">
-              <div class="moon-crater-dot" style="width:16px;height:16px;top:26%;left:28%;"></div>
-              <div class="moon-crater-dot" style="width:10px;height:10px;top:16%;left:55%;"></div>
-              <div class="moon-crater-dot" style="width:12px;height:12px;top:54%;left:38%;"></div>
-              <div class="moon-crater-dot" style="width:7px;height:7px;top:40%;left:70%;"></div>
-              <div class="moon-crater-dot" style="width:9px;height:9px;top:68%;left:22%;"></div>
-              <div class="moon-crater-dot" style="width:14px;height:14px;top:32%;left:78%;"></div>
-              <div class="moon-crater-dot" style="width:8px;height:8px;top:72%;left:58%;"></div>
-            </div>
-            <!-- Fixed lighting overlay — makes it spherical -->
-            <div class="moon-light"></div>
-            <div class="moon-rim"></div>
-          </div>
-        </div>
-        <div class="dpc3-moon-label">Hover to spin</div>
-        <div class="dpc3-cycle-dots">
-          <div class="dpc3-cycle-dot"></div>
-          <div class="dpc3-cycle-dot active"></div>
-          <div class="dpc3-cycle-dot"></div>
-          <div class="dpc3-cycle-dot"></div>
-          <div class="dpc3-cycle-dot"></div>
-          <div class="dpc3-cycle-dot"></div>
-          <div class="dpc3-cycle-dot"></div>
-          <div class="dpc3-cycle-dot"></div>
-        </div>
-      </div>
-
-      <!-- Text -->
-      <div class="dpc3-text">
-        <div class="dpc3-eyebrow">Dream Phase Calculator</div>
-
-        <h2 class="dpc3-title">
-          Your brain dreamed differently<br>
-          that night. <em>The moon knows why.</em>
-        </h2>
-
-        <p class="dpc3-desc">
-          Research published in
-          <a href="https://www.cell.com/current-biology/fulltext/S0960-9822(13)00754-9"
-             target="_blank" rel="noopener noreferrer">
-            <strong>Current Biology</strong>
-          </a>
-          confirmed it: around the full moon, deep sleep shrinks by
-          <strong>30%</strong> and REM density rises by <strong>25%</strong>.
-          The phase of the moon on the night of your dream shaped its intensity,
-          emotional charge, and what your brain was processing.
-        </p>
-
-        <div class="dpc3-stats">
-          <div class="dpc3-stat">
-            <div class="dpc3-stat-num">30%</div>
-            <div class="dpc3-stat-lbl">less deep<br>sleep</div>
-          </div>
-          <div class="dpc3-stat">
-            <div class="dpc3-stat-num">25%</div>
-            <div class="dpc3-stat-lbl">more REM<br>density</div>
-          </div>
-          <div class="dpc3-stat">
-            <div class="dpc3-stat-num">8</div>
-            <div class="dpc3-stat-lbl">lunar<br>phases</div>
-          </div>
-        </div>
-
-        <div class="dpc3-cta-wrap">
-          <button class="dpc3-btn-main" id="dpc3-open" type="button">
-            <span class="dpc3-btn-icon">🌙</span>
-            Read What the Moon Was Doing That Night
-          </button>
-          <div class="dpc3-badge">Based on Cajochen et al., Current Biology, 2013</div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-
-  <!-- ═══ CALCULATOR PANEL ══════════════════════════════════════════ -->
-  <div class="dpc3-panel" id="dpc3-panel">
-
-    <div class="dpc3-panel-head">
-      <div class="dpc3-panel-title">When did you have this dream?</div>
-      <button class="dpc3-x" id="dpc3-close" type="button" aria-label="Close">×</button>
-    </div>
-
-    <div class="dpc3-panel-body">
-
-      <div class="dpc3-input-row">
-        <label for="dpc3-date">Date of dream</label>
-        <input type="date" id="dpc3-date" class="dpc3-date-in"/>
-        <button type="button" id="dpc3-calc" class="dpc3-read-btn">Read This Night →</button>
-      </div>
-
-      <div id="dpc3-result" style="display:none" class="dpc3-result">
-
-        <!-- Moon + phase -->
-        <div class="dpc3-result-moon-card">
-          <svg id="dpc3-result-svg" width="64" height="64" viewBox="0 0 72 72" xmlns="http://www.w3.org/2000/svg"></svg>
-          <div>
-            <div class="dpc3-r-phase" id="dpc3-pname"></div>
-            <div class="dpc3-r-meta" id="dpc3-age"></div>
-            <div class="dpc3-r-meta" id="dpc3-datef"></div>
-            <div class="dpc3-r-illum">
-              <span class="dpc3-r-dot"></span>
-              <span id="dpc3-illum"></span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Intensity -->
-        <div class="dpc3-intensity">
-          <div class="dpc3-bar-head">
-            <span class="dpc3-bar-lbl">Dream intensity</span>
-            <span class="dpc3-bar-num" id="dpc3-pct"></span>
-          </div>
-          <div class="dpc3-bar-track"><div class="dpc3-bar-fill" id="dpc3-bar"></div></div>
-          <div class="dpc3-bar-desc" id="dpc3-desc"></div>
-        </div>
-
-        <!-- Cards -->
-        <div class="dpc3-grid">
-          <div class="dpc3-gc"><div class="dpc3-gc-lbl">REM quality</div><div class="dpc3-gc-val" id="dpc3-rem"></div></div>
-          <div class="dpc3-gc"><div class="dpc3-gc-lbl">Emotional charge</div><div class="dpc3-gc-val" id="dpc3-emo"></div></div>
-          <div class="dpc3-gc"><div class="dpc3-gc-lbl">Recall clarity</div><div class="dpc3-gc-val" id="dpc3-recall"></div></div>
-          <div class="dpc3-gc"><div class="dpc3-gc-lbl">Recurring themes</div><div class="dpc3-gc-val" id="dpc3-themes"></div></div>
-        </div>
-
-        <!-- Insight -->
-        <div class="dpc3-insight">
-          <div class="dpc3-insight-lbl">What this phase means for your dream</div>
-          <div class="dpc3-insight-txt" id="dpc3-insight"></div>
-        </div>
-
-        <!-- Next phases -->
-        <div class="dpc3-next">
-          <div class="dpc3-next-lbl">Next significant phases</div>
-          <div class="dpc3-next-list" id="dpc3-next"></div>
-        </div>
-
-        <!-- Share -->
-        <div class="dpc3-share">
-          <span class="dpc3-share-lbl">Share your lunar profile</span>
-          <div class="dpc3-share-btns">
-            <a class="dpc3-share-btn dpc3-share-x" id="dpc3-sx" href="#" target="_blank" rel="noopener" title="Share on X">𝕏</a>
-            <a class="dpc3-share-btn dpc3-share-rd" id="dpc3-sr" href="#" target="_blank" rel="noopener" title="Share on Reddit">
-              <svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor"><path d="M20 10c0-5.52-4.48-10-10-10S0 4.48 0 10s4.48 10 10 10 10-4.48 10-10zm-13.5 1a1.5 1.5 0 110-3 1.5 1.5 0 010 3zm7 0a1.5 1.5 0 110-3 1.5 1.5 0 010 3zm-3.5 3.5c-1.5 0-2.8-.7-3.5-1.8h7c-.7 1.1-2 1.8-3.5 1.8z"/></svg>
-            </a>
-            <a class="dpc3-share-btn dpc3-share-ql" id="dpc3-sq" href="#" target="_blank" rel="noopener" title="Share on Quora">Q</a>
-            <button class="dpc3-share-btn dpc3-share-cp" id="dpc3-cp" type="button" title="Copy link">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
-            </button>
-          </div>
-          <span class="dpc3-copy-tip" id="dpc3-ctip">Link copied!</span>
-        </div>
-
-        <p class="dpc3-cite">
-          Cajochen et al. (2013), <a href="https://www.cell.com/current-biology/fulltext/S0960-9822(13)00754-9" target="_blank" rel="noopener">Current Biology</a> —
-          "Evidence that the Lunar Cycle Influences Human Sleep"
-        </p>
-
-      </div>
-    </div>
-  </div>
-
-</div>
-
-<!-- EASTER EGG TOAST -->
-<div class="dpc3-toast" id="dpc3-toast"></div>
-
-<script>
-(function(){
-
-  /* ── LUNAR MATH ─────────────────────────────────────────────────── */
-  var SYN = 29.53058867;
-  var NM0 = Date.UTC(2000,0,6,18,14,0);
-
-  function age(date){ return (((date.getTime()-NM0)/86400000)%SYN+SYN)%SYN; }
-  function illum(a){ return (1-Math.cos(2*Math.PI*a/SYN))/2; }
-
-  /* ── PHASE DATA ─────────────────────────────────────────────────── */
-  function phase(a){
-    var il=illum(a), w=a<SYN/2;
-    if(a<1.5||a>SYN-1.5) return {name:'New Moon',sym:'🌑',il:il,
-      intensity:80,desc:'The brain enters its deepest available REM architecture. Profound but hard to hold on waking.',
-      rem:'Deep & archetypal',emo:'Inward — low surface charge',recall:'Fragmented on waking',themes:'Voids, origins, descent',
-      insight:'The New Moon pulls sleep into its deepest available architecture. REM cycles tend toward the archetypal — images drawn from the oldest vocabulary. Dreams here are harder to recall precisely because they operate below narrative: sensation, directionless knowing, the specific quality of something present before it has a name.'};
-    if(a<7.38) return {name:'Waxing Crescent',sym:'🌒',il:il,
-      intensity:52,desc:'Sleep stabilising. REM cycles forming with increasing coherence. Dreams beginning to acquire narrative.',
-      rem:'Building coherence',emo:'Anticipatory, forward-leaning',recall:'Improving — snippets become scenes',themes:'Motion, approach, possibility',
-      insight:'The Waxing Crescent produces dreams with a distinctive forward quality — something is approaching, something is being built toward. REM architecture is consolidating. The emotional register is anticipatory rather than resolved. Dreams during this phase tend to be about movement toward something not yet visible.'};
-    if(a<8.38) return {name:'First Quarter',sym:'🌓',il:il,
-      intensity:65,desc:'Tension between phases generates heightened cortisol. Dreams become vivid and decision-charged.',
-      rem:'Vivid, decision-weighted',emo:'Tension — competing forces',recall:'Good — visual clarity high',themes:'Thresholds, decisions, conflict',
-      insight:'The First Quarter — exactly half illuminated. This balance registers as heightened cortisol, which sharpens the vividness of dreams while introducing a quality of conflict. Dreams here often stage the classic threshold scenario: a decision that cannot be deferred, two paths visible, neither fully lit.'};
-    if(a<13.77) return {name:'Waxing Gibbous',sym:'🌔',il:il,
-      intensity:75,desc:'Lunar pull strengthening. REM density increasing. Dreams rich with unresolved emotional material.',
-      rem:'Dense & emotionally loaded',emo:'Rising — pressure accumulating',recall:'Strong — sequences intact',themes:'Accumulation, pressure, unresolved matters',
-      insight:'The Waxing Gibbous produces some of the most narratively complete dreams — sequences with a beginning, a sustained middle, and an ending that almost resolves. The specific quality of this phase is accumulation without release. Something is building. The dream senses it.'};
-    if(a<15.77) return {name:'Full Moon',sym:'🌕',il:il,
-      intensity:95,desc:'Peak lunar influence. Cajochen et al.: 30% less deep sleep, 25% more REM density. Maximum vividity.',
-      rem:'Shortened deep sleep, maximum REM',emo:'Peak — everything amplified',recall:'Exceptional — cinematic detail',themes:'Confrontation, revelation, exposure',
-      insight:'The Full Moon is documented in peer-reviewed sleep research as the phase of maximum REM disruption. Deep sleep shortens. REM cycles increase in density. The dreaming brain runs at its highest intensity. What you dreamed on this night was the clearest available signal from your subconscious.'};
-    if(a<22.15) return {name:'Waning Gibbous',sym:'🌖',il:il,
-      intensity:72,desc:'Post-peak processing. REM working through material activated at the Full Moon. Integration in progress.',
-      rem:'Processing mode — integration',emo:'Releasing — tension beginning to resolve',recall:'Strong — emotional residue clear',themes:'Aftermath, processing, letting go',
-      insight:'The Waning Gibbous is the brain\'s integration phase — the period after the Full Moon when REM works through what was surfaced. Dreams here have a distinctive processing quality: not the peak charge of the Full Moon, but the work of making sense of what the peak revealed.'};
-    if(a<23.15) return {name:'Last Quarter',sym:'🌗',il:il,
-      intensity:62,desc:'Second tension point. Equal light and shadow. Dreams stage what needs to be released before the cycle closes.',
-      rem:'Reflective, review-oriented',emo:'Contemplative — equal weight on past',recall:'Moderate — more feeling than image',themes:'Release, completion, what to keep',
-      insight:'The Last Quarter faces back where the First Quarter faced forward. Dreams carry a specific quality: the review of something that needs to be decided before it can be laid down. What from this cycle needs to be released? The dream is doing the accounting.'};
-    return {name:'Waning Crescent',sym:'🌘',il:il,
-      intensity:55,desc:'Lunar influence fading. Sleep deepening toward New Moon. Dreams quiet, sparse, often symbolic.',
-      rem:'Quieting — depth returning',emo:'Low and inward — rest before reset',recall:'Sparse on waking',themes:'Completion, fading, the space before',
-      insight:'The Waning Crescent is the lunar cycle\'s exhale. The dream mind is quieting. What appears here tends to be sparse and symbolic — the residue of the cycle. Images arriving now are the ones that have been waiting for the quiet. Small, specific, carrying weight disproportionate to their size.'};
-  }
-
-  /* ── SVG MOON ───────────────────────────────────────────────────── */
-  function drawMoon(a, el){
-    var il=illum(a), wax=a<SYN/2, pct=Math.round(il*100);
-    var NS='http://www.w3.org/2000/svg', r=30,cx=36,cy=36;
-    el.innerHTML='';
-    var d=document.createElementNS(NS,'defs');
-    var cp=document.createElementNS(NS,'clipPath'); cp.setAttribute('id','dc'+Date.now()%1000);
-    var cc=document.createElementNS(NS,'circle'); cc.setAttribute('cx',cx); cc.setAttribute('cy',cy); cc.setAttribute('r',r);
-    cp.appendChild(cc); d.appendChild(cp); el.appendChild(d);
-    var cpId=cp.id;
-    var g=document.createElementNS(NS,'g'); g.setAttribute('clip-path','url(#'+cpId+')');
-    var bg=document.createElementNS(NS,'rect'); bg.setAttribute('x',0); bg.setAttribute('y',0); bg.setAttribute('width',72); bg.setAttribute('height',72); bg.setAttribute('fill','#d0c8bc'); g.appendChild(bg);
-    var lit=document.createElementNS(NS,'rect');
-    if(wax){lit.setAttribute('x',cx);lit.setAttribute('y',0);lit.setAttribute('width',r);lit.setAttribute('height',72);}
-    else{lit.setAttribute('x',0);lit.setAttribute('y',0);lit.setAttribute('width',r);lit.setAttribute('height',72);}
-    lit.setAttribute('fill','#ece4d4'); g.appendChild(lit);
-    if(pct>3&&pct<97){
-      var rx=wax?r*(1-2*il):r*(2*il-1);
-      var sh=document.createElementNS(NS,'ellipse');
-      sh.setAttribute('cx',cx);sh.setAttribute('cy',cy);sh.setAttribute('rx',Math.max(1,Math.abs(rx)));sh.setAttribute('ry',r);
-      var fc=wax?(il<=0.5?'#d0c8bc':'#ece4d4'):(il>=0.5?'#d0c8bc':'#ece4d4');
-      sh.setAttribute('fill',fc); g.appendChild(sh);
-    }
-    if(pct<=3){var f=document.createElementNS(NS,'rect');f.setAttribute('x',0);f.setAttribute('y',0);f.setAttribute('width',72);f.setAttribute('height',72);f.setAttribute('fill','#c0b8b0');g.appendChild(f);}
-    // Craters in SVG
-    [[22,26,5],[44,20,3],[30,52,4],[54,40,3],[18,60,3]].forEach(function(c){
-      var cr=document.createElementNS(NS,'circle');
-      cr.setAttribute('cx',c[0]);cr.setAttribute('cy',c[1]);cr.setAttribute('r',c[2]);
-      cr.setAttribute('fill','rgba(0,0,0,0.07)');cr.setAttribute('stroke','rgba(0,0,0,0.04)');cr.setAttribute('stroke-width','0.5');
-      g.appendChild(cr);
-    });
-    el.appendChild(g);
-    var bo=document.createElementNS(NS,'circle');bo.setAttribute('cx',cx);bo.setAttribute('cy',cy);bo.setAttribute('r',r);bo.setAttribute('fill','none');bo.setAttribute('stroke','rgba(200,192,180,0.4)');bo.setAttribute('stroke-width','1');el.appendChild(bo);
-  }
-
-  /* ── NEXT PHASES ────────────────────────────────────────────────── */
-  function next4(date){
-    var a=age(date);
-    return [{n:'New Moon',s:'🌑',t:0},{n:'First Quarter',s:'🌓',t:7.38},{n:'Full Moon',s:'🌕',t:14.77},{n:'Last Quarter',s:'🌗',t:22.15}]
-    .map(function(p){
-      var d=p.t-a; if(d<=0.5)d+=SYN; if(d>SYN)d-=SYN;
-      return {name:p.n,sym:p.s,date:new Date(date.getTime()+d*86400000),days:Math.round(d)};
-    }).sort(function(a,b){return a.days-b.days;}).slice(0,4);
-  }
-
-  function fmt(d){var m=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];return m[d.getMonth()]+' '+d.getDate()+', '+d.getFullYear();}
-  function fmtLong(d){var m=['January','February','March','April','May','June','July','August','September','October','November','December'];return m[d.getMonth()]+' '+d.getDate()+', '+d.getFullYear();}
-
-  /* ── PAUSE ANIMATIONS WHEN OFF-SCREEN ──────────────────────────── */
-  var root = document.getElementById('dpc3-root');
-  if('IntersectionObserver' in window && root){
-    var perfIO = new IntersectionObserver(function(entries){
-      entries.forEach(function(e){
-        if(e.isIntersecting){
-          root.classList.remove('dpc3-paused');
-        } else {
-          root.classList.add('dpc3-paused');
-        }
-      });
-    }, { rootMargin: '100px' });
-    perfIO.observe(root);
-  }
-
-  /* Stars are now CSS background-image — no JS loop needed */
-
-  /* ── TOAST ──────────────────────────────────────────────────────── */
-  var toastTimer;
-  function toast(msg, dur){
-    var t=document.getElementById('dpc3-toast');
-    t.textContent=msg; t.classList.add('show');
-    clearTimeout(toastTimer);
-    toastTimer=setTimeout(function(){ t.classList.remove('show'); }, dur||2800);
-  }
-
-  /* ── EASTER EGGS ────────────────────────────────────────────────── */
-  var clicks=0;
-  var eggs=[
-    '🌕 The ancients tracked this too. Babylonian dream tablets, 3000 BCE.',
-    '🌑 Even in the new moon\'s darkness, the amygdala dreams at full volume.',
-    '✦ You\'ve been watching the moon. It has been watching back.',
-    '🔭 Galileo charted these craters in 1609. Tonight, your brain charted its own.',
-    '◆ Oneirox · Where neuroscience meets the night.',
-  ];
-  document.getElementById('dpc3-moon-teaser').addEventListener('click',function(){
-    this.classList.add('pulse');
-    var self=this; setTimeout(function(){self.classList.remove('pulse');},600);
-    toast(eggs[clicks%eggs.length]);
-    clicks++;
-    // Animate cycle dots
-    var dots=document.querySelectorAll('.dpc3-cycle-dot');
-    dots.forEach(function(d,i){ d.classList.remove('active'); });
-    dots[clicks%dots.length].classList.add('active');
-  });
-
-  /* ── CALCULATE ──────────────────────────────────────────────────── */
-  var lastDate, lastPhase;
-
-  function calculate(){
-    var val=document.getElementById('dpc3-date').value; if(!val) return;
-    var p=val.split('-');
-    var date=new Date(parseInt(p[0]),parseInt(p[1])-1,parseInt(p[2]),12,0,0);
-    lastDate=date;
-    var a=age(date), data=phase(a), pct=Math.round(data.il*100);
-    lastPhase=data;
-
-    drawMoon(a, document.getElementById('dpc3-result-svg'));
-    document.getElementById('dpc3-pname').textContent=data.name;
-    document.getElementById('dpc3-age').textContent='Day '+Math.round(a)+' of 29.5 — lunar cycle';
-    document.getElementById('dpc3-datef').textContent=fmtLong(date);
-    document.getElementById('dpc3-illum').textContent=pct+'% illuminated';
-
-    var bar=document.getElementById('dpc3-bar');
-    bar.style.width='0%';
-    setTimeout(function(){bar.style.width=data.intensity+'%';},80);
-    document.getElementById('dpc3-pct').textContent=data.intensity+'%';
-    document.getElementById('dpc3-desc').textContent=data.desc;
-    document.getElementById('dpc3-rem').textContent=data.rem;
-    document.getElementById('dpc3-emo').textContent=data.emo;
-    document.getElementById('dpc3-recall').textContent=data.recall;
-    document.getElementById('dpc3-themes').textContent=data.themes;
-    document.getElementById('dpc3-insight').textContent=data.insight;
-
-    var nl=document.getElementById('dpc3-next'); nl.innerHTML='';
-    next4(date).forEach(function(ph){
-      var dl=ph.days===0?'today':ph.days===1?'tomorrow':'in '+ph.days+' days';
-      var el=document.createElement('div'); el.className='dpc3-next-item';
-      el.innerHTML='<div class="dpc3-next-sym">'+ph.sym+'</div><div class="dpc3-next-info"><div class="dpc3-next-name">'+ph.name+'</div><div class="dpc3-next-date">'+fmt(ph.date)+'</div></div><div class="dpc3-next-days">'+dl+'</div>';
-      nl.appendChild(el);
-    });
-
-    // Share URLs
-    var shareText='My dream on '+fmt(date)+' happened during the '+data.name+' — '+data.intensity+'% dream intensity. Find out what the moon was doing when you dreamed:';
-    var shareUrl='https://oneirox.com/sensory-dream-mapper-decode-what-your-body-felt-while-you-slept/';
-    document.getElementById('dpc3-sx').href='https://twitter.com/intent/tweet?text='+encodeURIComponent(shareText)+'&url='+encodeURIComponent(shareUrl);
-    document.getElementById('dpc3-sr').href='https://reddit.com/submit?url='+encodeURIComponent(shareUrl)+'&title='+encodeURIComponent(shareText);
-    document.getElementById('dpc3-sq').href='https://www.quora.com/share?url='+encodeURIComponent(shareUrl);
-
-    document.getElementById('dpc3-result').style.display='block';
-
-    // Special easter egg for Full Moon
-    if(data.intensity>=90){
-      setTimeout(function(){ toast('🌕 Full Moon detected. The Cajochen study was built on nights exactly like this one.', 3500); },600);
-    }
-  }
-
-  /* ── COPY LINK ──────────────────────────────────────────────────── */
-  document.getElementById('dpc3-cp').addEventListener('click',function(){
-    var url='https://oneirox.com/tools/oneirox-dream-mapper.html';
-    if(navigator.clipboard){
-      navigator.clipboard.writeText(url).then(function(){
-        var tip=document.getElementById('dpc3-ctip');
-        tip.classList.add('show');
-        setTimeout(function(){tip.classList.remove('show');},2000);
-      });
-    }
-  });
-
-  /* ── OPEN / CLOSE ───────────────────────────────────────────────── */
-  document.getElementById('dpc3-open').addEventListener('click',function(){
-    var panel=document.getElementById('dpc3-panel');
-    panel.classList.add('open');
-    calculate();
-    setTimeout(function(){ panel.scrollIntoView({behavior:'smooth',block:'nearest'}); },60);
-  });
-
-  document.getElementById('dpc3-close').addEventListener('click',function(){
-    document.getElementById('dpc3-panel').classList.remove('open');
-  });
-
-  /* ── CALCULATE BUTTON ───────────────────────────────────────────── */
-  document.getElementById('dpc3-calc').addEventListener('click', calculate);
-  document.getElementById('dpc3-date').addEventListener('keydown',function(e){if(e.key==='Enter')calculate();});
-
-  /* ── DEFAULT DATE = TODAY ───────────────────────────────────────── */
-  var t=new Date();
-  document.getElementById('dpc3-date').value=t.getFullYear()+'-'+String(t.getMonth()+1).padStart(2,'0')+'-'+String(t.getDate()).padStart(2,'0');
-
-}());
-</script>
+    <p>© 2026 Oneirox · Vigen G.R.</p>
+  </footer>
+
+  <script src="/js/phase-calculator.js" defer></script>
+  <script src="/js/back-to-top.js" defer></script>
 </body>
 </html>
