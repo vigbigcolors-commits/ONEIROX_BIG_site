@@ -18,7 +18,7 @@ const PAGE_TARGETS = {
   'our-philosophy': '/methodology/',
 };
 
-const SAME_PATH = new Set(['about', 'methodology', 'disclaimer']);
+// Pages that exist at the same URL on the new site — no redirect rule needed.
 
 function extractSlugs(xml) {
   const slugs = [];
@@ -74,8 +74,6 @@ function add(from, to) {
 for (const slug of pageSlugs) {
   if (PAGE_TARGETS[slug]) {
     add(slug, PAGE_TARGETS[slug]);
-  } else if (SAME_PATH.has(slug)) {
-    add(slug, `/${slug}/`);
   }
 }
 
