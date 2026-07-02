@@ -441,7 +441,7 @@
   }
 }
 
-/* ── Decode result ── */
+/* ── Decode result — readable sans, clear hierarchy ── */
 #onx-decode-result {
   display: none;
   margin-top: 20px;
@@ -450,15 +450,17 @@
   border: 2px solid #3a4435;
   border-radius: 16px;
   text-align: left;
-  font-size: 16px;
-  line-height: 1.85;
+  font-family: var(--onx-font-sans);
+  font-size: 17px;
+  line-height: 1.72;
   color: var(--onx-forest);
-  font-family: Georgia, "Times New Roman", serif;
   max-width: var(--onx-max-width);
   margin-left: auto;
   margin-right: auto;
   box-shadow: 0 16px 48px rgba(58, 68, 53, 0.1);
   animation: onx-fade-up 0.45s ease both;
+  -webkit-font-smoothing: antialiased;
+  font-feature-settings: "kern" 1, "liga" 1;
 }
 
 #onx-decode-result::before {
@@ -479,32 +481,37 @@
 }
 
 .onx-decode__signal {
-  font-size: 20px;
-  font-weight: 700;
-  color: var(--onx-forest);
-  line-height: 1.45;
-  margin-bottom: 20px;
+  font-family: var(--onx-font-sans);
+  font-size: clamp(17px, 4.2vw, 20px);
+  font-weight: 600;
+  color: #1e3224;
+  line-height: 1.5;
+  letter-spacing: -0.015em;
+  margin-bottom: 22px;
   padding-bottom: 18px;
   border-bottom: 1px solid rgba(58, 68, 53, 0.12);
-  font-family: var(--onx-font-serif);
 }
 
 .onx-decode__para {
-  margin-bottom: 14px;
-  font-size: 16px;
-  line-height: 1.85;
-  color: #3a4435;
+  margin-bottom: 16px;
+  font-family: var(--onx-font-sans);
+  font-size: 17px;
+  line-height: 1.72;
+  color: #2e3830;
+  font-weight: 400;
 }
 
 .onx-decode__morning {
-  margin-top: 20px;
+  margin-top: 22px;
   padding: 18px 22px;
   background: #f0f4ec;
   border-radius: 12px;
   border-left: 3px solid var(--onx-emerald);
-  font-style: italic;
-  font-size: 15px;
-  color: #4a5445;
+  font-family: var(--onx-font-sans);
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  color: #2a4030;
   line-height: 1.65;
 }
 
