@@ -149,14 +149,25 @@ window.addEventListener('DOMContentLoaded', function () {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ text: apiText })
     })
-      .then(function (r) { return r.json(); })
+      .then(function (r) {
+        return r.json().then(function (data) {
+          if (!r.ok) {
+            var msg = (typeof data.detail === 'string')
+              ? data.detail
+              : 'Something went wrong. Try again.';
+            throw new Error(msg);
+          }
+          return data;
+        });
+      })
       .then(function (data) {
         resultBox.classList.remove('is-loading');
         renderResult(data.interpretation);
       })
-      .catch(function () {
+      .catch(function (err) {
         resultBox.classList.remove('is-loading');
-        resultBox.innerHTML = '<span class="onx-decode__error">Something went wrong. Try again.</span>';
+        var msg = (err && err.message) ? err.message : 'Something went wrong. Try again.';
+        resultBox.innerHTML = '<span class="onx-decode__error">' + msg + '</span>';
       })
       .finally(function () {
         clearInterval(_progInt);
