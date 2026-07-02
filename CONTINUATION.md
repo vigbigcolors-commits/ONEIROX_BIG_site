@@ -1,20 +1,51 @@
 # CONTINUATION — Oneirox (читай первым в новом чате Cursor)
 
-**Обновлено:** 1 июля 2026 (полный снимок проекта)  
-**Сайт (статика):** `C:\Users\Vigen\Downloads\Oneirox`  
-**API (Python):** `D:\aONEIROX +++++++++\ONEIROX_API +++++++++++++`  
-**Домен:** https://oneirox.com  
-**Цель:** **инструмент** (WebApplication / Decode), не блог → GitHub + Cloudflare Pages
+**Обновлено:** 2 июля 2026  
+**Контрольная точка (git tag):** `07.02.2026_Oneirox` → commit `311663c`  
+**Сайт (статика):** `D:\aONEIROX +++++++++\ONEIROX  2 -------------------\Oneirox`  
+**GitHub:** https://github.com/vigbigcolors-commits/ONEIROX_BIG_site  
+**Cloudflare Pages:** oneirox-big-site → **https://oneirox.com**  
+**API (Python):** `D:\aONEIROX +++++++++\ONEIROX_API +++++++++++++` → Railway  
+**Цель:** **инструмент** (WebApplication / Decode), не блог
+
+---
+
+## Контрольная точка `07.02.2026_Oneirox` (2 июля 2026)
+
+**Зафиксировано — рабочий прод:**
+
+| Что | Статус |
+|-----|--------|
+| Домен oneirox.com на Cloudflare Pages | ✅ |
+| GitHub `ONEIROX_BIG_site` синхронизирован | ✅ |
+| Главная + Decode + API Railway | ✅ |
+| About, Methodology, Disclaimer, Privacy, Terms, Phase, Tools | ✅ |
+| 310→307 редиректов WP (`public/_redirects`) | ✅ (петли /about/ исправлены) |
+| `sitemap.xml` + `robots.txt` | ✅ |
+| Schema WebApplication + мобильный Decode (textarea) | ✅ |
+| Логотип — пульсирующее сердце 60 BPM | ✅ |
+
+**Вернуться к этой точке:**
+```powershell
+cd "D:\aONEIROX +++++++++\ONEIROX  2 -------------------\Oneirox"
+git fetch origin
+git checkout 07.02.2026_Oneirox
+# или новая ветка от тега:
+git checkout -b restore-from-checkpoint 07.02.2026_Oneirox
+```
+
+**Не путать с устаревшей копией:** `C:\Users\Vigen\Downloads\Oneirox` — без git, не деплоится.
 
 ---
 
 ## Фраза для нового чата (копируй целиком)
 
 ```
-Открыл workspace Oneirox. Прочитай CONTINUATION.md в C:\Users\Vigen\Downloads\Oneirox.
+Открыл workspace Oneirox. Прочитай CONTINUATION.md.
+Контрольная точка: git tag 07.02.2026_Oneirox (commit 311663c).
+Папка: D:\aONEIROX +++++++++\ONEIROX  2 -------------------\Oneirox
 Decode не ломать (oneirox-decode.js + decode.css + контракт формы).
-API живёт отдельно в D:\aONEIROX +++++++++\ONEIROX_API +++++++++++++ — не переносить в сайт.
-Продолжай с TODO из CONTINUATION.md.
+API: D:\aONEIROX +++++++++\ONEIROX_API +++++++++++++ (Railway).
 ```
 
 Или прикрепи: `@CONTINUATION.md` `@public/index.html` `@public/js/oneirox-decode.js`
@@ -25,7 +56,7 @@ API живёт отдельно в D:\aONEIROX +++++++++\ONEIROX_API +++++++++++
 
 | Слой | Папка на диске | GitHub | Деплой |
 |------|----------------|--------|--------|
-| **Сайт** (HTML/CSS/JS) | `C:\Users\Vigen\Downloads\Oneirox` | **ещё нет** — создать `oneirox` или `oneirox-site` | **Cloudflare Pages** → папка `public/` |
+| **Сайт** (HTML/CSS/JS) | `D:\aONEIROX +++++++++\ONEIROX  2 -------------------\Oneirox` | **ONEIROX_BIG_site** ✅ | **Cloudflare Pages** → `public/` |
 | **API** (FastAPI) | `D:\aONEIROX +++++++++\ONEIROX_API +++++++++++++` | `oneirox-api` ✅ | **Railway** |
 
 **Связь:** `public/js/oneirox-decode.js` → `POST https://oneirox-api-production.up.railway.app/analyze`  
@@ -219,39 +250,17 @@ Max width: **1200px** (`--onx-max-width`)
 
 ---
 
-## Git / деплой — следующие шаги
+## Git / деплой — статус на 07.02.2026_Oneirox
 
-### Сайт (первый push)
-```powershell
-cd C:\Users\Vigen\Downloads\Oneirox
-git init
-git add public/ content/ docs/ CONTINUATION.md README.md NEED-FROM-VIGEN.md package.json .gitignore scripts/
-git commit -m "Oneirox static site — homepage, tools, legal, editorial pages"
-git remote add origin https://github.com/vigbigcolors-commits/oneirox.git
-git push -u origin main
-```
+- [x] GitHub `ONEIROX_BIG_site` + push на `main`
+- [x] Cloudflare Pages, build output `public`
+- [x] DNS oneirox.com → Cloudflare
+- [x] `public/_redirects` (307 правил WP → новый сайт)
+- [x] `public/sitemap.xml` + `public/robots.txt`
+- [x] Тест Decode на production
+- [x] Git tag **`07.02.2026_Oneirox`**
 
-### Cloudflare Pages
-- Repo: **сайт** (не API)
-- Build output directory: **`public`**
-- Build command: *(пусто)*
-- Custom domain: oneirox.com
-
-### API (уже на GitHub)
-```powershell
-cd "D:\aONEIROX +++++++++\ONEIROX_API +++++++++++++"
-git push origin main   # только при изменениях main.py / промпта
-```
-
-### TODO перед продакшеном
-- [ ] `public/_redirects` — старые WP URL → новые пути
-- [ ] `public/sitemap.xml` + `public/robots.txt`
-- [ ] GitHub repo для сайта + Cloudflare Pages
-- [ ] Тест Decode на preview URL
-- [ ] DNS oneirox.com → Cloudflare
-- [ ] Vigen: `vigen.jpg`, список редиректов со старого WP
-- [ ] Mapper page — усилить дизайн как Phase (опционально)
-- [ ] Остальные книги в `content/books.json` (опционально)
+### TODO дальше
 
 ---
 
