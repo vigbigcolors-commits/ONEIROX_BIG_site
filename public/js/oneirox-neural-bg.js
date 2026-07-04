@@ -7,6 +7,9 @@
 
   var PI2 = Math.PI * 2;
   var reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var isTouch = window.matchMedia('(pointer: coarse)').matches;
+  var isNarrow = window.matchMedia('(max-width: 820px)').matches;
+  var isMobilePerf = isTouch || isNarrow;
 
   var FIREFLY_TYPES = [
     { rgb: [48, 255, 110], rMin: 1.3, rMax: 3.2, speed: 42, weight: 4 },
@@ -82,7 +85,7 @@
     if (ff.y > h - pad) { ff.y = h - pad; ff.vy = -Math.abs(ff.vy) * rand(0.5, 1); }
   }
 
-  function drawFirefly(c, ff, visMul) {
+  function drawFirefly(c, ff, visMul, lite) {
     var pulse = 0.55 + 0.45 * Math.sin(ff.twinkle);
     var flicker = 0.88 + 0.12 * Math.sin(ff.twinkle * 2.7 + ff.wander);
     var a = pulse * flicker * visMul * ff.brightness;
@@ -92,7 +95,20 @@
     var y = ff.y;
 
     c.save();
-    c.globalCompositeOperation = 'lighter';
+    if (!lite) c.globalCompositeOperation = 'lighter';
+
+    if (lite) {
+      c.beginPath();
+      c.arc(x, y, r * 4.5, 0, PI2);
+      c.fillStyle = rgba(rgb, a * 0.35);
+      c.fill();
+      c.beginPath();
+      c.arc(x, y, r * 0.85, 0, PI2);
+      c.fillStyle = 'rgba(255,255,255,' + Math.min(1, a * 0.95) + ')';
+      c.fill();
+      c.restore();
+      return;
+    }
 
     var outer = c.createRadialGradient(x, y, 0, x, y, r * 10);
     outer.addColorStop(0, rgba(rgb, a * 0.55));
@@ -140,6 +156,8 @@
     this.visMul = opts.visMul != null ? opts.visMul : 1;
     this.canvasClass = opts.canvasClass || 'onx-neural-bg__canvas';
     this.minFrameMs = opts.minFrameMs || 16;
+    this.lite = !!opts.lite;
+    this.maxDpr = opts.maxDpr || 1.25;
 
     this.canvas = document.createElement('canvas');
     this.canvas.className = this.canvasClass;
@@ -155,13 +173,15 @@
     this.lastPaint = 0;
     this.frozen = true;
     this.inView = false;
+    this._boundFrame = this.frame.bind(this);
   }
 
   FireflyField.prototype.resize = function () {
     var rect = this.container.getBoundingClientRect();
     this.w = Math.max(rect.width, 1);
     this.h = Math.max(rect.height, 1);
-    this.dpr = this.w * this.h > 900000 ? 1 : Math.min(window.devicePixelRatio || 1, 1.25);
+    this.dpr = Math.min(window.devicePixelRatio || 1, this.maxDpr);
+    if (this.w * this.h > 900000) this.dpr = 1;
     this.canvas.width = Math.floor(this.w * this.dpr);
     this.canvas.height = Math.floor(this.h * this.dpr);
     this.canvas.style.width = this.w + 'px';
@@ -186,7 +206,7 @@
     for (i = 0; i < this.fireflies.length; i++) {
       if (!reducedMotion) updateFirefly(this.fireflies[i], dtSec, this.w, this.h, this.pad);
       var ff = this.fireflies[i];
-      drawFirefly(c, ff, this.visMul * airy(ff.y, this.h));
+      drawFirefly(c, ff, this.visMul * airy(ff.y, this.h), this.lite);
     }
 
     if (this.clipCircle) c.restore();
@@ -202,7 +222,7 @@
         this.lastPaint = ts;
       }
     }
-    if (!this.frozen) this.rafId = requestAnimationFrame(this.frame.bind(this));
+    if (!this.frozen) this.rafId = requestAnimationFrame(this._boundFrame);
   };
 
   FireflyField.prototype.start = function () {
@@ -210,7 +230,7 @@
     this.frozen = false;
     this.lastTs = 0;
     this.lastPaint = 0;
-    this.rafId = requestAnimationFrame(this.frame.bind(this));
+    this.rafId = requestAnimationFrame(this._boundFrame);
   };
 
   FireflyField.prototype.stop = function () {
@@ -230,14 +250,15 @@
   var heroField = null;
   var axonCanvas = null;
   var axonCtx = null;
-  var isTouch = window.matchMedia('(pointer: coarse)').matches;
-  var isNarrow = window.matchMedia('(max-width: 820px)').matches;
 
   if (heroContainer) {
     heroField = new FireflyField(heroContainer, {
-      count: isNarrow ? 32 : 44,
+      count: isNarrow ? 24 : 40,
       pad: 6,
-      visMul: 1.05
+      visMul: 1.05,
+      lite: isTouch,
+      maxDpr: isTouch ? 1 : 1.25,
+      minFrameMs: isTouch ? 28 : 18
     });
 
     axonCanvas = document.createElement('canvas');
@@ -253,16 +274,23 @@
   var logoField = null;
   if (logoIcon) {
     logoField = new FireflyField(logoIcon, {
-      count: 16,
-      pad: 14,
-      visMul: 1.35,
+      count: isMobilePerf ? 7 : 12,
+      pad: 12,
+      visMul: isMobilePerf ? 1.25 : 1.35,
       clipCircle: true,
       canvasClass: 'onx-neiro-fireflies',
-      minFrameMs: 14
+      minFrameMs: isMobilePerf ? 42 : 22,
+      lite: isMobilePerf,
+      maxDpr: 1
     });
     logoField.resize();
-    logoField.setInView(true);
-    if (!reducedMotion) logoField.start();
+    if ('IntersectionObserver' in window) {
+      new IntersectionObserver(function (entries) {
+        logoField.setInView(entries[0].isIntersecting);
+      }, { threshold: 0.08, rootMargin: '20px' }).observe(logoIcon);
+    } else {
+      logoField.setInView(true);
+    }
     window.addEventListener('resize', function () {
       clearTimeout(logoField._rt);
       logoField._rt = setTimeout(function () { logoField.resize(); }, 200);

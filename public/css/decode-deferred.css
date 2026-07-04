@@ -4,6 +4,8 @@
   margin-top: 26px;
   padding-top: 24px;
   border-top: 1.5px solid rgba(74, 104, 56, 0.18);
+  min-width: 0;
+  overflow-x: clip;
 }
 
 #decode .onx-decode-section__label {
@@ -61,6 +63,8 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 12px;
+  min-width: 0;
+  width: 100%;
 }
 
 #decode .onx-decode-strength {
@@ -72,6 +76,9 @@
   border: 1px solid transparent;
   box-shadow: 0 6px 20px rgba(42, 58, 32, 0.06);
   transition: transform 0.22s ease, box-shadow 0.22s ease;
+  min-width: 0;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 #decode .onx-decode-strength:hover {
@@ -152,6 +159,8 @@
   grid-template-columns: repeat(3, 1fr);
   gap: 10px;
   margin: 0 0 18px;
+  min-width: 0;
+  width: 100%;
   background: transparent;
   border: none;
   box-shadow: none;
@@ -582,12 +591,25 @@
 .onx-mapper-banner__clear:hover {
   background: #eef2ea;
 }
-@media (max-width: 720px) {
-  #decode .onx-decode-panel .onx-decode-output-hint { grid-template-columns: 1fr; }
+@media (max-width: 900px) {
+  #decode .onx-decode-strengths {
+    grid-template-columns: 1fr;
+  }
+
+  #decode .onx-decode-panel .onx-decode-output-hint {
+    grid-template-columns: 1fr;
+  }
+
   #decode .onx-decode-panel .onx-output-hint__item {
     border-right: none;
     border-bottom: 1px solid rgba(74, 104, 56, 0.12);
   }
-  #decode .onx-decode-panel .onx-output-hint__item:last-child { border-bottom: none; }
+
+  #decode .onx-decode-panel .onx-output-hint__item:last-child {
+    border-bottom: none;
+  }
+}
+
+@media (max-width: 720px) {
   #onx-decode-result { padding: 22px 18px; }
 }
