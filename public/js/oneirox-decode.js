@@ -74,7 +74,23 @@ window.addEventListener('DOMContentLoaded', function () {
       .replace(/\*([^*]+?)\*/g, '<em>$1</em>');
   }
 
+  function escapeHtml(s) {
+    return String(s)
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;');
+  }
+
+  function showError(msg) {
+    resultBox.innerHTML = '<span class="onx-decode__error">' + escapeHtml(msg) + '</span>';
+  }
+
   function renderResult(raw) {
+    if (!raw || typeof raw !== 'string') {
+      showError('Something went wrong. Try again.');
+      return;
+    }
     var signal  = parseSection(raw, 'SIGNAL');
     var body    = parseSection(raw, 'BODY');
     var morning = parseSection(raw, 'MORNING');
@@ -149,14 +165,32 @@ window.addEventListener('DOMContentLoaded', function () {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ text: apiText })
     })
-      .then(function (r) { return r.json(); })
-      .then(function (data) {
+      .then(function (r) {
+        return r.json().then(function (data) {
+          return { ok: r.ok, status: r.status, data: data };
+        });
+      })
+      .then(function (res) {
         resultBox.classList.remove('is-loading');
-        renderResult(data.interpretation);
+        if (!res.ok) {
+          var msg = (res.data && res.data.detail)
+            ? res.data.detail
+            : 'Something went wrong. Try again.';
+          if (Array.isArray(msg)) {
+            msg = msg.map(function (item) { return item.msg || item; }).join(' ');
+          }
+          showError(msg);
+          return;
+        }
+        if (!res.data || !res.data.interpretation) {
+          showError('Something went wrong. Try again.');
+          return;
+        }
+        renderResult(res.data.interpretation);
       })
       .catch(function () {
         resultBox.classList.remove('is-loading');
-        resultBox.innerHTML = '<span class="onx-decode__error">Something went wrong. Try again.</span>';
+        showError('Could not reach the decoder. Check your connection and try again.');
       })
       .finally(function () {
         clearInterval(_progInt);
