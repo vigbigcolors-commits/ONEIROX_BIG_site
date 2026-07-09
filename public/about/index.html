@@ -27,45 +27,51 @@
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "ProfilePage",
-        "@id": "https://oneirox.com/about/#profilepage",
-        "name": "About Vigen G.R. — Oneirox",
-        "url": "https://oneirox.com/about/",
-        "description": "Independent sleep physiology researcher and developer behind the Oneirox Dream Decoder web application.",
-        "dateModified": "2026-07-09",
-        "isPartOf": { "@id": "https://oneirox.com/#website" },
-        "about": { "@id": "https://oneirox.com/#decode-app" },
-        "mainEntity": {
-          "@type": "Person",
-          "@id": "https://oneirox.com/about/#vigen",
-          "name": "Vigen G.R.",
-          "jobTitle": "Sleep Physiology & Somatic Signals Researcher",
-          "description": "Independent researcher and developer. Creator of the Oneirox Dream Decoder — a free scientific AI web application for mechanism-based dream interpretation.",
-          "url": "https://oneirox.com/about/",
-          "image": {
-            "@type": "ImageObject",
-            "url": "https://oneirox.com/images/vigen.jpg"
-          },
-          "worksFor": { "@id": "https://oneirox.com/#organization" },
-          "knowsAbout": [
-            "Sleep neurophysiology",
-            "REM sleep",
-            "Dream interpretation",
-            "Somatic markers",
-            "Amygdala threat processing",
-            "Emotional memory consolidation"
-          ]
-        }
+    "@type": "ProfilePage",
+    "@id": "https://oneirox.com/about/#profilepage",
+    "url": "https://oneirox.com/about/",
+    "name": "Vigen G.R. — Oneirox",
+    "description": "Independent sleep physiology researcher and developer behind the Oneirox Dream Decoder web application.",
+    "dateModified": "2026-07-09T16:00:00+04:00",
+    "inLanguage": "en",
+    "isPartOf": {
+      "@type": "WebSite",
+      "@id": "https://oneirox.com/#website",
+      "name": "Oneirox",
+      "url": "https://oneirox.com/"
+    },
+    "mainEntity": {
+      "@type": "Person",
+      "@id": "https://oneirox.com/about/#vigen",
+      "name": "Vigen G.R.",
+      "jobTitle": "Sleep Physiology & Somatic Signals Researcher",
+      "description": "Independent researcher and developer. Creator of the Oneirox Dream Decoder — a free scientific AI web application for mechanism-based dream interpretation.",
+      "url": "https://oneirox.com/about/",
+      "image": "https://oneirox.com/images/vigen.jpg",
+      "mainEntityOfPage": { "@id": "https://oneirox.com/about/#profilepage" },
+      "worksFor": {
+        "@type": "Organization",
+        "name": "Oneirox",
+        "url": "https://oneirox.com/"
       },
-      {
-        "@type": "BreadcrumbList",
-        "itemListElement": [
-          { "@type": "ListItem", "position": 1, "name": "Oneirox", "item": "https://oneirox.com/" },
-          { "@type": "ListItem", "position": 2, "name": "About", "item": "https://oneirox.com/about/" }
-        ]
-      }
+      "knowsAbout": [
+        "Sleep neurophysiology",
+        "REM sleep",
+        "Dream interpretation",
+        "Somatic markers",
+        "Amygdala threat processing",
+        "Emotional memory consolidation"
+      ]
+    }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Oneirox", "item": "https://oneirox.com/" },
+      { "@type": "ListItem", "position": 2, "name": "About", "item": "https://oneirox.com/about/" }
     ]
   }
   </script>
