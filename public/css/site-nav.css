@@ -163,6 +163,50 @@
   box-shadow: 0 8px 24px rgba(0, 165, 168, 0.28);
 }
 
+.site-header__actions {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  flex-shrink: 0;
+}
+
+.site-lang {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
+  font-family: var(--onx-font-sans);
+  line-height: 1;
+}
+
+.site-lang a {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: #5a6e52;
+  padding: 4px 2px;
+  border-bottom: 2px solid transparent;
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.site-lang a:hover,
+.site-lang a:focus-visible {
+  color: #00a5a8;
+}
+
+.site-lang a[aria-current="page"] {
+  color: #1e3224;
+  border-bottom-color: rgba(0, 165, 168, 0.55);
+}
+
+.site-lang__sep {
+  color: rgba(61, 82, 52, 0.35);
+  font-size: 11px;
+  user-select: none;
+}
+
 @media (max-width: 900px) {
   .site-nav { display: none; }
 }
@@ -172,6 +216,7 @@
   .site-header__inner { padding: 12px 18px; }
   .site-logo__heart { width: 21px; height: 21px; }
   .site-logo__word { font-size: 19px; }
+  .site-header__actions { gap: 10px; }
 }
 
 /* ── Back to top (sync — must work on homepage where main.css is deferred) ── */

@@ -3,6 +3,8 @@
 # 287 posts -> / (301)
 # Legacy pages mapped to new static routes
 
+/ru /ru/ 301
+
 /sensory-dream-mapper-decode-what-your-body-felt-while-you-slept/ /tools/oneirox-dream-mapper.html 301
 /trying-to-control-something-that-keeps-slipping-the-psychology-of-the-vanishing-grip/ / 301
 /the-spider-on-your-skin-when-the-boundary-between-you-and-something-else-dissolved/ / 301

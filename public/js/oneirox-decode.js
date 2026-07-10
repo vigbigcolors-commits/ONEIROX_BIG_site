@@ -125,13 +125,28 @@ window.addEventListener('DOMContentLoaded', function () {
     if (!text) return;
     e.preventDefault();
 
+    var pageLang = (document.documentElement.lang || 'en').toLowerCase().slice(0, 2);
+    if (location.pathname.indexOf('/ru') === 0) pageLang = 'ru';
+
+    var loadingText = pageLang === 'ru'
+      ? 'Мозг читает сигнал…'
+      : 'The brain is reading the signal…';
+    var errGeneric = pageLang === 'ru'
+      ? 'Что-то пошло не так. Попробуйте ещё раз.'
+      : 'Something went wrong. Try again.';
+    var errNetwork = pageLang === 'ru'
+      ? 'Не удалось связаться с декодером. Проверьте соединение и попробуйте снова.'
+      : 'Could not reach the decoder. Check your connection and try again.';
+    var btnLabel = 'Decode';
+    var btnReading = pageLang === 'ru' ? 'Читаю…' : 'Reading…';
+
     var btn = searchForm.querySelector('button[type="submit"]') || searchForm.querySelector('button');
-    if (btn) { btn.disabled = true; btn.textContent = 'Reading…'; }
+    if (btn) { btn.disabled = true; btn.textContent = btnReading; }
     resultBox.style.display = 'block';
     resultBox.classList.add('is-loading');
 
     resultBox.innerHTML = '<div class="onx-decode__loading">'
-      + '<div class="onx-decode__loading-text">The brain is reading the signal…</div>'
+      + '<div class="onx-decode__loading-text">' + loadingText + '</div>'
       + '<div class="onx-decode__progress-track">'
       + '<div class="onx-decode__progress-bar" id="onx-prog-bar"></div>'
       + '</div></div>';
@@ -163,7 +178,7 @@ window.addEventListener('DOMContentLoaded', function () {
     fetch(apiUrl, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ text: apiText })
+      body: JSON.stringify({ text: apiText, lang: pageLang })
     })
       .then(function (r) {
         return r.json().then(function (data) {
@@ -175,7 +190,7 @@ window.addEventListener('DOMContentLoaded', function () {
         if (!res.ok) {
           var msg = (res.data && res.data.detail)
             ? res.data.detail
-            : 'Something went wrong. Try again.';
+            : errGeneric;
           if (Array.isArray(msg)) {
             msg = msg.map(function (item) { return item.msg || item; }).join(' ');
           }
@@ -183,19 +198,19 @@ window.addEventListener('DOMContentLoaded', function () {
           return;
         }
         if (!res.data || !res.data.interpretation) {
-          showError('Something went wrong. Try again.');
+          showError(errGeneric);
           return;
         }
         renderResult(res.data.interpretation);
       })
       .catch(function () {
         resultBox.classList.remove('is-loading');
-        showError('Could not reach the decoder. Check your connection and try again.');
+        showError(errNetwork);
       })
       .finally(function () {
         clearInterval(_progInt);
         if (_progEl) _progEl.style.width = '100%';
-        if (btn) { btn.disabled = false; btn.textContent = 'Decode'; }
+        if (btn) { btn.disabled = false; btn.textContent = btnLabel; }
       });
   });
 });

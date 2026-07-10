@@ -29,6 +29,9 @@
   <meta name="twitter:title" content="About Vigen G.R. — Oneirox">
   <meta name="twitter:description" content="Sleep physiology researcher. Five years. Fifty books. One mechanism-based dream decoder.">
   <link rel="canonical" href="https://oneirox.com/about/">
+  <link rel="alternate" hreflang="en" href="https://oneirox.com/about/">
+  <link rel="alternate" hreflang="ru" href="https://oneirox.com/ru/about/">
+  <link rel="alternate" hreflang="x-default" href="https://oneirox.com/about/">
   <link rel="stylesheet" href="/css/page.css">
   <link rel="stylesheet" href="/css/about.css">
   <link rel="stylesheet" href="/css/main.css">
@@ -104,7 +107,14 @@
           <li><a href="/methodology/">Methodology</a></li>
         </ul>
       </nav>
-      <a href="/#decode" class="btn btn--primary">Decode →</a>
+      <div class="site-header__actions">
+        <nav class="site-lang" aria-label="Language">
+          <a href="/about/" hreflang="en" lang="en" aria-current="page">EN</a>
+          <span class="site-lang__sep" aria-hidden="true">|</span>
+          <a href="/ru/about/" hreflang="ru" lang="ru">RU</a>
+        </nav>
+        <a href="/#decode" class="btn btn--primary">Decode →</a>
+      </div>
     </div>
   </header>
 
@@ -359,5 +369,6 @@
   </footer>
 
   <script src="/js/back-to-top.js" defer></script>
+  <script src="/js/oneirox-lang.js" data-cfasync="false" defer></script>
 </body>
 </html>
