@@ -982,17 +982,20 @@
     <span class="back-to-top__label">Top</span>
   </button>
 
-  <footer class="site-footer">
-    <nav aria-label="Footer">
-      <a href="/about/">About</a>
-      <a href="/methodology/">Methodology</a>
-      <a href="/tools/oneirox-dream-mapper.html">Sensory Mapper</a>
-      <a href="/phase/">Phase Calculator</a>
-      <a href="/disclaimer/">Disclaimer</a>
-      <a href="/privacy/">Privacy</a>
-      <a href="/terms/">Terms</a>
-    </nav>
-    <p>© 2026 Oneirox · Vigen G.R. · Independent researcher &amp; developer</p>
+  <footer class="site-footer site-footer--rich">
+    <div class="site-footer__main">
+      <nav aria-label="Footer">
+        <a href="/about/">About</a>
+        <a href="/methodology/">Methodology</a>
+        <a href="/tools/oneirox-dream-mapper.html">Sensory Dream Mapper</a>
+        <a href="/phase/">Dream Phase Calculator</a>
+        <a href="/disclaimer/">Disclaimer</a>
+        <a href="/privacy/">Privacy Policy</a>
+        <a href="/terms/">Terms of Use</a>
+      </nav>
+      <p class="site-footer__tagline">Scientific dream decoder · REM neurobiology · one mechanism-based reading — not a symbol dictionary</p>
+    </div>
+    <p class="site-footer__copy">© 2026 Oneirox · Vigen G.R. · Independent researcher &amp; developer</p>
   </footer>
 
   <script type="application/ld+json">
@@ -1018,19 +1021,18 @@
         "url": "https://oneirox.com/",
         "description": "Scientific AI dream decoder — free web application grounded in sleep neurobiology.",
         "publisher": { "@id": "https://oneirox.com/#organization" },
-        "inLanguage": "en",
+        "inLanguage": ["en", "ru"],
         "potentialAction": {
-          "@type": "SearchAction",
-          "name": "Decode a dream",
+          "@type": "UseAction",
+          "name": "Open Dream Decoder",
           "target": {
             "@type": "EntryPoint",
-            "urlTemplate": "https://oneirox.com/?dream={search_term_string}",
+            "urlTemplate": "https://oneirox.com/#decode",
             "actionPlatform": [
               "https://schema.org/DesktopWebPlatform",
               "https://schema.org/MobileWebPlatform"
             ]
-          },
-          "query-input": "required name=search_term_string"
+          }
         }
       },
       {
@@ -1049,7 +1051,7 @@
         "browserRequirements": "Requires JavaScript. Compatible with Chrome, Firefox, Safari, Edge, and modern mobile browsers.",
         "softwareVersion": "1.0",
         "isAccessibleForFree": true,
-        "inLanguage": "en",
+        "inLanguage": ["en", "ru"],
         "countriesSupported": "Worldwide",
         "featureList": [
           "Interactive AI dream decoder — type your dream, press Decode, receive instant analysis",

@@ -763,6 +763,51 @@ a:hover { color: var(--onx-leaf); }
   margin: 0;
 }
 
+.site-footer--rich {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 18px;
+  padding: 48px 24px 64px;
+  border-top: 1px solid rgba(58, 68, 53, 0.28);
+}
+
+.site-footer--rich .site-footer__main {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.site-footer--rich nav {
+  gap: 12px 28px;
+}
+
+.site-footer--rich nav a {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: rgba(40, 52, 36, 0.82);
+}
+
+.site-footer--rich nav a:hover {
+  color: var(--onx-ink);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.site-footer__tagline {
+  font-size: 13px !important;
+  line-height: 1.45;
+  font-weight: 500;
+  color: rgba(40, 52, 36, 0.72) !important;
+  max-width: 42rem;
+}
+
+.site-footer__copy {
+  font-size: 12px !important;
+  color: rgba(40, 52, 36, 0.62) !important;
+}
+
 /* Back to top → site-nav.css (sync on homepage) */
 
 /* ── Responsive ── */

@@ -402,6 +402,22 @@
   border: 1px solid rgba(138, 176, 104, 0.4);
 }
 
+.flow-card__tags--ru {
+  gap: 8px;
+}
+
+.flow-card__tags--ru span {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  line-height: 1.25;
+  padding: 9px 12px;
+  color: #0f3d2e;
+  background: rgba(168, 216, 112, 0.72);
+  border: 1px solid rgba(80, 130, 70, 0.55);
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.35) inset;
+}
+
 /* Connectors removed — cards use gap spacing */
 .flow-connector--ornate { display: none; }
 
