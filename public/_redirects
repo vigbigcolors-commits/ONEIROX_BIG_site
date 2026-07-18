@@ -5,7 +5,11 @@
 
 /ru /ru/ 301
 
-/sensory-dream-mapper-decode-what-your-body-felt-while-you-slept/ /tools/oneirox-dream-mapper.html 301
+/sensory-dream-mapper/ /tools/oneirox-dream-mapper 301
+/sensory-dream-mapper /tools/oneirox-dream-mapper 301
+/sensory-dream-mapper-decode-what-your-body-felt-while-you-slept/ /tools/oneirox-dream-mapper 301
+/tools/oneirox-dream-mapper.html /tools/oneirox-dream-mapper 301
+/tools/oneirox-dream-phase-calculator.html /phase/ 301
 /trying-to-control-something-that-keeps-slipping-the-psychology-of-the-vanishing-grip/ / 301
 /the-spider-on-your-skin-when-the-boundary-between-you-and-something-else-dissolved/ / 301
 /repeating-the-same-situation-again-and-again-the-psychology-of-the-behavioral-loop/ / 301

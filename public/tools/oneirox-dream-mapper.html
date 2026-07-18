@@ -45,14 +45,14 @@
 <title>Sensory Dream Mapper — Decode What Your Body Felt While You Slept | Oneirox</title>
 <meta name="description" content="Map the physical sensations from your dreams. The Oneirox Sensory Dream Mapper translates thermal, tactile, and somatic signals into neurobiological insight — not symbols. Free interactive tool."/>
 <meta name="robots" content="index, follow"/>
-<link rel="canonical" href="https://oneirox.com/sensory-dream-mapper/"/>
+<link rel="canonical" href="https://oneirox.com/tools/oneirox-dream-mapper"/>
 <meta name="keywords" content="somatic dream interpretation, what my body felt in a dream, dream body sensations meaning, physical dream signals, dream temperature meaning, chest pressure in dreams, nervous system dream patterns, somatic mapping tool, dream body map, dream interpretation without symbols, neurobiological dream analysis"/>
 <meta name="copyright" content="© 2024–2025 Oneirox.com — All Rights Reserved"/>
 <meta name="author" content="Oneirox.com"/>
 <meta name="identifier" content="ONX-SDM-v2.6-2025"/>
 <meta name="generator" content="Oneirox Somatic Intelligence System"/>
 <meta property="og:type" content="website"/>
-<meta property="og:url" content="https://oneirox.com/sensory-dream-mapper/"/>
+<meta property="og:url" content="https://oneirox.com/tools/oneirox-dream-mapper"/>
 <meta property="og:title" content="Sensory Dream Mapper — Decode What Your Body Felt While You Slept"/>
 <meta property="og:description" content="Not every dream speaks in symbols. Some speak in pressure, heat, and the weight of a hand you couldn’t see. Map what your nervous system recorded — not what your memory edited."/>
 <meta property="og:site_name" content="Oneirox"/>
@@ -65,7 +65,7 @@
 <meta name="twitter:description" content="Translate the physical residue of your dreams into neurobiological insight. Free somatic dream mapping tool."/>
 <meta name="twitter:site" content="@oneirox"/>
 <meta name="twitter:image" content="https://oneirox.com/wp-content/uploads/sensory-mapper-og.jpg"/>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Oneirox Sensory Dream Mapper","url":"https://oneirox.com/sensory-dream-mapper/","applicationCategory":"HealthApplication","operatingSystem":"Web browser","isAccessibleForFree":true,"inLanguage":"en","offers":{"@type":"Offer","price":"0","priceCurrency":"USD","availability":"https://schema.org/InStock"},"publisher":{"@type":"Organization","name":"Oneirox","url":"https://oneirox.com"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Oneirox Sensory Dream Mapper","url":"https://oneirox.com/tools/oneirox-dream-mapper","applicationCategory":"HealthApplication","operatingSystem":"Web browser","isAccessibleForFree":true,"inLanguage":"en","offers":{"@type":"Offer","price":"0","priceCurrency":"USD","availability":"https://schema.org/InStock"},"publisher":{"@type":"Organization","name":"Oneirox","url":"https://oneirox.com"}}</script>
 <script type="application/ld+json">
 {
   "@context":"https://schema.org",
@@ -576,7 +576,7 @@ body{font-family:'DM Sans',system-ui,sans-serif;background:var(--bg);color:var(-
   <div id="detail-body"></div>
 </div></div>
 
-<span aria-hidden="true" style="position:absolute;width:1px;height:1px;overflow:hidden;opacity:0;pointer-events:none;user-select:none" data-copyright="© 2024–2025 Oneirox.com" data-tool="Sensory Dream Mapper" data-id="ONX-SDM-v2.6" data-url="https://oneirox.com/sensory-dream-mapper/">Oneirox Sensory Dream Mapper © 2024–2025 Oneirox.com — All Rights Reserved.</span>
+<span aria-hidden="true" style="position:absolute;width:1px;height:1px;overflow:hidden;opacity:0;pointer-events:none;user-select:none" data-copyright="© 2024–2025 Oneirox.com" data-tool="Sensory Dream Mapper" data-id="ONX-SDM-v2.6" data-url="https://oneirox.com/tools/oneirox-dream-mapper">Oneirox Sensory Dream Mapper © 2024–2025 Oneirox.com — All Rights Reserved.</span>
 
 <script>
 const TH=[{label:"Glacial",c:"#5ab0e0"},{label:"Frozen",c:"#60c8c0"},{label:"Cold",c:"#70d0a0"},{label:"Neutral",c:"#a0d070"},{label:"Warm",c:"#e8c050"},{label:"Hot",c:"#e08030"},{label:"Scorching",c:"#d84020"}];
@@ -780,7 +780,7 @@ function togglePlay(){if(!audio.playing){if(!audio.ctx){audio.play(audio.idx)}el
 function shareReading(){
   const prof=getProf();const btn=document.getElementById('share-btn');
   const text=`My dream profile: ${prof.name} (${prof.code}) — ${prof.cls}\nThermal: ${TH[S.th].label} · Bio-Signal: ${S.sig}/99\nMapped with Oneirox.com`;
-  const url='https://oneirox.com/sensory-dream-mapper/';
+  const url='https://oneirox.com/tools/oneirox-dream-mapper';
   if(navigator.share){navigator.share({title:'My Somatic Dream Profile — Oneirox',text,url}).catch(()=>{})}
   else{navigator.clipboard?.writeText(text+'\n'+url).then(()=>{btn.textContent='Copied ✓';btn.classList.add('ok');setTimeout(()=>{btn.textContent='Share';btn.classList.remove('ok')},2200)})}
 }
@@ -863,7 +863,7 @@ try{const isChrome=/Chrome/.test(navigator.userAgent);if(isChrome){console.log('
   <p style="font-family:'DM Mono',monospace;font-size:.64rem;color:#3a5030;letter-spacing:.12em;line-height:1.9">
     © 2024–2025 <a href="https://oneirox.com" target="_blank" rel="noopener" style="color:#587848;text-decoration:none;border-bottom:1px solid rgba(88,120,72,.3)">Oneirox.com</a>
     — All Rights Reserved · Sensory Dream Mapper · Somatic profiles &amp; neurobiological framework are original works of Oneirox.com · Unauthorised reproduction prohibited
-    <br><span style="color:#2a4020;font-size:.58rem">ONX-SDM-v2.6 · oneirox.com/sensory-dream-mapper/</span>
+    <br><span style="color:#2a4020;font-size:.58rem">ONX-SDM-v2.6 · oneirox.com/tools/oneirox-dream-mapper</span>
   </p>
 </footer>
 </body>
