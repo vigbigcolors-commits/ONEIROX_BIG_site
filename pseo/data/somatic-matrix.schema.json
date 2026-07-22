@@ -1,0 +1,94 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://oneirox.com/pseo/somatic-matrix.schema.json",
+  "title": "OneiroxSomaticMatrix",
+  "description": "Physiological symptom × sleep phase matrix for Oneirox somatic PSEO utilities",
+  "type": "object",
+  "required": ["version", "entries"],
+  "properties": {
+    "version": { "type": "integer", "minimum": 1 },
+    "generated_at": { "type": "string" },
+    "entries": {
+      "type": "array",
+      "items": { "$ref": "#/definitions/entry" }
+    }
+  },
+  "definitions": {
+    "entry": {
+      "type": "object",
+      "required": [
+        "slug_symptom",
+        "slug_phase",
+        "slug_context",
+        "physiological_symptom",
+        "sleep_phase",
+        "context",
+        "eeg_frequency_hz_range",
+        "neurotransmitters_involved",
+        "somatic_markers",
+        "atonia_state",
+        "chart_seed",
+        "utility_type",
+        "title",
+        "summary",
+        "sources"
+      ],
+      "properties": {
+        "id": { "type": "string" },
+        "slug_symptom": { "type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$" },
+        "slug_phase": { "type": "string", "enum": ["n1", "n2", "n3", "rem"] },
+        "slug_context": {
+          "type": "string",
+          "enum": ["onset", "mid-cycle", "awakening", "fragmentation"]
+        },
+        "physiological_symptom": { "type": "string", "minLength": 3 },
+        "sleep_phase": { "type": "string", "enum": ["N1", "N2", "N3", "REM"] },
+        "context": {
+          "type": "string",
+          "enum": ["onset", "mid-cycle", "awakening", "fragmentation"]
+        },
+        "eeg_frequency_hz_range": {
+          "type": "object",
+          "required": ["min", "max", "band"],
+          "properties": {
+            "min": { "type": "number" },
+            "max": { "type": "number" },
+            "band": {
+              "type": "string",
+              "enum": ["delta", "theta", "alpha", "sigma", "beta", "gamma", "mixed"]
+            }
+          }
+        },
+        "neurotransmitters_involved": {
+          "type": "array",
+          "items": { "type": "string" },
+          "minItems": 1
+        },
+        "somatic_markers": {
+          "type": "array",
+          "items": { "type": "string" },
+          "minItems": 2
+        },
+        "atonia_state": {
+          "type": "string",
+          "enum": ["preserved", "partial_failure", "N/A"]
+        },
+        "chart_seed": { "type": "integer" },
+        "utility_type": {
+          "type": "string",
+          "enum": ["eeg_baseline", "phase_disruption", "atonia_risk"]
+        },
+        "title": { "type": "string" },
+        "summary": { "type": "string" },
+        "gauge_atonia": { "type": "number", "minimum": 0, "maximum": 100 },
+        "gauge_arousal": { "type": "number", "minimum": 0, "maximum": 100 },
+        "gauge_coherence": { "type": "number", "minimum": 0, "maximum": 100 },
+        "sources": {
+          "type": "array",
+          "items": { "type": "string" },
+          "minItems": 1
+        }
+      }
+    }
+  }
+}

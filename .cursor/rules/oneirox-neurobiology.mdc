@@ -1,0 +1,28 @@
+---
+description: Oneirox neurobiology-only content guardrail — ban psychoanalysis and dream dictionaries
+globs: pseo/**,public/somatic/**
+alwaysApply: false
+---
+
+# Oneirox: neurobiology only
+
+For all text and code generation related to Oneirox (especially PSEO somatic pages, matrix rows, SSG templates, and copy):
+
+## STRICTLY use
+- Neurobiology and sleep physiology
+- Somatic markers (body sensations tied to autonomic / motor state)
+- Brain mechanics: sleep stages N1–N3 / REM, EEG bands (Hz), muscle atonia, neurotransmitters (GABA, ACh, orexin/hypocretin, norepinephrine, serotonin, dopamine, histamine, melatonin, glutamate, glycine)
+- Measurable or modelable signals (heart rate, tone, tremor, apnea-like patterns as physiological descriptions — never as diagnosis)
+
+## NEVER use
+- Psychoanalysis, Freud, Jung, archetypes, collective unconscious
+- Mysticism, spirituality-as-explanation, astral / prophetic framing
+- Dream dictionaries or “symbol X means Y”
+- Vague “your subconscious is telling you…” language
+- Medical diagnosis claims or treatment advice
+
+## Page / matrix copy rules
+- Frame events as physiological state transitions, not meanings.
+- Prefer concrete markers: atonia preserved/failed, band-limited EEG, transmitter tone shifts.
+- Include a non-diagnosis disclaimer where health-adjacent symptoms appear.
+- CTA to Decode is a tool link, not a substitute for the somatic utility content.

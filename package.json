@@ -6,6 +6,10 @@
   "scripts": {
     "dev": "npx --yes serve public -p 3000",
     "preview": "npx --yes serve public -p 3000",
-    "favicons": "node scripts/generate-favicons.mjs"
+    "favicons": "node scripts/generate-favicons.mjs",
+    "pseo:expand": "node pseo/scripts/expand-matrix.mjs --target=1500",
+    "pseo:build": "node pseo/scripts/build-somatic-ssg.mjs",
+    "pseo:index": "node pseo/scripts/submit-indexing.mjs",
+    "pseo:all": "npm run pseo:expand && npm run pseo:build"
   }
 }

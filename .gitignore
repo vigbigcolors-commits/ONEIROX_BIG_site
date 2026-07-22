@@ -4,3 +4,6 @@ node_modules/
 *.log
 .DS_Store
 Thumbs.db
+pseo/data/indexing-log.sqlite
+pseo/data/indexing-log.jsonl
+pseo/data/indexing-pilot-urls.txt

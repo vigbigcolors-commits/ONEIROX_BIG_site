@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <meta name="theme-color" content="#1e3224">
+  <title>{{TITLE}} | Oneirox Somatic Utility</title>
+  <meta name="description" content="{{DESCRIPTION}}">
+  <meta name="robots" content="index,follow">
+  <link rel="canonical" href="{{CANONICAL}}">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="{{TITLE}}">
+  <meta property="og:description" content="{{DESCRIPTION}}">
+  <meta property="og:url" content="{{CANONICAL}}">
+  <meta property="og:site_name" content="Oneirox">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="{{TITLE}}">
+  <meta name="twitter:description" content="{{DESCRIPTION}}">
+  <link rel="stylesheet" href="/css/fonts.css">
+  <link rel="stylesheet" href="/somatic/assets/somatic-utility.css">
+  <script type="application/ld+json">{{JSON_LD}}</script>
+</head>
+<body
+  data-chart-seed="{{CHART_SEED}}"
+  data-gauge-atonia="{{GAUGE_ATONIA}}"
+  data-gauge-arousal="{{GAUGE_AROUSAL}}"
+  data-gauge-coherence="{{GAUGE_COHERENCE}}"
+  data-eeg-min="{{EEG_MIN}}"
+  data-eeg-max="{{EEG_MAX}}"
+  data-band="{{EEG_BAND}}"
+  data-phase="{{PHASE}}"
+  data-utility="{{UTILITY_TYPE}}"
+>
+  <header class="sx-top">
+    <a class="sx-brand" href="/">Oneirox</a>
+    <nav class="sx-nav" aria-label="Somatic">
+      <a href="/somatic/">Somatic utilities</a>
+      <a href="/somatic/phase/{{PHASE_SLUG}}/">{{PHASE}} hub</a>
+      <a href="/#decode">Decode</a>
+    </nav>
+  </header>
+
+  <main class="sx-main">
+    <p class="sx-kicker">Somatic sleep utility · not a dream dictionary</p>
+    <h1 class="sx-title">{{TITLE}}</h1>
+    <p class="sx-lead">{{SUMMARY}}</p>
+
+    <section class="sx-panel" aria-labelledby="eeg-heading">
+      <div class="sx-panel-head">
+        <h2 id="eeg-heading">Mock EEG baseline</h2>
+        <p class="sx-meta">{{EEG_MIN}}–{{EEG_MAX}} Hz · {{EEG_BAND}} · seed {{CHART_SEED}}</p>
+      </div>
+      <div class="sx-chart" id="eeg-chart">{{EEG_SVG}}</div>
+      <p class="sx-note">Deterministic trace from URL parameters — illustrative model, not a clinical recording.</p>
+    </section>
+
+    <section class="sx-gauges" aria-labelledby="gauge-heading">
+      <h2 id="gauge-heading" class="sx-visually-hidden">Stage gauges</h2>
+      <div class="sx-gauge" data-gauge="atonia">
+        <label for="g-atonia">Atonia load</label>
+        <input id="g-atonia" type="range" min="0" max="100" value="{{GAUGE_ATONIA}}" />
+        <output for="g-atonia">{{GAUGE_ATONIA}}</output>
+      </div>
+      <div class="sx-gauge" data-gauge="arousal">
+        <label for="g-arousal">Arousal pressure</label>
+        <input id="g-arousal" type="range" min="0" max="100" value="{{GAUGE_AROUSAL}}" />
+        <output for="g-arousal">{{GAUGE_AROUSAL}}</output>
+      </div>
+      <div class="sx-gauge" data-gauge="coherence">
+        <label for="g-coherence">Stage coherence</label>
+        <input id="g-coherence" type="range" min="0" max="100" value="{{GAUGE_COHERENCE}}" />
+        <output for="g-coherence">{{GAUGE_COHERENCE}}</output>
+      </div>
+    </section>
+
+    <section class="sx-grid">
+      <div class="sx-card-lite">
+        <h2>Sleep phase</h2>
+        <p><strong>{{PHASE}}</strong> · context <strong>{{CONTEXT}}</strong></p>
+        <p>Atonia state: <strong>{{ATONIA}}</strong></p>
+        <p>Utility type: <strong>{{UTILITY_TYPE}}</strong></p>
+      </div>
+      <div class="sx-card-lite">
+        <h2>Neurotransmitters</h2>
+        <ul>{{TX_LIST}}</ul>
+      </div>
+      <div class="sx-card-lite">
+        <h2>Somatic markers</h2>
+        <ul>{{MARKER_LIST}}</ul>
+      </div>
+    </section>
+
+    <section class="sx-sources">
+      <h2>Anchors</h2>
+      <ul>{{SOURCE_LIST}}</ul>
+    </section>
+
+    <section class="sx-cta">
+      <p>Map tonight’s somatic residue in Decode — neurobiology-first, not symbol tables.</p>
+      <a class="sx-btn" href="/#decode">Open Decode</a>
+    </section>
+
+    <p class="sx-disclaimer">Not a medical diagnosis or treatment advice. Oneirox models sleep physiology for exploration only.</p>
+  </main>
+
+  <footer class="sx-foot">
+    <a href="/somatic/">All somatic utilities</a>
+    · <a href="/methodology/">Methodology</a>
+    · <a href="/disclaimer/">Disclaimer</a>
+  </footer>
+  <script src="/somatic/assets/somatic-utility.js" defer></script>
+</body>
+</html>
