@@ -1,0 +1,40 @@
+================================================================================
+PRODUCT HUNT — Oneirox (черновик запуска)
+================================================================================
+Параллельно с Bing/Yandex можно готовить PH. Публиковать — когда Decode
+стабилен и есть 1–2 скриншота/гифки.
+
+TAGLINE (≤60 символов, правь под лимит PH):
+  Neurobiology-first dream decoder — not a symbol dictionary
+
+DESCRIPTION (коротко):
+  Oneirox reads dreams as sleep-physiology events: REM/NREM context,
+  somatic markers, and a single mechanism-based analysis.
+  No Freud. No dream dictionaries. Built for people who want brain
+  mechanics, not mysticism.
+
+FIRST COMMENT (напиши от себя, от первого лица):
+  Hey Product Hunt 👋
+  I built Oneirox after years of reading sleep/neuro papers and being
+  tired of “your dream means X” spam.
+  Paste what you remember (images + how your body felt on waking).
+  You get one structured reading grounded in REM/somatic signals.
+  Would love feedback from makers who care about real tools, not SEO junk.
+
+ASSETS нужные:
+  - Logo 240×240
+  - Gallery: homepage Decode, sample result (blur PII), somatic utility page
+  - Optional 30–60s Loom
+
+КОГДА ПОСТИТЬ:
+  Вт–Чт, запуск ~00:01 PT
+  Заранее охотники (hunters) не обязательны для первого запуска
+
+НЕ ДЕЛАТЬ:
+  На circumvention Google / “1500 PSEO pages” в описании PH
+  Фокус: инструмент Decode для людей
+
+ССЫЛКА:
+  https://oneirox.com/#decode
+
+================================================================================

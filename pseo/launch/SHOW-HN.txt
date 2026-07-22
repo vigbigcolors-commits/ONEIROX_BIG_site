@@ -1,0 +1,34 @@
+================================================================================
+HACKER NEWS — Show HN (черновик)
+================================================================================
+HN ненавидит маркетинг и SEO-спам. Постить как инструмент + честный мотив.
+
+TITLE (вариант):
+  Show HN: Oneirox – dream analysis via sleep neurobiology, not symbolism
+
+TEXT:
+  I built a small web tool that treats dream reports as physiological
+  events (REM/NREM context, somatic markers) instead of symbol lookup.
+
+  You paste what you remember. Optional: body sensations on waking.
+  Output is one structured reading with explicit signal / body / morning
+  sections. No psychoanalysis framing.
+
+  Live: https://oneirox.com/#decode
+
+  Background: I wanted something I would trust myself after reading sleep
+  science material and being frustrated with dream dictionaries.
+
+  Curious what HN thinks is missing for this to be useful (or wrong).
+
+ПРАВИЛА HN:
+  - Не просить upvote
+  - Отвечать на комментарии спокойно и по делу
+  - Не постить в один день с Product Hunt «ради хайпа» одной ссылкой везде
+    (можно в разные дни)
+  - Если пост упадёт — это нормально; можно Show HN позже с улучшением
+
+АЛЬТЕРНАТИВА мягче:
+  Show HN: Looking for feedback on a neurobiology-first dream decoder
+
+================================================================================

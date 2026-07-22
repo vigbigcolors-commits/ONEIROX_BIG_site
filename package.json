@@ -10,6 +10,7 @@
     "pseo:expand": "node pseo/scripts/expand-matrix.mjs --target=400 --indexable=50",
     "pseo:build": "node pseo/scripts/build-somatic-ssg.mjs",
     "pseo:index": "node pseo/scripts/submit-indexing.mjs",
+    "pseo:indexnow": "node pseo/scripts/submit-indexnow.mjs",
     "pseo:all": "npm run pseo:expand && npm run pseo:build"
   }
 }

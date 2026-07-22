@@ -7,3 +7,4 @@ Thumbs.db
 pseo/data/indexing-log.sqlite
 pseo/data/indexing-log.jsonl
 pseo/data/indexing-pilot-urls.txt
+pseo/data/indexnow-log.jsonl
