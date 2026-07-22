@@ -1,0 +1,35 @@
+---
+description: Safe PSEO always — DB metrics first, top-50 index only, typed UI, no thin content
+globs: pseo/**,public/somatic/**,public/sitemap*.xml,public/robots.txt
+alwaysApply: false
+---
+
+# Oneirox Safe PSEO (обязательно)
+
+Programmatic SEO = **архитектура базы метрик**, не генератор SEO-текста.
+Сайт уже переживал удаления контента — **нулевой риск thin content**.
+
+## Жёсткие правила
+
+1. **Матрица (БД):** 300–1000 плотных строк (симптом × соматика × фаза) с реальными метриками (ЭЭГ Hz, transmitters, atonia, gauges, chart_seed).
+2. **В индекс Google только топ-50** по `density_score` (`indexable: true`).
+   - В `sitemap-somatic.xml` — только топ-50 + хабы.
+   - Остальные страницы: `meta robots=noindex,follow`, **не** в sitemap.
+   - Позже открывать порциями: flip `indexable` → rebuild.
+3. **Разный UI** по `utility_type` (разный DOM):
+   - `eeg_baseline` → график + benchmark table
+   - `phase_disruption` → comparison table + gauges
+   - `atonia_risk` → atonia hero + motor readout
+4. **Жёсткий CTA** на Decode (`/#decode`) на каждой странице.
+5. **Запрет:** Фрейд/Юнг/мистика/сонники; одна оболочка на все URL; заливка 1000+ в индекс сразу.
+
+## Команды
+
+```bash
+npm run pseo:expand   # DB ~400 + rank top-50
+npm run pseo:build    # typed SSG + safe sitemap + robots
+```
+
+## Индексация
+
+Только URL из `pseo/data/indexable-allowlist.json` + `/somatic/` хабы.

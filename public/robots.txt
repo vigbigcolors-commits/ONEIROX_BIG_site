@@ -1,5 +1,61 @@
 User-agent: *
 Allow: /
 
+# Safe PSEO crawl budget: bulk somatic DB is noindex in HTML.
+# Hub + phase indexes + top density rows are explicitly allowed.
+Allow: /somatic/$
+Allow: /somatic/phase/
+
+Allow: /somatic/hypnopompic-somatic-surge/rem/awakening/
+Allow: /somatic/pre-rem-atonia-ramp/n2/onset/
+Allow: /somatic/fragmented-rem-microarousal/rem/fragmentation/
+Allow: /somatic/rem-muscle-twitch-finger/rem/mid-cycle/
+Allow: /somatic/sleep-paralysis-onset/rem/awakening/
+Allow: /somatic/rem-atonia-failure/rem/mid-cycle/
+Allow: /somatic/sleep-paralysis-onset/rem/fragmentation/
+Allow: /somatic/hypnopompic-immobility/rem/fragmentation/
+Allow: /somatic/exploding-head-sensory-burst/n1/onset/
+Allow: /somatic/rem-atonia-failure/rem/fragmentation/
+Allow: /somatic/fragmented-rem/rem/fragmentation/
+Allow: /somatic/hypnopompic-somatic-surge/rem/fragmentation/
+Allow: /somatic/fragmented-rem/rem/awakening/
+Allow: /somatic/rem-atonia-failure/rem/awakening/
+Allow: /somatic/rem-distal-twitch/rem/fragmentation/
+Allow: /somatic/periodic-limb-movement/n2/fragmentation/
+Allow: /somatic/rem-distal-twitch/rem/awakening/
+Allow: /somatic/n3-confusional-arousal-motor/n3/awakening/
+Allow: /somatic/pre-rem-atonia-ramp/n2/fragmentation/
+Allow: /somatic/pre-rem-atonia-ramp/n2/awakening/
+Allow: /somatic/sleep-onset-apnea-like-pause/n1/onset/
+Allow: /somatic/hypnic-jerk/n1/onset/
+Allow: /somatic/hypnagogic-tachycardia/n1/onset/
+Allow: /somatic/pre-rem-atonia-ramp/n2/mid-cycle/
+Allow: /somatic/sleep-related-bruxism/n2/mid-cycle/
+Allow: /somatic/sleep-paralysis-onset/rem/mid-cycle/
+Allow: /somatic/alpha-intrusion-nrem/n2/awakening/
+Allow: /somatic/hypnopompic-immobility/rem/awakening/
+Allow: /somatic/sleep-related-bruxism/n2/awakening/
+Allow: /somatic/hypnopompic-immobility/rem/mid-cycle/
+Allow: /somatic/rem-atonia-failure/rem/onset/
+Allow: /somatic/microsleep-nod/n1/fragmentation/
+Allow: /somatic/alpha-intrusion-nrem/n2/fragmentation/
+Allow: /somatic/hypnic-jerk/n1/awakening/
+Allow: /somatic/exploding-head-burst/n1/fragmentation/
+Allow: /somatic/hypnagogic-tachycardia/n1/fragmentation/
+Allow: /somatic/n1-falling-elevator/n1/awakening/
+Allow: /somatic/fragmented-rem/rem/onset/
+Allow: /somatic/alpha-intrusion-nrem/n2/onset/
+Allow: /somatic/fragmented-rem/rem/mid-cycle/
+Allow: /somatic/periodic-limb-movement/n2/awakening/
+Allow: /somatic/sleep-related-bruxism/n2/fragmentation/
+Allow: /somatic/hypnagogic-limb-float/n1/onset/
+Allow: /somatic/hypnagogic-limb-float/n1/fragmentation/
+Allow: /somatic/hypnagogic-limb-float/n1/awakening/
+Allow: /somatic/rem-temperature-deregulation/rem/mid-cycle/
+Allow: /somatic/rem-eye-twitch-burst/rem/mid-cycle/
+Allow: /somatic/rem-sawtooth-wave-window/rem/onset/
+Allow: /somatic/rem-penile-or-clitoral-engorgement/rem/mid-cycle/
+Allow: /somatic/cortisol-awakening-motor/n1/awakening/
+
 # Oneirox is a web application (Dream Decoder), not an article blog.
 Sitemap: https://oneirox.com/sitemap.xml

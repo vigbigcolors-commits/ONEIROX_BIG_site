@@ -25,4 +25,5 @@ For all text and code generation related to Oneirox (especially PSEO somatic pag
 - Frame events as physiological state transitions, not meanings.
 - Prefer concrete markers: atonia preserved/failed, band-limited EEG, transmitter tone shifts.
 - Include a non-diagnosis disclaimer where health-adjacent symptoms appear.
-- CTA to Decode is a tool link, not a substitute for the somatic utility content.
+- Every somatic PSEO page needs a hard CTA to Decode (`/#decode`) for neurobiological dream analysis — not a tiny footer-only link.
+- Target scale for PSEO: ~300 strong symptom × somatic-marker × phase pages (see `oneirox-pseo-somatic.mdc`).

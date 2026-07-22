@@ -1,21 +1,40 @@
 /**
- * Build static somatic PSEO pages from matrix + locked shell.
- * Usage: node pseo/scripts/build-somatic-ssg.mjs
+ * Safe PSEO SSG: DB matrix → typed UI shells.
+ * - Indexable top-N: robots index,follow + sitemap
+ * - Rest: noindex,follow + out of sitemap (open later by flipping indexable)
  */
 
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { buildEegSvg } from "../lib/chart-svg.mjs";
+import { markIndexable } from "../lib/rank.mjs";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, "../..");
 const PSEO = path.resolve(__dirname, "..");
 const MATRIX = path.join(PSEO, "data", "somatic-matrix.json");
-const TPL_UTIL = path.join(PSEO, "templates", "somatic-utility.html");
 const TPL_HUB = path.join(PSEO, "templates", "somatic-hub.html");
+const CTA = fs.readFileSync(
+  path.join(PSEO, "templates", "partials", "cta-hard.html"),
+  "utf8"
+);
 const OUT_DIR = path.join(ROOT, "public", "somatic");
 const SITE = "https://oneirox.com";
+const INDEXABLE_CAP = 50;
+
+const TPL = {
+  eeg_baseline: path.join(PSEO, "templates", "somatic-eeg-baseline.html"),
+  phase_disruption: path.join(PSEO, "templates", "somatic-phase-disruption.html"),
+  atonia_risk: path.join(PSEO, "templates", "somatic-atonia-risk.html"),
+};
+
+const PHASE_BASE = {
+  N1: { band: "theta", hz: "4–7 Hz" },
+  N2: { band: "sigma", hz: "11–16 Hz" },
+  N3: { band: "delta", hz: "0.5–2 Hz" },
+  REM: { band: "theta", hz: "4–8 Hz" },
+};
 
 function ensureDir(d) {
   fs.mkdirSync(d, { recursive: true });
@@ -32,67 +51,50 @@ function esc(s) {
 function fill(tpl, map) {
   let out = tpl;
   for (const [k, v] of Object.entries(map)) {
-    out = out.split(`{{${k}}}`).join(v);
+    out = out.split(`{{${k}}}`).join(String(v));
   }
   return out;
 }
 
 function listItems(arr) {
-  return arr.map((x) => `<li>${esc(x)}</li>`).join("\n");
+  return (arr || []).map((x) => `<li>${esc(x)}</li>`).join("\n");
 }
 
 function pageUrl(entry) {
   return `${SITE}/somatic/${entry.slug_symptom}/${entry.slug_phase}/${entry.slug_context}/`;
 }
 
+function somaticReadout(entry) {
+  const e = entry.eeg_frequency_hz_range;
+  return `Dataset readout: ${entry.physiological_symptom} in ${entry.sleep_phase} (${entry.context}). Cortical window ${e.min}–${e.max} Hz (${e.band}). Atonia=${entry.atonia_state}. Markers drive the text below — not dream-symbol meanings.`;
+}
+
 function jsonLd(entry) {
+  if (!entry.indexable) {
+    // Still emit minimal WebApplication for local UI; Google should honor noindex
+  }
   const url = pageUrl(entry);
   return JSON.stringify({
     "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "WebApplication",
-        "@id": `${url}#app`,
-        name: entry.title,
-        url,
-        description: entry.summary,
-        applicationCategory: "HealthApplication",
-        operatingSystem: "Web",
-        isPartOf: { "@id": "https://oneirox.com/#website" },
-        about: {
-          "@type": "Thing",
-          name: `${entry.physiological_symptom} in ${entry.sleep_phase}`,
-        },
-        featureList: [
-          `EEG band ${entry.eeg_frequency_hz_range.band}`,
-          `Atonia ${entry.atonia_state}`,
-          entry.utility_type,
-        ],
-      },
-      {
-        "@type": "BreadcrumbList",
-        itemListElement: [
-          { "@type": "ListItem", position: 1, name: "Home", item: SITE + "/" },
-          { "@type": "ListItem", position: 2, name: "Somatic", item: SITE + "/somatic/" },
-          {
-            "@type": "ListItem",
-            position: 3,
-            name: entry.sleep_phase,
-            item: `${SITE}/somatic/phase/${entry.slug_phase}/`,
-          },
-          { "@type": "ListItem", position: 4, name: entry.title, item: url },
-        ],
-      },
-    ],
+    "@type": "WebApplication",
+    "@id": `${url}#app`,
+    name: entry.title,
+    url,
+    description: entry.summary,
+    applicationCategory: "HealthApplication",
+    operatingSystem: "Web",
+    isPartOf: { "@id": `${SITE}/#website` },
   });
 }
 
 function description(entry) {
   const e = entry.eeg_frequency_hz_range;
-  return `${entry.physiological_symptom} in ${entry.sleep_phase} (${entry.context}): ${e.min}–${e.max} Hz ${e.band} model with somatic markers. Oneirox neurobiology utility.`;
+  return `${entry.physiological_symptom} · ${entry.sleep_phase} · ${e.min}–${e.max} Hz ${e.band}. Somatic metric utility — Oneirox.`;
 }
 
-function writeUtility(tpl, entry) {
+function writeUtility(entry, templates) {
+  const type = entry.utility_type in templates ? entry.utility_type : "eeg_baseline";
+  const tpl = templates[type];
   const dir = path.join(
     OUT_DIR,
     entry.slug_symptom,
@@ -100,11 +102,15 @@ function writeUtility(tpl, entry) {
     entry.slug_context
   );
   ensureDir(dir);
+  const base = PHASE_BASE[entry.sleep_phase] || PHASE_BASE.N2;
+  const robots = entry.indexable ? "index,follow" : "noindex,follow";
   const html = fill(tpl, {
     TITLE: esc(entry.title),
     DESCRIPTION: esc(description(entry)),
     CANONICAL: pageUrl(entry),
-    JSON_LD: jsonLd(entry),
+    ROBOTS: robots,
+    INDEXABLE: entry.indexable ? "true" : "false",
+    JSON_LD: entry.indexable ? jsonLd(entry) : "{}",
     CHART_SEED: String(entry.chart_seed),
     GAUGE_ATONIA: String(entry.gauge_atonia ?? 50),
     GAUGE_AROUSAL: String(entry.gauge_arousal ?? 50),
@@ -112,25 +118,30 @@ function writeUtility(tpl, entry) {
     EEG_MIN: String(entry.eeg_frequency_hz_range.min),
     EEG_MAX: String(entry.eeg_frequency_hz_range.max),
     EEG_BAND: esc(entry.eeg_frequency_hz_range.band),
+    BASE_BAND: esc(base.band),
+    BASE_HZ: esc(base.hz),
     PHASE: esc(entry.sleep_phase),
     PHASE_SLUG: entry.slug_phase,
     CONTEXT: esc(entry.context),
     ATONIA: esc(entry.atonia_state),
     UTILITY_TYPE: esc(entry.utility_type),
     SUMMARY: esc(entry.summary),
+    SOMATIC_READOUT: esc(somaticReadout(entry)),
     EEG_SVG: buildEegSvg(entry),
     TX_LIST: listItems(entry.neurotransmitters_involved),
+    TX_INLINE: esc((entry.neurotransmitters_involved || []).join(", ")),
     MARKER_LIST: listItems(entry.somatic_markers),
     SOURCE_LIST: listItems(entry.sources),
+    DENSITY: String(entry.density_score ?? "—"),
+    CTA_HARD: CTA,
   });
   fs.writeFileSync(path.join(dir, "index.html"), html);
 }
 
 function writeHubs(tpl, entries) {
+  const indexable = entries.filter((e) => e.indexable);
   const byPhase = { n1: [], n2: [], n3: [], rem: [] };
-  for (const e of entries) {
-    byPhase[e.slug_phase]?.push(e);
-  }
+  for (const e of indexable) byPhase[e.slug_phase]?.push(e);
 
   const phaseLinks = `
     <nav class="sx-phase-links" aria-label="Phases">
@@ -140,9 +151,7 @@ function writeHubs(tpl, entries) {
       <a href="/somatic/phase/rem/">REM</a>
     </nav>`;
 
-  // Main hub — sample first 120 + count note (full crawl via phase hubs + sitemap)
-  const mainLinks = entries
-    .slice(0, 180)
+  const mainLinks = indexable
     .map(
       (e) =>
         `<a href="/somatic/${e.slug_symptom}/${e.slug_phase}/${e.slug_context}/">${esc(e.title)}</a>`
@@ -153,19 +162,18 @@ function writeHubs(tpl, entries) {
   fs.writeFileSync(
     path.join(OUT_DIR, "index.html"),
     fill(tpl, {
-      TITLE: "Somatic sleep utilities",
-      DESCRIPTION: `Interactive neurobiology utilities: physiological symptom × sleep phase. ${entries.length} modeled pages.`,
+      TITLE: "Somatic sleep metric utilities",
+      DESCRIPTION: `Indexed dataset: ${indexable.length} high-density utilities (safe crawl budget). Full DB held offline from index until promoted.`,
       CANONICAL: `${SITE}/somatic/`,
       JSON_LD: JSON.stringify({
         "@context": "https://schema.org",
         "@type": "CollectionPage",
-        name: "Oneirox Somatic Sleep Utilities",
+        name: "Oneirox Somatic Metric Utilities",
         url: `${SITE}/somatic/`,
-        isPartOf: { "@id": `${SITE}/#website` },
-        numberOfItems: entries.length,
+        numberOfItems: indexable.length,
       }),
       PHASE_LINKS: phaseLinks,
-      LINK_LIST: mainLinks,
+      LINK_LIST: mainLinks + "\n" + CTA,
     })
   );
 
@@ -187,8 +195,8 @@ function writeHubs(tpl, entries) {
     fs.writeFileSync(
       path.join(dir, "index.html"),
       fill(tpl, {
-        TITLE: `${label} somatic utilities`,
-        DESCRIPTION: `Physiological sleep utilities modeled in ${label}. ${list.length} pages.`,
+        TITLE: `${label} indexed somatic utilities`,
+        DESCRIPTION: `High-density ${label} metric utilities currently open to indexing (${list.length}).`,
         CANONICAL: `${SITE}/somatic/phase/${slug}/`,
         JSON_LD: JSON.stringify({
           "@context": "https://schema.org",
@@ -206,19 +214,15 @@ function writeHubs(tpl, entries) {
 
 function writeSitemap(entries) {
   const today = new Date().toISOString().slice(0, 10);
+  const indexable = entries.filter((e) => e.indexable);
   const urls = [
     { loc: `${SITE}/somatic/`, priority: "0.8" },
     { loc: `${SITE}/somatic/phase/n1/`, priority: "0.7" },
     { loc: `${SITE}/somatic/phase/n2/`, priority: "0.7" },
     { loc: `${SITE}/somatic/phase/n3/`, priority: "0.7" },
     { loc: `${SITE}/somatic/phase/rem/`, priority: "0.7" },
-    ...entries.map((e) => ({
-      loc: pageUrl(e),
-      priority: "0.6",
-    })),
+    ...indexable.map((e) => ({ loc: pageUrl(e), priority: "0.65" })),
   ];
-
-  // Split if huge — single file is fine for ~1500
   const body = urls
     .map(
       (u) => `  <url>
@@ -229,26 +233,59 @@ function writeSitemap(entries) {
   </url>`
     )
     .join("\n");
-
-  const xml = `<?xml version="1.0" encoding="UTF-8"?>
+  fs.writeFileSync(
+    path.join(ROOT, "public", "sitemap-somatic.xml"),
+    `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 ${body}
 </urlset>
+`
+  );
+  return urls.length;
+}
+
+function writeRobotsAllowlist(entries) {
+  const indexable = entries.filter((e) => e.indexable);
+  const allows = indexable.map(
+    (e) =>
+      `Allow: /somatic/${e.slug_symptom}/${e.slug_phase}/${e.slug_context}/`
+  );
+  const text = `User-agent: *
+Allow: /
+
+# Safe PSEO crawl budget: bulk somatic DB is noindex in HTML.
+# Hub + phase indexes + top density rows are explicitly allowed.
+Allow: /somatic/$
+Allow: /somatic/phase/
+
+${allows.join("\n")}
+
+# Oneirox is a web application (Dream Decoder), not an article blog.
+Sitemap: https://oneirox.com/sitemap.xml
 `;
-  fs.writeFileSync(path.join(ROOT, "public", "sitemap-somatic.xml"), xml);
+  fs.writeFileSync(path.join(ROOT, "public", "robots.txt"), text);
 }
 
 function main() {
   if (!fs.existsSync(MATRIX)) {
-    console.error("Missing matrix. Run: node pseo/scripts/expand-matrix.mjs");
+    console.error("Missing matrix. Run: npm run pseo:expand");
     process.exit(1);
   }
-  const matrix = JSON.parse(fs.readFileSync(MATRIX, "utf8"));
-  const entries = matrix.entries;
-  const tplUtil = fs.readFileSync(TPL_UTIL, "utf8");
+  let matrix = JSON.parse(fs.readFileSync(MATRIX, "utf8"));
+  let entries = matrix.entries || [];
+  if (!entries.some((e) => e.indexable)) {
+    entries = markIndexable(entries, INDEXABLE_CAP);
+    matrix = { ...matrix, entries, indexable_count: INDEXABLE_CAP };
+    fs.writeFileSync(MATRIX, JSON.stringify(matrix, null, 2));
+  }
+
+  const templates = {
+    eeg_baseline: fs.readFileSync(TPL.eeg_baseline, "utf8"),
+    phase_disruption: fs.readFileSync(TPL.phase_disruption, "utf8"),
+    atonia_risk: fs.readFileSync(TPL.atonia_risk, "utf8"),
+  };
   const tplHub = fs.readFileSync(TPL_HUB, "utf8");
 
-  // Clean previous generated symptom trees (keep assets)
   if (fs.existsSync(OUT_DIR)) {
     for (const name of fs.readdirSync(OUT_DIR)) {
       if (name === "assets") continue;
@@ -265,16 +302,15 @@ function main() {
     path.join(OUT_DIR, "assets", "somatic-utility.js")
   );
 
-  let i = 0;
-  for (const entry of entries) {
-    writeUtility(tplUtil, entry);
-    i++;
-    if (i % 250 === 0) console.log(`… ${i}/${entries.length}`);
-  }
+  for (const entry of entries) writeUtility(entry, templates);
   writeHubs(tplHub, entries);
-  writeSitemap(entries);
-  console.log(`Built ${entries.length} utility pages + hubs → ${OUT_DIR}`);
-  console.log(`Sitemap → public/sitemap-somatic.xml`);
+  const sm = writeSitemap(entries);
+  writeRobotsAllowlist(entries);
+
+  const idx = entries.filter((e) => e.indexable).length;
+  console.log(
+    `Safe SSG: ${entries.length} DB pages · ${idx} indexable · sitemap URLs ${sm}`
+  );
 }
 
 main();

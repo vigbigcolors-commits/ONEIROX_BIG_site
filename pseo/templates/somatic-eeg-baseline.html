@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <meta name="theme-color" content="#1e3224">
+  <title>{{TITLE}} | Oneirox EEG Utility</title>
+  <meta name="description" content="{{DESCRIPTION}}">
+  <meta name="robots" content="{{ROBOTS}}">
+  <link rel="canonical" href="{{CANONICAL}}">
+  <meta property="og:title" content="{{TITLE}}">
+  <meta property="og:description" content="{{DESCRIPTION}}">
+  <meta property="og:url" content="{{CANONICAL}}">
+  <link rel="stylesheet" href="/css/fonts.css">
+  <link rel="stylesheet" href="/somatic/assets/somatic-utility.css">
+  <script type="application/ld+json">{{JSON_LD}}</script>
+</head>
+<body class="sx-type-eeg" data-indexable="{{INDEXABLE}}" data-chart-seed="{{CHART_SEED}}" data-gauge-atonia="{{GAUGE_ATONIA}}" data-gauge-arousal="{{GAUGE_AROUSAL}}" data-gauge-coherence="{{GAUGE_COHERENCE}}">
+  <header class="sx-top">
+    <a class="sx-brand" href="/">Oneirox</a>
+    <nav class="sx-nav"><a href="/somatic/">Somatic DB</a><a href="/#decode">Decode</a></nav>
+  </header>
+  <main class="sx-main">
+    <p class="sx-kicker">Utility type · EEG baseline · metric dataset</p>
+    <h1 class="sx-title">{{TITLE}}</h1>
+    <p class="sx-lead">{{SUMMARY}}</p>
+
+    <section class="sx-panel sx-panel--chart-first" aria-labelledby="eeg-h">
+      <h2 id="eeg-h">Cortical activity model</h2>
+      <p class="sx-meta">{{EEG_MIN}}–{{EEG_MAX}} Hz · {{EEG_BAND}} · seed {{CHART_SEED}}</p>
+      <div class="sx-chart">{{EEG_SVG}}</div>
+      <table class="sx-bench">
+        <caption>Band benchmarks for this row</caption>
+        <thead><tr><th>Metric</th><th>Value</th></tr></thead>
+        <tbody>
+          <tr><td>EEG min (Hz)</td><td>{{EEG_MIN}}</td></tr>
+          <tr><td>EEG max (Hz)</td><td>{{EEG_MAX}}</td></tr>
+          <tr><td>Band</td><td>{{EEG_BAND}}</td></tr>
+          <tr><td>Phase</td><td>{{PHASE}} / {{CONTEXT}}</td></tr>
+          <tr><td>Atonia state</td><td>{{ATONIA}}</td></tr>
+          <tr><td>Density score</td><td>{{DENSITY}}</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="sx-translate">
+      <h2>Somatic → text readout</h2>
+      <p>{{SOMATIC_READOUT}}</p>
+      <ul>{{MARKER_LIST}}</ul>
+      <ul>{{TX_LIST}}</ul>
+    </section>
+
+    {{CTA_HARD}}
+
+    <p class="sx-disclaimer">Not a medical diagnosis. Dataset row for exploration only.</p>
+  </main>
+  <footer class="sx-foot"><a href="/somatic/">Somatic index</a> · <a href="/disclaimer/">Disclaimer</a></footer>
+  <script src="/somatic/assets/somatic-utility.js" defer></script>
+</body>
+</html>

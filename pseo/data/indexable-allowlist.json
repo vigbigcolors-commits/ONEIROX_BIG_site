@@ -1,0 +1,306 @@
+{
+  "generated_at": "2026-07-22T09:06:06.515Z",
+  "count": 50,
+  "urls": [
+    {
+      "id": "hypnopompic-somatic-surge--rem--awakening",
+      "url": "https://oneirox.com/somatic/hypnopompic-somatic-surge/rem/awakening/",
+      "density_score": 130,
+      "utility_type": "phase_disruption"
+    },
+    {
+      "id": "pre-rem-atonia-ramp--n2--onset",
+      "url": "https://oneirox.com/somatic/pre-rem-atonia-ramp/n2/onset/",
+      "density_score": 127.4,
+      "utility_type": "atonia_risk"
+    },
+    {
+      "id": "fragmented-rem-microarousal--rem--fragmentation",
+      "url": "https://oneirox.com/somatic/fragmented-rem-microarousal/rem/fragmentation/",
+      "density_score": 125.6,
+      "utility_type": "phase_disruption"
+    },
+    {
+      "id": "rem-muscle-twitch-finger--rem--mid-cycle",
+      "url": "https://oneirox.com/somatic/rem-muscle-twitch-finger/rem/mid-cycle/",
+      "density_score": 124.8,
+      "utility_type": "atonia_risk"
+    },
+    {
+      "id": "sleep-paralysis-onset--rem--awakening",
+      "url": "https://oneirox.com/somatic/sleep-paralysis-onset/rem/awakening/",
+      "density_score": 121.4,
+      "utility_type": "atonia_risk"
+    },
+    {
+      "id": "rem-atonia-failure--rem--mid-cycle",
+      "url": "https://oneirox.com/somatic/rem-atonia-failure/rem/mid-cycle/",
+      "density_score": 121,
+      "utility_type": "atonia_risk"
+    },
+    {
+      "id": "sleep-paralysis-onset--rem--fragmentation",
+      "url": "https://oneirox.com/somatic/sleep-paralysis-onset/rem/fragmentation/",
+      "density_score": 119.8,
+      "utility_type": "atonia_risk"
+    },
+    {
+      "id": "hypnopompic-immobility--rem--fragmentation",
+      "url": "https://oneirox.com/somatic/hypnopompic-immobility/rem/fragmentation/",
+      "density_score": 119,
+      "utility_type": "atonia_risk"
+    },
+    {
+      "id": "exploding-head-sensory-burst--n1--onset",
+      "url": "https://oneirox.com/somatic/exploding-head-sensory-burst/n1/onset/",
+      "density_score": 118,
+      "utility_type": "phase_disruption"
+    },
+    {
+      "id": "rem-atonia-failure--rem--fragmentation",
+      "url": "https://oneirox.com/somatic/rem-atonia-failure/rem/fragmentation/",
+      "density_score": 117.2,
+      "utility_type": "atonia_risk"
+    },
+    {
+      "id": "fragmented-rem--rem--fragmentation",
+      "url": "https://oneirox.com/somatic/fragmented-rem/rem/fragmentation/",
+      "density_score": 114.8,
+      "utility_type": "phase_disruption"
+    },
+    {
+      "id": "hypnopompic-somatic-surge--rem--fragmentation",
+      "url": "https://oneirox.com/somatic/hypnopompic-somatic-surge/rem/fragmentation/",
+      "density_score": 114.8,
+      "utility_type": "phase_disruption"
+    },
+    {
+      "id": "fragmented-rem--rem--awakening",
+      "url": "https://oneirox.com/somatic/fragmented-rem/rem/awakening/",
+      "density_score": 114,
+      "utility_type": "phase_disruption"
+    },
+    {
+      "id": "rem-atonia-failure--rem--awakening",
+      "url": "https://oneirox.com/somatic/rem-atonia-failure/rem/awakening/",
+      "density_score": 113.8,
+      "utility_type": "atonia_risk"
+    },
+    {
+      "id": "rem-distal-twitch--rem--fragmentation",
+      "url": "https://oneirox.com/somatic/rem-distal-twitch/rem/fragmentation/",
+      "density_score": 113.2,
+      "utility_type": "atonia_risk"
+    },
+    {
+      "id": "periodic-limb-movement--n2--fragmentation",
+      "url": "https://oneirox.com/somatic/periodic-limb-movement/n2/fragmentation/",
+      "density_score": 112.6,
+      "utility_type": "phase_disruption"
+    },
+    {
+      "id": "rem-distal-twitch--rem--awakening",
+      "url": "https://oneirox.com/somatic/rem-distal-twitch/rem/awakening/",
+      "density_score": 112.2,
+      "utility_type": "atonia_risk"
+    },
+    {
+      "id": "n3-confusional-arousal-motor--n3--awakening",
+      "url": "https://oneirox.com/somatic/n3-confusional-arousal-motor/n3/awakening/",
+      "density_score": 111.6,
+      "utility_type": "phase_disruption"
+    },
+    {
+      "id": "pre-rem-atonia-ramp--n2--fragmentation",
+      "url": "https://oneirox.com/somatic/pre-rem-atonia-ramp/n2/fragmentation/",
+      "density_score": 110.6,
+      "utility_type": "atonia_risk"
+    },
+    {
+      "id": "pre-rem-atonia-ramp--n2--awakening",
+      "url": "https://oneirox.com/somatic/pre-rem-atonia-ramp/n2/awakening/",
+      "density_score": 110.5,
+      "utility_type": "atonia_risk"
+    },
+    {
+      "id": "sleep-onset-apnea-like-pause--n1--onset",
+      "url": "https://oneirox.com/somatic/sleep-onset-apnea-like-pause/n1/onset/",
+      "density_score": 110.4,
+      "utility_type": "phase_disruption"
+    },
+    {
+      "id": "hypnic-jerk--n1--onset",
+      "url": "https://oneirox.com/somatic/hypnic-jerk/n1/onset/",
+      "density_score": 110,
+      "utility_type": "phase_disruption"
+    },
+    {
+      "id": "hypnagogic-tachycardia--n1--onset",
+      "url": "https://oneirox.com/somatic/hypnagogic-tachycardia/n1/onset/",
+      "density_score": 110,
+      "utility_type": "phase_disruption"
+    },
+    {
+      "id": "pre-rem-atonia-ramp--n2--mid-cycle",
+      "url": "https://oneirox.com/somatic/pre-rem-atonia-ramp/n2/mid-cycle/",
+      "density_score": 109.8,
+      "utility_type": "atonia_risk"
+    },
+    {
+      "id": "sleep-related-bruxism--n2--mid-cycle",
+      "url": "https://oneirox.com/somatic/sleep-related-bruxism/n2/mid-cycle/",
+      "density_score": 109,
+      "utility_type": "phase_disruption"
+    },
+    {
+      "id": "sleep-paralysis-onset--rem--mid-cycle",
+      "url": "https://oneirox.com/somatic/sleep-paralysis-onset/rem/mid-cycle/",
+      "density_score": 107.9,
+      "utility_type": "atonia_risk"
+    },
+    {
+      "id": "alpha-intrusion-nrem--n2--awakening",
+      "url": "https://oneirox.com/somatic/alpha-intrusion-nrem/n2/awakening/",
+      "density_score": 107.2,
+      "utility_type": "phase_disruption"
+    },
+    {
+      "id": "hypnopompic-immobility--rem--awakening",
+      "url": "https://oneirox.com/somatic/hypnopompic-immobility/rem/awakening/",
+      "density_score": 106.9,
+      "utility_type": "atonia_risk"
+    },
+    {
+      "id": "sleep-related-bruxism--n2--awakening",
+      "url": "https://oneirox.com/somatic/sleep-related-bruxism/n2/awakening/",
+      "density_score": 106.8,
+      "utility_type": "phase_disruption"
+    },
+    {
+      "id": "hypnopompic-immobility--rem--mid-cycle",
+      "url": "https://oneirox.com/somatic/hypnopompic-immobility/rem/mid-cycle/",
+      "density_score": 106.6,
+      "utility_type": "atonia_risk"
+    },
+    {
+      "id": "rem-atonia-failure--rem--onset",
+      "url": "https://oneirox.com/somatic/rem-atonia-failure/rem/onset/",
+      "density_score": 106.5,
+      "utility_type": "atonia_risk"
+    },
+    {
+      "id": "microsleep-nod--n1--fragmentation",
+      "url": "https://oneirox.com/somatic/microsleep-nod/n1/fragmentation/",
+      "density_score": 106.2,
+      "utility_type": "phase_disruption"
+    },
+    {
+      "id": "alpha-intrusion-nrem--n2--fragmentation",
+      "url": "https://oneirox.com/somatic/alpha-intrusion-nrem/n2/fragmentation/",
+      "density_score": 104,
+      "utility_type": "phase_disruption"
+    },
+    {
+      "id": "hypnic-jerk--n1--awakening",
+      "url": "https://oneirox.com/somatic/hypnic-jerk/n1/awakening/",
+      "density_score": 103.9,
+      "utility_type": "phase_disruption"
+    },
+    {
+      "id": "exploding-head-burst--n1--fragmentation",
+      "url": "https://oneirox.com/somatic/exploding-head-burst/n1/fragmentation/",
+      "density_score": 103.6,
+      "utility_type": "phase_disruption"
+    },
+    {
+      "id": "hypnagogic-tachycardia--n1--fragmentation",
+      "url": "https://oneirox.com/somatic/hypnagogic-tachycardia/n1/fragmentation/",
+      "density_score": 103.3,
+      "utility_type": "phase_disruption"
+    },
+    {
+      "id": "n1-falling-elevator--n1--awakening",
+      "url": "https://oneirox.com/somatic/n1-falling-elevator/n1/awakening/",
+      "density_score": 102.7,
+      "utility_type": "phase_disruption"
+    },
+    {
+      "id": "fragmented-rem--rem--onset",
+      "url": "https://oneirox.com/somatic/fragmented-rem/rem/onset/",
+      "density_score": 102.6,
+      "utility_type": "phase_disruption"
+    },
+    {
+      "id": "alpha-intrusion-nrem--n2--onset",
+      "url": "https://oneirox.com/somatic/alpha-intrusion-nrem/n2/onset/",
+      "density_score": 102.4,
+      "utility_type": "phase_disruption"
+    },
+    {
+      "id": "fragmented-rem--rem--mid-cycle",
+      "url": "https://oneirox.com/somatic/fragmented-rem/rem/mid-cycle/",
+      "density_score": 102.4,
+      "utility_type": "phase_disruption"
+    },
+    {
+      "id": "periodic-limb-movement--n2--awakening",
+      "url": "https://oneirox.com/somatic/periodic-limb-movement/n2/awakening/",
+      "density_score": 102,
+      "utility_type": "phase_disruption"
+    },
+    {
+      "id": "sleep-related-bruxism--n2--fragmentation",
+      "url": "https://oneirox.com/somatic/sleep-related-bruxism/n2/fragmentation/",
+      "density_score": 101.8,
+      "utility_type": "phase_disruption"
+    },
+    {
+      "id": "hypnagogic-limb-float--n1--onset",
+      "url": "https://oneirox.com/somatic/hypnagogic-limb-float/n1/onset/",
+      "density_score": 100,
+      "utility_type": "eeg_baseline"
+    },
+    {
+      "id": "hypnagogic-limb-float--n1--fragmentation",
+      "url": "https://oneirox.com/somatic/hypnagogic-limb-float/n1/fragmentation/",
+      "density_score": 97,
+      "utility_type": "eeg_baseline"
+    },
+    {
+      "id": "hypnagogic-limb-float--n1--awakening",
+      "url": "https://oneirox.com/somatic/hypnagogic-limb-float/n1/awakening/",
+      "density_score": 95.2,
+      "utility_type": "eeg_baseline"
+    },
+    {
+      "id": "rem-temperature-deregulation--rem--mid-cycle",
+      "url": "https://oneirox.com/somatic/rem-temperature-deregulation/rem/mid-cycle/",
+      "density_score": 94.4,
+      "utility_type": "eeg_baseline"
+    },
+    {
+      "id": "rem-eye-twitch-burst--rem--mid-cycle",
+      "url": "https://oneirox.com/somatic/rem-eye-twitch-burst/rem/mid-cycle/",
+      "density_score": 94,
+      "utility_type": "eeg_baseline"
+    },
+    {
+      "id": "rem-sawtooth-wave-window--rem--onset",
+      "url": "https://oneirox.com/somatic/rem-sawtooth-wave-window/rem/onset/",
+      "density_score": 92,
+      "utility_type": "eeg_baseline"
+    },
+    {
+      "id": "rem-penile-or-clitoral-engorgement--rem--mid-cycle",
+      "url": "https://oneirox.com/somatic/rem-penile-or-clitoral-engorgement/rem/mid-cycle/",
+      "density_score": 91,
+      "utility_type": "eeg_baseline"
+    },
+    {
+      "id": "cortisol-awakening-motor--n1--awakening",
+      "url": "https://oneirox.com/somatic/cortisol-awakening-motor/n1/awakening/",
+      "density_score": 91,
+      "utility_type": "eeg_baseline"
+    }
+  ]
+}

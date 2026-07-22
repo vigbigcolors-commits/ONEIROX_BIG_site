@@ -18,6 +18,7 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, "../..");
 const PSEO = path.resolve(__dirname, "..");
 const SITEMAP = path.join(ROOT, "public", "sitemap-somatic.xml");
+const ALLOWLIST = path.join(PSEO, "data", "indexable-allowlist.json");
 const LOG_SQLITE = path.join(PSEO, "data", "indexing-log.sqlite");
 const LOG_JSONL = path.join(PSEO, "data", "indexing-log.jsonl");
 const DAILY_CAP = 2000;
@@ -197,9 +198,16 @@ async function main() {
     console.error("Missing public/sitemap-somatic.xml — run pseo:build first");
     process.exit(1);
   }
-  const urls = extractUrls(fs.readFileSync(SITEMAP, "utf8")).filter(
-    (u) => /\/somatic\/.+\/.+\/.+\/$/.test(u)
-  );
+  let urls = [];
+  if (fs.existsSync(ALLOWLIST)) {
+    const allow = JSON.parse(fs.readFileSync(ALLOWLIST, "utf8"));
+    urls = (allow.urls || []).map((x) => x.url);
+    console.log(`Using indexable allowlist (${urls.length})`);
+  } else {
+    urls = extractUrls(fs.readFileSync(SITEMAP, "utf8")).filter((u) =>
+      /\/somatic\/.+\/.+\/.+\/$/.test(u)
+    );
+  }
 
   const log = (await openSqlite()) || openJsonlLog();
   console.log(`Log backend: ${log.type}`);

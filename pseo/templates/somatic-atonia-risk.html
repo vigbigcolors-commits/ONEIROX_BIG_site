@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <meta name="theme-color" content="#1e3224">
+  <title>{{TITLE}} | Oneirox Atonia Utility</title>
+  <meta name="description" content="{{DESCRIPTION}}">
+  <meta name="robots" content="{{ROBOTS}}">
+  <link rel="canonical" href="{{CANONICAL}}">
+  <meta property="og:title" content="{{TITLE}}">
+  <meta property="og:description" content="{{DESCRIPTION}}">
+  <meta property="og:url" content="{{CANONICAL}}">
+  <link rel="stylesheet" href="/css/fonts.css">
+  <link rel="stylesheet" href="/somatic/assets/somatic-utility.css">
+  <script type="application/ld+json">{{JSON_LD}}</script>
+</head>
+<body class="sx-type-atonia" data-indexable="{{INDEXABLE}}" data-chart-seed="{{CHART_SEED}}" data-gauge-atonia="{{GAUGE_ATONIA}}" data-gauge-arousal="{{GAUGE_AROUSAL}}" data-gauge-coherence="{{GAUGE_COHERENCE}}">
+  <header class="sx-top">
+    <a class="sx-brand" href="/">Oneirox</a>
+    <nav class="sx-nav"><a href="/somatic/">Somatic DB</a><a href="/#decode">Decode</a></nav>
+  </header>
+  <main class="sx-main">
+    <p class="sx-kicker">Utility type · atonia risk · motor inhibition</p>
+    <h1 class="sx-title">{{TITLE}}</h1>
+    <p class="sx-lead">{{SUMMARY}}</p>
+
+    <section class="sx-atonia-hero" aria-labelledby="at-h">
+      <h2 id="at-h">Muscle atonia load</h2>
+      <p class="sx-atonia-state">State: <strong>{{ATONIA}}</strong> · phase {{PHASE}} · {{CONTEXT}}</p>
+      <div class="sx-gauge sx-gauge--hero" data-gauge="atonia">
+        <label for="g-atonia">Atonia load (dataset)</label>
+        <input id="g-atonia" type="range" min="0" max="100" value="{{GAUGE_ATONIA}}" />
+        <output class="sx-big-out">{{GAUGE_ATONIA}}</output>
+      </div>
+      <div class="sx-gauge-row">
+        <div class="sx-gauge" data-gauge="arousal"><label for="g-arousal">Arousal</label><input id="g-arousal" type="range" min="0" max="100" value="{{GAUGE_AROUSAL}}" /><output>{{GAUGE_AROUSAL}}</output></div>
+        <div class="sx-gauge" data-gauge="coherence"><label for="g-coherence">Coherence</label><input id="g-coherence" type="range" min="0" max="100" value="{{GAUGE_COHERENCE}}" /><output>{{GAUGE_COHERENCE}}</output></div>
+      </div>
+    </section>
+
+    <section class="sx-panel">
+      <h2>Motor / cortical trace</h2>
+      <div class="sx-chart">{{EEG_SVG}}</div>
+      <table class="sx-bench">
+        <tbody>
+          <tr><td>EEG window</td><td>{{EEG_MIN}}–{{EEG_MAX}} Hz ({{EEG_BAND}})</td></tr>
+          <tr><td>Inhibitory transmitters</td><td>{{TX_INLINE}}</td></tr>
+          <tr><td>Density score</td><td>{{DENSITY}}</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="sx-translate">
+      <h2>Body markers → atonia readout</h2>
+      <p>{{SOMATIC_READOUT}}</p>
+      <ul>{{MARKER_LIST}}</ul>
+    </section>
+
+    {{CTA_HARD}}
+
+    <p class="sx-disclaimer">Not a medical diagnosis. Dataset row for exploration only.</p>
+  </main>
+  <footer class="sx-foot"><a href="/somatic/">Somatic index</a> · <a href="/disclaimer/">Disclaimer</a></footer>
+  <script src="/somatic/assets/somatic-utility.js" defer></script>
+</body>
+</html>

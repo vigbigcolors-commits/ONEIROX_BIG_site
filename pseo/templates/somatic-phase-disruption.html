@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <meta name="theme-color" content="#1e3224">
+  <title>{{TITLE}} | Oneirox Phase Disruption</title>
+  <meta name="description" content="{{DESCRIPTION}}">
+  <meta name="robots" content="{{ROBOTS}}">
+  <link rel="canonical" href="{{CANONICAL}}">
+  <meta property="og:title" content="{{TITLE}}">
+  <meta property="og:description" content="{{DESCRIPTION}}">
+  <meta property="og:url" content="{{CANONICAL}}">
+  <link rel="stylesheet" href="/css/fonts.css">
+  <link rel="stylesheet" href="/somatic/assets/somatic-utility.css">
+  <script type="application/ld+json">{{JSON_LD}}</script>
+</head>
+<body class="sx-type-disrupt" data-indexable="{{INDEXABLE}}" data-chart-seed="{{CHART_SEED}}" data-gauge-atonia="{{GAUGE_ATONIA}}" data-gauge-arousal="{{GAUGE_AROUSAL}}" data-gauge-coherence="{{GAUGE_COHERENCE}}">
+  <header class="sx-top">
+    <a class="sx-brand" href="/">Oneirox</a>
+    <nav class="sx-nav"><a href="/somatic/">Somatic DB</a><a href="/#decode">Decode</a></nav>
+  </header>
+  <main class="sx-main">
+    <p class="sx-kicker">Utility type · phase disruption · compare metrics</p>
+    <h1 class="sx-title">{{TITLE}}</h1>
+    <p class="sx-lead">{{SUMMARY}}</p>
+
+    <section class="sx-compare" aria-labelledby="cmp-h">
+      <h2 id="cmp-h">Stage vs disruption comparison</h2>
+      <table class="sx-bench sx-bench--wide">
+        <thead>
+          <tr><th>Signal</th><th>Stage baseline</th><th>This disruption row</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Dominant band</td><td>{{BASE_BAND}}</td><td>{{EEG_BAND}}</td></tr>
+          <tr><td>Hz window</td><td>{{BASE_HZ}}</td><td>{{EEG_MIN}}–{{EEG_MAX}}</td></tr>
+          <tr><td>Arousal pressure</td><td>low–moderate</td><td>{{GAUGE_AROUSAL}} / 100</td></tr>
+          <tr><td>Stage coherence</td><td>stable</td><td>{{GAUGE_COHERENCE}} / 100</td></tr>
+          <tr><td>Context</td><td>—</td><td>{{CONTEXT}}</td></tr>
+        </tbody>
+      </table>
+      <div class="sx-chart sx-chart--secondary">{{EEG_SVG}}</div>
+    </section>
+
+    <section class="sx-gauges" aria-label="Disruption gauges">
+      <div class="sx-gauge" data-gauge="arousal"><label for="g-arousal">Arousal pressure</label><input id="g-arousal" type="range" min="0" max="100" value="{{GAUGE_AROUSAL}}" /><output>{{GAUGE_AROUSAL}}</output></div>
+      <div class="sx-gauge" data-gauge="coherence"><label for="g-coherence">Stage coherence</label><input id="g-coherence" type="range" min="0" max="100" value="{{GAUGE_COHERENCE}}" /><output>{{GAUGE_COHERENCE}}</output></div>
+      <div class="sx-gauge" data-gauge="atonia"><label for="g-atonia">Atonia load</label><input id="g-atonia" type="range" min="0" max="100" value="{{GAUGE_ATONIA}}" /><output>{{GAUGE_ATONIA}}</output></div>
+    </section>
+
+    <section class="sx-translate">
+      <h2>Somatic disruption markers → text</h2>
+      <p>{{SOMATIC_READOUT}}</p>
+      <ul class="sx-alert-list">{{MARKER_LIST}}</ul>
+      <p><strong>Transmitters in this row:</strong></p>
+      <ul>{{TX_LIST}}</ul>
+    </section>
+
+    {{CTA_HARD}}
+
+    <p class="sx-disclaimer">Not a medical diagnosis. Dataset row for exploration only.</p>
+  </main>
+  <footer class="sx-foot"><a href="/somatic/">Somatic index</a> · <a href="/disclaimer/">Disclaimer</a></footer>
+  <script src="/somatic/assets/somatic-utility.js" defer></script>
+</body>
+</html>

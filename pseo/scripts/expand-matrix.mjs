@@ -1,12 +1,14 @@
 /**
- * Expand gold somatic seeds + symptom catalog into a unique matrix (~target rows).
- * Usage: node pseo/scripts/expand-matrix.mjs [--target=1500] [--pilot=200]
+ * Expand gold somatic seeds + symptom catalog into a unique matrix (~300–1000 rows).
+ * Safe PSEO: dense metric DB first; ranking marks top-N indexable.
+ * Usage: node pseo/scripts/expand-matrix.mjs [--target=400] [--indexable=50]
  */
 
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { clamp, hashString, mulberry32, uniqueSorted } from "../lib/seed.mjs";
+import { markIndexable } from "../lib/rank.mjs";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, "..");
@@ -186,11 +188,15 @@ const CONTEXT_GAUGE = {
 };
 
 function parseArgs(argv) {
-  let target = 1500;
+  let target = 400;
+  let indexable = 50;
   for (const a of argv) {
     if (a.startsWith("--target=")) target = Number(a.slice(9));
+    if (a.startsWith("--indexable=")) indexable = Number(a.slice(12));
   }
-  return { target };
+  target = clamp(target, 300, 1000);
+  indexable = clamp(indexable, 10, 80);
+  return { target, indexable };
 }
 
 function fingerprint(entry) {
@@ -354,7 +360,7 @@ function passesUniqueness(candidate, accepted) {
 }
 
 function main() {
-  const { target } = parseArgs(process.argv.slice(2));
+  const { target, indexable } = parseArgs(process.argv.slice(2));
   const gold = JSON.parse(fs.readFileSync(GOLD_PATH, "utf8"));
   const accepted = [];
   const seenFp = new Set();
@@ -374,18 +380,14 @@ function main() {
   for (const sym of CATALOG) {
     for (const phase of PHASES) {
       const aff = sym.affinity[phase] ?? 0;
-      if (aff < 1) continue;
+      // Safe PSEO: only strong phase fits (no thin cross-phase spam)
+      if (aff < 2) continue;
       for (const context of CONTEXTS) {
-        // Prefer higher affinity; still allow aff==1 for coverage
-        if (aff === 1 && (context === "mid-cycle" || context === "onset") && Math.random() < 0) {
-          // keep deterministic — no Math.random
-        }
         candidates.push({ sym, phase, context, aff });
       }
     }
   }
 
-  // Stable sort: higher affinity first, then slug
   candidates.sort((a, b) => {
     if (b.aff !== a.aff) return b.aff - a.aff;
     const ka = `${a.sym.slug}|${a.phase}|${a.context}`;
@@ -398,9 +400,7 @@ function main() {
     const entry = buildEntry(c.sym, c.phase, c.context);
     if (seenId.has(entry.id)) continue;
     const fp = fingerprint(entry);
-    // Allow same band fingerprint across different symptoms; block exact id dupes
     if (!passesUniqueness(entry, accepted)) {
-      // nudge seed / eeg slightly
       entry.chart_seed = (entry.chart_seed + 17) % 100000000;
       entry.eeg_frequency_hz_range = {
         ...entry.eeg_frequency_hz_range,
@@ -414,40 +414,40 @@ function main() {
     accepted.push(entry);
   }
 
-  // If still short, add lower-affinity fills with distinct context seeds
-  if (accepted.length < target) {
-    for (const sym of CATALOG) {
-      for (const phase of PHASES) {
-        for (const context of CONTEXTS) {
-          if (accepted.length >= target) break;
-          const entry = buildEntry(sym, phase, context);
-          if (seenId.has(entry.id)) continue;
-          entry.chart_seed = hashString(entry.id + "|fill") % 100000000;
-          entry.summary = entry.summary + " Modeled as comparative stage contrast.";
-          entry.somatic_markers = uniqueSorted([
-            ...entry.somatic_markers,
-            `${phase.toLowerCase()} contrast marker`,
-          ]).slice(0, 5);
-          if (!passesUniqueness(entry, accepted)) continue;
-          seenId.add(entry.id);
-          accepted.push(entry);
-        }
-      }
-    }
-  }
-
+  // No weak fill rows — short dense matrix beats thin volume
+  const ranked = markIndexable(accepted.slice(0, target), indexable);
   const out = {
-    version: 1,
+    version: 2,
+    architecture: "safe-pseo-db-first",
     generated_at: new Date().toISOString(),
-    count: accepted.length,
-    entries: accepted.slice(0, target),
+    count: ranked.length,
+    indexable_count: ranked.filter((e) => e.indexable).length,
+    indexable_cap: indexable,
+    entries: ranked,
   };
 
   fs.writeFileSync(OUT_PATH, JSON.stringify(out, null, 2));
-  console.log(`Wrote ${out.entries.length} entries → ${OUT_PATH}`);
-  if (out.entries.length < target) {
-    console.warn(`Warning: only ${out.entries.length}/${target} unique rows generated`);
-    process.exitCode = 1;
+  const allow = ranked
+    .filter((e) => e.indexable)
+    .map((e) => ({
+      id: e.id,
+      url: `https://oneirox.com/somatic/${e.slug_symptom}/${e.slug_phase}/${e.slug_context}/`,
+      density_score: e.density_score,
+      utility_type: e.utility_type,
+    }));
+  fs.writeFileSync(
+    path.join(ROOT, "data", "indexable-allowlist.json"),
+    JSON.stringify(
+      { generated_at: out.generated_at, count: allow.length, urls: allow },
+      null,
+      2
+    )
+  );
+  console.log(
+    `Wrote ${out.entries.length} DB rows (${out.indexable_count} indexable) → ${OUT_PATH}`
+  );
+  if (out.entries.length < 300) {
+    console.warn(`Warning: matrix below 300 (${out.entries.length})`);
   }
 }
 

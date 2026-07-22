@@ -218,6 +218,101 @@ body {
 
 .sx-btn:hover { background: #4a5e48; }
 
+.sx-cta-hard {
+  margin: 2.5rem 0 1.5rem;
+  padding: 1.5rem 1.25rem;
+  background: linear-gradient(135deg, #1a2848 0%, #266799 55%, #268571 100%);
+  color: #f8faf5;
+  border-radius: 18px;
+}
+
+.sx-cta-hard h2 {
+  margin: 0 0 0.5rem;
+  font-family: var(--onx-font-serif);
+  font-size: 1.35rem;
+}
+
+.sx-cta-hard p {
+  margin: 0 0 1rem;
+  max-width: 36rem;
+  opacity: 0.92;
+}
+
+.sx-btn--hard {
+  background: #f8faf5;
+  color: #1a2848;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+  font-size: 1.05rem;
+  padding: 0.85rem 1.4rem;
+}
+
+.sx-btn--hard:hover {
+  background: #fff;
+  color: #1a2848;
+}
+
+.sx-bench {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  font-size: 0.92rem;
+}
+
+.sx-bench th,
+.sx-bench td {
+  text-align: left;
+  padding: 0.45rem 0.6rem;
+  border-bottom: 1px solid rgba(58, 68, 53, 0.15);
+}
+
+.sx-bench caption {
+  text-align: left;
+  font-weight: 600;
+  margin-bottom: 0.35rem;
+}
+
+.sx-type-disrupt .sx-compare {
+  background: rgba(248, 250, 245, 0.9);
+  border-radius: 16px;
+  padding: 1rem;
+  margin-bottom: 1.25rem;
+}
+
+.sx-alert-list li {
+  margin-bottom: 0.35rem;
+}
+
+.sx-type-atonia .sx-atonia-hero {
+  background: rgba(26, 40, 72, 0.08);
+  border-radius: 16px;
+  padding: 1.25rem;
+  margin-bottom: 1.25rem;
+}
+
+.sx-gauge--hero output,
+.sx-big-out {
+  font-size: 2rem;
+  font-weight: 700;
+  display: block;
+  margin-top: 0.35rem;
+}
+
+.sx-gauge-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.sx-translate {
+  margin: 1.5rem 0;
+}
+
+.sx-chart--secondary {
+  margin-top: 1rem;
+  opacity: 0.95;
+}
+
 .sx-disclaimer {
   font-size: 0.8rem;
   color: var(--onx-mist);
