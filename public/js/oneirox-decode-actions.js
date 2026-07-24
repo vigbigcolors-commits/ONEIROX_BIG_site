@@ -290,28 +290,30 @@
   }
 
   /* ── Journal UI ── */
-  function mountJournalNavBtn() {
-    if (document.getElementById('onx-journal-open')) return;
-    var actions = document.querySelector('.site-header__actions');
-    if (!actions) return;
-
-    var btn = document.createElement('button');
-    btn.type = 'button';
-    btn.id = 'onx-journal-open';
-    btn.className = 'onx-journal-nav';
-    btn.setAttribute('aria-label', t('journal'));
-    btn.innerHTML =
-      '<span class="onx-journal-nav__label">' + escapeHtml(t('journal')) + '</span>' +
-      '<span class="onx-journal-nav__badge" id="onx-journal-badge" hidden></span>';
-
-    var cta = actions.querySelector('.btn--primary');
-    if (cta) actions.insertBefore(btn, cta);
-    else actions.appendChild(btn);
+  function bindJournalNavBtn() {
+    var btn = document.getElementById('onx-journal-open');
+    if (!btn) {
+      var actions = document.querySelector('.site-header__actions');
+      if (!actions) return;
+      btn = document.createElement('button');
+      btn.type = 'button';
+      btn.id = 'onx-journal-open';
+      btn.className = 'onx-journal-nav';
+      btn.setAttribute('aria-label', t('journal'));
+      btn.innerHTML =
+        '<span class="onx-journal-nav__label">' + escapeHtml(t('journal')) + '</span>' +
+        '<span class="onx-journal-nav__badge" id="onx-journal-badge" hidden></span>';
+      var cta = actions.querySelector('.btn--primary');
+      if (cta) actions.insertBefore(btn, cta);
+      else actions.appendChild(btn);
+    }
+    if (btn.getAttribute('data-onx-bound') === '1') return;
+    btn.setAttribute('data-onx-bound', '1');
     btn.addEventListener('click', openJournal);
   }
 
   function ensureJournalUi() {
-    mountJournalNavBtn();
+    bindJournalNavBtn();
     if (document.getElementById('onx-journal-root')) return;
     var root = document.createElement('div');
     root.id = 'onx-journal-root';
@@ -934,13 +936,10 @@
     } catch (e) {}
   }
 
-  document.addEventListener('onx-decode-result', function (e) {
-    onResult(e.detail || {});
-  });
-
-  document.addEventListener('DOMContentLoaded', function () {
+  function bootJournal() {
     ensureJournalUi();
     scheduleCheckinProbe();
+    bumpFabBadge();
     var m = location.hash.match(/onx-entry=([^&]+)/);
     if (m) {
       var id = decodeURIComponent(m[1]);
@@ -953,5 +952,15 @@
         }, 400);
       }
     }
+  }
+
+  document.addEventListener('onx-decode-result', function (e) {
+    onResult(e.detail || {});
   });
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', bootJournal);
+  } else {
+    bootJournal();
+  }
 })();

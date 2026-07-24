@@ -207,6 +207,47 @@
   user-select: none;
 }
 
+/* Journal — always in header (localStorage journal lives in decode-actions.js) */
+.onx-journal-nav {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  border: 1.5px solid rgba(58, 68, 53, 0.2);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.72);
+  color: #1e3224;
+  font-family: var(--onx-font-sans);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  transition: background 0.18s ease, border-color 0.18s ease, color 0.18s ease;
+}
+
+.onx-journal-nav:hover {
+  background: #eef3ea;
+  border-color: rgba(0, 165, 168, 0.4);
+  color: #1e3224;
+}
+
+.onx-journal-nav__badge {
+  position: absolute;
+  top: -5px;
+  right: -4px;
+  min-width: 16px;
+  height: 16px;
+  padding: 0 4px;
+  border-radius: 999px;
+  background: #c45a3a;
+  color: #fff;
+  font-size: 9px;
+  font-weight: 700;
+  line-height: 16px;
+  text-align: center;
+}
+
 @media (max-width: 900px) {
   .site-nav { display: none; }
 }
