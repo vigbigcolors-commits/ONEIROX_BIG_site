@@ -37,6 +37,20 @@ window.addEventListener('DOMContentLoaded', function () {
     }
   } catch (e) {}
 
+  /* Restore dream text after Mapper refine (Clarify somatics) */
+  try {
+    var _pendingRaw = localStorage.getItem('onx_pending_dream');
+    if (_pendingRaw) {
+      var _pending = JSON.parse(_pendingRaw);
+      if (_pending && _pending.text && Date.now() - (_pending.ts || 0) < 2 * 60 * 60 * 1000) {
+        var _inp = searchForm.querySelector('textarea') ||
+          searchForm.querySelector('input[type="search"]') ||
+          searchForm.querySelector('input[type="text"]');
+        if (_inp && !_inp.value.trim()) _inp.value = _pending.text;
+      }
+    }
+  } catch (e) {}
+
   if (mapperData && !document.getElementById('onx-mapper-banner')) {
     var banner = document.createElement('div');
     banner.id = 'onx-mapper-banner';
@@ -202,6 +216,13 @@ window.addEventListener('DOMContentLoaded', function () {
           return;
         }
         renderResult(res.data.interpretation);
+        document.dispatchEvent(new CustomEvent('onx-decode-result', {
+          detail: {
+            raw: res.data.interpretation,
+            dream: text,
+            lang: pageLang
+          }
+        }));
       })
       .catch(function () {
         resultBox.classList.remove('is-loading');

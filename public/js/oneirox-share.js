@@ -1,298 +1,329 @@
 /**
- * ONEIROX SHARE v1.0
- * Fetch intercept → Canvas card → Share buttons
- * Colors: #4b583e (main), #6b7a5d, #a0b18f, #6e8557, #66725b
+ * ONEIROX SHARE v2
+ * Share Card (canvas) + Email — no duplicate action bar (handled by decode-actions)
  */
 (function () {
 'use strict';
 
-/* ═══════════════════════════
-   CONFIG
-═══════════════════════════ */
 var CLR = {
-  bg:      '#4b583e',
-  bgDark:  '#3a4530',
-  accent:  '#a0b18f',
-  accentD: '#6e8557',
-  light:   '#e8f0de',
-  muted:   '#7a8a6a',
-  white:   '#f5f8f0'
+  bg:      '#3a4435',
+  accent:  '#9aaa90',
+  accentD: '#73a563',
+  muted:   '#b9c6ad',
+  white:   '#f8faf5',
+  soft:    'rgba(248,250,245,0.78)'
 };
 
-/* ═══════════════════════════
-   STATE
-═══════════════════════════ */
 var reading = {
-  dream:    '',
-  response: '',
-  signal:   '',
-  body:     '',
-  morning:  ''
+  dream: '',
+  signal: '',
+  body: '',
+  morning: '',
+  raw: ''
 };
-var interceptReady = false;
 
-/* ═══════════════════════════
-   1. DOM WATCHER (safe — no fetch wrapping)
-═══════════════════════════ */
-function interceptFetch() {
-  /* Watch for decode result appearing in DOM */
-  watchDecodeResult();
+function setReading(data) {
+  reading.dream = data.dream || '';
+  reading.signal = data.signal || '';
+  reading.body = data.body || '';
+  reading.morning = data.morning || '';
+  reading.raw = data.raw || '';
 }
 
-function watchDecodeResult() {
-  var debounce;
-  var lastLen = 0;
-
-  new MutationObserver(function() {
-    clearTimeout(debounce);
-    debounce = setTimeout(function() {
-      /* Find the result container — try all known selectors */
-      var resultEl =
-        document.getElementById('onx-decode-result') ||
-        document.querySelector('[id*="result"][id*="decode"]') ||
-        document.querySelector('[class*="decode"][class*="result"]');
-
-      /* Broad fallback: newest substantial text block after the input */
-      if (!resultEl) {
-        var input = document.querySelector('input[placeholder*="snake" i], input[placeholder*="dream" i]');
-        if (input) {
-          var parent = input.closest('section, div[class*="wrap"], div[class*="hero"]') || document.body;
-          var blocks = parent.querySelectorAll('div, article, section');
-          for (var i = blocks.length - 1; i >= 0; i--) {
-            var el = blocks[i];
-            var txt = (el.innerText || '').trim();
-            if (txt.length > 150 && el !== input.parentElement) {
-              resultEl = el;
-              break;
-            }
-          }
-        }
-      }
-
-      if (!resultEl) return;
-      var currentLen = (resultEl.innerText || '').trim().length;
-      if (currentLen < 80 || currentLen === lastLen) return;
-      lastLen = currentLen;
-
-      /* Capture dream from input */
-      var inp = document.querySelector('input[placeholder*="snake" i]') ||
-                document.querySelector('input[placeholder*="dream" i]') ||
-                document.querySelector('.onx-search-wrap textarea') ||
-                document.querySelector('.onx-search-wrap input');
-      reading.dream = inp ? inp.value.trim() : '';
-
-      /* Parse sections from DOM */
-      parseSections(resultEl.innerText || resultEl.textContent || '');
-
-      /* Inject buttons */
-      injectShareBar(resultEl);
-    }, 700);
-  }).observe(document.body, { childList: true, subtree: true, characterData: true });
+function parseFromRaw(raw) {
+  function sec(tag) {
+    var m = String(raw || '').match(new RegExp('\\[' + tag + '\\]([\\s\\S]*?)(?=\\[|$)'));
+    return m ? m[1].trim() : '';
+  }
+  reading.signal = sec('SIGNAL');
+  reading.body = sec('BODY');
+  reading.morning = sec('MORNING');
+  reading.raw = raw || '';
 }
 
-/* ═══════════════════════════
-   2. PARSE SECTIONS
-═══════════════════════════ */
-function parseSections(text) {
-  if (!text) return;
-
-  var sigM = text.match(/\[SIGNAL\]([\s\S]*?)(?=\[BODY\]|\[MORNING\]|$)/i);
-  var bodM = text.match(/\[BODY\]([\s\S]*?)(?=\[SIGNAL\]|\[MORNING\]|$)/i);
-  var morM = text.match(/\[MORNING\]([\s\S]*?)(?=\[SIGNAL\]|\[BODY\]|$)/i);
-
-  reading.signal  = sigM ? sigM[1].trim() : '';
-  reading.body    = bodM ? bodM[1].trim() : '';
-  reading.morning = morM ? morM[1].trim() : '';
-
-  /* fallback: first sentence = signal, rest = body */
-  if (!reading.signal) {
-    var clean = text.replace(/\[.*?\]/g, '').trim();
-    var dot = clean.search(/[.!?]\s/);
-    if (dot > 0 && dot < 200) {
-      reading.signal = clean.substring(0, dot + 1).trim();
-      reading.body   = clean.substring(dot + 2).trim();
-    } else {
-      reading.signal = clean.substring(0, 180).trim();
-      reading.body   = clean;
-    }
+function openCardModal() {
+  var modal = document.getElementById('onx-card-modal');
+  if (!modal) {
+    modal = document.createElement('div');
+    modal.id = 'onx-card-modal';
+    modal.className = 'onx-modal-overlay';
+    modal.innerHTML = [
+      '<div class="onx-modal" role="dialog" aria-modal="true">',
+        '<button type="button" class="onx-modal__close" aria-label="Close">✕</button>',
+        '<h3 class="onx-modal__title">Your Dream Reading Card</h3>',
+        '<p class="onx-modal__sub">Designed to share — full SIGNAL, readable BODY &amp; MORNING.</p>',
+        '<div class="onx-canvas-wrap">',
+          '<canvas id="onx-share-canvas" width="1080" height="1440"></canvas>',
+        '</div>',
+        '<div class="onx-modal__actions">',
+          '<button type="button" class="onx-modal__btn onx-modal__btn--primary" id="onx-btn-download">',
+            svgIcon('download'), ' Download PNG',
+          '</button>',
+          '<button type="button" class="onx-modal__btn onx-modal__btn--ghost" id="onx-btn-stories">',
+            svgIcon('square'), ' Stories 1:1',
+          '</button>',
+          '<a class="onx-modal__btn onx-modal__btn--tw" id="onx-btn-twitter" target="_blank" rel="noopener">',
+            svgIcon('twitter'), ' Twitter / X',
+          '</a>',
+          '<button type="button" class="onx-modal__btn onx-modal__btn--ghost" id="onx-btn-fullreading">',
+            svgIcon('scroll'), ' Full Reading',
+          '</button>',
+        '</div>',
+        '<div class="onx-full-reading" id="onx-full-reading" style="display:none">',
+          '<div class="onx-full-reading__inner" id="onx-full-reading-content"></div>',
+        '</div>',
+      '</div>'
+    ].join('');
+    modal.querySelector('.onx-modal__close').onclick = function () { modal.classList.remove('open'); };
+    modal.addEventListener('click', function (e) { if (e.target === modal) modal.classList.remove('open'); });
+    document.body.appendChild(modal);
+  }
+  modal.classList.add('open');
+  renderCanvas();
+  var storiesBtn = document.getElementById('onx-btn-stories');
+  if (storiesBtn) {
+    storiesBtn.onclick = function () {
+      modal.classList.remove('open');
+      openSignalCard();
+    };
   }
 }
 
-/* ═══════════════════════════
-   3. INJECT SHARE BAR
-═══════════════════════════ */
-function injectShareBar(resultEl) {
-  /* remove old bar */
-  var old = document.getElementById('onx-share-bar');
-  if (old) old.remove();
-
-  if (!resultEl) return;
-
-  /* build bar */
-  var bar = document.createElement('div');
-  bar.id = 'onx-share-bar';
-  bar.className = 'onx-share-bar';
-
-  bar.innerHTML = [
-    '<span class="onx-share-bar__label">Save &amp; share your reading</span>',
-    '<div class="onx-share-bar__btns">',
-      '<button class="onx-share-btn onx-share-btn--primary" id="onx-btn-card">',
-        svgIcon('image'), ' Share Card',
-      '</button>',
-      '<button class="onx-share-btn onx-share-btn--secondary" id="onx-btn-email">',
-        svgIcon('mail'), ' Email to self',
-      '</button>',
-      '<a class="onx-share-btn onx-share-btn--secondary" id="onx-btn-reddit" target="_blank" rel="noopener">',
-        svgIcon('reddit'), ' Reddit',
-      '</a>',
-      '<button class="onx-share-btn onx-share-btn--ghost" id="onx-btn-copy">',
-        svgIcon('copy'), ' Copy',
-      '</button>',
-    '</div>',
-  ].join('');
-
-  /* insert AFTER result */
-  resultEl.parentNode.insertBefore(bar, resultEl.nextSibling);
-
-  /* bind events */
-  document.getElementById('onx-btn-card').onclick  = openCardModal;
-  document.getElementById('onx-btn-email').onclick = openEmailModal;
-  document.getElementById('onx-btn-copy').onclick  = copyReading;
-
-  /* Reddit pre-fill */
-  var redditText = encodeURIComponent(
-    '"' + (reading.dream || 'My dream') + '"\n\n' +
-    'Oneirox decoded it as: ' + reading.signal + '\n\n' +
-    'Full reading: https://oneirox.com'
-  );
-  document.getElementById('onx-btn-reddit').href =
-    'https://www.reddit.com/r/Dreams/submit?selftext=true&title=' +
-    encodeURIComponent((reading.dream || 'Dream reading').substring(0, 80)) +
-    '&text=' + redditText;
+function openSignalCard() {
+  var modal = document.getElementById('onx-signal-modal');
+  if (!modal) {
+    modal = document.createElement('div');
+    modal.id = 'onx-signal-modal';
+    modal.className = 'onx-modal-overlay';
+    modal.innerHTML = [
+      '<div class="onx-modal onx-modal--signal" role="dialog" aria-modal="true">',
+        '<button type="button" class="onx-modal__close" aria-label="Close">✕</button>',
+        '<h3 class="onx-modal__title">SIGNAL · Stories</h3>',
+        '<p class="onx-modal__sub">1080×1080 — one clean SIGNAL. Built for Instagram Stories.</p>',
+        '<div class="onx-canvas-wrap onx-canvas-wrap--square">',
+          '<canvas id="onx-signal-canvas" width="1080" height="1080"></canvas>',
+        '</div>',
+        '<div class="onx-modal__actions">',
+          '<button type="button" class="onx-modal__btn onx-modal__btn--primary" id="onx-btn-signal-dl">',
+            svgIcon('download'), ' Download PNG',
+          '</button>',
+        '</div>',
+      '</div>'
+    ].join('');
+    modal.querySelector('.onx-modal__close').onclick = function () { modal.classList.remove('open'); };
+    modal.addEventListener('click', function (e) { if (e.target === modal) modal.classList.remove('open'); });
+    document.body.appendChild(modal);
+  }
+  modal.classList.add('open');
+  renderSignalCanvas();
 }
 
-/* ═══════════════════════════
-   4. CANVAS SHARE CARD
-═══════════════════════════ */
-function openCardModal() {
-  var modal = document.getElementById('onx-card-modal');
-  if (modal) { modal.classList.add('open'); renderCanvas(); return; }
+function renderSignalCanvas() {
+  var canvas = document.getElementById('onx-signal-canvas');
+  if (!canvas) return;
+  var ctx = canvas.getContext('2d');
+  var W = 1080;
+  var H = 1080;
+  canvas.width = W;
+  canvas.height = H;
 
-  modal = document.createElement('div');
-  modal.id = 'onx-card-modal';
-  modal.className = 'onx-modal-overlay';
-  modal.innerHTML = [
-    '<div class="onx-modal">',
-      '<button class="onx-modal__close">✕</button>',
-      '<h3 class="onx-modal__title">Your Dream Reading Card</h3>',
-      '<p class="onx-modal__sub">Download and share anywhere — Instagram, Stories, WhatsApp.</p>',
-      '<div class="onx-canvas-wrap">',
-        '<canvas id="onx-share-canvas" width="1080" height="1080"></canvas>',
-      '</div>',
-      '<div class="onx-modal__actions">',
-        '<button class="onx-modal__btn onx-modal__btn--primary" id="onx-btn-download">',
-          svgIcon('download'), ' Download PNG',
-        '</button>',
-        '<a class="onx-modal__btn onx-modal__btn--tw" id="onx-btn-twitter" target="_blank" rel="noopener">',
-          svgIcon('twitter'), ' Twitter / X',
-        '</a>',
-        '<button class="onx-modal__btn onx-modal__btn--ghost" id="onx-btn-fullreading">',
-          svgIcon('scroll'), ' Full Reading',
-        '</button>',
-      '</div>',
-      '<div class="onx-full-reading" id="onx-full-reading" style="display:none">',
-        '<div class="onx-full-reading__inner" id="onx-full-reading-content"></div>',
-      '</div>',
-    '</div>'
-  ].join('');
+  var grd = ctx.createLinearGradient(0, 0, W, H);
+  grd.addColorStop(0, '#243028');
+  grd.addColorStop(0.5, '#3a4435');
+  grd.addColorStop(1, '#1c2824');
+  ctx.fillStyle = grd;
+  ctx.fillRect(0, 0, W, H);
 
-  modal.querySelector('.onx-modal__close').onclick = function() { modal.classList.remove('open'); };
-  modal.addEventListener('click', function(e){ if(e.target===modal) modal.classList.remove('open'); });
-  document.body.appendChild(modal);
-  modal.classList.add('open');
+  ctx.strokeStyle = 'rgba(255,255,255,.04)';
+  for (var g = 0; g < W; g += 48) {
+    ctx.beginPath(); ctx.moveTo(g, 0); ctx.lineTo(g, H); ctx.stroke();
+    ctx.beginPath(); ctx.moveTo(0, g); ctx.lineTo(W, g); ctx.stroke();
+  }
 
-  renderCanvas();
+  var pad = 78;
+  var maxW = W - pad * 2;
+
+  ctx.fillStyle = CLR.accentD;
+  ctx.fillRect(pad, 72, 72, 4);
+
+  ctx.fillStyle = CLR.accent;
+  ctx.font = '600 22px "Work Sans", system-ui, sans-serif';
+  ctx.fillText('ONEIROX  ·  SIGNAL', pad, 130);
+
+  var signal = (reading.signal || 'Your nervous system delivered a precise signal.')
+    .replace(/\s+/g, ' ').trim();
+  var len = signal.length;
+  var fontSize = len > 280 ? 34 : len > 180 ? 40 : len > 110 ? 46 : 52;
+  var lineH = Math.round(fontSize * 1.34);
+  var maxLines = len > 280 ? 12 : 10;
+
+  ctx.fillStyle = CLR.white;
+  ctx.font = '600 ' + fontSize + 'px "Work Sans", system-ui, sans-serif';
+  var lines = wrapLines(ctx, signal, maxW, maxLines);
+  var blockH = lines.length * lineH;
+  var y = Math.max(210, Math.round((H - blockH) / 2) - 20);
+  for (var i = 0; i < lines.length; i++) {
+    ctx.fillText(lines[i], pad, y + i * lineH);
+  }
+
+  ctx.fillStyle = CLR.accentD;
+  ctx.fillRect(pad, H - 118, maxW, 2);
+  ctx.fillStyle = CLR.accent;
+  ctx.font = '500 24px "Work Sans", system-ui, sans-serif';
+  ctx.fillText('oneirox.com', pad, H - 68);
+  drawQRSymbol(ctx, W - pad - 16, H - 70, 40);
+
+  var dl = document.getElementById('onx-btn-signal-dl');
+  if (dl) {
+    dl.onclick = function () {
+      var link = document.createElement('a');
+      link.download = 'oneirox-signal-stories.png';
+      link.href = canvas.toDataURL('image/png');
+      link.click();
+    };
+  }
+}
+
+function wrapLines(ctx, text, maxW, maxLines) {
+  var clean = String(text || '').replace(/\s+/g, ' ').trim();
+  var words = clean.split(' ');
+  var lines = [];
+  var line = '';
+  for (var i = 0; i < words.length; i++) {
+    var test = line ? line + ' ' + words[i] : words[i];
+    if (ctx.measureText(test).width > maxW && line) {
+      lines.push(line);
+      line = words[i];
+      if (lines.length >= maxLines) break;
+    } else {
+      line = test;
+    }
+  }
+  if (lines.length < maxLines && line) lines.push(line);
+  var joined = lines.join(' ');
+  if (joined.length < clean.length && lines.length) {
+    var last = lines[lines.length - 1];
+    while (last.length > 3 && ctx.measureText(last + '…').width > maxW) last = last.slice(0, -1);
+    lines[lines.length - 1] = last + '…';
+  }
+  return lines;
+}
+
+function drawBlock(ctx, label, text, x, y, maxW, opts) {
+  opts = opts || {};
+  var fontSize = opts.fontSize || 34;
+  var lineH = opts.lineH || Math.round(fontSize * 1.28);
+  var maxLines = opts.maxLines || 5;
+  var color = opts.color || CLR.white;
+  var font = opts.font || '"Work Sans", system-ui, sans-serif';
+  var weight = opts.weight || '400';
+
+  ctx.fillStyle = CLR.accentD;
+  ctx.font = '700 22px "Work Sans", system-ui, sans-serif';
+  ctx.fillText(label, x, y);
+
+  ctx.fillStyle = color;
+  ctx.font = weight + ' ' + fontSize + 'px ' + font;
+  var lines = wrapLines(ctx, text, maxW, maxLines);
+  for (var i = 0; i < lines.length; i++) {
+    ctx.fillText(lines[i], x, y + 36 + i * lineH);
+  }
+  return y + 36 + lines.length * lineH + 28;
 }
 
 function renderCanvas() {
   var canvas = document.getElementById('onx-share-canvas');
   if (!canvas) return;
   var ctx = canvas.getContext('2d');
-  var W = 1080, H = 1080;
+  var W = 1080;
+  var H = 1440;
+  canvas.width = W;
+  canvas.height = H;
 
-  /* ── Background ── */
-  ctx.fillStyle = CLR.bg;
+  var grd = ctx.createLinearGradient(0, 0, W, H);
+  grd.addColorStop(0, '#2f3a2c');
+  grd.addColorStop(0.55, CLR.bg);
+  grd.addColorStop(1, '#1f2a2e');
+  ctx.fillStyle = grd;
   ctx.fillRect(0, 0, W, H);
 
-  /* ── Subtle grid texture ── */
-  ctx.strokeStyle = 'rgba(255,255,255,.04)';
-  ctx.lineWidth = 1;
-  for (var x = 0; x < W; x += 54) {
-    ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, H); ctx.stroke();
+  ctx.strokeStyle = 'rgba(255,255,255,.035)';
+  for (var gx = 0; gx < W; gx += 54) {
+    ctx.beginPath(); ctx.moveTo(gx, 0); ctx.lineTo(gx, H); ctx.stroke();
   }
-  for (var y = 0; y < H; y += 54) {
-    ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(W, y); ctx.stroke();
+  for (var gy = 0; gy < H; gy += 54) {
+    ctx.beginPath(); ctx.moveTo(0, gy); ctx.lineTo(W, gy); ctx.stroke();
   }
 
-  /* ── Top accent line ── */
+  var pad = 72;
+  var maxW = W - pad * 2;
+  var y = 88;
+
   ctx.fillStyle = CLR.accentD;
-  ctx.fillRect(80, 88, 920, 2);
+  ctx.fillRect(pad, y, maxW, 3);
+  y += 56;
 
-  /* ── Eyebrow ── */
   ctx.fillStyle = CLR.accent;
-  ctx.font = '600 26px "Work Sans", system-ui, sans-serif';
-  ctx.letterSpacing = '6px';
-  ctx.fillText('⊹ ONEIROX · DREAM READING ⊹', 80, 148);
+  ctx.font = '600 24px "Work Sans", system-ui, sans-serif';
+  ctx.fillText('ONEIROX  ·  DREAM READING', pad, y);
+  y += 48;
 
-  /* ── Dream text (the user's input) ── */
   if (reading.dream) {
-    ctx.fillStyle = 'rgba(160,177,143,.65)';
-    ctx.font = 'italic 32px Georgia, serif';
-    ctx.letterSpacing = '0px';
-    drawWrappedText(ctx, '\u201c' + reading.dream + '\u201d', 80, 220, 920, 46, 2);
+    ctx.fillStyle = 'rgba(201,214,186,.75)';
+    ctx.font = '400 26px "Work Sans", system-ui, sans-serif';
+    var dreamLines = wrapLines(ctx, '"' + reading.dream + '"', maxW, 3);
+    for (var d = 0; d < dreamLines.length; d++) ctx.fillText(dreamLines[d], pad, y + d * 36);
+    y += dreamLines.length * 36 + 36;
   }
 
-  /* ── Divider ── */
-  var divY = reading.dream ? 340 : 220;
-  ctx.strokeStyle = 'rgba(160,177,143,.2)';
-  ctx.lineWidth = 1;
-  ctx.beginPath(); ctx.moveTo(80, divY); ctx.lineTo(1000, divY); ctx.stroke();
+  ctx.strokeStyle = 'rgba(160,177,143,.25)';
+  ctx.beginPath(); ctx.moveTo(pad, y); ctx.lineTo(W - pad, y); ctx.stroke();
+  y += 48;
 
-  /* ── Signal label ── */
-  ctx.fillStyle = CLR.accentD;
-  ctx.font = '700 22px "Work Sans", system-ui, sans-serif';
-  ctx.fillText('◈  THE SIGNAL', 80, divY + 64);
+  var signal = reading.signal || 'Your nervous system delivered a precise signal.';
+  var sigSize = signal.length > 220 ? 32 : signal.length > 140 ? 36 : 40;
+  y = drawBlock(ctx, 'SIGNAL', signal, pad, y, maxW, {
+    fontSize: sigSize,
+    lineH: Math.round(sigSize * 1.38),
+    maxLines: 8,
+    weight: '600',
+    color: CLR.white,
+    font: '"Work Sans", system-ui, sans-serif'
+  });
 
-  /* ── Signal text (main insight) ── */
-  ctx.fillStyle = CLR.white;
-  ctx.font = '300 52px Georgia, serif';
-  var signalText = reading.signal ? reading.signal.substring(0, 160) : 'Your brain was precise.';
-  var signalLines = drawWrappedText(ctx, signalText, 80, divY + 120, 920, 66, 3);
-  var signalBottom = divY + 120 + signalLines * 66;
+  if (reading.body) {
+    var bodySize = reading.body.length > 500 ? 26 : 28;
+    y = drawBlock(ctx, 'BODY', reading.body, pad, y, maxW, {
+      fontSize: bodySize,
+      lineH: Math.round(bodySize * 1.4),
+      maxLines: 10,
+      color: CLR.soft,
+      font: '"Work Sans", system-ui, sans-serif'
+    });
+  }
 
-  /* ── Body preview ── */
-  if (reading.body && signalBottom < 800) {
+  if (reading.morning && y < H - 220) {
+    ctx.fillStyle = CLR.accentD;
+    ctx.font = '700 22px "Work Sans", system-ui, sans-serif';
+    ctx.fillText('MORNING', pad, y);
     ctx.fillStyle = CLR.muted;
-    ctx.font = '400 30px Georgia, serif';
-    drawWrappedText(ctx, reading.body.substring(0, 200) + '…', 80, signalBottom + 48, 920, 44, 3);
+    ctx.font = '500 28px "Work Sans", system-ui, sans-serif';
+    var mLines = wrapLines(ctx, reading.morning, maxW, 5);
+    for (var mi = 0; mi < mLines.length; mi++) {
+      ctx.fillText(mLines[mi], pad, y + 36 + mi * 40);
+    }
   }
 
-  /* ── Bottom line ── */
   ctx.fillStyle = CLR.accentD;
-  ctx.fillRect(80, 990, 920, 2);
-
-  /* ── URL ── */
+  ctx.fillRect(pad, H - 110, maxW, 2);
   ctx.fillStyle = CLR.accent;
-  ctx.font = '500 28px "Work Sans", system-ui, sans-serif';
-  ctx.fillText('oneirox.com', 80, 1042);
+  ctx.font = '500 26px "Work Sans", system-ui, sans-serif';
+  ctx.fillText('oneirox.com', pad, H - 58);
+  drawQRSymbol(ctx, W - pad - 20, H - 62, 44);
 
-  /* ── QR placeholder (drawn as a mini grid symbol) ── */
-  drawQRSymbol(ctx, 960, 1008, 46);
-
-  /* bind download */
   var dlBtn = document.getElementById('onx-btn-download');
   if (dlBtn) {
-    dlBtn.onclick = function() {
+    dlBtn.onclick = function () {
       var link = document.createElement('a');
       link.download = 'oneirox-dream-reading.png';
       link.href = canvas.toDataURL('image/png');
@@ -300,170 +331,108 @@ function renderCanvas() {
     };
   }
 
-  /* bind twitter */
   var twBtn = document.getElementById('onx-btn-twitter');
   if (twBtn) {
-    var tweet = encodeURIComponent(
-      reading.signal.substring(0, 200) + '\n\nDecoded by @Oneirox_com\noneirox.com'
+    twBtn.href = 'https://twitter.com/intent/tweet?text=' + encodeURIComponent(
+      (reading.signal || '').substring(0, 200) + '\n\nDecoded with Oneirox\noneirox.com'
     );
-    twBtn.href = 'https://twitter.com/intent/tweet?text=' + tweet;
   }
 
-  /* bind full reading */
   var frBtn = document.getElementById('onx-btn-fullreading');
   var frPanel = document.getElementById('onx-full-reading');
   var frContent = document.getElementById('onx-full-reading-content');
   if (frBtn && frPanel && frContent) {
-    frContent.innerHTML = buildFullReadingHTML() || '<p style="color:#5a6850;font-style:italic">Reading content loading...</p>';
-    frBtn.onclick = function() {
-      if (frPanel.style.display === 'block') {
-        frPanel.style.display = 'none';
-        frBtn.innerHTML = svgIcon('scroll') + ' Full Reading';
-      } else {
-        frPanel.style.display = 'block';
-        frBtn.innerHTML = svgIcon('scroll') + ' Hide Reading';
-        frPanel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-      }
+    frContent.innerHTML = buildFullReadingHTML() || '<p style="color:#5a6850;font-style:italic">No reading yet.</p>';
+    frBtn.onclick = function () {
+      var open = frPanel.style.display === 'block';
+      frPanel.style.display = open ? 'none' : 'block';
+      frBtn.innerHTML = svgIcon('scroll') + (open ? ' Full Reading' : ' Hide Reading');
     };
   }
 }
 
 function buildFullReadingHTML() {
-  var html = '<div class="onx-fr-dream">' +
-    (reading.dream ? '&ldquo;' + esc(reading.dream) + '&rdquo;' : '') +
-  '</div>';
-  if (reading.signal) html +=
-    '<div class="onx-fr-section">' +
-      '<span class="onx-fr-label">◈ The Signal</span>' +
-      '<p class="onx-fr-text onx-fr-text--signal">' + esc(reading.signal) + '</p>' +
-    '</div>';
-  if (reading.body) html +=
-    '<div class="onx-fr-section">' +
-      '<span class="onx-fr-label">◈ Body</span>' +
-      '<p class="onx-fr-text">' + esc(reading.body) + '</p>' +
-    '</div>';
-  if (reading.morning) html +=
-    '<div class="onx-fr-section">' +
-      '<span class="onx-fr-label">◈ Morning</span>' +
-      '<p class="onx-fr-text onx-fr-text--morning">' + esc(reading.morning) + '</p>' +
-    '</div>';
+  var html = '<div class="onx-fr-dream">' + (reading.dream ? '&ldquo;' + esc(reading.dream) + '&rdquo;' : '') + '</div>';
+  if (reading.signal) html += '<div class="onx-fr-section"><span class="onx-fr-label">SIGNAL</span><p class="onx-fr-text onx-fr-text--signal">' + esc(reading.signal) + '</p></div>';
+  if (reading.body) html += '<div class="onx-fr-section"><span class="onx-fr-label">BODY</span><p class="onx-fr-text">' + esc(reading.body) + '</p></div>';
+  if (reading.morning) html += '<div class="onx-fr-section"><span class="onx-fr-label">MORNING</span><p class="onx-fr-text onx-fr-text--morning">' + esc(reading.morning) + '</p></div>';
   return html;
 }
 
-/* text wrap helper → returns line count */
-function drawWrappedText(ctx, text, x, y, maxW, lineH, maxLines) {
-  var words = text.split(' ');
-  var line  = '';
-  var lines = 0;
-  for (var i = 0; i < words.length; i++) {
-    var test = line + (line ? ' ' : '') + words[i];
-    if (ctx.measureText(test).width > maxW && line) {
-      ctx.fillText(line, x, y + lines * lineH);
-      line = words[i]; lines++;
-      if (lines >= maxLines) { ctx.fillText(line + '…', x, y + lines * lineH); lines++; break; }
-    } else {
-      line = test;
-    }
-  }
-  if (line && lines < maxLines) { ctx.fillText(line, x, y + lines * lineH); lines++; }
-  return lines;
-}
-
-/* mini QR-like symbol */
 function drawQRSymbol(ctx, cx, cy, size) {
   var s = Math.floor(size / 4);
   ctx.fillStyle = CLR.accent;
-  var cells = [[0,0],[1,0],[2,0],[0,1],[2,1],[0,2],[1,2],[2,2],[3,3]];
-  cells.forEach(function(c) {
-    ctx.fillRect(cx + c[0]*s - size/2, cy + c[1]*s - size/2, s-2, s-2);
+  [[0,0],[1,0],[2,0],[0,1],[2,1],[0,2],[1,2],[2,2],[3,3]].forEach(function (c) {
+    ctx.fillRect(cx + c[0] * s - size / 2, cy + c[1] * s - size / 2, s - 2, s - 2);
   });
 }
 
-/* ═══════════════════════════
-   5. EMAIL MODAL
-═══════════════════════════ */
 function openEmailModal() {
   var modal = document.getElementById('onx-email-modal');
-  if (modal) { modal.classList.add('open'); return; }
-
-  modal = document.createElement('div');
-  modal.id = 'onx-email-modal';
-  modal.className = 'onx-modal-overlay';
-  modal.innerHTML = [
-    '<div class="onx-modal onx-modal--sm">',
-      '<button class="onx-modal__close">✕</button>',
-      '<h3 class="onx-modal__title">Send reading to your email</h3>',
-      '<p class="onx-modal__sub">No account needed. One-time send.</p>',
-      '<input type="email" id="onx-email-inp" class="onx-modal__input" placeholder="your@email.com" autocomplete="email">',
-      '<button class="onx-modal__btn onx-modal__btn--primary" id="onx-email-send-btn">',
-        svgIcon('mail'), ' Send Reading',
-      '</button>',
-      '<p class="onx-modal__msg" id="onx-email-msg"></p>',
-    '</div>'
-  ].join('');
-
-  modal.querySelector('.onx-modal__close').onclick = function() { modal.classList.remove('open'); };
-  modal.addEventListener('click', function(e){ if(e.target===modal) modal.classList.remove('open'); });
-  document.body.appendChild(modal);
-  document.getElementById('onx-email-send-btn').onclick = sendEmail;
+  if (!modal) {
+    modal = document.createElement('div');
+    modal.id = 'onx-email-modal';
+    modal.className = 'onx-modal-overlay';
+    modal.innerHTML = [
+      '<div class="onx-modal onx-modal--sm">',
+        '<button type="button" class="onx-modal__close">✕</button>',
+        '<h3 class="onx-modal__title">Send reading to your email</h3>',
+        '<p class="onx-modal__sub">No account needed. One-time send.</p>',
+        '<input type="email" id="onx-email-inp" class="onx-modal__input" placeholder="your@email.com" autocomplete="email">',
+        '<button type="button" class="onx-modal__btn onx-modal__btn--primary" id="onx-email-send-btn">',
+          svgIcon('mail'), ' Send Reading',
+        '</button>',
+        '<p class="onx-modal__msg" id="onx-email-msg"></p>',
+      '</div>'
+    ].join('');
+    modal.querySelector('.onx-modal__close').onclick = function () { modal.classList.remove('open'); };
+    modal.addEventListener('click', function (e) { if (e.target === modal) modal.classList.remove('open'); });
+    document.body.appendChild(modal);
+    document.getElementById('onx-email-send-btn').onclick = sendEmail;
+  }
   modal.classList.add('open');
-  setTimeout(function(){ document.getElementById('onx-email-inp').focus(); }, 100);
+  setTimeout(function () {
+    var inp = document.getElementById('onx-email-inp');
+    if (inp) inp.focus();
+  }, 80);
 }
 
 function sendEmail() {
-  var inp  = document.getElementById('onx-email-inp');
-  var msg  = document.getElementById('onx-email-msg');
-  var btn  = document.getElementById('onx-email-send-btn');
+  var inp = document.getElementById('onx-email-inp');
+  var msg = document.getElementById('onx-email-msg');
+  var btn = document.getElementById('onx-email-send-btn');
   var email = inp ? inp.value.trim() : '';
-
   if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
     msg.className = 'onx-modal__msg err';
     msg.textContent = 'Enter a valid email address.';
     return;
   }
-
   btn.disabled = true;
   btn.textContent = 'Sending…';
-  msg.className = '';
   msg.textContent = '';
 
   function doSend() {
     emailjs.init({ publicKey: 'tMlXymk6URaGJEHi2' });
-    emailjs.send(
-      'service_ko3e0sw',
-      'template_niig6ad',
-      {
-        email:      email,
-        to_email:   email,
-        date:       new Date().toLocaleString('en-US', {
-                      month:'short', day:'numeric', year:'numeric',
-                      hour:'2-digit', minute:'2-digit'
-                    }),
-        dream_text: reading.dream   || '-',
-        signal:     reading.signal  || '-',
-        body_text:  reading.body    || '-',
-        morning:    reading.morning || '-'
-      }
-    ).then(
-      function() {
-        msg.className = 'onx-modal__msg ok';
-        msg.textContent = '✓ Sent! Check your inbox.';
-        inp.value = '';
-        btn.disabled = false;
-        btn.innerHTML = svgIcon('mail') + ' Send Reading';
-        setTimeout(function() {
-          var m = document.getElementById('onx-email-modal');
-          if (m) m.classList.remove('open');
-        }, 2500);
-      },
-      function(err) {
-        msg.className = 'onx-modal__msg err';
-        msg.textContent = 'Failed to send. Try again.';
-        btn.disabled = false;
-        btn.innerHTML = svgIcon('mail') + ' Send Reading';
-        console.error('EmailJS error:', err);
-      }
-    );
+    emailjs.send('service_ko3e0sw', 'template_niig6ad', {
+      email: email,
+      to_email: email,
+      date: new Date().toLocaleString('en-US', { month: 'short', day: 'numeric', year: 'numeric', hour: '2-digit', minute: '2-digit' }),
+      dream_text: reading.dream || '-',
+      signal: reading.signal || '-',
+      body_text: reading.body || '-',
+      morning: reading.morning || '-'
+    }).then(function () {
+      msg.className = 'onx-modal__msg ok';
+      msg.textContent = 'Sent! Check your inbox.';
+      inp.value = '';
+      btn.disabled = false;
+      btn.innerHTML = svgIcon('mail') + ' Send Reading';
+    }, function () {
+      msg.className = 'onx-modal__msg err';
+      msg.textContent = 'Failed to send. Try again.';
+      btn.disabled = false;
+      btn.innerHTML = svgIcon('mail') + ' Send Reading';
+    });
   }
 
   if (typeof emailjs !== 'undefined') {
@@ -471,8 +440,8 @@ function sendEmail() {
   } else {
     var s = document.createElement('script');
     s.src = 'https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js';
-    s.onload = function() { emailjs.init({ publicKey: 'tMlXymk6URaGJEHi2' }); doSend(); };
-    s.onerror = function() {
+    s.onload = doSend;
+    s.onerror = function () {
       msg.className = 'onx-modal__msg err';
       msg.textContent = 'Failed to load email service.';
       btn.disabled = false;
@@ -482,261 +451,72 @@ function sendEmail() {
   }
 }
 
-/* ═══════════════════════════
-   6. COPY
-═══════════════════════════ */
-function copyReading() {
-  var text = [
-    reading.dream ? '\u201c' + reading.dream + '\u201d' : '',
-    reading.signal  ? '── SIGNAL ──\n' + reading.signal  : '',
-    reading.body    ? '── BODY ──\n'   + reading.body    : '',
-    reading.morning ? '── MORNING ──\n'+ reading.morning : '',
-    '\noneirox.com'
-  ].filter(Boolean).join('\n\n');
-
-  var btn = document.getElementById('onx-btn-copy');
-
-  if (navigator.clipboard) {
-    navigator.clipboard.writeText(text).then(function() {
-      btn.innerHTML = svgIcon('check') + ' Copied!';
-      setTimeout(function(){ btn.innerHTML = svgIcon('copy') + ' Copy'; }, 2000);
-    });
-  } else {
-    var ta = document.createElement('textarea');
-    ta.value = text; ta.style.cssText = 'position:fixed;opacity:0;left:-9999px';
-    document.body.appendChild(ta); ta.select(); document.execCommand('copy'); ta.remove();
-    btn.innerHTML = svgIcon('check') + ' Copied!';
-    setTimeout(function(){ btn.innerHTML = svgIcon('copy') + ' Copy'; }, 2000);
-  }
-}
-
-/* ═══════════════════════════
-   7. STYLES
-═══════════════════════════ */
 function injectCSS() {
   if (document.getElementById('onx-share-css')) return;
   var s = document.createElement('style');
   s.id = 'onx-share-css';
   s.textContent = [
-    '\n',
-    '/* ── Share Bar ── */\n',
-    '.onx-share-bar {\n',
-    '  padding: 28px 0 8px;\n',
-    '  text-align: center;\n',
-    '}\n',
-    '.onx-share-bar__label {\n',
-    '  display: flex; align-items: center; justify-content: center; gap: 12px;\n',
-    '  font-family: "DM Mono", monospace;\n',
-    '  font-size: 10px; letter-spacing: .28em; text-transform: uppercase;\n',
-    '  color: rgba(75,88,62,.4);\n',
-    '  margin-bottom: 18px;\n',
-    '}\n',
-    '.onx-share-bar__label::before,\n',
-    '.onx-share-bar__label::after {\n',
-    '  content: \'\'; display: block; height: 1px; width: 48px;\n',
-    '  background: rgba(75,88,62,.15);\n',
-    '}\n',
-    '.onx-share-bar__btns {\n',
-    '  display: flex; align-items: center; justify-content: center;\n',
-    '  gap: 10px; flex-wrap: wrap;\n',
-    '}\n',
-    '\n',
-    '/* ── Share Buttons ── */\n',
-    '.onx-share-btn {\n',
-    '  display: inline-flex !important;\n',
-    '  align-items: center !important;\n',
-    '  gap: 8px !important;\n',
-    '  padding: 14px 26px !important;\n',
-    '  border-radius: 50px !important;\n',
-    '  border: none !important;\n',
-    '  cursor: pointer !important;\n',
-    '  font-family: "Work Sans", -apple-system, sans-serif !important;\n',
-    '  font-size: 14px !important;\n',
-    '  font-weight: 500 !important;\n',
-    '  letter-spacing: .01em !important;\n',
-    '  text-transform: none !important;\n',
-    '  text-decoration: none !important;\n',
-    '  transition: background .2s, transform .15s !important;\n',
-    '  white-space: nowrap !important;\n',
-    '}\n',
-    '.onx-share-btn:hover { transform: translateY(-2px) !important; text-decoration: none !important; }\n',
-    '.onx-share-btn:active { transform: translateY(0) !important; }\n',
-    '\n',
-    '.onx-share-btn--primary {\n',
-    '  background: #6b7a5d !important;\n',
-    '  color: #f0f5e8 !important;\n',
-    '}\n',
-    '.onx-share-btn--primary:hover { background: #7a8a6a !important; }\n',
-    '\n',
-    '.onx-share-btn--secondary {\n',
-    '  background: rgba(255,255,255,.7) !important;\n',
-    '  color: #3a4830 !important;\n',
-    '  border: 1px solid rgba(75,88,62,.2) !important;\n',
-    '}\n',
-    '.onx-share-btn--secondary:hover { background: #fff !important; }\n',
-    '\n',
-    '.onx-share-btn--ghost {\n',
-    '  background: transparent !important;\n',
-    '  color: #5a6850 !important;\n',
-    '  border: 1px solid rgba(75,88,62,.18) !important;\n',
-    '}\n',
-    '.onx-share-btn--ghost:hover { background: rgba(75,88,62,.06) !important; }\n',
-    '\n',
-    '/* ── Modals ── *//* ── Modals ── */\n',
-    '.onx-modal-overlay {\n',
-    '  position: fixed; top:0; left:0; right:0; bottom:0; z-index: 99999;\n',
-    '  background: rgba(20,30,15,.6);\n',
-    '  display: flex; align-items: center; justify-content: center;\n',
-    '  opacity: 0; pointer-events: none; transition: opacity .2s;\n',
-    '}\n',
-    '.onx-modal-overlay.open { opacity: 1; pointer-events: all; }\n',
-    '\n',
-    '.onx-modal {\n',
-    '  background: #f5f2ea; border-radius: 18px;\n',
-    '  padding: 32px; width: 820px; max-width: 94vw; max-height: 90vh; overflow-y: auto;\n',
-    '  position: relative;\n',
-    '  border: 1px solid rgba(75,88,62,.15);\n',
-    '  transform: translateY(14px); transition: transform .2s;\n',
-    '}\n',
-    '.onx-modal-overlay.open .onx-modal { transform: translateY(0); }\n',
-    '.onx-modal--sm { width: 360px; }\n',
-    '\n',
-    '.onx-modal__close {\n',
-    '  position: absolute; top: 16px; right: 18px;\n',
-    '  background: none; border: none; cursor: pointer;\n',
-    '  font-size: 17px; color: rgba(60,72,48,.3); transition: color .15s;\n',
-    '}\n',
-    '.onx-modal__close:hover { color: rgba(60,72,48,.7); }\n',
-    '\n',
-    '.onx-modal__title {\n',
-    '  font-family: "Cormorant Garamond", Georgia, serif;\n',
-    '  font-size: 1.4rem; font-weight: 300; color: #1e2818; margin-bottom: 6px;\n',
-    '}\n',
-    '.onx-modal__sub {\n',
-    '  font-size: .82rem; color: #5a6850; line-height: 1.6; margin-bottom: 22px;\n',
-    '}\n',
-    '\n',
-    '/* Canvas wrapper */\n',
-    '.onx-canvas-wrap {\n',
-    '  border-radius: 10px; overflow: hidden;\n',
-    '  border: 1px solid rgba(75,88,62,.15);\n',
-    '  margin-bottom: 18px;\n',
-    '  line-height: 0;\n',
-    '}\n',
-    '.onx-canvas-wrap canvas {\n',
-    '  width: 100%; height: auto; display: block;\n',
-    '}\n',
-    '\n',
-    '/* Modal actions */\n',
-    '.onx-modal__actions {\n',
-    '  display: flex; gap: 10px; flex-wrap: wrap;\n',
-    '}\n',
-    '.onx-modal__btn {\n',
-    '  display: inline-flex; align-items: center; gap: 7px;\n',
-    '  padding: 12px 22px; border-radius: 8px; border: none; cursor: pointer;\n',
-    '  font-family: "Work Sans", sans-serif;\n',
-    '  font-size: 12px; font-weight: 700; letter-spacing: .07em; text-transform: uppercase;\n',
-    '  text-decoration: none; transition: opacity .18s;\n',
-    '}\n',
-    '.onx-modal__btn:hover { opacity: .82; }\n',
-    '.onx-modal__btn--primary { background: #4b583e; color: #d8ebb8; }\n',
-    '.onx-modal__btn--tw      { background: #1a1a1a; color: #fff; }\n',
-    '\n',
-    '/* Email input */\n',
-    '.onx-modal__input {\n',
-    '  width: 100%; padding: 12px 14px; margin-bottom: 12px;\n',
-    '  border: 1.5px solid rgba(75,88,62,.2); border-radius: 8px;\n',
-    '  font-family: "Work Sans", sans-serif; font-size: .94rem;\n',
-    '  background: #fff; color: #1e2818; outline: none;\n',
-    '  transition: border-color .2s; box-sizing: border-box;\n',
-    '}\n',
-    '.onx-modal__input:focus { border-color: #6e8557; }\n',
-    '\n',
-    '.onx-modal__msg {\n',
-    '  font-size: .8rem; text-align: center; margin-top: 10px; min-height: 18px;\n',
-    '}\n',
-    '.onx-modal__msg.ok  { color: #4a7038; }\n',
-    '.onx-modal__msg.err { color: #a03030; }\n',
-    '\n',
-    '/* ── Full Reading Panel ── */\n',
-    '.onx-full-reading {\n',
-    '  margin-top: 18px;\n',
-    '  background: #f0ede4;\n',
-    '  border-radius: 10px;\n',
-    '  border: 1px solid rgba(75,88,62,.12);\n',
-    '  overflow: hidden;\n',
-    '}\n',
-    '.onx-full-reading__inner {\n',
-    '  padding: 24px 28px;\n',
-    '  max-height: 380px;\n',
-    '  overflow-y: auto;\n',
-    '}\n',
-    '.onx-full-reading__inner::-webkit-scrollbar { width: 4px; }\n',
-    '.onx-full-reading__inner::-webkit-scrollbar-thumb { background: rgba(75,88,62,.2); border-radius: 2px; }\n',
-    '\n',
-    '.onx-fr-dream {\n',
-    '  font-family: "Cormorant Garamond", Georgia, serif;\n',
-    '  font-style: italic; font-size: 1.05rem; color: #5a6850;\n',
-    '  margin-bottom: 20px; line-height: 1.7;\n',
-    '  padding-bottom: 16px; border-bottom: 1px solid rgba(75,88,62,.1);\n',
-    '}\n',
-    '.onx-fr-section { margin-bottom: 18px; }\n',
-    '.onx-fr-label {\n',
-    '  font-family: "DM Mono", monospace;\n',
-    '  font-size: 9px; letter-spacing: .22em; text-transform: uppercase;\n',
-    '  color: #6e8557; display: block; margin-bottom: 8px;\n',
-    '}\n',
-    '.onx-fr-text {\n',
-    '  font-size: .9rem; line-height: 1.82; color: #2a3220; margin: 0;\n',
-    '}\n',
-    '.onx-fr-text--signal {\n',
-    '  font-size: 1rem; font-weight: 600; color: #1e2818;\n',
-    '}\n',
-    '.onx-fr-text--morning {\n',
-    '  font-style: italic; color: #4a5838;\n',
-    '  background: rgba(75,88,62,.06); padding: 12px 16px; border-radius: 6px;\n',
-    '}\n',
-    '.onx-modal__btn--ghost {\n',
-    '  background: transparent; color: #5a6850;\n',
-    '  border: 1px solid rgba(75,88,62,.2);\n',
-    '}\n',
-    '.onx-modal__btn--ghost:hover { background: rgba(75,88,62,.06); }\n',
-    '\n'
+    '.onx-modal-overlay{position:fixed;inset:0;z-index:100000;background:rgba(20,30,15,.62);display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .2s;padding:18px}',
+    '.onx-modal-overlay.open{opacity:1;pointer-events:all}',
+    '.onx-modal{background:#f7f9f4;border-radius:18px;padding:28px;width:min(820px,96vw);max-height:92vh;overflow-y:auto;position:relative;border:1px solid rgba(58,68,53,.14);transform:translateY(12px);transition:transform .2s}',
+    '.onx-modal-overlay.open .onx-modal{transform:translateY(0)}',
+    '.onx-modal--sm{width:min(380px,94vw)}',
+    '.onx-modal__close{position:absolute;top:14px;right:16px;background:none;border:none;cursor:pointer;font-size:17px;color:rgba(60,72,48,.35)}',
+    '.onx-modal__title{font-family:"Playfair Display",Georgia,serif;font-size:1.4rem;font-weight:600;color:#1e2818;margin:0 0 6px}',
+    '.onx-modal__sub{font-size:.86rem;color:#5a6850;line-height:1.55;margin:0 0 18px}',
+    '.onx-canvas-wrap{border-radius:12px;overflow:hidden;border:1px solid rgba(58,68,53,.14);margin-bottom:16px;line-height:0;background:#3a4435}',
+    '.onx-canvas-wrap--square{max-width:420px;margin-left:auto;margin-right:auto}',
+    '.onx-modal--signal{width:min(520px,96vw)}',
+    '.onx-canvas-wrap canvas{width:100%;height:auto;display:block}',
+    '.onx-modal__actions{display:flex;gap:10px;flex-wrap:wrap}',
+    '.onx-modal__btn{display:inline-flex;align-items:center;gap:7px;padding:12px 18px;border-radius:999px;border:none;cursor:pointer;font-family:"Work Sans",sans-serif;font-size:12px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;text-decoration:none}',
+    '.onx-modal__btn--primary{background:#3a4435;color:#e8f2de}',
+    '.onx-modal__btn--tw{background:#1a1a1a;color:#fff}',
+    '.onx-modal__btn--ghost{background:transparent;color:#5a6850;border:1px solid rgba(75,88,62,.2)}',
+    '.onx-modal__input{width:100%;padding:12px 14px;margin-bottom:12px;border:1.5px solid rgba(75,88,62,.2);border-radius:10px;font-family:"Work Sans",sans-serif;font-size:.94rem;background:#fff;color:#1e2818;outline:none;box-sizing:border-box}',
+    '.onx-modal__msg{font-size:.8rem;text-align:center;margin-top:10px;min-height:18px}',
+    '.onx-modal__msg.ok{color:#4a7038}.onx-modal__msg.err{color:#a03030}',
+    '.onx-full-reading{margin-top:16px;background:#eef2ea;border-radius:12px;border:1px solid rgba(75,88,62,.12)}',
+    '.onx-full-reading__inner{padding:20px 22px;max-height:360px;overflow-y:auto}',
+    '.onx-fr-dream{font-family:"Work Sans",sans-serif;font-style:normal;font-size:.95rem;color:#5a6850;margin-bottom:16px;line-height:1.65;padding-bottom:14px;border-bottom:1px solid rgba(75,88,62,.1)}',
+    '.onx-fr-section{margin-bottom:16px}',
+    '.onx-fr-label{font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:#6e8557;display:block;margin-bottom:6px;font-weight:700}',
+    '.onx-fr-text{font-family:"Work Sans",sans-serif;font-size:.95rem;line-height:1.7;color:#2a3220;margin:0}',
+    '.onx-fr-text--signal{font-size:1rem;font-weight:600;color:#1e2818}',
+    '.onx-fr-text--morning{font-style:normal;font-weight:500;color:#2a3220;background:rgba(75,88,62,.06);padding:12px 14px;border-radius:8px}'
   ].join('');
   document.head.appendChild(s);
 }
 
-/* ═══════════════════════════
-   HELPERS
-═══════════════════════════ */
 function esc(s) {
-  return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+  return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 }
 
-/* ═══════════════════════════
-   8. SVG ICONS
-═══════════════════════════ */
 function svgIcon(name) {
   var icons = {
-    image:    '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>',
-    mail:     '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>',
-    reddit:   '<svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="10"/><path fill="#f5f8f0" d="M15.9 9.5c.5 0 .9-.4.9-.9s-.4-.9-.9-.9-.9.4-.9.9.4.9.9.9zm-8 0c.5 0 .9-.4.9-.9s-.4-.9-.9-.9-.9.4-.9.9.4.9.9.9zm8.8-.4c-.1-.8-.8-1.4-1.7-1.4-.4 0-.8.2-1.1.4-.8-.5-1.9-.8-3-.8s-2.2.3-3 .8c-.3-.3-.7-.4-1.1-.4-.9 0-1.6.6-1.7 1.4-.5.3-.8.9-.8 1.5 0 .9.6 1.7 1.5 2.1v.1c0 1.9 2.2 3.4 5 3.4s5-1.5 5-3.4v-.1c.9-.4 1.5-1.2 1.5-2.1 0-.6-.3-1.2-.6-1.5zm-5 3.9c-1.6 0-2.9-.4-2.9-.9s1.3-.9 2.9-.9 2.9.4 2.9.9-1.3.9-2.9.9z"/></svg>',
-    copy:     '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>',
-    download: '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>',
-    twitter:  '<svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.748l7.73-8.835L1.254 2.25H8.08l4.259 5.63 5.905-5.63zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>',
-    check:    '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>',
-    scroll:   '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>'
+    mail: '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>',
+    download: '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>',
+    twitter: '<svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.748l7.73-8.835L1.254 2.25H8.08l4.259 5.63 5.905-5.63zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>',
+    scroll: '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>',
+    square: '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/></svg>'
   };
   return icons[name] || '';
 }
 
-/* ═══════════════════════════
-   INIT
-═══════════════════════════ */
-function init() {
-  injectCSS();
-  interceptFetch();
-}
+document.addEventListener('onx-decode-result', function (e) {
+  var d = e.detail || {};
+  if (d.raw) parseFromRaw(d.raw);
+  if (d.dream) reading.dream = d.dream;
+});
+
+window.OneiroxShare = {
+  setReading: setReading,
+  openCard: openCardModal,
+  openSignalCard: openSignalCard,
+  openEmail: openEmailModal
+};
+
+function init() { injectCSS(); }
 
 if (document.readyState === 'loading') {
   document.addEventListener('DOMContentLoaded', init);

@@ -4,9 +4,7 @@
 (function () {
   'use strict';
 
-  var DEFERRED = [
-    '/js/oneirox-share.js'
-  ];
+  var DEFERRED = [];
 
   function loadDeferred() {
     DEFERRED.forEach(function (src) {
