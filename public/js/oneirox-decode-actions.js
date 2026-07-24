@@ -290,16 +290,32 @@
   }
 
   /* ── Journal UI ── */
+  function mountJournalNavBtn() {
+    if (document.getElementById('onx-journal-open')) return;
+    var actions = document.querySelector('.site-header__actions');
+    if (!actions) return;
+
+    var btn = document.createElement('button');
+    btn.type = 'button';
+    btn.id = 'onx-journal-open';
+    btn.className = 'onx-journal-nav';
+    btn.setAttribute('aria-label', t('journal'));
+    btn.innerHTML =
+      '<span class="onx-journal-nav__label">' + escapeHtml(t('journal')) + '</span>' +
+      '<span class="onx-journal-nav__badge" id="onx-journal-badge" hidden></span>';
+
+    var cta = actions.querySelector('.btn--primary');
+    if (cta) actions.insertBefore(btn, cta);
+    else actions.appendChild(btn);
+    btn.addEventListener('click', openJournal);
+  }
+
   function ensureJournalUi() {
+    mountJournalNavBtn();
     if (document.getElementById('onx-journal-root')) return;
     var root = document.createElement('div');
     root.id = 'onx-journal-root';
     root.innerHTML =
-      '<button type="button" class="onx-journal-fab" id="onx-journal-open" aria-label="' + escapeHtml(t('journal')) + '">' +
-        '<span class="onx-journal-fab__glyph" aria-hidden="true"></span>' +
-        '<span class="onx-journal-fab__label">' + escapeHtml(t('journal')) + '</span>' +
-        '<span class="onx-journal-fab__badge" id="onx-journal-badge" hidden></span>' +
-      '</button>' +
       '<div class="onx-journal-drawer" id="onx-journal-drawer" hidden>' +
         '<div class="onx-journal-drawer__panel" role="dialog" aria-modal="true" aria-labelledby="onx-journal-title">' +
           '<header class="onx-journal-drawer__head">' +
@@ -330,7 +346,6 @@
         '</div>' +
       '</div>';
     document.body.appendChild(root);
-    document.getElementById('onx-journal-open').addEventListener('click', openJournal);
     document.getElementById('onx-journal-close').addEventListener('click', closeJournal);
     document.getElementById('onx-journal-drawer').addEventListener('click', function (e) {
       if (e.target.id === 'onx-journal-drawer') closeJournal();
@@ -573,6 +588,92 @@
     return sheet;
   }
 
+  function printBrainBlock() {
+    var ru = lang() === 'ru';
+    var kicker = ru ? 'Структуры мозга, которые читает Decode' : 'Brain structures Decode reads';
+    var cards = ru
+      ? [
+          {
+            n: '01', cls: 'amy', system: 'Лимбическая система', title: 'Миндалина', color: '#00a5a8',
+            hit: '<ellipse cx="78" cy="88" rx="14" ry="10" fill="#00a5a8" opacity=".35"/><ellipse cx="78" cy="88" rx="9" ry="6.5" fill="#00a5a8"/>',
+            fn: 'Детекция угрозы и эмоциональная метка.',
+            rem: 'REM: репетиция страха без моторного выхода.',
+            decode: 'Погони, хищники, паника — симуляция угрозы, не символы.',
+          },
+          {
+            n: '02', cls: 'thal', system: 'Промежуточный мозг', title: 'Таламус', color: '#3189cc',
+            hit: '<ellipse cx="88" cy="72" rx="18" ry="10" fill="#3189cc" opacity=".35"/><ellipse cx="88" cy="72" rx="14" ry="7" fill="#3189cc"/>',
+            fn: 'Центральный релейный фильтр сенсорных сигналов.',
+            rem: 'Сон: внутренние образы ощущаются как восприятие.',
+            decode: 'Гиперреальные текстуры и звук — таламо-кортикальные петли.',
+          },
+          {
+            n: '03', cls: 'hip', system: 'Медиальная височная доля', title: 'Гиппокамп', color: '#5cb888',
+            hit: '<path d="M58 108 C68 98 82 96 92 102 C102 108 108 118 104 128 C100 136 86 138 74 132 C62 126 54 118 58 108Z" fill="#5cb888" opacity=".85"/>',
+            fn: 'Связывает эпизоды в нарративную память.',
+            rem: 'REM: реплей опыта и эмоций в сюжет сна.',
+            decode: 'Повторяющиеся люди и места — консолидация, не символизм.',
+          },
+        ]
+      : [
+          {
+            n: '01', cls: 'amy', system: 'Limbic system', title: 'Amygdala', color: '#00a5a8',
+            hit: '<ellipse cx="78" cy="88" rx="14" ry="10" fill="#00a5a8" opacity=".35"/><ellipse cx="78" cy="88" rx="9" ry="6.5" fill="#00a5a8"/>',
+            fn: 'Threat detection and emotional tagging.',
+            rem: 'REM: rehearses fear without motor output.',
+            decode: 'Chase, predators, panic — threat simulation, not symbols.',
+          },
+          {
+            n: '02', cls: 'thal', system: 'Diencephalon', title: 'Thalamus', color: '#3189cc',
+            hit: '<ellipse cx="88" cy="72" rx="18" ry="10" fill="#3189cc" opacity=".35"/><ellipse cx="88" cy="72" rx="14" ry="7" fill="#3189cc"/>',
+            fn: 'Central relay — filters sensory signals to cortex.',
+            rem: 'Sleep: internally generated imagery feels like perception.',
+            decode: 'Hyper-real textures and sound — thalamic-cortical loops.',
+          },
+          {
+            n: '03', cls: 'hip', system: 'Medial temporal lobe', title: 'Hippocampus', color: '#5cb888',
+            hit: '<path d="M58 108 C68 98 82 96 92 102 C102 108 108 118 104 128 C100 136 86 138 74 132 C62 126 54 118 58 108Z" fill="#5cb888" opacity=".85"/>',
+            fn: 'Binds episodes into narrative memory.',
+            rem: 'REM: replays experience into dream plots.',
+            decode: 'Recurring people and places — consolidation, not symbolism.',
+          },
+        ];
+
+    var brainOutline =
+      '<path d="M28 28 C55 18 95 22 118 42 C138 60 148 88 142 118 C136 142 110 152 82 148 C52 144 32 124 26 96 C20 68 28 38 28 28Z" fill="#eef2ea" stroke="#9aaa90" stroke-width="1.2"/>';
+
+    var lblFn = ru ? 'Фн' : 'Fn';
+    var lblRem = 'REM';
+    var lblDec = 'Decode';
+
+    return (
+      '<section class="onx-print-brain">' +
+        '<p class="onx-print-brain__kicker">' + escapeHtml(kicker) + '</p>' +
+        '<div class="onx-print-brain__grid">' +
+        cards.map(function (c) {
+          return (
+            '<article class="onx-print-brain__card onx-print-brain__card--' + c.cls + '">' +
+              '<header>' +
+                '<span style="background:' + c.color + '">' + c.n + '</span>' +
+                '<div>' +
+                  '<p class="onx-print-brain__sys">' + escapeHtml(c.system) + '</p>' +
+                  '<h3>' + escapeHtml(c.title) + '</h3>' +
+                '</div>' +
+              '</header>' +
+              '<svg class="onx-print-brain__svg" viewBox="0 0 160 140" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">' +
+                brainOutline + c.hit +
+              '</svg>' +
+              '<p><strong>' + lblFn + '</strong> ' + escapeHtml(c.fn) + '</p>' +
+              '<p><strong>' + lblRem + '</strong> ' + escapeHtml(c.rem) + '</p>' +
+              '<p class="onx-print-brain__decode"><strong>' + lblDec + '</strong> ' + escapeHtml(c.decode) + '</p>' +
+            '</article>'
+          );
+        }).join('') +
+        '</div>' +
+      '</section>'
+    );
+  }
+
   function printEntry(entry) {
     var sheet = ensurePrintSheet();
     var dream = entry.dream || '';
@@ -603,6 +704,7 @@
         (entry.checkin && entry.checkin.text
           ? '<section><h2>Body check-in</h2><p>' + escapeHtml(entry.checkin.text) + '</p></section>'
           : '') +
+        printBrainBlock() +
         '<footer class="onx-print-foot">oneirox.com · Not medical advice</footer>' +
       '</article>';
 
@@ -730,15 +832,16 @@
     bar.className = 'onx-decode-actions';
     bar.innerHTML =
       '<p class="onx-decode-actions__label">' + escapeHtml(t('label')) + '</p>' +
-      '<div class="onx-decode-actions__row" role="group">' +
+      '<div class="onx-decode-actions__row onx-decode-actions__row--share" role="group">' +
         '<button type="button" class="onx-act onx-act--primary" data-act="card">' + escapeHtml(t('shareCard')) + '</button>' +
         '<button type="button" class="onx-act onx-act--signal" data-act="signal">' + escapeHtml(t('signalCard')) + '</button>' +
         '<button type="button" class="onx-act" data-act="copy">' + escapeHtml(t('copy')) + '</button>' +
         '<button type="button" class="onx-act" data-act="copyLink">' + escapeHtml(t('copyLink')) + '</button>' +
+        '<button type="button" class="onx-act" data-act="email">' + escapeHtml(t('email')) + '</button>' +
+      '</div>' +
+      '<div class="onx-decode-actions__row onx-decode-actions__row--keep" role="group">' +
         '<button type="button" class="onx-act onx-act--save" data-act="save">' + escapeHtml(t('save')) + '</button>' +
         '<button type="button" class="onx-act" data-act="pdf">' + escapeHtml(t('pdf')) + '</button>' +
-        '<button type="button" class="onx-act" data-act="email">' + escapeHtml(t('email')) + '</button>' +
-        '<button type="button" class="onx-act onx-act--ghost" data-act="journal">' + escapeHtml(t('journal')) + '</button>' +
       '</div>';
     resultBox.appendChild(bar);
     lastEntry = entry;
@@ -769,10 +872,6 @@
       if (act === 'pdf') {
         upsertEntry(entry);
         printEntry(entry);
-        return;
-      }
-      if (act === 'journal') {
-        openJournal();
         return;
       }
       if (act === 'card') {

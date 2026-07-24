@@ -639,6 +639,15 @@
   justify-content: center;
 }
 
+.onx-decode-actions__row--share {
+  margin-bottom: 10px;
+}
+
+.onx-decode-actions__row--keep {
+  padding-top: 10px;
+  border-top: 1px dashed rgba(58, 68, 53, 0.14);
+}
+
 .onx-act {
   display: inline-flex;
   align-items: center;
@@ -693,35 +702,50 @@
 #onx-share-bar { display: none !important; }
 
 /* Journal FAB + drawer — above site-nav (z-index 200–300) */
-.onx-journal-fab {
-  position: fixed;
-  right: 18px;
-  bottom: 22px;
-  z-index: 420;
+/* Journal — lives in site header actions (not a floating FAB) */
+.onx-journal-nav {
+  position: relative;
   display: inline-flex;
   align-items: center;
-  gap: 10px;
-  padding: 12px 16px;
-  border: none;
+  gap: 6px;
+  padding: 8px 14px;
+  border: 1.5px solid rgba(58, 68, 53, 0.2);
   border-radius: 999px;
-  background: var(--onx-forest);
-  color: #f8faf5;
+  background: rgba(255, 255, 255, 0.72);
+  color: var(--onx-forest);
   font-family: var(--onx-font-sans);
-  font-size: 13px;
-  font-weight: 600;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
   cursor: pointer;
-  box-shadow: 0 12px 30px rgba(26, 40, 24, 0.28);
+  transition: background 0.18s ease, border-color 0.18s ease, color 0.18s ease;
 }
 
-.onx-journal-fab:hover { background: #2c3629; }
+.onx-journal-nav:hover {
+  background: #eef3ea;
+  border-color: rgba(0, 165, 168, 0.4);
+  color: #1e3224;
+}
 
-.onx-journal-fab__glyph {
-  width: 10px;
-  height: 10px;
-  border: 1.5px solid currentColor;
-  border-radius: 2px;
-  transform: rotate(45deg);
-  opacity: 0.9;
+.onx-journal-nav__badge {
+  position: absolute;
+  top: -5px;
+  right: -4px;
+  min-width: 16px;
+  height: 16px;
+  padding: 0 4px;
+  border-radius: 999px;
+  background: #c45a3a;
+  color: #fff;
+  font-size: 9px;
+  font-weight: 700;
+  line-height: 16px;
+  text-align: center;
+}
+
+/* legacy FAB hidden if any remnant */
+.onx-journal-fab {
+  display: none !important;
 }
 
 .onx-journal-drawer {
@@ -970,6 +994,115 @@
   color: #889;
 }
 
+.onx-print-brain {
+  margin-top: 18px;
+  padding-top: 12px;
+  border-top: 1.5px solid #d5ddd0;
+  page-break-inside: avoid;
+  break-inside: avoid;
+}
+
+.onx-print-brain__kicker {
+  margin: 0 0 10px;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #566e58;
+}
+
+.onx-print-brain__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+}
+
+.onx-print-brain__card {
+  border: 1px solid #d8e0d4;
+  border-radius: 10px;
+  padding: 8px 9px 9px;
+  background: #fbfcf9;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+.onx-print-brain__card header {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  margin-bottom: 4px;
+}
+
+.onx-print-brain__card header span {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  color: #fff;
+  font-size: 9px;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.onx-print-brain__sys {
+  margin: 0;
+  font-size: 7.5px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #7a8674;
+}
+
+.onx-print-brain__card h3 {
+  margin: 0;
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 13px;
+  font-weight: 600;
+  color: #1a2418;
+  line-height: 1.15;
+}
+
+.onx-print-brain__svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 58px;
+  margin: 2px 0 6px;
+}
+
+.onx-print-brain__card p {
+  margin: 0 0 4px;
+  font-size: 9.5px !important;
+  line-height: 1.35 !important;
+  color: #2a3228;
+}
+
+.onx-print-brain__card p strong {
+  font-size: 8px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #566e58;
+}
+
+.onx-print-brain__decode {
+  padding-top: 4px;
+  border-top: 1px solid #e2e8de;
+}
+
+.onx-print-brain__card--amy .onx-print-brain__decode strong { color: #2d6a6a; }
+.onx-print-brain__card--thal .onx-print-brain__decode strong { color: #1a4a78; }
+.onx-print-brain__card--hip .onx-print-brain__decode strong { color: #2a6a48; }
+
+.onx-print-doc--compact .onx-print-brain__svg,
+.onx-print-doc--dense .onx-print-brain__svg {
+  max-height: 42px;
+}
+
+.onx-print-doc--dense .onx-print-brain__card p {
+  font-size: 8.5px !important;
+}
+
 /* Insight strip: compare + refine */
 .onx-decode-insight {
   margin: 22px 0 8px;
@@ -1140,22 +1273,6 @@
   color: #4a5838;
 }
 
-.onx-journal-fab__badge {
-  position: absolute;
-  top: -4px;
-  right: -2px;
-  min-width: 18px;
-  height: 18px;
-  padding: 0 5px;
-  border-radius: 999px;
-  background: #c45a3a;
-  color: #fff;
-  font-size: 10px;
-  font-weight: 700;
-  line-height: 18px;
-  text-align: center;
-}
-
 /* Morning check-in modal */
 .onx-checkin {
   position: fixed;
@@ -1225,6 +1342,51 @@
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
+}
+
+/* Share / email modals — durable screen styles (not JS-only) */
+.onx-modal-overlay {
+  position: fixed !important;
+  inset: 0 !important;
+  z-index: 2147483000 !important;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  box-sizing: border-box;
+  margin: 0;
+  background: rgba(18, 24, 16, 0.58);
+  backdrop-filter: blur(3px);
+}
+
+.onx-modal-overlay.open {
+  display: flex !important;
+}
+
+body.onx-modal-lock {
+  overflow: hidden !important;
+}
+
+.onx-modal--email {
+  width: min(400px, 94vw) !important;
+  max-width: 400px;
+  margin: 0 auto;
+  transform: none !important;
+  box-shadow: 0 28px 80px rgba(0, 0, 0, 0.28);
+}
+
+.onx-modal__kicker {
+  margin: 0 0 8px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #5a7a58;
+}
+
+.onx-modal__btn--block {
+  width: 100%;
+  box-sizing: border-box;
 }
 
 @media print {
@@ -1307,17 +1469,30 @@
     break-before: avoid;
   }
 
+  body.onx-printing .onx-print-brain {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+
+  body.onx-printing .onx-print-brain__svg {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  .onx-journal-nav,
   .onx-journal-fab,
   .onx-journal-drawer,
   .onx-decode-actions,
   #onx-share-bar,
-  .onx-modal-overlay {
+  body.onx-printing .onx-modal-overlay {
     display: none !important;
   }
 }
 
 @media (max-width: 720px) {
-  .onx-journal-fab__label { display: none; }
-  .onx-journal-fab { padding: 14px; }
+  .onx-journal-nav {
+    padding: 7px 11px;
+    font-size: 11px;
+  }
   .onx-act { font-size: 12px; padding: 9px 12px; }
 }

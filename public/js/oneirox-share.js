@@ -74,22 +74,42 @@ function openCardModal() {
         '</div>',
       '</div>'
     ].join('');
-    modal.querySelector('.onx-modal__close').onclick = function () { modal.classList.remove('open'); };
-    modal.addEventListener('click', function (e) { if (e.target === modal) modal.classList.remove('open'); });
+    modal.querySelector('.onx-modal__close').onclick = function () {
+      modal.classList.remove('open');
+      modal.style.cssText = 'display:none';
+      document.body.classList.remove('onx-modal-lock');
+    };
+    modal.addEventListener('click', function (e) {
+      if (e.target === modal) {
+        modal.classList.remove('open');
+        modal.style.cssText = 'display:none';
+        document.body.classList.remove('onx-modal-lock');
+      }
+    });
     document.body.appendChild(modal);
   }
+  injectCSS();
   modal.classList.add('open');
+  modal.style.cssText =
+    'position:fixed;top:0;right:0;bottom:0;left:0;z-index:2147483000;' +
+    'display:flex;align-items:center;justify-content:center;' +
+    'padding:20px;box-sizing:border-box;margin:0;' +
+    'background:rgba(18,24,16,.58);opacity:1;pointer-events:auto;';
+  document.body.classList.add('onx-modal-lock');
   renderCanvas();
   var storiesBtn = document.getElementById('onx-btn-stories');
   if (storiesBtn) {
     storiesBtn.onclick = function () {
       modal.classList.remove('open');
+      modal.style.cssText = 'display:none';
+      document.body.classList.remove('onx-modal-lock');
       openSignalCard();
     };
   }
 }
 
 function openSignalCard() {
+  injectCSS();
   var modal = document.getElementById('onx-signal-modal');
   if (!modal) {
     modal = document.createElement('div');
@@ -110,11 +130,27 @@ function openSignalCard() {
         '</div>',
       '</div>'
     ].join('');
-    modal.querySelector('.onx-modal__close').onclick = function () { modal.classList.remove('open'); };
-    modal.addEventListener('click', function (e) { if (e.target === modal) modal.classList.remove('open'); });
+    modal.querySelector('.onx-modal__close').onclick = function () {
+      modal.classList.remove('open');
+      modal.style.cssText = 'display:none';
+      document.body.classList.remove('onx-modal-lock');
+    };
+    modal.addEventListener('click', function (e) {
+      if (e.target === modal) {
+        modal.classList.remove('open');
+        modal.style.cssText = 'display:none';
+        document.body.classList.remove('onx-modal-lock');
+      }
+    });
     document.body.appendChild(modal);
   }
   modal.classList.add('open');
+  modal.style.cssText =
+    'position:fixed;top:0;right:0;bottom:0;left:0;z-index:2147483000;' +
+    'display:flex;align-items:center;justify-content:center;' +
+    'padding:20px;box-sizing:border-box;margin:0;' +
+    'background:rgba(18,24,16,.58);opacity:1;pointer-events:auto;';
+  document.body.classList.add('onx-modal-lock');
   renderSignalCanvas();
 }
 
@@ -368,33 +404,59 @@ function drawQRSymbol(ctx, cx, cy, size) {
 }
 
 function openEmailModal() {
+  injectCSS();
   var modal = document.getElementById('onx-email-modal');
   if (!modal) {
     modal = document.createElement('div');
     modal.id = 'onx-email-modal';
-    modal.className = 'onx-modal-overlay';
+    modal.className = 'onx-modal-overlay onx-modal-overlay--email';
+    modal.setAttribute('role', 'presentation');
     modal.innerHTML = [
-      '<div class="onx-modal onx-modal--sm">',
-        '<button type="button" class="onx-modal__close">✕</button>',
-        '<h3 class="onx-modal__title">Send reading to your email</h3>',
+      '<div class="onx-modal onx-modal--sm onx-modal--email" role="dialog" aria-modal="true" aria-labelledby="onx-email-title">',
+        '<button type="button" class="onx-modal__close" aria-label="Close">✕</button>',
+        '<p class="onx-modal__kicker">Email</p>',
+        '<h3 class="onx-modal__title" id="onx-email-title">Send reading to your email</h3>',
         '<p class="onx-modal__sub">No account needed. One-time send.</p>',
-        '<input type="email" id="onx-email-inp" class="onx-modal__input" placeholder="your@email.com" autocomplete="email">',
-        '<button type="button" class="onx-modal__btn onx-modal__btn--primary" id="onx-email-send-btn">',
+        '<input type="email" id="onx-email-inp" class="onx-modal__input" placeholder="your@email.com" autocomplete="email" inputmode="email">',
+        '<button type="button" class="onx-modal__btn onx-modal__btn--primary onx-modal__btn--block" id="onx-email-send-btn">',
           svgIcon('mail'), ' Send Reading',
         '</button>',
         '<p class="onx-modal__msg" id="onx-email-msg"></p>',
       '</div>'
     ].join('');
-    modal.querySelector('.onx-modal__close').onclick = function () { modal.classList.remove('open'); };
-    modal.addEventListener('click', function (e) { if (e.target === modal) modal.classList.remove('open'); });
+    modal.querySelector('.onx-modal__close').onclick = function () { closeEmailModal(); };
+    modal.addEventListener('click', function (e) { if (e.target === modal) closeEmailModal(); });
+    document.addEventListener('keydown', function onEsc(e) {
+      if (e.key === 'Escape' && modal.classList.contains('open')) closeEmailModal();
+    });
     document.body.appendChild(modal);
     document.getElementById('onx-email-send-btn').onclick = sendEmail;
+  } else if (modal.parentNode !== document.body) {
+    document.body.appendChild(modal);
   }
+
+  // Hard center — survives missing injected CSS / weird containing blocks
+  modal.style.cssText =
+    'position:fixed;top:0;right:0;bottom:0;left:0;z-index:2147483000;' +
+    'display:flex;align-items:center;justify-content:center;' +
+    'padding:20px;box-sizing:border-box;margin:0;' +
+    'background:rgba(18,24,16,.58);backdrop-filter:blur(3px);' +
+    '-webkit-backdrop-filter:blur(3px);opacity:1;pointer-events:auto;';
+
   modal.classList.add('open');
+  document.body.classList.add('onx-modal-lock');
   setTimeout(function () {
     var inp = document.getElementById('onx-email-inp');
     if (inp) inp.focus();
   }, 80);
+}
+
+function closeEmailModal() {
+  var modal = document.getElementById('onx-email-modal');
+  if (!modal) return;
+  modal.classList.remove('open');
+  modal.style.cssText = 'display:none';
+  document.body.classList.remove('onx-modal-lock');
 }
 
 function sendEmail() {
@@ -456,24 +518,28 @@ function injectCSS() {
   var s = document.createElement('style');
   s.id = 'onx-share-css';
   s.textContent = [
-    '.onx-modal-overlay{position:fixed;inset:0;z-index:100000;background:rgba(20,30,15,.62);display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .2s;padding:18px}',
-    '.onx-modal-overlay.open{opacity:1;pointer-events:all}',
-    '.onx-modal{background:#f7f9f4;border-radius:18px;padding:28px;width:min(820px,96vw);max-height:92vh;overflow-y:auto;position:relative;border:1px solid rgba(58,68,53,.14);transform:translateY(12px);transition:transform .2s}',
-    '.onx-modal-overlay.open .onx-modal{transform:translateY(0)}',
-    '.onx-modal--sm{width:min(380px,94vw)}',
-    '.onx-modal__close{position:absolute;top:14px;right:16px;background:none;border:none;cursor:pointer;font-size:17px;color:rgba(60,72,48,.35)}',
-    '.onx-modal__title{font-family:"Playfair Display",Georgia,serif;font-size:1.4rem;font-weight:600;color:#1e2818;margin:0 0 6px}',
-    '.onx-modal__sub{font-size:.86rem;color:#5a6850;line-height:1.55;margin:0 0 18px}',
+    '.onx-modal-overlay{position:fixed!important;top:0!important;right:0!important;bottom:0!important;left:0!important;z-index:2147483000!important;background:rgba(18,24,16,.58)!important;display:none;align-items:center;justify-content:center;padding:20px;box-sizing:border-box;margin:0;opacity:1;pointer-events:none}',
+    '.onx-modal-overlay.open{display:flex!important;pointer-events:auto!important}',
+    'body.onx-modal-lock{overflow:hidden!important}',
+    '.onx-modal{background:#f7f9f4;border-radius:18px;padding:28px;width:min(820px,96vw);max-height:92vh;overflow-y:auto;position:relative;border:1px solid rgba(58,68,53,.14);box-shadow:0 28px 80px rgba(0,0,0,.28);transform:none!important;margin:0 auto}',
+    '.onx-modal--sm,.onx-modal--email{width:min(400px,94vw)!important;max-width:400px;padding:26px 24px 22px}',
+    '.onx-modal__kicker{margin:0 0 8px;font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#5a7a58}',
+    '.onx-modal__close{position:absolute;top:12px;right:14px;width:32px;height:32px;border-radius:8px;background:rgba(58,68,53,.06);border:none;cursor:pointer;font-size:16px;color:rgba(60,72,48,.55);line-height:1}',
+    '.onx-modal__close:hover{background:rgba(58,68,53,.12)}',
+    '.onx-modal__title{font-family:"Playfair Display",Georgia,serif;font-size:1.35rem;font-weight:600;color:#1e2818;margin:0 0 6px;padding-right:28px;line-height:1.25}',
+    '.onx-modal__sub{font-size:.86rem;color:#5a6850;line-height:1.55;margin:0 0 16px}',
     '.onx-canvas-wrap{border-radius:12px;overflow:hidden;border:1px solid rgba(58,68,53,.14);margin-bottom:16px;line-height:0;background:#3a4435}',
     '.onx-canvas-wrap--square{max-width:420px;margin-left:auto;margin-right:auto}',
     '.onx-modal--signal{width:min(520px,96vw)}',
     '.onx-canvas-wrap canvas{width:100%;height:auto;display:block}',
     '.onx-modal__actions{display:flex;gap:10px;flex-wrap:wrap}',
-    '.onx-modal__btn{display:inline-flex;align-items:center;gap:7px;padding:12px 18px;border-radius:999px;border:none;cursor:pointer;font-family:"Work Sans",sans-serif;font-size:12px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;text-decoration:none}',
+    '.onx-modal__btn{display:inline-flex;align-items:center;justify-content:center;gap:7px;padding:12px 18px;border-radius:999px;border:none;cursor:pointer;font-family:"Work Sans",sans-serif;font-size:12px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;text-decoration:none}',
+    '.onx-modal__btn--block{width:100%;box-sizing:border-box}',
     '.onx-modal__btn--primary{background:#3a4435;color:#e8f2de}',
     '.onx-modal__btn--tw{background:#1a1a1a;color:#fff}',
     '.onx-modal__btn--ghost{background:transparent;color:#5a6850;border:1px solid rgba(75,88,62,.2)}',
-    '.onx-modal__input{width:100%;padding:12px 14px;margin-bottom:12px;border:1.5px solid rgba(75,88,62,.2);border-radius:10px;font-family:"Work Sans",sans-serif;font-size:.94rem;background:#fff;color:#1e2818;outline:none;box-sizing:border-box}',
+    '.onx-modal__input{width:100%;padding:13px 14px;margin-bottom:12px;border:1.5px solid rgba(75,88,62,.22);border-radius:12px;font-family:"Work Sans",sans-serif;font-size:.95rem;background:#fff;color:#1e2818;outline:none;box-sizing:border-box}',
+    '.onx-modal__input:focus{border-color:#4a6838;box-shadow:0 0 0 3px rgba(115,165,99,.2)}',
     '.onx-modal__msg{font-size:.8rem;text-align:center;margin-top:10px;min-height:18px}',
     '.onx-modal__msg.ok{color:#4a7038}.onx-modal__msg.err{color:#a03030}',
     '.onx-full-reading{margin-top:16px;background:#eef2ea;border-radius:12px;border:1px solid rgba(75,88,62,.12)}',
@@ -513,7 +579,8 @@ window.OneiroxShare = {
   setReading: setReading,
   openCard: openCardModal,
   openSignalCard: openSignalCard,
-  openEmail: openEmailModal
+  openEmail: openEmailModal,
+  closeEmail: closeEmailModal
 };
 
 function init() { injectCSS(); }
