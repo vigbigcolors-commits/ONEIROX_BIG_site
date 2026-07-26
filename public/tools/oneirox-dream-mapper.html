@@ -801,12 +801,7 @@ function sendToDecode() {
     timestamp: Date.now()
   };
   try { localStorage.setItem('onx_mapper_data', JSON.stringify(data)); } catch(e) {}
-  var dest = '/#decode';
-  try {
-    var pending = JSON.parse(localStorage.getItem('onx_pending_dream') || 'null');
-    if (pending && pending.lang === 'ru') dest = '/#decode';
-  } catch (e) {}
-  window.location.href = dest;
+  window.location.href = '/#decode';
 }
 
 update();

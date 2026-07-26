@@ -3,7 +3,7 @@
 # 287 posts -> / (301)
 # Legacy pages mapped to new static routes
 
-# USA-first: retire RU locale from crawl/index — map to EN equivalents
+# USA-first: RU locale removed — keep 301s for old indexed URLs
 /ru / 301
 /ru/ / 301
 /ru/* /:splat 301
