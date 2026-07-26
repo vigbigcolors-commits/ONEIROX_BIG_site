@@ -3,7 +3,10 @@
 # 287 posts -> / (301)
 # Legacy pages mapped to new static routes
 
-/ru /ru/ 301
+# USA-first: retire RU locale from crawl/index — map to EN equivalents
+/ru / 301
+/ru/ / 301
+/ru/* /:splat 301
 
 /sensory-dream-mapper/ /tools/oneirox-dream-mapper 301
 /sensory-dream-mapper /tools/oneirox-dream-mapper 301

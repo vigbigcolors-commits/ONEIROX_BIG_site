@@ -1,6 +1,9 @@
 User-agent: *
 Allow: /
 
+# USA-first: RU locale retired from index (files kept; 301 via _redirects)
+Disallow: /ru/
+
 # Safe PSEO crawl budget: bulk somatic DB is noindex in HTML.
 Allow: /somatic/$
 Allow: /somatic/phase/

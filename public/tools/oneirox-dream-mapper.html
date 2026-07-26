@@ -804,7 +804,7 @@ function sendToDecode() {
   var dest = '/#decode';
   try {
     var pending = JSON.parse(localStorage.getItem('onx_pending_dream') || 'null');
-    if (pending && pending.lang === 'ru') dest = '/ru/#decode';
+    if (pending && pending.lang === 'ru') dest = '/#decode';
   } catch (e) {}
   window.location.href = dest;
 }
