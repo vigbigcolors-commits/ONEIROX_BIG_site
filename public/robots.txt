@@ -2,7 +2,6 @@ User-agent: *
 Allow: /
 
 # Safe PSEO crawl budget: bulk somatic DB is noindex in HTML.
-# Hub + phase indexes + top density rows are explicitly allowed.
 Allow: /somatic/$
 Allow: /somatic/phase/
 
@@ -57,5 +56,4 @@ Allow: /somatic/rem-sawtooth-wave-window/rem/onset/
 Allow: /somatic/rem-penile-or-clitoral-engorgement/rem/mid-cycle/
 Allow: /somatic/cortisol-awakening-motor/n1/awakening/
 
-# Oneirox is a web application (Dream Decoder), not an article blog.
 Sitemap: https://oneirox.com/sitemap.xml

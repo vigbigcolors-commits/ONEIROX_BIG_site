@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <meta name="theme-color" content="#1e3224">
+  <title>{{TITLE}} | Oneirox Somatic Utility</title>
+  <meta name="description" content="{{DESCRIPTION}}">
+  <meta name="robots" content="{{ROBOTS}}">
+  <link rel="canonical" href="{{CANONICAL}}">
+  <meta property="og:title" content="{{TITLE}}">
+  <meta property="og:description" content="{{DESCRIPTION}}">
+  <meta property="og:url" content="{{CANONICAL}}">
+  <link rel="stylesheet" href="/css/fonts.css">
+  <link rel="stylesheet" href="/somatic/assets/somatic-utility.css">
+  <script type="application/ld+json">{{JSON_LD}}</script>
+</head>
+<body class="sx-type-sparse" data-layout="{{LAYOUT}}" data-indexable="{{INDEXABLE}}" data-chart-seed="{{CHART_SEED}}" data-gauge-atonia="{{GAUGE_ATONIA}}" data-gauge-arousal="{{GAUGE_AROUSAL}}" data-gauge-coherence="{{GAUGE_COHERENCE}}">
+  <header class="sx-top">
+    <a class="sx-brand" href="/">Oneirox</a>
+    <nav class="sx-nav"><a href="/somatic/">Somatic DB</a><a href="/#decode">Decode</a></nav>
+  </header>
+  <main class="sx-main">
+    <p class="sx-kicker">Utility type · sparse metric row · layout {{LAYOUT}}</p>
+    <h1 class="sx-title">{{TITLE}}</h1>
+    <p class="sx-lead">{{SUMMARY}}</p>
+    <div class="sx-chart sx-chart--compact">{{EEG_SVG}}</div>
+    <ul class="sx-alert-list">{{MARKER_LIST}}</ul>
+    {{MODULES_EXTRA}}
+    {{CTA_HARD}}
+    <p class="sx-disclaimer">Not a medical diagnosis. Dataset row for exploration only.</p>
+  </main>
+  <footer class="sx-foot"><a href="/somatic/">Somatic index</a> · <a href="/disclaimer/">Disclaimer</a></footer>
+  <script src="/somatic/assets/somatic-utility.js" defer></script>
+</body>
+</html>

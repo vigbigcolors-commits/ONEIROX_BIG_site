@@ -8,9 +8,11 @@
     "preview": "npx --yes serve public -p 3000",
     "favicons": "node scripts/generate-favicons.mjs",
     "pseo:expand": "node pseo/scripts/expand-matrix.mjs --target=400 --indexable=50",
-    "pseo:build": "node pseo/scripts/build-somatic-ssg.mjs",
+    "pseo:enrich": "node pseo/scripts/enrich-matrix.mjs",
+    "pseo:audit": "node pseo/scripts/audit-uniqueness.mjs",
+    "pseo:build": "node pseo/scripts/audit-uniqueness.mjs && node pseo/scripts/build-somatic-ssg.mjs",
     "pseo:index": "node pseo/scripts/submit-indexing.mjs",
     "pseo:indexnow": "node pseo/scripts/submit-indexnow.mjs",
-    "pseo:all": "npm run pseo:expand && npm run pseo:build"
+    "pseo:all": "npm run pseo:expand && npm run pseo:enrich && npm run pseo:build"
   }
 }

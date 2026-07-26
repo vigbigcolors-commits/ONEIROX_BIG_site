@@ -87,7 +87,51 @@
           "type": "array",
           "items": { "type": "string" },
           "minItems": 1
-        }
+        },
+        "body_zones": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "craniofacial",
+              "ocular",
+              "thoracic",
+              "pelvic",
+              "limbs",
+              "autonomic-skin",
+              "axial-motor"
+            ]
+          }
+        },
+        "mechanism_bullets": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 20 },
+          "minItems": 2
+        },
+        "related_ids": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "layout_profile": {
+          "type": "string",
+          "enum": [
+            "eeg_baseline",
+            "phase_disruption",
+            "atonia_risk",
+            "transmitter_focus",
+            "somatic_map",
+            "compare_related",
+            "sparse_minimal"
+          ]
+        },
+        "modules_present": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "decode_hint": { "type": "string" },
+        "density_score": { "type": "number" },
+        "indexable": { "type": "boolean" },
+        "index_rank": { "type": "integer" }
       }
     }
   }
