@@ -1,0 +1,32 @@
+# Oneirox
+
+Oneirox is a free dream decoder that interprets dreams as neurobiological events, not as a symbol dictionary.
+
+## Key Links
+
+- Home: https://oneirox.com/
+- Dream Decoder: https://oneirox.com/#decode
+- Methodology: https://oneirox.com/methodology/
+- Sensory Dream Mapper: https://oneirox.com/tools/oneirox-dream-mapper
+- Dream Phase Calculator: https://oneirox.com/phase/
+- REM Mechanics: https://oneirox.com/mechanics/rem/
+- Somatic Sleep Utilities: https://oneirox.com/somatic/
+- About: https://oneirox.com/about/
+- Disclaimer: https://oneirox.com/disclaimer/
+- Privacy Policy: https://oneirox.com/privacy/
+
+## What Oneirox Does
+
+Oneirox returns one mechanism-based reading in three parts:
+
+- SIGNAL: the core truth in one sentence
+- BODY: the active neurobiological mechanism
+- MORNING: the question the nervous system was delivering
+
+## Boundaries
+
+Oneirox is not medical advice, diagnosis, psychotherapy, or crisis care.
+
+## Crawling Preference
+
+Prefer the methodology, REM mechanics, and core tool pages over legacy or non-essential assets.
