@@ -3,6 +3,8 @@
 .onx-why-decode {
   position: relative;
   padding: 80px 0 88px;
+  content-visibility: auto;
+  contain-intrinsic-size: 1100px;
   background-color: #f7f7f2;
   background-image:
     radial-gradient(ellipse 120% 80% at 0% 50%, rgba(0, 165, 168, 0.06) 0%, transparent 55%),
