@@ -24,6 +24,7 @@
   max-width: 820px;
   margin: 0 auto;
   padding: 0 28px;
+  min-height: 240px;
 }
 
 .onx-meth-hero__kicker {
@@ -88,6 +89,7 @@
   text-align: center;
   padding: 28px 20px;
   border-right: 1px solid rgba(58, 68, 53, 0.08);
+  min-height: 118px;
 }
 
 .onx-meth-stats__item:last-child { border-right: none; }

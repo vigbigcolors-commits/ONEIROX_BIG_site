@@ -1,14 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-R95EFBPZ6R" data-cfasync="false"></script>
-  <script data-cfasync="false">
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-R95EFBPZ6R');
-  </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
@@ -31,6 +23,8 @@
   <link rel="canonical" href="https://oneirox.com/methodology/">
   <link rel="alternate" hreflang="en" href="https://oneirox.com/methodology/">
   <link rel="alternate" hreflang="x-default" href="https://oneirox.com/methodology/">
+  <link rel="preload" as="font" href="/fonts/work-sans.woff2" type="font/woff2" crossorigin>
+  <link rel="preload" as="font" href="/fonts/playfair-600.woff2" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="/css/page.css">
   <link rel="stylesheet" href="/css/methodology.css">
   <link rel="stylesheet" href="/css/main.css">
@@ -104,7 +98,7 @@
           <li><a href="/methodology/" aria-current="page">Methodology</a></li>
         </ul>
       </nav>
-      <div class="site-header__actions">
+      <div class="site-header__actions">
         <a href="/#decode" class="btn btn--primary">Decode →</a>
       </div>
     </div>
@@ -470,6 +464,21 @@
   </footer>
 
   <script src="/js/back-to-top.js" defer></script>
-  <script src="/js/oneirox-lang.js" data-cfasync="false" defer></script>
+  <script data-cfasync="false">
+    window.addEventListener('load', function () {
+      var schedule = window.requestIdleCallback || function (cb) { return setTimeout(cb, 1200); };
+      schedule(function () {
+        window.dataLayer = window.dataLayer || [];
+        window.gtag = window.gtag || function(){ dataLayer.push(arguments); };
+        gtag('js', new Date());
+        gtag('config', 'G-R95EFBPZ6R', { transport_type: 'beacon' });
+        var s = document.createElement('script');
+        s.async = true;
+        s.src = 'https://www.googletagmanager.com/gtag/js?id=G-R95EFBPZ6R';
+        s.setAttribute('data-cfasync', 'false');
+        document.head.appendChild(s);
+      });
+    }, { once: true });
+  </script>
 </body>
 </html>
