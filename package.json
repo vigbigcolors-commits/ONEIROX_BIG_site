@@ -10,7 +10,8 @@
     "pseo:expand": "node pseo/scripts/expand-matrix.mjs --target=400 --indexable=50",
     "pseo:enrich": "node pseo/scripts/enrich-matrix.mjs",
     "pseo:audit": "node pseo/scripts/audit-uniqueness.mjs",
-    "pseo:build": "node pseo/scripts/audit-uniqueness.mjs && node pseo/scripts/build-somatic-ssg.mjs",
+    "pseo:build": "node pseo/scripts/audit-uniqueness.mjs && node pseo/scripts/build-somatic-ssg.mjs && node pseo/scripts/link-mechanics-pillars.mjs",
+    "pseo:link-mechanics": "node pseo/scripts/link-mechanics-pillars.mjs",
     "pseo:index": "node pseo/scripts/submit-indexing.mjs",
     "pseo:indexnow": "node pseo/scripts/submit-indexnow.mjs",
     "pseo:all": "npm run pseo:expand && npm run pseo:enrich && npm run pseo:build"

@@ -11,29 +11,34 @@ Programmatic SEO = **архитектура базы метрик**, не ген
 
 ## Закон уникальности (строго)
 
-1. Каждая страница — **уникальная композиция** (title / summary / mechanism / decode_hint).
+1. Каждая страница — **уникальная композиция** (title / summary / mechanism_bullets / decode_hint / felt_on_waking / decode_use).
 2. Запрещены одинаковые абзацы между URL и copy-paste с открытого веба.
-3. Общая оболочка (nav, CTA label, disclaimer) — ок; prose — нет.
-4. Билд обязан проходить `npm run pseo:audit` (near-dup → fail).
+3. Все fixed-фразы (лиды, "как это ощущается", gauge-интерпретации, decode-шаблоны) — **пулы вариантов** (`seededPick` в `pseo/lib/compose.mjs`), а не одна строка на весь контекст/бакет. Одна фиксированная фраза на 10+ строк = гарантированный near-dup.
+4. Никаких искусственных "OX-" токенов в видимом тексте — уникальность обеспечивается реальными данными строки (маркеры, Hz, gauge-числа, `chart_seed` как "row #N"), не спамом.
+5. Общая оболочка (nav, CTA label, disclaimer) — ок; prose — нет.
+6. Билд обязан проходить `npm run pseo:audit` (near-dup → fail). Аудит проверяет `title + summary + decode_hint + felt_on_waking + decode_use + mechanism_bullets`.
 
 ## Жёсткие правила
 
-1. **Матрица (БД):** 300–1000 плотных строк с метриками + enrichment (`body_zones`, `mechanism_bullets`, `layout_profile`, `modules_present`).
+1. **Матрица (БД):** 300–1000 плотных строк с метриками + enrichment (`body_zones`, `mechanism_bullets`, `layout_profile`, `modules_present`, `felt_on_waking`, `decode_use`, `pillar_key/href/label/blurb`).
 2. **В индекс Google только топ-50** (`indexable: true`).
    - Sitemap somatic = топ-50 + хабы.
    - Остальные: `noindex,follow`, не в sitemap.
 3. **Разный DOM** по `layout_profile` / modules (нет данных → нет секции).
-4. **Жёсткий CTA** на Decode (`/#decode`).
-5. **Запрет:** Фрейд/Юнг/мистика/сонники; одна оболочка на все URL; заливка 1000+ в индекс; forum scrape.
+4. **Топ-50 получают доп. модули** (`felt_on_waking`, `decode_use`, `physiology_pillar`) — глубина контента без роста индекса.
+5. **Physiology pillar:** каждая индексируемая строка ссылается на релевантную главу `/mechanics/rem/{atonia|pgo-autonomic|cortex-eeg|cycle-timing}/` (`pillarFor()` в `compose.mjs`). Обратные ссылки с этих 4 страниц генерируются автоматически (`npm run pseo:link-mechanics`) из реального indexable-сета — руками ссылки на `/somatic/...` там не хардкодить (протухают при пересчёте топ-50).
+6. **Жёсткий CTA** на Decode (`/#decode`).
+7. **Запрет:** Фрейд/Юнг/мистика/сонники; одна оболочка на все URL; заливка 1000+ в индекс; forum scrape.
 
 ## Команды
 
 ```bash
-npm run pseo:expand    # DB ~400 + rank top-50
-npm run pseo:enrich    # unique composed fields + layouts
-npm run pseo:audit     # uniqueness gate
-npm run pseo:build     # typed SSG + safe sitemap
-npm run pseo:all       # expand → enrich → audit → build
+npm run pseo:expand         # DB ~400 + rank top-50
+npm run pseo:enrich         # unique composed fields + layouts
+npm run pseo:audit          # uniqueness gate
+npm run pseo:build          # audit → typed SSG → safe sitemap → mechanics cross-links
+npm run pseo:link-mechanics # re-sync REM mechanics ↔ somatic utility links only
+npm run pseo:all            # expand → enrich → audit → build
 ```
 
 ## Индексация

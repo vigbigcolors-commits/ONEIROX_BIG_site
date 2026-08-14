@@ -177,6 +177,30 @@ function stepperHtml(entry) {
 </section>`;
 }
 
+function feltOnWakingHtml(entry) {
+  if (!entry.felt_on_waking) return "";
+  return `<section class="sx-felt" data-module="felt_on_waking" aria-label="Felt on waking">
+  <h2>Felt on waking</h2>
+  <p>${esc(entry.felt_on_waking)}</p>
+</section>`;
+}
+
+function decodeUseHtml(entry) {
+  if (!entry.decode_use) return "";
+  return `<section class="sx-decode-use" data-module="decode_use" aria-label="How Decode uses this row">
+  <h2>How Decode uses this row</h2>
+  <p>${esc(entry.decode_use)}</p>
+</section>`;
+}
+
+function pillarHtml(entry) {
+  if (!entry.pillar_href) return "";
+  return `<section class="sx-pillar" data-module="physiology_pillar" aria-label="Related physiology">
+  <h2>Related physiology</h2>
+  <p>This row connects to <a href="${entry.pillar_href}">${esc(entry.pillar_label)}</a> — ${esc(entry.pillar_blurb)}.</p>
+</section>`;
+}
+
 function voteHtml() {
   return `<section class="sx-vote" data-module="useful_vote" aria-label="Was this useful">
   <p class="sx-vote__q">Was this utility useful?</p>
@@ -194,7 +218,10 @@ function extraModules(entry, byId) {
   if (mods.has("mechanism")) parts.push(mechanismHtml(entry));
   if (mods.has("tx_cards")) parts.push(txCardsHtml(entry));
   if (mods.has("zone_map")) parts.push(zoneMapHtml(entry));
+  if (mods.has("felt_on_waking")) parts.push(feltOnWakingHtml(entry));
   if (mods.has("related")) parts.push(relatedHtml(entry, byId));
+  if (mods.has("physiology_pillar")) parts.push(pillarHtml(entry));
+  if (mods.has("decode_use")) parts.push(decodeUseHtml(entry));
   if (mods.has("stepper")) parts.push(stepperHtml(entry));
   if (mods.has("useful_vote")) parts.push(voteHtml());
   return parts.filter(Boolean).join("\n");
@@ -361,20 +388,22 @@ ${body}
   return urls.length;
 }
 
-function writeRobotsAllowlist(entries) {
-  const indexable = entries.filter((e) => e.indexable);
-  const allows = indexable.map(
-    (e) =>
-      `Allow: /somatic/${e.slug_symptom}/${e.slug_phase}/${e.slug_context}/`
-  );
+function writeRobotsAllowlist() {
+  // Do NOT Disallow /ru/ here: those paths already 301 via _redirects, and
+  // blocking them in robots.txt stops Googlebot from ever seeing the 301,
+  // which leaves old /ru/ URLs stuck under "Blocked by robots.txt" forever
+  // instead of being consolidated/dropped. Let the crawler hit the redirect.
+  //
+  // Per-URL "Allow:" lines for indexable somatic rows are intentionally
+  // omitted: "Allow: /" already permits crawling every somatic sub-page —
+  // the noindex meta tag (not robots.txt) is what keeps the other rows out
+  // of the index. Listing 50 redundant Allow lines adds noise, not signal.
   const text = `User-agent: *
 Allow: /
 
-# Safe PSEO crawl budget: bulk somatic DB is noindex in HTML.
+# Safe PSEO crawl budget: bulk somatic DB is noindex,follow in HTML (not blocked here).
 Allow: /somatic/$
 Allow: /somatic/phase/
-
-${allows.join("\n")}
 
 Sitemap: https://oneirox.com/sitemap.xml
 `;
@@ -441,7 +470,7 @@ function main() {
   for (const entry of entries) writeUtility(entry, templates, byId);
   writeHubs(tplHub, entries);
   const sm = writeSitemap(entries);
-  writeRobotsAllowlist(entries);
+  writeRobotsAllowlist();
   writeAllowlist(entries);
 
   const idx = entries.filter((e) => e.indexable).length;

@@ -3,7 +3,7 @@
  * No web scrapes. Shared chrome labels are NOT composed here.
  */
 
-import { hashString, mulberry32 } from "./seed.mjs";
+import { hashString } from "./seed.mjs";
 
 const ZONE_BY_MARKER = [
   { re: /jaw|tooth|temporalis|brux|face|lip|cheek|nose|vocal|throat|laryngeal|swallow/i, zone: "craniofacial" },
@@ -59,25 +59,140 @@ const CTX_PHRASE = {
   fragmentation: "during fragmentation bursts",
 };
 
-/** Context-bound rephrase so same symptom ≠ shared 3-grams across URLs */
+/** How the memory tends to arrive on waking, by context — several human phrasings each. */
+const CTX_FEEL = {
+  onset: [
+    "it tends to blur into whatever you were thinking about right before sleep took hold",
+    "it often gets folded into the last waking thought, so the edges are hard to place",
+    "it rarely stands alone in memory — it arrives merged with the drift into sleep",
+    "it is easy to mistake for a stray thought rather than a body event",
+  ],
+  "mid-cycle": [
+    "it usually repeats quietly without breaking sleep, so it is easy to miss until you look for it",
+    "it tends to sit in the background, noticed only in hindsight the next morning",
+    "it rarely wakes you outright, so recall depends on catching it deliberately",
+    "it recurs without much drama, which is exactly why it goes undocumented",
+  ],
+  awakening: [
+    "it is often the last thing you notice, arriving just as you surface",
+    "it tends to dominate the first few seconds of being awake",
+    "it lands right at the surface, sharper than anything from earlier in the night",
+    "it is usually the clearest single data point from the whole night",
+  ],
+  fragmentation: [
+    "it arrives in disconnected pieces rather than one continuous thread",
+    "it shows up as a handful of unrelated snapshots instead of a story",
+    "it resists being told as one memory — expect fragments, not a narrative",
+    "it comes back out of order, which is itself part of the signature",
+  ],
+};
+
+const CTX_MARKER_TAIL = {
+  onset: [
+    "building as the stage gate closes",
+    "stacking up right before the cycle settles",
+    "loading in as the transition completes",
+  ],
+  "mid-cycle": [
+    "repeating steadily through an already-stable stretch",
+    "holding a steady pattern well inside the cycle",
+    "recurring without much variation mid-stretch",
+  ],
+  awakening: [
+    "building toward the moment of waking",
+    "sharpening as arousal climbs toward the surface",
+    "stacking up right at the exit window",
+  ],
+  fragmentation: [
+    "each one restarting the signal rather than continuing it",
+    "each fragment resetting rather than building on the last",
+    "landing as separate bursts instead of one continuous run",
+  ],
+};
+
+const LENS_SUFFIX = {
+  onset: [
+    "arriving right at stage entry",
+    "surfacing as the stage gate opens",
+    "showing up before the cycle settles",
+    "catching the transition into this stage",
+  ],
+  "mid-cycle": [
+    "recurring deep inside the cycle",
+    "repeating well inside an established stretch",
+    "showing up mid-stretch, away from either edge",
+    "settling in once the cycle is underway",
+  ],
+  awakening: [
+    "concentrated at the exit toward waking",
+    "clustering right where arousal breaks the surface",
+    "loading onto the last stretch before waking",
+    "peaking as the exit window opens",
+  ],
+  fragmentation: [
+    "scattered across broken stage fragments",
+    "cut into pieces by fragmentation bursts",
+    "showing up in short, interrupted bursts",
+    "breaking apart across unstable segments",
+  ],
+};
+
+const MECH_TAIL = [
+  "read as mechanism, not dream-symbol shorthand",
+  "a mechanism read, not a symbol lookup",
+  "treated as physiology here, not folklore",
+  "scored as hardware, not metaphor",
+];
+
+function cap(s) {
+  const str = String(s || "");
+  return str ? str.charAt(0).toUpperCase() + str.slice(1) : str;
+}
+
+function decap(s) {
+  const str = String(s || "");
+  return str ? str.charAt(0).toLowerCase() + str.slice(1) : str;
+}
+
+/** Deterministic per-row, per-field choice — independent of other fields on the same row. */
+function seededPick(entry, salt, arr) {
+  const base = entry.id || `${entry.slug_symptom}-${entry.slug_phase}-${entry.slug_context}`;
+  const h = hashString(`${base}::${salt}`);
+  return arr[h % arr.length];
+}
+
+/** Context-bound rephrase so same symptom reads differently across its own context siblings. */
 function symptomLens(entry) {
-  const s = entry.physiological_symptom;
-  const c = entry.context;
-  const lenses = {
-    onset: `onset-framed “${s}”`,
-    "mid-cycle": `mid-cycle expression of “${s}”`,
-    awakening: `exit-edge “${s}”`,
-    fragmentation: `fragment-bound “${s}”`,
-  };
-  return lenses[c] || `“${s}”`;
+  const s = decap(entry.physiological_symptom);
+  const suffixes = LENS_SUFFIX[entry.context];
+  const suffix = suffixes ? seededPick(entry, "lens", suffixes) : null;
+  return suffix ? `${s}, ${suffix}` : s;
 }
 
-function uniqueToken(entry) {
-  return `OX-${entry.slug_symptom.slice(0, 8)}-${entry.slug_phase}-${entry.slug_context}-${entry.chart_seed}`;
-}
-
-function pick(rng, arr) {
-  return arr[Math.floor(rng() * arr.length) % arr.length];
+/** Qualitative read of the three gauges — real numbers, plain-language interpretation. */
+function gaugeReadout(entry) {
+  const atonia = entry.gauge_atonia ?? 50;
+  const arousal = entry.gauge_arousal ?? 50;
+  const coherence = entry.gauge_coherence ?? 50;
+  const atoniaPool =
+    atonia >= 70
+      ? ["the motor brake is holding firm", "motor inhibition is strong here", "the brake is locked down tight"]
+      : atonia <= 30
+      ? ["the motor brake is thin, so movement can leak through", "inhibition is weak, leaving room for movement", "the brake is loose enough to slip"]
+      : ["the motor brake is only partial", "inhibition sits at a middle setting", "the brake is engaged but not complete"];
+  const backdropPool =
+    arousal >= 65 && coherence <= 45
+      ? ["against a jagged, low-coherence backdrop", "over an unsettled, choppy backdrop", "set against a noisy, broken backdrop"]
+      : arousal <= 35 && coherence >= 65
+      ? ["against a stable, well-organized backdrop", "over a calm, coherent backdrop", "set against a steady, orderly backdrop"]
+      : arousal >= 65
+      ? ["against a higher-arousal backdrop", "over a more charged backdrop", "set against an activated backdrop"]
+      : coherence <= 40
+      ? ["against a fragmented backdrop", "over a loosely organized backdrop", "set against a scattered backdrop"]
+      : ["against a moderately organized backdrop", "over a middling, mixed backdrop", "set against a fairly even backdrop"];
+  const atoniaPhrase = seededPick(entry, "gauge-a", atoniaPool);
+  const backdropPhrase = seededPick(entry, "gauge-b", backdropPool);
+  return `${atoniaPhrase}, ${backdropPhrase}`;
 }
 
 export function bodyZonesFromMarkers(markers) {
@@ -95,67 +210,86 @@ export function composeMechanismBullets(entry) {
   const eeg = entry.eeg_frequency_hz_range || {};
   const tx = entry.neurotransmitters_involved || [];
   const markers = entry.somatic_markers || [];
-  const seed = entry.chart_seed;
   const lens = symptomLens(entry);
-  const tok = uniqueToken(entry);
   const bullets = [];
-  bullets.push(
-    `${tok}: ${lens} locked under ${entry.sleep_phase} with cortical window ${eeg.min}–${eeg.max} Hz (${eeg.band}).`
-  );
+
+  const openers = [
+    `${cap(lens)} sits inside ${entry.sleep_phase} sleep, with cortical activity running ${eeg.band} at ${eeg.min}–${eeg.max} Hz.`,
+    `Cortically, this row runs ${eeg.band} at ${eeg.min}–${eeg.max} Hz while ${lens} plays out in ${entry.sleep_phase} sleep.`,
+    `${entry.sleep_phase} sleep frames ${lens}, against a ${eeg.band} trace of ${eeg.min}–${eeg.max} Hz.`,
+  ];
+  bullets.push(seededPick(entry, "bullet1", openers));
+
   if (tx[0]) {
     const atom = TX_ATOM[tx[0]] || "tagged as a primary chemical driver in this dataset row";
-    bullets.push(
-      `For ${entry.context} only — ${tx[0]} leads (${atom}); co-listed ${tx.slice(1, 3).join(", ") || "none"}; density ${entry.density_score ?? "n/a"}.`
-    );
+    const rest = tx.slice(1, 3).join(", ");
+    const chemOpts = [
+      `${cap(tx[0])} leads the chemistry here (${atom})${rest ? `; ${rest} also show up` : ""}; density for this row is ${entry.density_score ?? "n/a"}.`,
+      `The lead transmitter is ${tx[0]} (${atom})${rest ? `, alongside ${rest}` : ""} — this row's density score is ${entry.density_score ?? "n/a"}.`,
+      `Chemistry is ${tx[0]}-led here (${atom})${rest ? `, with ${rest} co-listed` : ""}; density ${entry.density_score ?? "n/a"} on this row.`,
+    ];
+    bullets.push(seededPick(entry, "bullet2", chemOpts));
   }
+
   bullets.push(
-    `URL gauges ${tok}: atonia ${entry.gauge_atonia} · arousal ${entry.gauge_arousal} · coherence ${entry.gauge_coherence}; motor ${entry.atonia_state}.`
+    `Dataset row #${entry.chart_seed}: atonia ${entry.gauge_atonia}/100, arousal ${entry.gauge_arousal}/100, coherence ${entry.gauge_coherence}/100 — ${gaugeReadout(entry)}.`
   );
+
   if (markers.length) {
     const rotated = [...markers].sort();
     if (entry.context === "fragmentation") rotated.reverse();
     if (entry.context === "awakening") rotated.push(rotated.shift());
-    bullets.push(`Context-ordered markers (${entry.context}): ${rotated.map((m) => `«${m}»`).join(" → ")}.`);
+    const tailPool = CTX_MARKER_TAIL[entry.context] || ["consistent with the stage above"];
+    const tail = seededPick(entry, "markertail", tailPool);
+    bullets.push(
+      `On this ${entry.context} row the markers stack as ${rotated.map((m) => `"${m}"`).join(" → ")} — ${tail}.`
+    );
   }
-  bullets.push(
-    `Decode surface ${tok}: weight «${markers[0] || entry.physiological_symptom}» as ${entry.context} somatic evidence — not dictionary symbolism.`
-  );
+
+  const mechTail = seededPick(entry, "mechtail", MECH_TAIL);
+  const closers = [
+    `Decode treats "${markers[0] || entry.physiological_symptom}" here as ${entry.context} somatic evidence layered onto imagery for ${entry.sleep_phase} sleep — ${mechTail}.`,
+    `"${markers[0] || entry.physiological_symptom}" gets weighted as ${entry.context} body evidence for ${entry.sleep_phase} sleep in Decode — ${mechTail}.`,
+    `Decode's BODY line leans on "${markers[0] || entry.physiological_symptom}" for this ${entry.context}/${entry.sleep_phase} row — ${mechTail}.`,
+  ];
+  bullets.push(seededPick(entry, "bullet5", closers));
+
   return bullets;
 }
 
 export function composeUniqueSummary(entry) {
-  const seed = hashString(entry.id || `${entry.slug_symptom}-${entry.slug_phase}-${entry.slug_context}`);
-  const rng = mulberry32(seed);
   const eeg = entry.eeg_frequency_hz_range || {};
   const tx = entry.neurotransmitters_involved || [];
   const markers = entry.somatic_markers || [];
   const leads = CTX_LEAD[entry.context] || ["In this stage,"];
-  const lead = pick(rng, leads);
+  const lead = seededPick(entry, "sumlead", leads);
   const lens = symptomLens(entry);
-  const tok = uniqueToken(entry);
   const patterns = [
     () =>
-      `${lead} ${lens} scores under ${entry.sleep_phase} at ${eeg.min}–${eeg.max} Hz (${eeg.band}). Chemistry ${tx.join(" · ") || "unspecified"}. Felt: ${markers.join(" ¦ ") || "general load"}. Token ${tok}; gauges ${entry.gauge_atonia}/${entry.gauge_arousal}/${entry.gauge_coherence}.`,
+      `${lead} ${lens} plays out under ${entry.sleep_phase} sleep at ${eeg.min}–${eeg.max} Hz (${eeg.band}). Chemistry here runs ${tx.join(", ") || "unspecified"}, and the markers people report are ${markers.join(", ") || "general somatic load"}. Gauges read ${entry.gauge_atonia}/${entry.gauge_arousal}/${entry.gauge_coherence} (atonia/arousal/coherence).`,
     () =>
-      `${tok} · ${lens} · ${entry.sleep_phase}. Band ${eeg.band} ${eeg.min}–${eeg.max} Hz. Atonia=${entry.atonia_state}. Markers «${markers[0] || "n/a"}» then «${markers[1] || "n/a"}».`,
+      `In ${entry.sleep_phase} sleep, ${lens} ${CTX_PHRASE[entry.context] || "in this stage"}. Cortical band ${eeg.band} spans ${eeg.min}–${eeg.max} Hz; ${tx[0] || "mixed chemistry"} leads, atonia state is "${entry.atonia_state}", and this row's density score is ${entry.density_score ?? "n/a"}.`,
     () =>
-      `Utility ${entry.id} frames ${lens} ${CTX_PHRASE[entry.context] || ""}. Transmitters ${tx.slice(0, 3).join(" ⊕ ") || "mixed"}; arousal ${entry.gauge_arousal}/100 vs coherence ${entry.gauge_coherence}/100; ${tok}.`,
+      `Dataset row #${entry.chart_seed} frames ${lens} — ${tx.slice(0, 3).join(" + ") || "mixed transmitters"} against arousal ${entry.gauge_arousal}/100 and coherence ${entry.gauge_coherence}/100.`,
     () =>
-      `${lead} isolates «${markers[0] || "somatic load"}» as the lead signal for ${lens}. Hz ${eeg.min}–${eeg.max}; ${tx[0] || "mixed"}; density ${entry.density_score ?? "n/a"}; ${tok}.`,
+      `${lead} the marker named most often is "${markers[0] || "somatic load"}" — the clearest signal for ${lens}. Band ${eeg.band} at ${eeg.min}–${eeg.max} Hz; ${tx[0] || "mixed"} chemistry; density ${entry.density_score ?? "n/a"}.`,
     () =>
-      `Mechanism page ${tok}: ${lens} maps [${markers.join(" ‖ ")}] onto ${eeg.band} ${eeg.min}–${eeg.max} Hz with atonia ${entry.atonia_state} — not dream-symbol copy.`,
+      `${cap(lens)} maps onto [${markers.join(" · ")}] inside ${eeg.band} ${eeg.min}–${eeg.max} Hz, atonia "${entry.atonia_state}" — ${seededPick(entry, "summtail", MECH_TAIL)}.`,
+    () =>
+      `Row #${entry.chart_seed}: ${lens}, ${entry.sleep_phase} sleep, gauges ${entry.gauge_atonia}/${entry.gauge_arousal}/${entry.gauge_coherence}. Markers on file: ${markers.join(", ") || "general somatic load"}; chemistry ${tx.join(" + ") || "mixed"}.`,
+    () =>
+      `${cap(lens)} — atonia state "${entry.atonia_state}", band ${eeg.band} (${eeg.min}–${eeg.max} Hz), lead transmitter ${tx[0] || "mixed"}. Density ${entry.density_score ?? "n/a"} for row #${entry.chart_seed}.`,
   ];
-  return pick(rng, patterns)();
+  return seededPick(entry, "sumpattern", patterns)();
 }
 
 export function composeUniqueTitle(entry) {
   const eeg = entry.eeg_frequency_hz_range || {};
-  const lens = symptomLens(entry);
+  const s = entry.physiological_symptom;
   const variants = [
-    `${lens} · ${entry.sleep_phase}`,
-    `${entry.physiological_symptom} · ${eeg.band} ${eeg.min}–${eeg.max} Hz · ${entry.context}`,
-    `${entry.sleep_phase}/${entry.context}: ${entry.physiological_symptom}`,
-    `${uniqueToken(entry)} · ${entry.physiological_symptom}`,
+    `${s} in ${entry.sleep_phase} sleep (${entry.context})`,
+    `${entry.sleep_phase}/${entry.context}: ${s}`,
+    `${s} · ${eeg.band} ${eeg.min}–${eeg.max} Hz · ${entry.sleep_phase}`,
   ];
   const seed = hashString(entry.id || entry.slug_symptom + entry.slug_phase + entry.slug_context);
   return variants[seed % variants.length];
@@ -163,8 +297,75 @@ export function composeUniqueTitle(entry) {
 
 export function composeDecodeHint(entry) {
   const m = (entry.somatic_markers || [])[0] || "the body signal";
-  const tok = uniqueToken(entry);
-  return `${tok}: if recall includes «${m}» under ${entry.context}/${entry.sleep_phase}, Decode weights somatic context beside imagery — mechanism first.`;
+  const ctxPhrase = CTX_PHRASE[entry.context] || `during ${entry.context}`;
+  const variants = [
+    `If your recall includes "${m}" during ${entry.context} ${entry.sleep_phase} sleep, Decode weights it as somatic context beside the imagery — mechanism first, not symbolism.`,
+    `Recall naming "${m}" in ${entry.sleep_phase} sleep, ${ctxPhrase}, gets read by Decode as body evidence, not as a dream symbol.`,
+    `Decode treats "${m}" as a mechanism marker when it shows up ${ctxPhrase} in ${entry.sleep_phase} sleep — not something to look up in a dictionary.`,
+    `"${m}" logged ${ctxPhrase} shifts how Decode reads ${entry.sleep_phase} sleep: body signal first, imagery second.`,
+    `For ${entry.sleep_phase} sleep ${ctxPhrase}, "${m}" is exactly the kind of detail Decode weights over plot — mechanism before meaning.`,
+  ];
+  return seededPick(entry, "decodehint", variants);
+}
+
+/** What a person is likely to notice on waking, in plain language. */
+export function composeFeltOnWaking(entry) {
+  const markers = entry.somatic_markers || [];
+  const m0 = markers[0] || "a diffuse body signal";
+  const m1 = markers[1];
+  const feelPool = CTX_FEEL[entry.context] || ["it registers as a background body signal"];
+  const feel = seededPick(entry, "feel", feelPool);
+  const tail = m1 ? ` with "${m1}" close behind` : "";
+  return `On waking, the marker named most often is "${m0}"${tail}. Because this row sits at ${entry.context} in ${entry.sleep_phase} sleep, ${feel}.`;
+}
+
+/** Concrete explanation of how Decode weighs this specific row. */
+export function composeDecodeUse(entry) {
+  const markers = entry.somatic_markers || [];
+  const m0 = markers[0] || "this marker";
+  const tx0 = (entry.neurotransmitters_involved || [])[0];
+  const txPhrase = tx0 ? ` — tied here to ${tx0} activity` : "";
+  const variants = [
+    `When your recall names "${m0}"${txPhrase}, Decode reads it as body-side evidence for the BODY line of your result rather than as a symbol. It adjusts the mechanism reading for ${entry.sleep_phase} sleep instead of guessing at what "${m0}" might "mean".`,
+    `Decode does not look up "${m0}" in a symbol table${txPhrase}; it uses it to weight the BODY line of your ${entry.sleep_phase} reading toward mechanism.`,
+    `Naming "${m0}"${txPhrase} shifts Decode's ${entry.sleep_phase}-sleep reading toward physiology — the BODY line moves, the SIGNAL line does not chase a symbolic guess.`,
+    `"${m0}"${txPhrase} is treated by Decode as a body-side input for ${entry.sleep_phase} sleep, not as imagery to interpret — it changes the mechanism weighting, not the story.`,
+  ];
+  return seededPick(entry, "decodeuse", variants);
+}
+
+const PILLARS = {
+  atonia: {
+    href: "/mechanics/rem/atonia/",
+    label: "Atonia lock",
+    blurb: "the GABA–glycine brake that holds skeletal muscle offline during REM",
+  },
+  "pgo-autonomic": {
+    href: "/mechanics/rem/pgo-autonomic/",
+    label: "PGO & autonomic drive",
+    blurb: "the pontine spikes and autonomic swings behind eye, breath, and skin signals",
+  },
+  "cortex-eeg": {
+    href: "/mechanics/rem/cortex-eeg/",
+    label: "Cortex & EEG",
+    blurb: "the wake-like cortical activity that drives memory work in this stage",
+  },
+  "cycle-timing": {
+    href: "/mechanics/rem/cycle-timing/",
+    label: "Cycle timing",
+    blurb: "how episodes lengthen and shift across the night",
+  },
+};
+
+/** Map a row onto the REM mechanics chapter it most concretely illustrates. */
+export function pillarFor(entry) {
+  const zones = entry.body_zones || bodyZonesFromMarkers(entry.somatic_markers);
+  let key;
+  if (entry.utility_type === "atonia_risk") key = "atonia";
+  else if (entry.utility_type === "phase_disruption" || entry.layout_profile === "compare_related") key = "cycle-timing";
+  else if (zones.includes("ocular") || zones.includes("autonomic-skin") || zones.includes("thoracic")) key = "pgo-autonomic";
+  else key = "cortex-eeg";
+  return { key, ...PILLARS[key] };
 }
 
 export function chooseLayoutProfile(entry) {
@@ -192,6 +393,11 @@ export function modulesFor(entry, layout) {
   if (layout !== "sparse_minimal") mods.add("stepper");
   mods.add("useful_vote");
   if (entry.sources?.length) mods.add("sources");
+  if (entry.indexable) {
+    mods.add("felt_on_waking");
+    mods.add("decode_use");
+    mods.add("physiology_pillar");
+  }
   // sparse drops heavy panels
   if (layout === "sparse_minimal") {
     mods.delete("compare");

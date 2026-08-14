@@ -129,6 +129,15 @@
           "items": { "type": "string" }
         },
         "decode_hint": { "type": "string" },
+        "felt_on_waking": { "type": "string" },
+        "decode_use": { "type": "string" },
+        "pillar_key": {
+          "type": "string",
+          "enum": ["atonia", "pgo-autonomic", "cortex-eeg", "cycle-timing"]
+        },
+        "pillar_href": { "type": "string" },
+        "pillar_label": { "type": "string" },
+        "pillar_blurb": { "type": "string" },
         "density_score": { "type": "number" },
         "indexable": { "type": "boolean" },
         "index_rank": { "type": "integer" }

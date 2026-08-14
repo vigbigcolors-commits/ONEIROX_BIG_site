@@ -9,11 +9,14 @@ import { fileURLToPath } from "node:url";
 import {
   bodyZonesFromMarkers,
   composeDecodeHint,
+  composeDecodeUse,
+  composeFeltOnWaking,
   composeMechanismBullets,
   composeUniqueSummary,
   composeUniqueTitle,
   chooseLayoutProfile,
   modulesFor,
+  pillarFor,
 } from "../lib/compose.mjs";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -50,6 +53,9 @@ function enrichEntry(entry, all) {
   const summary = composeUniqueSummary(entry);
   const title = composeUniqueTitle(entry);
   const decode_hint = composeDecodeHint(entry);
+  const felt_on_waking = composeFeltOnWaking(entry);
+  const decode_use = composeDecodeUse(entry);
+  const pillar = pillarFor({ ...withZones, layout_profile });
   return {
     ...entry,
     body_zones,
@@ -60,6 +66,12 @@ function enrichEntry(entry, all) {
     summary,
     title,
     decode_hint,
+    felt_on_waking,
+    decode_use,
+    pillar_key: pillar.key,
+    pillar_href: pillar.href,
+    pillar_label: pillar.label,
+    pillar_blurb: pillar.blurb,
   };
 }
 

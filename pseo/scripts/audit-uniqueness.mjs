@@ -54,6 +54,8 @@ function proseBlob(entry) {
     entry.title,
     entry.summary,
     entry.decode_hint,
+    entry.felt_on_waking,
+    entry.decode_use,
     ...(entry.mechanism_bullets || []),
   ].join(" ");
 }
