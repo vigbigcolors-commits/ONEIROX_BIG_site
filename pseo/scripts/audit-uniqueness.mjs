@@ -12,6 +12,7 @@ import { fileURLToPath } from "node:url";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const MATRIX = path.join(__dirname, "../data/somatic-matrix.json");
+const DREAM_MATRIX = path.join(__dirname, "../data/dream-meaning-matrix.json");
 
 function argNum(name, fallback) {
   const hit = process.argv.find((a) => a.startsWith(`--${name}=`));
@@ -60,6 +61,17 @@ function proseBlob(entry) {
   ].join(" ");
 }
 
+function dreamProseBlob(entry) {
+  return [
+    entry.title,
+    entry.lead,
+    entry.signal,
+    entry.morning_prompt,
+    ...(entry.body_paragraphs || []),
+    ...(entry.variants || []).map((v) => `${v.q} ${v.a}`),
+  ].join(" ");
+}
+
 function main() {
   if (!fs.existsSync(MATRIX)) {
     console.error("Missing matrix");
@@ -75,6 +87,29 @@ function main() {
     set: shingles(proseBlob(e), 3),
     text: normalize(proseBlob(e)).slice(0, 160),
   }));
+
+  let dreamEntries = [];
+  if (fs.existsSync(DREAM_MATRIX)) {
+    const dreamMatrix = JSON.parse(fs.readFileSync(DREAM_MATRIX, "utf8"));
+    dreamEntries = dreamMatrix.entries || [];
+    const missingDream = dreamEntries.filter(
+      (e) => !e.title || !e.body_paragraphs?.length || !e.variants?.length
+    );
+    if (missingDream.length) {
+      console.error(
+        `Dream Meaning uniqueness/enrichment FAIL: ${missingDream.length} rows missing core fields`
+      );
+      missingDream.slice(0, 5).forEach((e) => console.error(" -", e.slug));
+      process.exit(1);
+    }
+    for (const e of dreamEntries) {
+      blobs.push({
+        id: `dream:${e.slug}`,
+        set: shingles(dreamProseBlob(e), 3),
+        text: normalize(dreamProseBlob(e)).slice(0, 160),
+      });
+    }
+  }
 
   const failures = [];
   for (let i = 0; i < blobs.length; i++) {
@@ -118,7 +153,7 @@ function main() {
   }
 
   console.log(
-    `Uniqueness OK: ${targets.length} indexable prose blobs, threshold ${FAIL}, 0 near-dups`
+    `Uniqueness OK: ${targets.length} indexable somatic blobs + ${dreamEntries.length} dream-meaning blobs (${blobs.length} total), threshold ${FAIL}, 0 near-dups`
   );
 }
 

@@ -19,11 +19,13 @@ const KEY = "5c61214a58c031a09f3b23537027c547";
 const HOST = "oneirox.com";
 const KEY_LOCATION = `https://${HOST}/${KEY}.txt`;
 const ALLOWLIST = path.join(PSEO, "data", "indexable-allowlist.json");
+const DREAM_ALLOWLIST = path.join(PSEO, "data", "dream-allowlist.json");
 const LOG = path.join(PSEO, "data", "indexnow-log.jsonl");
 const ENDPOINT = "https://api.indexnow.org/indexnow";
 
 const CORE_URLS = [
   "https://oneirox.com/",
+  "https://oneirox.com/dreams/",
   "https://oneirox.com/somatic/",
   "https://oneirox.com/somatic/phase/n1/",
   "https://oneirox.com/somatic/phase/n2/",
@@ -31,6 +33,7 @@ const CORE_URLS = [
   "https://oneirox.com/somatic/phase/rem/",
   "https://oneirox.com/methodology/",
   "https://oneirox.com/phase/",
+  "https://oneirox.com/mechanics/rem/",
   "https://oneirox.com/tools/oneirox-dream-mapper",
 ];
 
@@ -38,18 +41,24 @@ function parseArgs(argv) {
   return {
     dryRun: argv.includes("--dry-run"),
     core: argv.includes("--core"),
+    dreamsOnly: argv.includes("--dreams"),
   };
 }
 
-function loadUrls({ core }) {
+function pullAllowlist(filePath) {
+  if (!fs.existsSync(filePath)) return [];
+  const allow = JSON.parse(fs.readFileSync(filePath, "utf8"));
+  return (allow.urls || [])
+    .map((x) => (typeof x === "string" ? x : x?.url))
+    .filter((u) => typeof u === "string" && u.startsWith("https://"));
+}
+
+function loadUrls({ core, dreamsOnly }) {
   const urls = [];
-  if (core) urls.push(...CORE_URLS);
-  if (fs.existsSync(ALLOWLIST)) {
-    const allow = JSON.parse(fs.readFileSync(ALLOWLIST, "utf8"));
-    for (const row of allow.urls || []) {
-      if (row.url) urls.push(row.url);
-    }
-  }
+  if (core || dreamsOnly) urls.push(...CORE_URLS);
+  urls.push(...pullAllowlist(DREAM_ALLOWLIST));
+  if (!dreamsOnly) urls.push(...pullAllowlist(ALLOWLIST));
+  urls.push("https://oneirox.com/dreams/");
   urls.push("https://oneirox.com/somatic/");
   return [...new Set(urls)];
 }
@@ -71,16 +80,16 @@ async function submitBatch(urlList) {
 }
 
 async function main() {
-  const { dryRun } = parseArgs(process.argv.slice(2));
-  // Always notify hubs + indexable allowlist (safe top set)
-  const all = loadUrls({ core: true });
+  const { dryRun, dreamsOnly } = parseArgs(process.argv.slice(2));
+  // Always notify hubs + dream pillars + (optionally) somatic allowlist
+  const all = loadUrls({ core: true, dreamsOnly });
 
   console.log(`IndexNow keyLocation: ${KEY_LOCATION}`);
-  console.log(`URLs to notify: ${all.length}`);
+  console.log(`URLs to notify: ${all.length}${dreamsOnly ? " (dreams-focused)" : ""}`);
 
   if (dryRun) {
-    all.slice(0, 8).forEach((u) => console.log(" ", u));
-    if (all.length > 8) console.log(" …");
+    all.slice(0, 12).forEach((u) => console.log(" ", u));
+    if (all.length > 12) console.log(" …");
     return;
   }
 

@@ -1,0 +1,299 @@
+/* Dream Meaning pillar library — Oneirox */
+:root {
+  --dm-forest: #3a4435;
+  --dm-moss: #566e58;
+  --dm-mist: #9aaa90;
+  --dm-canvas: #cbd4c2;
+  --dm-white: #f8faf5;
+  --dm-deep: #1a2848;
+  --dm-ocean: #266799;
+  --dm-signal: #00a5a8;
+  --dm-amber: #c98a3a;
+  --dm-serif: "Playfair Display", Georgia, serif;
+  --dm-sans: "Work Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+body.dm-body {
+  margin: 0;
+  font-family: var(--dm-sans);
+  color: var(--dm-forest);
+  background:
+    radial-gradient(1100px 520px at 8% -8%, rgba(26, 40, 72, 0.16), transparent 55%),
+    radial-gradient(900px 480px at 100% 0%, rgba(0, 165, 168, 0.12), transparent 50%),
+    linear-gradient(180deg, #d5ddd0 0%, var(--dm-canvas) 40%, #c2cdba 100%);
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+
+.dm-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 1rem 1.25rem;
+}
+
+.dm-brand {
+  font-family: var(--dm-serif);
+  font-weight: 700;
+  font-size: 1.35rem;
+  color: var(--dm-forest);
+  text-decoration: none;
+}
+
+.dm-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.85rem;
+  font-size: 0.9rem;
+}
+
+.dm-nav a { color: var(--dm-moss); text-decoration: none; }
+.dm-nav a:hover,
+.dm-nav a[aria-current="page"] { color: var(--dm-deep); text-decoration: underline; }
+
+.dm-main {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 0.25rem 1.25rem 3.5rem;
+}
+
+.dm-breadcrumb {
+  margin: 0 0 0.9rem;
+  font-size: 0.8rem;
+  color: var(--dm-mist);
+}
+
+.dm-breadcrumb a { color: var(--dm-moss); }
+
+.dm-kicker {
+  margin: 0 0 0.45rem;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  font-size: 0.72rem;
+  color: var(--dm-mist);
+}
+
+.dm-title {
+  margin: 0 0 0.75rem;
+  font-family: var(--dm-serif);
+  font-size: clamp(1.75rem, 3.4vw, 2.55rem);
+  line-height: 1.15;
+  font-weight: 700;
+}
+
+.dm-lead {
+  margin: 0 0 1.5rem;
+  max-width: 42rem;
+  font-size: 1.05rem;
+  color: var(--dm-moss);
+}
+
+.dm-signal {
+  margin: 0 0 2rem;
+  padding: 1.15rem 1.25rem;
+  border-left: 3px solid var(--dm-signal);
+  background: rgba(0, 165, 168, 0.08);
+}
+
+.dm-signal__tag {
+  display: block;
+  margin: 0 0 0.35rem;
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--dm-signal);
+  font-weight: 700;
+}
+
+.dm-signal p { margin: 0; font-size: 1rem; }
+
+.dm-prose h2 {
+  margin: 2rem 0 0.65rem;
+  font-family: var(--dm-serif);
+  font-size: 1.4rem;
+}
+
+.dm-prose p { margin: 0 0 1rem; max-width: 42rem; }
+
+.dm-variants {
+  margin: 1.5rem 0 2rem;
+}
+
+.dm-variants h2 {
+  margin: 0 0 0.9rem;
+  font-family: var(--dm-serif);
+  font-size: 1.35rem;
+}
+
+.dm-variant {
+  border: 1px solid rgba(58, 68, 53, 0.18);
+  background: rgba(248, 250, 245, 0.78);
+  margin: 0 0 0.6rem;
+}
+
+.dm-variant summary {
+  padding: 0.85rem 1.05rem;
+  font-weight: 650;
+  cursor: pointer;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.dm-variant summary::-webkit-details-marker { display: none; }
+
+.dm-variant summary::after {
+  content: "+";
+  font-size: 1.15rem;
+  color: var(--dm-signal);
+  flex: none;
+}
+
+.dm-variant[open] summary::after { content: "\2212"; }
+
+.dm-variant p {
+  margin: 0;
+  padding: 0 1.05rem 1rem;
+  color: var(--dm-forest);
+  max-width: 40rem;
+}
+
+.dm-morning {
+  margin: 0 0 2rem;
+  padding: 1.2rem 1.15rem 1.35rem;
+  background: rgba(248, 250, 245, 0.78);
+  border: 1px solid rgba(58, 68, 53, 0.18);
+}
+
+.dm-morning h2 {
+  margin: 0 0 0.5rem;
+  font-family: var(--dm-serif);
+  font-size: 1.2rem;
+}
+
+.dm-morning p { margin: 0; color: var(--dm-moss); max-width: 40rem; }
+
+.dm-cta {
+  margin: 2rem 0;
+  padding: 1.35rem 1.25rem;
+  background: linear-gradient(135deg, rgba(26, 40, 72, 0.95), rgba(38, 103, 153, 0.85));
+  color: var(--dm-white);
+}
+
+.dm-cta h2 {
+  margin: 0 0 0.45rem;
+  font-family: var(--dm-serif);
+  font-size: 1.35rem;
+}
+
+.dm-cta p { margin: 0 0 1rem; opacity: 0.92; max-width: 36rem; }
+
+.dm-btn {
+  display: inline-block;
+  padding: 0.7rem 1.15rem;
+  background: var(--dm-signal);
+  color: #042a2b;
+  font-weight: 650;
+  text-decoration: none;
+}
+
+.dm-btn:hover { filter: brightness(1.05); }
+
+.dm-related {
+  margin: 1.5rem 0 0;
+  display: grid;
+  gap: 0.75rem;
+}
+
+@media (min-width: 640px) {
+  .dm-related { grid-template-columns: 1fr 1fr; }
+}
+
+.dm-related h2 {
+  margin: 0 0 0.55rem;
+  font-family: var(--dm-serif);
+  font-size: 1.2rem;
+  grid-column: 1 / -1;
+}
+
+.dm-related-card {
+  display: block;
+  padding: 1rem 1.05rem;
+  text-decoration: none;
+  color: inherit;
+  background: rgba(248, 250, 245, 0.8);
+  border: 1px solid rgba(58, 68, 53, 0.18);
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+.dm-related-card:hover { border-color: var(--dm-signal); transform: translateY(-1px); }
+
+.dm-related-card__eyebrow {
+  display: block;
+  font-size: 0.68rem;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--dm-mist);
+  margin: 0 0 0.3rem;
+}
+
+.dm-related-card__label { font-size: 0.95rem; color: var(--dm-deep); }
+
+.dm-disclaimer {
+  margin-top: 1.5rem;
+  font-size: 0.85rem;
+  color: var(--dm-mist);
+}
+
+.dm-foot {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 0 1.25rem 2rem;
+  color: var(--dm-moss);
+  font-size: 0.88rem;
+}
+
+.dm-foot a { color: var(--dm-moss); }
+
+/* Hub page */
+.dm-hub-lead { margin-bottom: 2rem; }
+
+.dm-hub-group { margin: 0 0 2.25rem; }
+
+.dm-hub-group h2 {
+  margin: 0 0 0.9rem;
+  font-family: var(--dm-serif);
+  font-size: 1.3rem;
+  padding-bottom: 0.4rem;
+  border-bottom: 1px solid rgba(58, 68, 53, 0.18);
+}
+
+.dm-hub-grid {
+  display: grid;
+  gap: 0.65rem;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 640px) {
+  .dm-hub-grid { grid-template-columns: 1fr 1fr; }
+}
+
+.dm-hub-card {
+  display: block;
+  padding: 0.95rem 1.05rem;
+  text-decoration: none;
+  color: var(--dm-deep);
+  background: rgba(248, 250, 245, 0.8);
+  border: 1px solid rgba(58, 68, 53, 0.18);
+  font-size: 0.95rem;
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+.dm-hub-card:hover { border-color: var(--dm-signal); transform: translateY(-1px); }

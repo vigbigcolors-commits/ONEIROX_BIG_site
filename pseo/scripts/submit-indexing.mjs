@@ -1,11 +1,14 @@
 /**
- * Optional Google Indexing API submitter for somatic URLs.
- * Primary discovery remains sitemap. Indexing API often limited to JobPosting/BroadcastEvent.
+ * Google Indexing API submitter — somatic + Dream Meaning URLs.
+ * Primary discovery remains sitemap; API accelerates crawl for new pages.
+ * Note: Google officially documents JobPosting/BroadcastEvent; general URLs
+ * often return 403 — script stops cleanly and falls back to GSC/sitemap.
  *
  * Usage:
  *   set GOOGLE_APPLICATION_CREDENTIALS=path/to/sa.json
- *   node pseo/scripts/submit-indexing.mjs [--limit=10] [--dry-run]
+ *   node pseo/scripts/submit-indexing.mjs [--limit=50] [--source=all|dreams|somatic] [--dry-run] [--force]
  *
+ * Auto-skips URLs already submitted successfully (see indexing log).
  * Log: pseo/data/indexing-log.sqlite (or .jsonl fallback)
  */
 
@@ -17,35 +20,79 @@ import { createSign } from "node:crypto";
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, "../..");
 const PSEO = path.resolve(__dirname, "..");
-const SITEMAP = path.join(ROOT, "public", "sitemap-somatic.xml");
+const SITEMAP_SOMATIC = path.join(ROOT, "public", "sitemap-somatic.xml");
+const SITEMAP_DREAMS = path.join(ROOT, "public", "sitemap-dreams.xml");
 const ALLOWLIST = path.join(PSEO, "data", "indexable-allowlist.json");
+const DREAM_ALLOWLIST = path.join(PSEO, "data", "dream-allowlist.json");
 const LOG_SQLITE = path.join(PSEO, "data", "indexing-log.sqlite");
 const LOG_JSONL = path.join(PSEO, "data", "indexing-log.jsonl");
-const DAILY_CAP = 2000;
+const DAILY_CAP = 200;
 
 function parseArgs(argv) {
-  let limit = 10;
+  let limit = 50;
   let dryRun = false;
+  let force = false;
+  let source = "all";
   for (const a of argv) {
     if (a.startsWith("--limit=")) limit = Number(a.slice(8));
+    if (a.startsWith("--source=")) source = a.slice(9);
     if (a === "--dry-run") dryRun = true;
+    if (a === "--force") force = true;
   }
-  return { limit, dryRun };
+  if (!["all", "dreams", "somatic"].includes(source)) source = "all";
+  return { limit, dryRun, force, source };
 }
 
-function extractUrls(xml) {
+function extractLocs(xml) {
   const urls = [];
-  const re = /<loc>(https:\/\/oneirox\.com\/somatic\/[^<]+)<\/loc>/g;
+  const re = /<loc>(https:\/\/oneirox\.com\/[^<]+)<\/loc>/g;
   let m;
   while ((m = re.exec(xml))) urls.push(m[1]);
   return urls;
 }
 
+function normalizeAllowlist(raw) {
+  const list = raw?.urls || [];
+  return list
+    .map((x) => (typeof x === "string" ? x : x?.url))
+    .filter((u) => typeof u === "string" && u.startsWith("https://"));
+}
+
+function loadDreamUrls() {
+  if (fs.existsSync(DREAM_ALLOWLIST)) {
+    return normalizeAllowlist(JSON.parse(fs.readFileSync(DREAM_ALLOWLIST, "utf8")));
+  }
+  if (fs.existsSync(SITEMAP_DREAMS)) {
+    return extractLocs(fs.readFileSync(SITEMAP_DREAMS, "utf8"));
+  }
+  return [];
+}
+
+function loadSomaticUrls() {
+  if (fs.existsSync(ALLOWLIST)) {
+    return normalizeAllowlist(JSON.parse(fs.readFileSync(ALLOWLIST, "utf8")));
+  }
+  if (fs.existsSync(SITEMAP_SOMATIC)) {
+    return extractLocs(fs.readFileSync(SITEMAP_SOMATIC, "utf8")).filter((u) =>
+      /\/somatic\/.+\/.+\/.+\/$/.test(u)
+    );
+  }
+  return [];
+}
+
+function loadUrls(source) {
+  const out = [];
+  if (source === "all" || source === "dreams") out.push(...loadDreamUrls());
+  if (source === "all" || source === "somatic") out.push(...loadSomaticUrls());
+  // Dreams first (real search demand), then somatic
+  const dreams = out.filter((u) => u.includes("/dreams/"));
+  const rest = out.filter((u) => !u.includes("/dreams/"));
+  return [...new Set([...dreams, ...rest])];
+}
+
 function loadCredentials() {
   const p = process.env.GOOGLE_APPLICATION_CREDENTIALS;
-  if (!p || !fs.existsSync(p)) {
-    return null;
-  }
+  if (!p || !fs.existsSync(p)) return null;
   return JSON.parse(fs.readFileSync(p, "utf8"));
 }
 
@@ -90,10 +137,12 @@ async function getAccessToken(sa) {
     }),
   });
   const data = await res.json();
-  if (!res.ok) {
-    throw new Error(`Token error: ${JSON.stringify(data)}`);
-  }
+  if (!res.ok) throw new Error(`Token error: ${JSON.stringify(data)}`);
   return data.access_token;
+}
+
+function ensureDir(d) {
+  fs.mkdirSync(d, { recursive: true });
 }
 
 async function openSqlite() {
@@ -133,10 +182,6 @@ async function openSqlite() {
   } catch {
     return null;
   }
-}
-
-function ensureDir(d) {
-  fs.mkdirSync(d, { recursive: true });
 }
 
 function openJsonlLog() {
@@ -192,39 +237,48 @@ function sleep(ms) {
   return new Promise((r) => setTimeout(r, ms));
 }
 
+function needsSubmit(log, url, force) {
+  if (force) return true;
+  const row = log.get(url);
+  if (!row) return true;
+  if (row.status === "ok" && row.http_code >= 200 && row.http_code < 300) return false;
+  if (row.http_code >= 400) return true;
+  return false;
+}
+
 async function main() {
-  const { limit, dryRun } = parseArgs(process.argv.slice(2));
-  if (!fs.existsSync(SITEMAP)) {
-    console.error("Missing public/sitemap-somatic.xml — run pseo:build first");
+  const { limit, dryRun, force, source } = parseArgs(process.argv.slice(2));
+  const urls = loadUrls(source);
+  if (!urls.length) {
+    console.error("No URLs found. Run npm run pseo:build first.");
     process.exit(1);
-  }
-  let urls = [];
-  if (fs.existsSync(ALLOWLIST)) {
-    const allow = JSON.parse(fs.readFileSync(ALLOWLIST, "utf8"));
-    urls = (allow.urls || []).map((x) => x.url);
-    console.log(`Using indexable allowlist (${urls.length})`);
-  } else {
-    urls = extractUrls(fs.readFileSync(SITEMAP, "utf8")).filter((u) =>
-      /\/somatic\/.+\/.+\/.+\/$/.test(u)
-    );
   }
 
   const log = (await openSqlite()) || openJsonlLog();
   console.log(`Log backend: ${log.type}`);
-  console.log(`URLs in sitemap (utility pages): ${urls.length}`);
+  console.log(`Source: ${source} · candidates: ${urls.length}`);
 
   const todayCount = log.countToday();
   const remaining = Math.max(0, DAILY_CAP - todayCount);
-  const batch = urls.filter((u) => !log.get(u)?.http_code || log.get(u)?.http_code >= 400).slice(0, Math.min(limit, remaining));
+  const pending = urls.filter((u) => needsSubmit(log, u, force));
+  const batch = pending.slice(0, Math.min(limit, remaining));
+
+  console.log(`Already ok / skipped: ${urls.length - pending.length}`);
+  console.log(`Pending new: ${pending.length} · batch this run: ${batch.length} (cap left ${remaining})`);
 
   if (remaining <= 0) {
-    console.error("Daily cap reached (2000). Try tomorrow or use GSC sitemap.");
+    console.error(`Daily cap reached (${DAILY_CAP}). Try tomorrow or use GSC sitemap.`);
     process.exit(1);
   }
 
+  if (!batch.length) {
+    console.log("Nothing new to submit.");
+    return;
+  }
+
   if (dryRun) {
-    console.log(`[dry-run] Would submit ${batch.length} URLs (cap remaining ${remaining})`);
-    batch.slice(0, 5).forEach((u) => console.log(" ", u));
+    console.log(`[dry-run] Would submit ${batch.length} URLs:`);
+    batch.forEach((u) => console.log(" ", u));
     return;
   }
 
@@ -232,14 +286,15 @@ async function main() {
   if (!sa) {
     console.error(
       "GOOGLE_APPLICATION_CREDENTIALS not set or file missing.\n" +
-        "Fallback: submit sitemap in Google Search Console.\n" +
-        "Re-run with --dry-run to preview URL batch."
+        "1) Create a Google Cloud service account with Indexing API enabled\n" +
+        "2) Add the SA email as Owner in Search Console for oneirox.com\n" +
+        "3) set GOOGLE_APPLICATION_CREDENTIALS=path\\to\\sa.json\n" +
+        "Fallback: GSC → Sitemaps → submit https://oneirox.com/sitemap-dreams.xml\n" +
+        "Also: npm run pseo:indexnow  (Bing/Yandex — works without Google SA)"
     );
-    // Still write a pilot manifest for manual GSC inspection
-    const pilot = urls.slice(0, Math.min(10, limit));
     const pilotPath = path.join(PSEO, "data", "indexing-pilot-urls.txt");
-    fs.writeFileSync(pilotPath, pilot.join("\n") + "\n");
-    console.log(`Wrote pilot list → ${pilotPath}`);
+    fs.writeFileSync(pilotPath, batch.join("\n") + "\n");
+    console.log(`Wrote pending list → ${pilotPath}`);
     process.exitCode = 2;
     return;
   }
@@ -279,14 +334,16 @@ async function main() {
 
     if (result.status === 403) {
       console.warn(
-        "403 Permission denied — Indexing API likely unavailable for this URL type. Stop and use GSC sitemap."
+        "403 — Indexing API unavailable for this URL type. Stop; use GSC sitemap + IndexNow."
       );
       hardStop = true;
     }
     await sleep(200);
   }
 
-  console.log(`Done. Submitted ${submitted}. Log: ${log.type === "sqlite" ? LOG_SQLITE : LOG_JSONL}`);
+  console.log(
+    `Done. Submitted ${submitted}. Log: ${log.type === "sqlite" ? LOG_SQLITE : LOG_JSONL}`
+  );
 }
 
 main().catch((err) => {

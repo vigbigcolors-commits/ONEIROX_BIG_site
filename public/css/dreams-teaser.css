@@ -1,0 +1,73 @@
+/* Homepage teaser — Dream Meaning library */
+.onx-dreams-teaser {
+  padding: 3.5rem 1.25rem;
+  background: var(--onx-white);
+}
+
+.onx-dreams-teaser__inner {
+  max-width: var(--onx-content-width);
+  margin: 0 auto;
+}
+
+.onx-dreams-teaser__kicker {
+  margin: 0 0 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--onx-mist);
+}
+
+.onx-dreams-teaser__title {
+  margin: 0 0 0.6rem;
+  font-family: var(--onx-font-serif);
+  font-size: clamp(1.5rem, 3vw, 2.1rem);
+  line-height: 1.2;
+  max-width: 38rem;
+}
+
+.onx-dreams-teaser__lead {
+  margin: 0 0 1.75rem;
+  max-width: 36rem;
+  color: var(--onx-moss);
+  font-size: 1.02rem;
+}
+
+.onx-dreams-teaser__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.75rem;
+  margin: 0 0 1.5rem;
+}
+
+@media (min-width: 720px) {
+  .onx-dreams-teaser__grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.onx-dreams-teaser__card {
+  display: block;
+  padding: 1.1rem 1.15rem;
+  background: var(--onx-card);
+  border-radius: var(--onx-radius-md);
+  color: var(--onx-forest);
+  font-weight: 600;
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.onx-dreams-teaser__card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--onx-shadow-card);
+}
+
+.onx-dreams-teaser__all {
+  display: inline-block;
+  font-weight: 650;
+  color: var(--onx-cta);
+  text-decoration: none;
+  border-bottom: 1px solid currentColor;
+}
+
+.onx-dreams-teaser__all:hover { color: var(--onx-cta-hover); }
