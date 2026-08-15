@@ -13,7 +13,7 @@
 .site-header__inner {
   max-width: var(--onx-max-width);
   margin: 0 auto;
-  padding: 14px 24px;
+  padding: 6px 24px 10px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -28,10 +28,13 @@
   text-decoration: none;
   letter-spacing: -0.02em;
   flex-shrink: 0;
+  margin-top: -2px;
+  align-self: flex-start;
+  padding-top: 2px;
 }
 
 .site-logo__word {
-  font-size: 22px;
+  font-size: 24px;
   font-weight: 700;
   line-height: 1;
   display: inline-flex;
@@ -50,13 +53,14 @@
 }
 
 .site-logo__heart {
-  width: 24px;
-  height: 24px;
+  width: 26px;
+  height: 26px;
   flex-shrink: 0;
   display: block;
   color: #00a5a8;
   transform-origin: center center;
   animation: onx-logo-heart-pulse 1s linear infinite;
+  margin-top: -1px;
 }
 
 html.is-scrolling .site-logo__heart {

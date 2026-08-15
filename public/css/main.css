@@ -3,10 +3,12 @@
 
 /* Skip layout/paint for offscreen sections — major scroll win on long homepage */
 .flow-strip-outer,
-.onx-tools,
+.onx-corpus,
+.onx-decode-aside,
 .onx-dreams-teaser,
 .onx-why-decode,
 .onx-insight,
+.cta-band,
 .site-footer {
   content-visibility: auto;
   contain-intrinsic-size: auto 520px;

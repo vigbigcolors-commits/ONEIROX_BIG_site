@@ -574,3 +574,30 @@ html.is-scrolling #decode .onx-neiro-synapses * {
   }
 }
 
+/* Offline banner — Decode paused (animations untouched) */
+.onx-decode-offline {
+  margin: 8px 0 20px;
+  padding: 20px 22px;
+  border-radius: 16px;
+  background: rgba(30, 50, 36, 0.92);
+  border: 1px solid rgba(158, 212, 214, 0.28);
+  text-align: center;
+}
+
+.onx-decode-offline__kicker {
+  margin: 0 0 8px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #9ed4d6;
+}
+
+.onx-decode-offline__text {
+  margin: 0 0 16px;
+  font-size: 15px;
+  line-height: 1.55;
+  color: rgba(232, 240, 222, 0.9);
+}
+
+
