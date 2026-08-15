@@ -1,6 +1,6 @@
 ---
 description: Oneirox neurobiology-only content guardrail — ban psychoanalysis and dream dictionaries
-globs: pseo/**,public/somatic/**
+globs: pseo/**,public/somatic/**,public/dreams/**
 alwaysApply: false
 ---
 
@@ -26,4 +26,5 @@ For all text and code generation related to Oneirox (especially PSEO somatic pag
 - Prefer concrete markers: atonia preserved/failed, band-limited EEG, transmitter tone shifts.
 - Include a non-diagnosis disclaimer where health-adjacent symptoms appear.
 - Every somatic PSEO page needs a hard CTA to Decode (`/#decode`) for neurobiological dream analysis — not a tiny footer-only link.
-- Target scale for PSEO: ~300 strong symptom × somatic-marker × phase pages (see `oneirox-pseo-somatic.mdc`).
+- Target scale for PSEO: dense metric rows + controlled index (see `oneirox-pseo-somatic.mdc` — data-driven micro-tools, not keyword pages).
+- Dream Meaning pages: mechanism + body + morning; variants as FAQ on the same URL — never thin one-URL-per-variant spam.

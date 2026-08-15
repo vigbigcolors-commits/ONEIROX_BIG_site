@@ -1,46 +1,60 @@
 ---
-description: Safe PSEO always — unique pages, DB metrics, top-50 index only, typed/conditional UI
-globs: pseo/**,public/somatic/**,public/sitemap*.xml,public/robots.txt
+description: Data-driven PSEO for Oneirox — real math/UI uniqueness, no thin text spam, controlled index inject
+globs: pseo/**,public/somatic/**,public/dreams/**,public/sitemap*.xml,public/robots.txt,public/_redirects
 alwaysApply: false
 ---
 
-# Oneirox Safe PSEO (обязательно)
+# Oneirox Data-Driven PSEO (обязательно)
 
-Programmatic SEO = **архитектура базы метрик**, не генератор SEO-текста.
+PSEO = **микро-инструменты с разной математикой/данными**, не генератор SEO-текста.
 Сайт уже переживал удаления контента — **нулевой риск thin content**.
 
-## Закон уникальности (строго)
+Модель: Herminox (уникальный калькулятор на URL) → Oneirox (уникальный readout / decode-context / mechanism UI на URL).
 
-1. Каждая страница — **уникальная композиция** (title / summary / mechanism_bullets / decode_hint / felt_on_waking / decode_use).
-2. Запрещены одинаковые абзацы между URL и copy-paste с открытого веба.
-3. Все fixed-фразы (лиды, "как это ощущается", gauge-интерпретации, decode-шаблоны) — **пулы вариантов** (`seededPick` в `pseo/lib/compose.mjs`), а не одна строка на весь контекст/бакет. Одна фиксированная фраза на 10+ строк = гарантированный near-dup.
-4. Никаких искусственных "OX-" токенов в видимом тексте — уникальность обеспечивается реальными данными строки (маркеры, Hz, gauge-числа, `chart_seed` как "row #N"), не спамом.
-5. Общая оболочка (nav, CTA label, disclaimer) — ок; prose — нет.
-6. Билд обязан проходить `npm run pseo:audit` (near-dup → fail). Аудит проверяет `title + summary + decode_hint + felt_on_waking + decode_use + mechanism_bullets`.
+## 1. Уникализация через логику (не через портянку)
 
-## Жёсткие правила
+1. Каждая страница несёт **разные данные под капотом**: EEG Hz, gauges, markers, `chart_seed`, body zones, mechanism stack, SIGNAL/BODY/MORNING, FAQ-варианты темы.
+2. Разный контент + по возможности **разный DOM/скрипт поведения** (`layout_profile`, conditional modules). Нет данных → нет секции.
+3. Запрещены одинаковые абзацы между URL и copy-paste с веба.
+4. Fixed-фразы только через **пулы** (`seededPick` в `pseo/lib/compose.mjs`). Одна фраза на 10+ строк = near-dup.
+5. Без искусственных "OX-" токенов. Уникальность = реальные числа/маркеры строки.
+6. Билд обязан проходить `npm run pseo:audit` (near-dup → fail).
 
-1. **Матрица (БД):** 300–1000 плотных строк с метриками + enrichment (`body_zones`, `mechanism_bullets`, `layout_profile`, `modules_present`, `felt_on_waking`, `decode_use`, `pillar_key/href/label/blurb`).
-2. **В индекс Google только топ-50** (`indexable: true`).
-   - Sitemap somatic = топ-50 + хабы.
-   - Остальные: `noindex,follow`, не в sitemap.
-3. **Разный DOM** по `layout_profile` / modules (нет данных → нет секции).
-4. **Топ-50 получают доп. модули** (`felt_on_waking`, `decode_use`, `physiology_pillar`) — глубина контента без роста индекса.
-5. **Physiology pillar:** каждая индексируемая строка ссылается на релевантную главу `/mechanics/rem/{atonia|pgo-autonomic|cortex-eeg|cycle-timing}/` (`pillarFor()` в `compose.mjs`). Обратные ссылки с этих 4 страниц генерируются автоматически (`npm run pseo:link-mechanics`) из реального indexable-сета — руками ссылки на `/somatic/...` там не хардкодить (протухают при пересчёте топ-50).
-6. **Жёсткий CTA** на Decode (`/#decode`).
-7. **Запрет:** Фрейд/Юнг/мистика/сонники; одна оболочка на все URL; заливка 1000+ в индекс; forum scrape.
+## 2. Изоляция от SEO-спама (UI > вода)
+
+1. **Запрет:** портянки ключей внизу, Freudian/Jung, сонники, «символ X значит Y».
+2. Жёсткий UI-фокус: gauges, таблицы, charts, steppers, SIGNAL/BODY/MORNING, CTA Decode.
+3. Поведенческий сигнал важнее объёма текста: пользователь ввёл сон / отметил маркеры / нажал Decode.
+4. Каждая индексная страница → жёсткий CTA `/#decode`.
+
+## 3. Контролируемый index-inject
+
+1. **Не** вываливать сотни/тысячи URL за сутки.
+2. Сначала пилот (сейчас Dream Meaning = 26 pillar) → GSC 2–3 недели → потом вентиль.
+3. Порции: **до ~50–100 новых indexable URL/день** через Indexing API + sitemap — только после зелёных логов ботов/позиций.
+4. Соматика: БД может быть большой; **в индекс только топ-N** (`indexable: true`). Остальное `noindex,follow`, не в sitemap.
+5. Dream Meaning: глубокие pillar (не 1:1 thin на каждый старый WP URL). Варианты = секции/FAQ на той же странице.
+
+## Вертикали
+
+| Вертикаль | Уникальность | Индекс |
+|-----------|--------------|--------|
+| `/somatic/` | метрики фазы×маркеры + typed shells | топ-50 |
+| `/dreams/` | авторский mechanism + variants FAQ | 26 pilot → scale only on GSC |
+| `/mechanics/rem/` | физиология + auto-links к utilities | все главы |
 
 ## Команды
 
 ```bash
-npm run pseo:expand         # DB ~400 + rank top-50
-npm run pseo:enrich         # unique composed fields + layouts
-npm run pseo:audit          # uniqueness gate
-npm run pseo:build          # audit → typed SSG → safe sitemap → mechanics cross-links
-npm run pseo:link-mechanics # re-sync REM mechanics ↔ somatic utility links only
-npm run pseo:all            # expand → enrich → audit → build
+npm run pseo:build            # audit → somatic SSG → mechanics links → dreams SSG
+npm run pseo:audit            # uniqueness gate (somatic + dreams)
+npm run pseo:index:dreams     # Indexing API — новые /dreams/* only
+npm run pseo:indexnow:dreams  # Bing/Yandex
+npm run pseo:notify           # Google + IndexNow dreams
 ```
 
 ## Индексация
 
-Только URL из `pseo/data/indexable-allowlist.json` + `/somatic/` хабы.
+- Allowlists: `pseo/data/indexable-allowlist.json`, `pseo/data/dream-allowlist.json`
+- Credentials: `GOOGLE_APPLICATION_CREDENTIALS` → `secrets/*.json` (никогда в git)
+- Primary discovery = sitemap; Indexing API = ускоритель, не замена
