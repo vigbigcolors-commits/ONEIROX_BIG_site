@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-R95EFBPZ6R" data-cfasync="false"></script>
+  <script data-cfasync="false">
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-R95EFBPZ6R');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <meta name="theme-color" content="#123834">
+  <title>Sleep Cycle Calculator — 90-Minute Ultradian Rhythm | Oneirox Lab</title>
+  <meta name="description" content="Free sleep cycle calculator. Enter a wake time or bedtime and get bedtimes/wake times aligned to 90-minute ultradian cycles — avoid sleep inertia, no app, no login.">
+  <meta name="application-name" content="Oneirox Sleep Cycle Lab">
+  <link rel="canonical" href="https://oneirox.com/lab/sleep-cycles/">
+  <link rel="alternate" hreflang="en" href="https://oneirox.com/lab/sleep-cycles/">
+  <link rel="alternate" hreflang="x-default" href="https://oneirox.com/lab/sleep-cycles/">
+  <meta property="og:title" content="Sleep Cycle Calculator — Oneirox Lab">
+  <meta property="og:description" content="90-minute ultradian rhythm math: find bedtimes or wake times that land between cycles, not mid-cycle. Free, no login.">
+  <meta property="og:url" content="https://oneirox.com/lab/sleep-cycles/">
+  <meta property="og:site_name" content="Oneirox">
+  <link rel="stylesheet" href="/css/page.css">
+  <link rel="stylesheet" href="/css/lab-sleep-cycles.css">
+  <link rel="stylesheet" href="/css/main.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebApplication",
+        "@id": "https://oneirox.com/lab/sleep-cycles/#app",
+        "name": "Oneirox Sleep Cycle Calculator",
+        "url": "https://oneirox.com/lab/sleep-cycles/",
+        "description": "Free web tool: calculates bedtimes or wake times aligned to 90-minute ultradian sleep cycles, to reduce sleep inertia.",
+        "applicationCategory": "HealthApplication",
+        "operatingSystem": "Web browser",
+        "isAccessibleForFree": true,
+        "isPartOf": { "@id": "https://oneirox.com/#decode-app" },
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+      },
+      {
+        "@type": "WebPage",
+        "name": "Sleep Cycle Calculator — Oneirox Lab",
+        "url": "https://oneirox.com/lab/sleep-cycles/",
+        "isPartOf": { "@id": "https://oneirox.com/#website" },
+        "about": { "@id": "https://oneirox.com/lab/sleep-cycles/#app" },
+        "mainEntity": { "@id": "https://oneirox.com/lab/sleep-cycles/#app" }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Oneirox", "item": "https://oneirox.com/" },
+          { "@type": "ListItem", "position": 2, "name": "Lab", "item": "https://oneirox.com/lab/" },
+          { "@type": "ListItem", "position": 3, "name": "Sleep Cycle Calculator", "item": "https://oneirox.com/lab/sleep-cycles/" }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body class="page-oneirox">
+
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a href="/" class="site-logo" aria-label="Oneirox home">
+        <span class="site-logo__word"><span class="site-logo__one">One</span><span class="site-logo__irox">irox</span></span>
+        <svg class="site-logo__heart" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+          <path d="M12 20.5s-6.5-4.6-6.5-9.2C5.5 8.1 7.6 6 10.1 6c1.4 0 2.7.7 3.4 1.8.7-1.1 2-1.8 3.4-1.8 2.5 0 4.6 2.1 4.6 5.3 0 4.6-6.5 9.2-6.5 9.2z" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
+      <nav class="site-nav" aria-label="Main">
+        <ul>
+          <li><a href="/lab/">Lab</a></li>
+          <li><a href="/notes/">Notes</a></li>
+          <li><a href="/#instruments">Instruments</a></li>
+          <li><a href="/#decode">Decode</a></li>
+          <li><a href="/about/">About</a></li>
+        </ul>
+      </nav>
+      <div class="site-header__actions">
+        <a href="/#decode" class="btn btn--primary">Decode →</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+
+    <header class="onx-cycles-hero">
+      <div class="onx-cycles-hero__inner">
+        <div>
+          <p class="onx-cycles-hero__kicker">Oneirox Lab · Free instrument · No login</p>
+          <h1 class="onx-cycles-hero__title">Sleep Cycle <em>Calculator</em></h1>
+          <p class="onx-cycles-hero__lead">Sleep runs in ~90-minute ultradian blocks, alternating NREM and REM. Wake mid-cycle and you get sleep inertia — grogginess, not rest. Enter a wake time or bedtime and land on a cycle boundary instead.</p>
+        </div>
+        <div class="onx-cycles-hero__stats" aria-label="Cycle facts">
+          <div class="onx-cycles-hero__stat">
+            <p class="onx-cycles-hero__stat-val">90</p>
+            <p class="onx-cycles-hero__stat-lbl">minutes<br>per cycle</p>
+          </div>
+          <div class="onx-cycles-hero__stat">
+            <p class="onx-cycles-hero__stat-val">14</p>
+            <p class="onx-cycles-hero__stat-lbl">min average<br>sleep onset</p>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <section class="onx-cycles-tool" aria-label="Sleep Cycle Calculator">
+      <div class="onx-cyc-card" id="cyc-root">
+        <div class="onx-cyc-toggle" role="group" aria-label="Calculator mode">
+          <button type="button" class="onx-cyc-toggle__btn" id="cyc-mode-wake">I have a wake time</button>
+          <button type="button" class="onx-cyc-toggle__btn" id="cyc-mode-bed">I'm going to sleep now</button>
+        </div>
+
+        <div class="onx-cyc-row">
+          <label for="cyc-time-input" id="cyc-time-label">I need to wake up at</label>
+        </div>
+        <div class="onx-cyc-row">
+          <input type="time" id="cyc-time-input" class="onx-cyc-time-in" value="07:00" aria-label="Time" />
+          <button type="button" id="cyc-calc-btn" class="onx-cyc-btn">Find bedtimes →</button>
+          <button type="button" id="cyc-now-btn" class="onx-cyc-btn" style="background:transparent;color:var(--onx-moss);border:1.5px solid rgba(58,68,53,0.25)">Use current time</button>
+        </div>
+        <p class="onx-cyc-hint">Math only — no account, no data sent anywhere. Based on the ~90-minute ultradian rhythm (Kleitman) and average sleep-onset latency.</p>
+
+        <div class="onx-cyc-results" id="cyc-results">
+          <p class="onx-cyc-results__label" id="cyc-results-label"></p>
+        </div>
+
+        <div class="onx-cyc-mech">
+          <p id="cyc-mech-text">Each full cycle moves through light NREM, deep slow-wave sleep, and REM. Waking near a cycle boundary catches you in light sleep — the easiest state to surface from.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="onx-cycles-section onx-cycles-section--alt" aria-labelledby="cycles-science">
+      <div class="onx-cycles-section__inner">
+        <p class="onx-cycles-section__kicker">Science · not a lifehack</p>
+        <h2 class="onx-cycles-section__title" id="cycles-science">The ultradian rhythm, <em>not a rule of thumb</em></h2>
+        <div class="onx-cycles-prose">
+          <p>Nathaniel Kleitman's basic rest-activity cycle (BRAC) and the classic Dement &amp; Kleitman (1957) EEG studies established that human sleep alternates through NREM and REM in cycles averaging <strong>90 minutes</strong>, four to six times a night. Cycle length is not perfectly fixed — it can range 70–110 minutes and shifts slightly across the night — so this calculator gives a small window of options rather than one rigid number.</p>
+          <p><strong>Sleep inertia</strong> — the grogginess, slowed reaction time, and disorientation right after waking — is strongest when an alarm interrupts slow-wave (deep NREM) sleep. Waking during light NREM, near a cycle boundary, produces measurably less inertia. That is the entire mechanism this tool calculates for: not a lucky number, a boundary in your own ultradian rhythm.</p>
+          <p>This is a planning tool, not a Decode reading. If a specific dream from one of these nights is still with you, <a href="/#decode">describe it to Decode</a> for a mechanism-based interpretation — or add somatic detail first with the <a href="/tools/oneirox-dream-mapper">Sensory Dream Mapper</a>.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="onx-cycles-section" aria-labelledby="cycles-flow">
+      <div class="onx-cycles-section__inner onx-cycles-section__inner--wide">
+        <p class="onx-cycles-section__kicker">Workflow</p>
+        <h2 class="onx-cycles-section__title" id="cycles-flow">Three instruments, one lab</h2>
+        <ol class="onx-cycles-flow">
+          <li>
+            <p class="onx-cycles-flow__n">01</p>
+            <p class="onx-cycles-flow__title">Sleep Cycle Calculator</p>
+            <p class="onx-cycles-flow__text">Plan bedtime or wake time around 90-minute cycle boundaries — before you sleep.</p>
+          </li>
+          <li>
+            <p class="onx-cycles-flow__n">02</p>
+            <p class="onx-cycles-flow__title">Sensory Mapper <span style="font-weight:400;color:#6a7a68">(optional)</span></p>
+            <p class="onx-cycles-flow__text"><a href="/tools/oneirox-dream-mapper">Map body sensations</a> on waking — temperature, pressure, zones.</p>
+          </li>
+          <li>
+            <p class="onx-cycles-flow__n">03</p>
+            <p class="onx-cycles-flow__title">Decode</p>
+            <p class="onx-cycles-flow__text">Describe the dream. Receive SIGNAL · BODY · MORNING — one flagship reading, limited per day.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="onx-cycles-cta" aria-labelledby="cycles-cta-title">
+      <h2 class="onx-cycles-cta__title" id="cycles-cta-title">Know your cycles.<br><em>Now explore the rest of the Lab.</em></h2>
+      <p class="onx-cycles-cta__sub">Free · No login · 400+ body-signal profiles · 26 dream mechanisms</p>
+      <a href="/lab/" class="btn btn--light">Open the Lab →</a>
+      <p style="margin-top:14px;font-size:13px"><a href="/notes/why-i-built-the-sleep-cycle-calculator/" style="color:#a8e4d4">Why I built this — Vigen G.R. →</a></p>
+    </section>
+
+  </main>
+
+  <button type="button" class="back-to-top" id="back-to-top" aria-label="Back to top" aria-hidden="true" tabindex="-1">
+    <svg class="back-to-top__icon" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false">
+      <path d="M12 19V6M12 6 L6 12M12 6 L18 12" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    <span class="back-to-top__label">Top</span>
+  </button>
+
+  <footer class="page-footer page-footer--rich">
+    <div class="page-footer__main">
+      <nav aria-label="Footer">
+        <a href="/">Dream Decoder</a>
+        <a href="/lab/">Sleep Neurobiology Lab</a>
+        <a href="/notes/">Lab Notes</a>
+        <a href="/tools/oneirox-dream-mapper">Sensory Dream Mapper</a>
+        <a href="/phase/">Dream Phase Calculator</a>
+        <a href="/dreams/">Dream Meaning</a>
+        <a href="/about/">About</a>
+        <a href="/disclaimer/">Disclaimer</a>
+        <a href="/privacy/">Privacy Policy</a>
+        <a href="/terms/">Terms of Use</a>
+      </nav>
+      <p class="page-footer__tagline">Sleep neurobiology lab · free instruments · Decode is the flagship reading — not a symbol dictionary</p>
+    </div>
+    <p class="page-footer__copy">© 2026 Oneirox · Vigen G.R. · Independent researcher &amp; developer</p>
+  </footer>
+
+  <script src="/js/lab-sleep-cycles.js" defer></script>
+  <script src="/js/back-to-top.js" defer></script>
+  <script src="/js/oneirox-lang.js" data-cfasync="false" defer></script>
+</body>
+</html>

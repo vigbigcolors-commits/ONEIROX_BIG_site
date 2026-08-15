@@ -41,7 +41,7 @@
 
 .onx-tools__grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 24px;
 }
 
@@ -325,6 +325,79 @@
 .onx-card2--phase .onx-card2__metric-icon { color: #98c0ff; }
 .onx-card2--phase .onx-card2__metric-label { color: #6890c0; }
 
+.onx-card2--cycles {
+  background: linear-gradient(155deg, #0c2422 0%, #123834 42%, #154a42 100%);
+  border: 1.5px solid rgba(77, 173, 184, 0.4);
+  box-shadow:
+    0 12px 40px rgba(6, 26, 24, 0.5),
+    0 0 0 1px rgba(77, 173, 184, 0.1),
+    inset 0 1px 0 rgba(120, 220, 210, 0.12);
+}
+
+.onx-card2--cycles:hover {
+  box-shadow:
+    0 28px 64px rgba(6, 26, 24, 0.62),
+    0 0 48px rgba(77, 173, 184, 0.18),
+    inset 0 1px 0 rgba(120, 220, 210, 0.15);
+}
+
+.onx-card2--cycles::before {
+  content: '';
+  position: absolute;
+  width: 240px;
+  height: 240px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(77, 173, 184, 0.16) 0%, transparent 68%);
+  top: -50px;
+  right: -50px;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.onx-card2--cycles .onx-card2__icon {
+  background: radial-gradient(circle at 38% 32%, #dff7f2 0%, #6dd0c4 42%, #1e8577 100%);
+  box-shadow: 0 6px 20px rgba(10, 60, 52, 0.5), inset 0 2px 4px rgba(255, 255, 255, 0.35);
+}
+
+.icon-cycles {
+  width: 40px;
+  height: 40px;
+  position: relative;
+}
+
+.icon-cycles__ring {
+  position: absolute;
+  border-radius: 50%;
+  border: 1.6px solid rgba(10, 60, 52, 0.55);
+  inset: 0;
+}
+
+.icon-cycles__ring--2 { inset: 7px; border-color: rgba(10, 60, 52, 0.7); }
+.icon-cycles__ring--3 { inset: 14px; border-color: rgba(10, 60, 52, 0.85); background: rgba(10, 60, 52, 0.18); }
+
+.onx-card2--cycles .onx-card2__name {
+  color: #dcfaf2;
+  text-shadow: 0 0 30px rgba(77, 173, 184, 0.3);
+}
+
+.onx-card2--cycles .onx-card2__desc { color: #9dcec4; }
+
+.onx-card2--cycles .onx-card2__tag:first-child {
+  background: rgba(255, 255, 255, 0.14);
+  color: #d4f6ee;
+  border-color: rgba(255, 255, 255, 0.28);
+}
+
+.onx-card2--cycles .onx-card2__tag:last-child {
+  background: transparent;
+  color: #7ec4b8;
+  border-color: rgba(77, 173, 184, 0.4);
+}
+
+.onx-card2--cycles .onx-card2__wave { filter: drop-shadow(0 0 10px rgba(77, 173, 184, 0.5)); }
+.onx-card2--cycles .onx-card2__metric-icon { color: #a0e0d4; }
+.onx-card2--cycles .onx-card2__metric-label { color: #6ba89c; }
+
 .onx-card2__arrow {
   position: absolute;
   right: 20px;
@@ -347,6 +420,10 @@
 .onx-card2--phase:hover .onx-card2__arrow {
   background: rgba(180, 210, 255, 0.35);
   transform: translateX(4px);
+}
+
+@media (max-width: 1080px) {
+  .onx-tools__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 
 @media (max-width: 820px) {

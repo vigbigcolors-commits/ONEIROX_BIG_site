@@ -1,0 +1,323 @@
+/* ONEIROX LAB NOTES — author journal (CSS decoration, no required images) */
+
+.onx-notes-hero {
+  position: relative;
+  padding: 56px 0 48px;
+  background: linear-gradient(175deg, #d8e4d0 0%, var(--onx-canvas) 48%, #c4d0b8 100%);
+  overflow: hidden;
+}
+
+.onx-notes-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(to right, rgba(86, 110, 88, 0.09) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(86, 110, 88, 0.09) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+.onx-notes-hero__inner {
+  position: relative;
+  z-index: 1;
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 0 28px;
+}
+
+.onx-notes-hero__kicker {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: #3d5234;
+  margin: 0 0 16px;
+}
+
+.onx-notes-hero__title {
+  font-family: var(--onx-font-serif);
+  font-size: clamp(30px, 4vw, 44px);
+  font-weight: 600;
+  line-height: 1.12;
+  letter-spacing: -0.03em;
+  color: #1e261c;
+  margin: 0 0 16px;
+}
+
+.onx-notes-hero__title em {
+  font-style: italic;
+  color: var(--onx-emerald);
+}
+
+.onx-notes-hero__lead {
+  font-size: 17px;
+  line-height: 1.7;
+  color: #3a4435;
+  margin: 0;
+  max-width: 52ch;
+}
+
+.onx-notes-list {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 40px 28px 72px;
+}
+
+.onx-notes-list__label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--onx-moss);
+  margin: 0 0 20px;
+}
+
+.onx-note-card {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  padding: 28px 0 28px 28px;
+  border-left: 3px solid rgba(38, 133, 113, 0.35);
+  margin-bottom: 8px;
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+.onx-note-card:hover {
+  border-left-color: var(--onx-emerald);
+  background: rgba(248, 250, 245, 0.55);
+}
+
+.onx-note-card__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+  align-items: baseline;
+  margin-bottom: 10px;
+}
+
+.onx-note-card__n {
+  font-family: var(--onx-font-serif);
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--onx-emerald);
+}
+
+.onx-note-card__date {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: #5a6450;
+}
+
+.onx-note-card__author {
+  font-size: 12px;
+  font-weight: 600;
+  color: #2d6a6a;
+}
+
+.onx-note-card__title {
+  font-family: var(--onx-font-serif);
+  font-size: clamp(22px, 2.6vw, 28px);
+  font-weight: 600;
+  line-height: 1.25;
+  color: var(--onx-forest);
+  margin: 0 0 10px;
+}
+
+.onx-note-card:hover .onx-note-card__title {
+  color: #1a4a42;
+}
+
+.onx-note-card__excerpt {
+  font-size: 15px;
+  line-height: 1.65;
+  color: #3f4a3a;
+  margin: 0;
+  max-width: 58ch;
+}
+
+/* ── Single note article ── */
+.onx-note {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 48px 28px 80px;
+}
+
+.onx-note__rail {
+  border-left: 3px solid rgba(38, 133, 113, 0.4);
+  padding-left: 28px;
+  margin-bottom: 36px;
+}
+
+.onx-note__kicker {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--onx-moss);
+  margin: 0 0 12px;
+}
+
+.onx-note__title {
+  font-family: var(--onx-font-serif);
+  font-size: clamp(28px, 4vw, 40px);
+  font-weight: 600;
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+  color: #1e261c;
+  margin: 0 0 18px;
+}
+
+.onx-note__title em {
+  font-style: italic;
+  color: var(--onx-emerald);
+}
+
+.onx-note__byline {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 14px;
+  align-items: center;
+  font-size: 13px;
+  color: #5a6450;
+  margin: 0;
+}
+
+.onx-note__byline a {
+  font-weight: 700;
+  color: #2d6a6a;
+}
+
+.onx-note__byline time {
+  font-weight: 600;
+}
+
+.onx-note__body {
+  font-size: 16.5px;
+  line-height: 1.78;
+  color: #3a4435;
+}
+
+.onx-note__body p {
+  margin: 0 0 1.15em;
+}
+
+.onx-note__body h2 {
+  font-family: var(--onx-font-serif);
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--onx-forest);
+  margin: 2em 0 0.75em;
+  letter-spacing: -0.02em;
+}
+
+.onx-note__body strong {
+  color: #2a3228;
+  font-weight: 600;
+}
+
+.onx-note__body a {
+  color: #2d6a6a;
+  font-weight: 600;
+  text-decoration: underline;
+  text-decoration-color: rgba(0, 165, 168, 0.35);
+  text-underline-offset: 3px;
+}
+
+.onx-note__pull {
+  margin: 1.75em 0;
+  padding: 22px 24px;
+  border-left: 3px solid var(--onx-emerald);
+  background: rgba(38, 133, 113, 0.06);
+  font-family: var(--onx-font-serif);
+  font-size: 20px;
+  font-style: italic;
+  line-height: 1.45;
+  color: var(--onx-forest);
+}
+
+.onx-note__pull p {
+  margin: 0;
+}
+
+.onx-note__aside {
+  margin: 2em 0;
+  padding: 18px 20px;
+  border: 1px solid rgba(58, 68, 53, 0.16);
+  border-radius: 4px;
+  background: var(--onx-white);
+}
+
+.onx-note__aside-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--onx-moss);
+  margin: 0 0 8px;
+}
+
+.onx-note__aside p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #3f4a3a;
+}
+
+.onx-note__cta {
+  margin-top: 48px;
+  padding: 28px 24px;
+  background: linear-gradient(175deg, #1a2218 0%, #243320 100%);
+  border-radius: 4px;
+  text-align: center;
+}
+
+.onx-note__cta-title {
+  font-family: var(--onx-font-serif);
+  font-size: 22px;
+  font-weight: 600;
+  color: #eef2e8;
+  margin: 0 0 10px;
+  line-height: 1.3;
+}
+
+.onx-note__cta-title em {
+  font-style: italic;
+  color: #a8d490;
+}
+
+.onx-note__cta-sub {
+  font-size: 13px;
+  color: rgba(220, 228, 210, 0.75);
+  margin: 0 0 18px;
+}
+
+.onx-note__nav {
+  margin-top: 40px;
+  padding-top: 24px;
+  border-top: 1px solid rgba(58, 68, 53, 0.15);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 28px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.onx-note__nav a {
+  color: var(--onx-moss);
+}
+
+.onx-note__nav a:hover {
+  color: var(--onx-forest);
+}
+
+@media (max-width: 600px) {
+  .onx-note-card,
+  .onx-note__rail {
+    padding-left: 18px;
+  }
+  .onx-note {
+    padding: 36px 20px 64px;
+  }
+}

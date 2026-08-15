@@ -1,6 +1,17 @@
 /* ONEIROX — site shell (below-fold sections, footer). Decode: decode.css */
 /* Load order in HTML: tokens.css → site-nav.css → decode.css → main.css (deferred) */
 
+/* Skip layout/paint for offscreen sections — major scroll win on long homepage */
+.flow-strip-outer,
+.onx-tools,
+.onx-dreams-teaser,
+.onx-why-decode,
+.onx-insight,
+.site-footer {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 520px;
+}
+
 a { color: var(--onx-moss); text-decoration: none; }
 a:hover { color: var(--onx-leaf); }
 

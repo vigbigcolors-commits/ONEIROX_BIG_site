@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-R95EFBPZ6R" data-cfasync="false"></script>
+  <script data-cfasync="false">
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-R95EFBPZ6R');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <meta name="theme-color" content="#1e3224">
+  <title>Lab Notes — Vigen G.R. on Sleep Neurobiology &amp; Oneirox Instruments</title>
+  <meta name="description" content="Field notes by Vigen G.R.: why Oneirox refuses symbol dictionaries, how Sleep Cycles and Decode were built, and what fifty books of sleep research changed in the instruments.">
+  <meta name="author" content="Vigen G.R.">
+  <link rel="canonical" href="https://oneirox.com/notes/">
+  <link rel="alternate" hreflang="en" href="https://oneirox.com/notes/">
+  <link rel="alternate" hreflang="x-default" href="https://oneirox.com/notes/">
+  <meta property="og:title" content="Lab Notes — Vigen G.R. · Oneirox">
+  <meta property="og:description" content="Author notes on building a sleep neurobiology lab — mechanisms, instruments, and the research behind them.">
+  <meta property="og:url" content="https://oneirox.com/notes/">
+  <meta property="og:site_name" content="Oneirox">
+  <link rel="stylesheet" href="/css/page.css">
+  <link rel="stylesheet" href="/css/notes.css">
+  <link rel="stylesheet" href="/css/main.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Blog",
+        "@id": "https://oneirox.com/notes/#blog",
+        "name": "Oneirox Lab Notes",
+        "url": "https://oneirox.com/notes/",
+        "description": "Field notes by Vigen G.R. on sleep neurobiology instruments and the research behind Oneirox.",
+        "author": { "@id": "https://oneirox.com/about/#vigen" },
+        "publisher": { "@id": "https://oneirox.com/#organization" },
+        "inLanguage": "en",
+        "isPartOf": { "@id": "https://oneirox.com/#website" }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Oneirox", "item": "https://oneirox.com/" },
+          { "@type": "ListItem", "position": 2, "name": "Lab Notes", "item": "https://oneirox.com/notes/" }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body class="page-oneirox">
+
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a href="/" class="site-logo" aria-label="Oneirox home">
+        <span class="site-logo__word"><span class="site-logo__one">One</span><span class="site-logo__irox">irox</span></span>
+        <svg class="site-logo__heart" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+          <path d="M12 20.5s-6.5-4.6-6.5-9.2C5.5 8.1 7.6 6 10.1 6c1.4 0 2.7.7 3.4 1.8.7-1.1 2-1.8 3.4-1.8 2.5 0 4.6 2.1 4.6 5.3 0 4.6-6.5 9.2-6.5 9.2z" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
+      <nav class="site-nav" aria-label="Main">
+        <ul>
+          <li><a href="/lab/">Lab</a></li>
+          <li><a href="/notes/" aria-current="page">Notes</a></li>
+          <li><a href="/#instruments">Instruments</a></li>
+          <li><a href="/#decode">Decode</a></li>
+          <li><a href="/about/">About</a></li>
+          <li><a href="/methodology/">Methodology</a></li>
+        </ul>
+      </nav>
+      <div class="site-header__actions">
+        <a href="/#decode" class="btn btn--primary">Decode →</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <header class="onx-notes-hero">
+      <div class="onx-notes-hero__inner">
+        <p class="onx-notes-hero__kicker">Lab Notes · Written by Vigen G.R.</p>
+        <h1 class="onx-notes-hero__title">Why the instruments exist — <em>in my own words</em></h1>
+        <p class="onx-notes-hero__lead">These are not SEO articles. They are field notes from building Oneirox: decisions I made, books that changed a formula, and mechanisms I refuse to soft-pedal. I update this section as the lab grows.</p>
+      </div>
+    </header>
+
+    <div class="onx-notes-list">
+      <p class="onx-notes-list__label">Published notes</p>
+
+      <a class="onx-note-card" href="/notes/why-i-refuse-symbol-dictionaries/">
+        <div class="onx-note-card__meta">
+          <span class="onx-note-card__n">01</span>
+          <time class="onx-note-card__date" datetime="2026-08-15">15 Aug 2026</time>
+          <span class="onx-note-card__author">Vigen G.R.</span>
+        </div>
+        <h2 class="onx-note-card__title">Why I refuse symbol dictionaries</h2>
+        <p class="onx-note-card__excerpt">Five years of reading sleep science taught me one hard rule: if a tool starts with “snake means…”, it has already abandoned the brain. Here is the premise Oneirox will not compromise.</p>
+      </a>
+
+      <a class="onx-note-card" href="/notes/why-i-built-the-sleep-cycle-calculator/">
+        <div class="onx-note-card__meta">
+          <span class="onx-note-card__n">02</span>
+          <time class="onx-note-card__date" datetime="2026-08-15">15 Aug 2026</time>
+          <span class="onx-note-card__author">Vigen G.R.</span>
+        </div>
+        <h2 class="onx-note-card__title">Why I built the Sleep Cycle Calculator</h2>
+        <p class="onx-note-card__excerpt">Sleep inertia is not a personality flaw — it is an interrupted ultradian cycle. How ~90-minute math became a free Lab instrument with no API and no login.</p>
+      </a>
+
+      <a class="onx-note-card" href="/notes/what-fifty-books-changed-in-decode/">
+        <div class="onx-note-card__meta">
+          <span class="onx-note-card__n">03</span>
+          <time class="onx-note-card__date" datetime="2026-08-15">15 Aug 2026</time>
+          <span class="onx-note-card__author">Vigen G.R.</span>
+        </div>
+        <h2 class="onx-note-card__title">What fifty books actually changed in Decode</h2>
+        <p class="onx-note-card__excerpt">Not a reading list for show. How Walker, Damasio, Revonsuo, and others became SIGNAL · BODY · MORNING — one committed reading instead of five vague meanings.</p>
+      </a>
+    </div>
+  </main>
+
+  <footer class="page-footer page-footer--rich">
+    <div class="page-footer__main">
+      <nav aria-label="Footer">
+        <a href="/lab/">Lab</a>
+        <a href="/notes/">Lab Notes</a>
+        <a href="/about/">About Vigen G.R.</a>
+        <a href="/methodology/">Methodology</a>
+        <a href="/#decode">Decode</a>
+        <a href="/disclaimer/">Disclaimer</a>
+        <a href="/privacy/">Privacy</a>
+        <a href="/terms/">Terms</a>
+      </nav>
+      <p class="page-footer__tagline">Author notes · sleep neurobiology · instruments you can run by hand</p>
+    </div>
+    <p class="page-footer__copy">© 2026 Oneirox · Vigen G.R. · Independent researcher &amp; developer</p>
+  </footer>
+
+  <script src="/js/back-to-top.js" defer></script>
+</body>
+</html>

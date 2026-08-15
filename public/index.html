@@ -9,19 +9,19 @@
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="manifest" href="/site.webmanifest">
   <meta name="theme-color" content="#1e3224">
-  <title>Oneirox — Scientific AI Dream Decoder | Sleep Neurobiology</title>
-  <meta name="description" content="Decode dreams through sleep neuroscience, not symbol dictionaries. Free AI dream decoder by Vigen G.R. — 5+ years research, 50+ books, 14 peer-reviewed frameworks.">
-  <meta name="application-name" content="Oneirox Dream Decoder">
-  <meta name="apple-mobile-web-app-title" content="Oneirox Decode">
+  <title>Oneirox — Sleep Neurobiology Lab | Free Dream &amp; Sleep Instruments</title>
+  <meta name="description" content="A free sleep neurobiology lab: body-signal mapper, lunar and 90-minute cycle calculators, 400+ somatic profiles, 26 dream mechanisms — plus Decode, the flagship AI reading. By Vigen G.R., 5+ years research.">
+  <meta name="application-name" content="Oneirox Lab">
+  <meta name="apple-mobile-web-app-title" content="Oneirox Lab">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Oneirox">
-  <meta property="og:title" content="Oneirox — Scientific AI Dream Decoder">
-  <meta property="og:description" content="Free web app: decode dreams through REM neuroscience, not symbol dictionaries. SIGNAL · BODY · MORNING — one mechanism-based reading per dream.">
+  <meta property="og:title" content="Oneirox — Sleep Neurobiology Lab">
+  <meta property="og:description" content="Free hands-on lab: map body signals, calculate lunar and 90-minute sleep cycles, browse 400+ somatic profiles and 26 dream mechanisms. Decode is the flagship reading — SIGNAL · BODY · MORNING.">
   <meta property="og:url" content="https://oneirox.com/">
   <meta property="og:image" content="https://oneirox.com/images/neiro.webp">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Oneirox Dream Decoder">
-  <meta name="twitter:description" content="Scientific AI dream decoder — free, no login. Decode is the core tool.">
+  <meta name="twitter:title" content="Oneirox — Sleep Neurobiology Lab">
+  <meta name="twitter:description" content="Free sleep neurobiology instruments — no login. Decode is the flagship reading, limited daily.">
   <meta name="oneirox-api" content="">
   <link rel="canonical" href="https://oneirox.com/">
   <link rel="alternate" hreflang="en" href="https://oneirox.com/">
@@ -32,6 +32,7 @@
   <link rel="stylesheet" href="/css/fonts.css">
   <link rel="stylesheet" href="/css/tokens.css">
   <link rel="stylesheet" href="/css/site-nav.css">
+  <link rel="stylesheet" href="/css/lab.css">
   <link rel="stylesheet" href="/css/decode.css">
   <link rel="stylesheet" href="/css/main.css" media="print" onload="this.media='all'">
   <link rel="stylesheet" href="/css/decode-deferred.css" media="print" onload="this.media='all'">
@@ -62,11 +63,11 @@
       </a>
       <nav class="site-nav" aria-label="Main">
         <ul>
-          <li><a href="#decode">Decode</a></li>
-          <li><a href="#how">How it works</a></li>
-          <li><a href="#onx-tools">Tools</a></li>
+          <li><a href="/lab/">Lab</a></li>
+          <li><a href="/notes/">Notes</a></li>
+          <li><a href="#instruments">Instruments</a></li>
           <li><a href="/dreams/">Dream Meaning</a></li>
-          <li><a href="#science">Science</a></li>
+          <li><a href="#decode">Decode</a></li>
           <li><a href="/about/">About</a></li>
           <li><a href="/methodology/">Methodology</a></li>
         </ul>
@@ -76,14 +77,240 @@
           <span class="onx-journal-nav__label">Journal</span>
           <span class="onx-journal-nav__badge" id="onx-journal-badge" hidden></span>
         </button>
-        <a href="#decode" class="btn btn--primary">Decode →</a>
+        <a href="#lab" class="btn btn--primary">Open Lab →</a>
       </div>
     </div>
   </header>
 
   <main>
 
-    <!-- DECODE FIRST — sacred form contract -->
+    <!-- LAB HERO — new positioning: neuro-lab first, Decode is the flagship reading -->
+    <section class="onx-lab-hero" id="lab" aria-labelledby="lab-hero-title">
+      <div class="onx-lab-hero__inner">
+        <p class="onx-lab-hero__eyebrow">Sleep Neurobiology Lab · Free instruments · No login</p>
+        <h1 class="onx-lab-hero__title" id="lab-hero-title">Your body decoded the dream <span class="onx-highlight">before you woke up.</span></h1>
+        <p class="onx-lab-hero__lead">Oneirox is a free sleep neurobiology lab you run with your hands — map your body's signals, calculate the chronobiology, browse the mechanism behind 26 dream themes. <strong>Decode</strong> is our flagship AI reading: rare, limited, reserved for when the Lab genuinely isn't enough.</p>
+        <div class="onx-lab-hero__stats" role="list">
+          <div role="listitem"><strong>3</strong><span>Free calculators</span></div>
+          <div role="listitem"><strong>400+</strong><span>Body-signal profiles</span></div>
+          <div role="listitem"><strong>26</strong><span>Dream mechanisms</span></div>
+        </div>
+        <div class="onx-lab-hero__cta">
+          <a href="#instruments" class="btn btn--primary">Open instruments →</a>
+          <a href="/lab/sleep-cycles/" class="btn btn--outline">Try Sleep Cycles →</a>
+        </div>
+        <p class="onx-lab-hero__aside">Prefer the flagship first? <a href="#decode">Decode a dream instead →</a></p>
+      </div>
+    </section>
+
+    <section class="onx-tools" id="instruments" aria-labelledby="tools-title">
+      <div class="onx-tools__inner">
+        <div class="onx-tools__header">
+          <h2 class="onx-tools__label" id="tools-title">Oneirox Instruments</h2>
+          <p class="onx-tools__sub">Zero-API · built on peer-reviewed sleep research — not symbol dictionaries.</p>
+        </div>
+        <div class="onx-tools__grid">
+
+          <a href="/tools/oneirox-dream-mapper" class="onx-card2 onx-card2--mapper" aria-label="Open Sensory Dream Mapper">
+            <div class="onx-card2__body">
+              <div class="onx-card2__toprow">
+                <div class="onx-card2__icon">
+                  <svg class="icon-neuro" width="32" height="32" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+                    <circle cx="20" cy="20" r="7" fill="#fff" opacity=".95"/>
+                    <circle cx="20" cy="20" r="3.2" fill="#2e6a22"/>
+                    <path d="M20 13 L20 4 M16 14 L9 7 M14 18 L4 15 M14 23 L5 27 M18 26 L13 35 M26 24 L34 30 M27 19 L37 18 M26 15 L33 9" stroke="#fff" stroke-width="2" stroke-linecap="round" opacity=".9"/>
+                    <circle cx="20" cy="3.5" r="2" fill="#fff"/>
+                    <circle cx="8" cy="6" r="1.8" fill="#fff"/>
+                    <circle cx="3.5" cy="14.5" r="1.8" fill="#fff"/>
+                    <circle cx="4.5" cy="27.5" r="1.8" fill="#fff"/>
+                    <circle cx="12.5" cy="35.5" r="1.8" fill="#fff"/>
+                    <circle cx="34.5" cy="30.5" r="1.8" fill="#fff"/>
+                    <circle cx="37.5" cy="17.5" r="1.8" fill="#fff"/>
+                    <circle cx="33.5" cy="8.5" r="1.8" fill="#fff"/>
+                  </svg>
+                </div>
+                <span class="onx-card2__badge onx-card2__badge--feeds">Feeds Decode</span>
+              </div>
+              <h3 class="onx-card2__name">Sensory Dream Mapper</h3>
+              <p class="onx-card2__desc">Map what your body felt while you slept. Temperature, pressure, weight, resistance — the physical language of the dream before the narrative takes over. Nine neurobiological profiles.</p>
+              <div class="onx-card2__tags">
+                <span class="onx-card2__tag">Somatic</span>
+                <span class="onx-card2__tag">Body first</span>
+              </div>
+            </div>
+            <div class="onx-card2__footer">
+              <div class="onx-card2__wave">
+                <svg viewBox="0 0 600 130" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" aria-hidden="true">
+                  <path d="M0,80 C60,80 80,50 120,50 C160,50 180,75 220,72 C260,69 290,40 340,38 C390,36 420,60 460,62 C500,64 530,50 600,48 L600,130 L0,130 Z" fill="rgba(60,130,40,.18)"/>
+                  <path d="M0,95 C50,95 70,65 110,62 C150,59 175,85 215,83 C255,81 285,55 330,52 C375,49 410,72 450,70 C490,68 520,55 600,52 L600,130 L0,130 Z" fill="rgba(45,110,30,.22)"/>
+                  <path d="M0,108 C40,108 65,82 100,80 C135,78 160,95 200,94 C240,93 270,72 310,70 C350,68 390,84 430,83 C470,82 510,70 600,68 L600,130 L0,130 Z" fill="rgba(30,90,20,.28)"/>
+                </svg>
+              </div>
+              <div class="onx-card2__metrics">
+                <div class="onx-card2__metric">
+                  <svg class="onx-card2__metric-icon" width="20" height="26" viewBox="0 0 22 28" fill="none" aria-hidden="true">
+                    <rect x="8" y="0" width="6" height="18" rx="3" fill="currentColor" opacity=".7"/>
+                    <circle cx="11" cy="21" r="5" fill="currentColor" opacity=".85"/>
+                  </svg>
+                  <span class="onx-card2__metric-label">Temperature</span>
+                </div>
+                <div class="onx-card2__metric">
+                  <svg class="onx-card2__metric-icon" width="24" height="22" viewBox="0 0 26 24" fill="none" aria-hidden="true">
+                    <path d="M13,22 C13,22 2,14 2,7.5 C2,4.4 4.4,2 7.5,2 C9.5,2 11.3,3 13,5 C14.7,3 16.5,2 18.5,2 C21.6,2 24,4.4 24,7.5 C24,14 13,22 13,22Z" fill="currentColor" opacity=".9"/>
+                  </svg>
+                  <span class="onx-card2__metric-label">Heart rate</span>
+                </div>
+                <div class="onx-card2__metric">
+                  <svg class="onx-card2__metric-icon" width="26" height="20" viewBox="0 0 28 22" fill="none" aria-hidden="true">
+                    <rect x="2" y="6" width="24" height="12" rx="3" fill="none" stroke="currentColor" stroke-width="2" opacity=".8"/>
+                    <circle cx="14" cy="12" r="3.5" fill="currentColor" opacity=".7"/>
+                  </svg>
+                  <span class="onx-card2__metric-label">Weight</span>
+                </div>
+              </div>
+            </div>
+          </a>
+
+          <a href="/phase/" class="onx-card2 onx-card2--phase" aria-label="Open Dream Phase Calculator">
+            <div class="onx-card2__body">
+              <div class="onx-card2__toprow">
+                <div class="onx-card2__icon">
+                  <div class="icon-moon" aria-hidden="true">
+                    <div class="icon-moon__full"></div>
+                    <div class="icon-moon__shadow"></div>
+                  </div>
+                </div>
+              </div>
+              <h3 class="onx-card2__name">Dream Phase Calculator</h3>
+              <p class="onx-card2__desc">Enter the date of your dream and read what the moon was doing that night. Cajochen et al. (2013): around the full moon, deep sleep shrinks 30% and REM density rises 25%. Chronobiology, not astrology.</p>
+              <div class="onx-card2__tags">
+                <span class="onx-card2__tag">Lunar</span>
+                <span class="onx-card2__tag">Chronobiology</span>
+              </div>
+            </div>
+            <div class="onx-card2__footer">
+              <div class="onx-card2__wave">
+                <svg viewBox="0 0 600 130" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" aria-hidden="true">
+                  <path d="M0,90 C60,90 90,55 140,50 C190,45 210,78 255,75 C300,72 330,40 385,36 C440,32 470,62 510,60 C550,58 575,45 600,42 L600,130 L0,130 Z" fill="rgba(40,90,200,.12)"/>
+                  <path d="M0,100 C50,100 80,68 125,64 C170,60 195,88 240,86 C285,84 315,58 365,54 C415,50 450,75 490,73 C530,71 560,58 600,55 L600,130 L0,130 Z" fill="rgba(60,120,255,.18)"/>
+                  <path d="M0,112 C45,112 72,86 112,83 C152,80 178,98 218,97 C258,96 285,76 325,73 C365,70 400,88 438,87 C476,86 510,74 600,70 L600,130 L0,130 Z" fill="rgba(80,150,255,.22)"/>
+                </svg>
+              </div>
+              <div class="onx-card2__metrics">
+                <div class="onx-card2__metric">
+                  <svg class="onx-card2__metric-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2"/>
+                    <path d="M12 3a9 9 0 0 1 0 18" fill="currentColor" opacity=".4"/>
+                  </svg>
+                  <span class="onx-card2__metric-label">Lunar Phase</span>
+                </div>
+                <div class="onx-card2__metric">
+                  <svg class="onx-card2__metric-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <path d="M2 12h4l3 9 6-18 3 9h4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                  <span class="onx-card2__metric-label">Deep Sleep</span>
+                </div>
+                <div class="onx-card2__metric">
+                  <svg class="onx-card2__metric-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                  </svg>
+                  <span class="onx-card2__metric-label">REM Density</span>
+                </div>
+              </div>
+            </div>
+          </a>
+
+          <a href="/lab/sleep-cycles/" class="onx-card2 onx-card2--cycles" aria-label="Open Sleep Cycle Calculator">
+            <div class="onx-card2__body">
+              <div class="onx-card2__toprow">
+                <div class="onx-card2__icon">
+                  <div class="icon-cycles" aria-hidden="true">
+                    <div class="icon-cycles__ring"></div>
+                    <div class="icon-cycles__ring icon-cycles__ring--2"></div>
+                    <div class="icon-cycles__ring icon-cycles__ring--3"></div>
+                  </div>
+                </div>
+              </div>
+              <h3 class="onx-card2__name">Sleep Cycle Calculator</h3>
+              <p class="onx-card2__desc">Enter a wake time or bedtime. Get times aligned to 90-minute ultradian cycles (Kleitman) — land between cycles, not mid-cycle, and skip the grogginess of sleep inertia.</p>
+              <div class="onx-card2__tags">
+                <span class="onx-card2__tag">Ultradian rhythm</span>
+                <span class="onx-card2__tag">Planning</span>
+              </div>
+            </div>
+            <div class="onx-card2__footer">
+              <div class="onx-card2__wave">
+                <svg viewBox="0 0 600 130" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" aria-hidden="true">
+                  <path d="M0,85 C50,85 75,55 115,54 C155,53 178,80 218,78 C258,76 288,45 335,42 C382,39 415,65 455,63 C495,61 525,48 600,45 L600,130 L0,130 Z" fill="rgba(77,173,184,.14)"/>
+                  <path d="M0,98 C45,98 70,68 108,65 C146,62 172,88 212,86 C252,84 282,58 328,55 C374,52 408,76 448,74 C488,72 520,60 600,56 L600,130 L0,130 Z" fill="rgba(77,173,184,.2)"/>
+                  <path d="M0,110 C40,110 63,84 100,82 C137,80 162,98 200,97 C238,96 265,74 305,71 C345,68 380,86 418,85 C456,84 488,74 600,70 L600,130 L0,130 Z" fill="rgba(77,173,184,.26)"/>
+                </svg>
+              </div>
+              <div class="onx-card2__metrics">
+                <div class="onx-card2__metric">
+                  <svg class="onx-card2__metric-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2"/>
+                    <path d="M12 7v5l4 2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                  <span class="onx-card2__metric-label">90-min cycles</span>
+                </div>
+                <div class="onx-card2__metric">
+                  <svg class="onx-card2__metric-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <path d="M4 18 L10 10 L14 14 L20 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                  <span class="onx-card2__metric-label">Sleep inertia</span>
+                </div>
+                <div class="onx-card2__metric">
+                  <svg class="onx-card2__metric-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                  </svg>
+                  <span class="onx-card2__metric-label">Bedtime math</span>
+                </div>
+              </div>
+            </div>
+          </a>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="onx-corpus" aria-labelledby="corpus-title">
+      <div class="onx-corpus__inner">
+        <p class="onx-corpus__label" id="corpus-title">The rest of the lab — browse the corpus</p>
+        <div class="onx-corpus__grid">
+          <a class="onx-corpus__card" href="/notes/">
+            <span class="onx-corpus__num">Notes</span>
+            <div class="onx-corpus__body">
+              <p class="onx-corpus__name">Lab Notes by Vigen G.R.</p>
+              <p class="onx-corpus__desc">Why the instruments exist — field notes, not SEO articles.</p>
+            </div>
+          </a>
+          <a class="onx-corpus__card" href="/somatic/">
+            <span class="onx-corpus__num">400+</span>
+            <div class="onx-corpus__body">
+              <p class="onx-corpus__name">Somatic Sleep Library</p>
+              <p class="onx-corpus__desc">Body-signal profiles — hypnic jerks, night sweats, sleep paralysis, cycle-stage breakdowns.</p>
+            </div>
+          </a>
+          <a class="onx-corpus__card" href="/dreams/">
+            <span class="onx-corpus__num">26</span>
+            <div class="onx-corpus__body">
+              <p class="onx-corpus__name">Dream Meaning Library</p>
+              <p class="onx-corpus__desc">The most-searched dream themes, each explained through its specific REM mechanism.</p>
+            </div>
+          </a>
+          <a class="onx-corpus__card" href="/mechanics/rem/">
+            <span class="onx-corpus__num">4</span>
+            <div class="onx-corpus__body">
+              <p class="onx-corpus__name">REM Mechanics</p>
+              <p class="onx-corpus__desc">Deep-dives into the brain circuitry running while you dream.</p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- DECODE — flagship reading, moved below the Lab. Design/markup untouched. -->
     <section class="onx-block onx-hero" id="decode" aria-labelledby="decode-title" itemscope itemtype="https://schema.org/WebApplication" itemid="https://oneirox.com/#decode-app">
       <meta itemprop="name" content="Oneirox Dream Decoder">
       <meta itemprop="applicationCategory" content="HealthApplication">
@@ -96,12 +323,12 @@
 
       <div class="onx-hero__inner">
 
-        <p class="onx-hero__eyebrow">Neuro-somatic decoding · Dream interpretation</p>
+        <p class="onx-hero__eyebrow">Flagship reading · Limited daily · Neuro-somatic decoding</p>
 
         <div class="onx-decode-scene">
           <div class="onx-decode-glass-wrap">
             <div class="onx-decode-panel">
-              <h1 class="onx-decode-panel__hero-title" id="decode-title">Your body decoded the dream <span class="onx-highlight">before you woke up.</span></h1>
+              <h2 class="onx-decode-panel__hero-title" id="decode-title">Your body decoded the dream <span class="onx-highlight">before you woke up.</span></h2>
 
               <div class="onx-decode-panel__header">
                 <span class="onx-decode-panel__icon" aria-hidden="true">
@@ -422,127 +649,6 @@
         </div>
       </div>
     </div>
-    </section>
-
-    <section class="onx-tools" id="onx-tools">
-      <div class="onx-tools__inner">
-        <div class="onx-tools__header">
-          <h2 class="onx-tools__label" id="tools-title">Oneirox Instruments</h2>
-          <p class="onx-tools__sub">Built on peer-reviewed sleep research — not symbol dictionaries.</p>
-        </div>
-        <div class="onx-tools__grid">
-
-          <a href="/tools/oneirox-dream-mapper" class="onx-card2 onx-card2--mapper" aria-label="Open Sensory Dream Mapper">
-            <div class="onx-card2__body">
-              <div class="onx-card2__toprow">
-                <div class="onx-card2__icon">
-                  <svg class="icon-neuro" width="32" height="32" viewBox="0 0 40 40" fill="none" aria-hidden="true">
-                    <circle cx="20" cy="20" r="7" fill="#fff" opacity=".95"/>
-                    <circle cx="20" cy="20" r="3.2" fill="#2e6a22"/>
-                    <path d="M20 13 L20 4 M16 14 L9 7 M14 18 L4 15 M14 23 L5 27 M18 26 L13 35 M26 24 L34 30 M27 19 L37 18 M26 15 L33 9" stroke="#fff" stroke-width="2" stroke-linecap="round" opacity=".9"/>
-                    <circle cx="20" cy="3.5" r="2" fill="#fff"/>
-                    <circle cx="8" cy="6" r="1.8" fill="#fff"/>
-                    <circle cx="3.5" cy="14.5" r="1.8" fill="#fff"/>
-                    <circle cx="4.5" cy="27.5" r="1.8" fill="#fff"/>
-                    <circle cx="12.5" cy="35.5" r="1.8" fill="#fff"/>
-                    <circle cx="34.5" cy="30.5" r="1.8" fill="#fff"/>
-                    <circle cx="37.5" cy="17.5" r="1.8" fill="#fff"/>
-                    <circle cx="33.5" cy="8.5" r="1.8" fill="#fff"/>
-                  </svg>
-                </div>
-                <span class="onx-card2__badge onx-card2__badge--feeds">Feeds Decode</span>
-              </div>
-              <h3 class="onx-card2__name">Sensory Dream Mapper</h3>
-              <p class="onx-card2__desc">Map what your body felt while you slept. Temperature, pressure, weight, resistance — the physical language of the dream before the narrative takes over. Nine neurobiological profiles.</p>
-              <div class="onx-card2__tags">
-                <span class="onx-card2__tag">Somatic</span>
-                <span class="onx-card2__tag">Body first</span>
-              </div>
-            </div>
-            <div class="onx-card2__footer">
-              <div class="onx-card2__wave">
-                <svg viewBox="0 0 600 130" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" aria-hidden="true">
-                  <path d="M0,80 C60,80 80,50 120,50 C160,50 180,75 220,72 C260,69 290,40 340,38 C390,36 420,60 460,62 C500,64 530,50 600,48 L600,130 L0,130 Z" fill="rgba(60,130,40,.18)"/>
-                  <path d="M0,95 C50,95 70,65 110,62 C150,59 175,85 215,83 C255,81 285,55 330,52 C375,49 410,72 450,70 C490,68 520,55 600,52 L600,130 L0,130 Z" fill="rgba(45,110,30,.22)"/>
-                  <path d="M0,108 C40,108 65,82 100,80 C135,78 160,95 200,94 C240,93 270,72 310,70 C350,68 390,84 430,83 C470,82 510,70 600,68 L600,130 L0,130 Z" fill="rgba(30,90,20,.28)"/>
-                </svg>
-              </div>
-              <div class="onx-card2__metrics">
-                <div class="onx-card2__metric">
-                  <svg class="onx-card2__metric-icon" width="20" height="26" viewBox="0 0 22 28" fill="none" aria-hidden="true">
-                    <rect x="8" y="0" width="6" height="18" rx="3" fill="currentColor" opacity=".7"/>
-                    <circle cx="11" cy="21" r="5" fill="currentColor" opacity=".85"/>
-                  </svg>
-                  <span class="onx-card2__metric-label">Temperature</span>
-                </div>
-                <div class="onx-card2__metric">
-                  <svg class="onx-card2__metric-icon" width="24" height="22" viewBox="0 0 26 24" fill="none" aria-hidden="true">
-                    <path d="M13,22 C13,22 2,14 2,7.5 C2,4.4 4.4,2 7.5,2 C9.5,2 11.3,3 13,5 C14.7,3 16.5,2 18.5,2 C21.6,2 24,4.4 24,7.5 C24,14 13,22 13,22Z" fill="currentColor" opacity=".9"/>
-                  </svg>
-                  <span class="onx-card2__metric-label">Heart rate</span>
-                </div>
-                <div class="onx-card2__metric">
-                  <svg class="onx-card2__metric-icon" width="26" height="20" viewBox="0 0 28 22" fill="none" aria-hidden="true">
-                    <rect x="2" y="6" width="24" height="12" rx="3" fill="none" stroke="currentColor" stroke-width="2" opacity=".8"/>
-                    <circle cx="14" cy="12" r="3.5" fill="currentColor" opacity=".7"/>
-                  </svg>
-                  <span class="onx-card2__metric-label">Weight</span>
-                </div>
-              </div>
-            </div>
-          </a>
-
-          <a href="/phase/" class="onx-card2 onx-card2--phase" aria-label="Open Dream Phase Calculator">
-            <div class="onx-card2__body">
-              <div class="onx-card2__toprow">
-                <div class="onx-card2__icon">
-                  <div class="icon-moon" aria-hidden="true">
-                    <div class="icon-moon__full"></div>
-                    <div class="icon-moon__shadow"></div>
-                  </div>
-                </div>
-              </div>
-              <h3 class="onx-card2__name">Dream Phase Calculator</h3>
-              <p class="onx-card2__desc">Enter the date of your dream and read what the moon was doing that night. Cajochen et al. (2013): around the full moon, deep sleep shrinks 30% and REM density rises 25%. Chronobiology, not astrology.</p>
-              <div class="onx-card2__tags">
-                <span class="onx-card2__tag">Lunar</span>
-                <span class="onx-card2__tag">Chronobiology</span>
-              </div>
-            </div>
-            <div class="onx-card2__footer">
-              <div class="onx-card2__wave">
-                <svg viewBox="0 0 600 130" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" aria-hidden="true">
-                  <path d="M0,90 C60,90 90,55 140,50 C190,45 210,78 255,75 C300,72 330,40 385,36 C440,32 470,62 510,60 C550,58 575,45 600,42 L600,130 L0,130 Z" fill="rgba(40,90,200,.12)"/>
-                  <path d="M0,100 C50,100 80,68 125,64 C170,60 195,88 240,86 C285,84 315,58 365,54 C415,50 450,75 490,73 C530,71 560,58 600,55 L600,130 L0,130 Z" fill="rgba(60,120,255,.18)"/>
-                  <path d="M0,112 C45,112 72,86 112,83 C152,80 178,98 218,97 C258,96 285,76 325,73 C365,70 400,88 438,87 C476,86 510,74 600,70 L600,130 L0,130 Z" fill="rgba(80,150,255,.22)"/>
-                </svg>
-              </div>
-              <div class="onx-card2__metrics">
-                <div class="onx-card2__metric">
-                  <svg class="onx-card2__metric-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                    <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2"/>
-                    <path d="M12 3a9 9 0 0 1 0 18" fill="currentColor" opacity=".4"/>
-                  </svg>
-                  <span class="onx-card2__metric-label">Lunar Phase</span>
-                </div>
-                <div class="onx-card2__metric">
-                  <svg class="onx-card2__metric-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                    <path d="M2 12h4l3 9 6-18 3 9h4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                  </svg>
-                  <span class="onx-card2__metric-label">Deep Sleep</span>
-                </div>
-                <div class="onx-card2__metric">
-                  <svg class="onx-card2__metric-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                    <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                  </svg>
-                  <span class="onx-card2__metric-label">REM Density</span>
-                </div>
-              </div>
-            </div>
-          </a>
-
-        </div>
-      </div>
     </section>
 
     <section class="onx-dreams-teaser" id="dreams-teaser" aria-labelledby="dreams-teaser-title">
@@ -968,7 +1074,7 @@
           <article class="onx-faq__item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
             <h3 class="onx-faq__q" itemprop="name">Is Oneirox free?</h3>
             <div class="onx-faq__a" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-              <p itemprop="text">Yes. <strong>Dream Decode</strong>, <strong>Sensory Dream Mapper</strong>, and <strong>Dream Phase Calculator</strong> are free. No login, no subscription funnel, no paywall after your reading.</p>
+              <p itemprop="text">Yes. The entire <strong>Lab</strong> — Sensory Dream Mapper, Dream Phase Calculator, Sleep Cycle Calculator, and the somatic and dream-meaning libraries — is free, no login. <strong>Decode</strong>, the flagship AI reading, is also free but limited per day: it runs on a real language model, so we cap volume to keep it honest and available rather than degraded.</p>
             </div>
           </article>
         </div>
@@ -995,10 +1101,13 @@
   <footer class="site-footer site-footer--rich">
     <div class="site-footer__main">
       <nav aria-label="Footer">
+        <a href="/lab/">Sleep Neurobiology Lab</a>
+        <a href="/notes/">Lab Notes</a>
         <a href="/about/">About</a>
         <a href="/methodology/">Methodology</a>
         <a href="/tools/oneirox-dream-mapper">Sensory Dream Mapper</a>
         <a href="/phase/">Dream Phase Calculator</a>
+        <a href="/lab/sleep-cycles/">Sleep Cycle Calculator</a>
         <a href="/mechanics/rem/">REM mechanics</a>
         <a href="/somatic/">Somatic sleep utilities</a>
         <a href="/dreams/">Dream Meaning</a>
@@ -1006,7 +1115,7 @@
         <a href="/privacy/">Privacy Policy</a>
         <a href="/terms/">Terms of Use</a>
       </nav>
-      <p class="site-footer__tagline">Scientific dream decoder · REM neurobiology · one mechanism-based reading — not a symbol dictionary</p>
+      <p class="site-footer__tagline">Free sleep neurobiology lab · REM mechanisms · Decode is the flagship reading — not a symbol dictionary</p>
     </div>
     <p class="site-footer__copy">© 2026 Oneirox · Vigen G.R. · Independent researcher &amp; developer</p>
   </footer>
@@ -1025,14 +1134,28 @@
           "url": "https://oneirox.com/favicon.svg"
         },
         "founder": { "@id": "https://oneirox.com/about/#vigen" },
-        "description": "Scientific dream interpretation tools grounded in sleep neurobiology."
+        "description": "Free sleep neurobiology lab and instruments, plus Decode — a flagship scientific dream-reading AI application."
+      },
+      {
+        "@type": "CollectionPage",
+        "@id": "https://oneirox.com/lab/#collection",
+        "name": "Oneirox Lab — Free Sleep Neurobiology Instruments",
+        "url": "https://oneirox.com/lab/",
+        "description": "Free calculators and body-signal instruments grounded in sleep neurobiology, plus the Decode flagship AI reading.",
+        "isPartOf": { "@id": "https://oneirox.com/#website" },
+        "hasPart": [
+          { "@id": "https://oneirox.com/tools/oneirox-dream-mapper#app" },
+          { "@id": "https://oneirox.com/phase/#app" },
+          { "@id": "https://oneirox.com/lab/sleep-cycles/#app" },
+          { "@id": "https://oneirox.com/#decode-app" }
+        ]
       },
       {
         "@type": "WebSite",
         "@id": "https://oneirox.com/#website",
         "name": "Oneirox",
         "url": "https://oneirox.com/",
-        "description": "Scientific AI dream decoder — free web application grounded in sleep neurobiology.",
+        "description": "Free sleep neurobiology lab — body-signal instruments, chronobiology calculators, dream mechanism library — grounded in sleep neurobiology.",
         "publisher": { "@id": "https://oneirox.com/#organization" },
         "inLanguage": ["en", "ru"],
         "potentialAction": {
@@ -1130,6 +1253,24 @@
           },
           {
             "@type": "WebApplication",
+            "@id": "https://oneirox.com/lab/sleep-cycles/#app",
+            "name": "Sleep Cycle Calculator",
+            "url": "https://oneirox.com/lab/sleep-cycles/",
+            "description": "Calculates bedtimes or wake times aligned to 90-minute ultradian sleep cycles, to reduce sleep inertia.",
+            "applicationCategory": "HealthApplication",
+            "operatingSystem": "Web browser",
+            "browserRequirements": "Requires JavaScript. Compatible with Chrome, Firefox, Safari, Edge, and modern mobile browsers.",
+            "isAccessibleForFree": true,
+            "offers": {
+              "@type": "Offer",
+              "price": "0",
+              "priceCurrency": "USD",
+              "availability": "https://schema.org/InStock"
+            },
+            "isPartOf": { "@id": "https://oneirox.com/#decode-app" }
+          },
+          {
+            "@type": "WebApplication",
             "@id": "https://oneirox.com/phase/#app",
             "name": "Dream Phase Calculator",
             "url": "https://oneirox.com/phase/",
@@ -1153,11 +1294,11 @@
         "@type": "WebPage",
         "@id": "https://oneirox.com/#webpage",
         "url": "https://oneirox.com/",
-        "name": "Oneirox — Scientific AI Dream Decoder",
-        "description": "Free web application to decode dreams through sleep neuroscience. Decode is the core interactive tool on this page.",
+        "name": "Oneirox — Sleep Neurobiology Lab",
+        "description": "Free sleep neurobiology lab: body-signal mapper, lunar and 90-minute cycle calculators, dream mechanism library. Decode is the flagship AI reading on this page.",
         "isPartOf": { "@id": "https://oneirox.com/#website" },
-        "about": { "@id": "https://oneirox.com/#decode-app" },
-        "mainEntity": { "@id": "https://oneirox.com/#decode-app" },
+        "about": { "@id": "https://oneirox.com/lab/#collection" },
+        "mainEntity": { "@id": "https://oneirox.com/lab/#collection" },
         "primaryImageOfPage": {
           "@type": "ImageObject",
           "url": "https://oneirox.com/images/neiro.webp"
@@ -1244,7 +1385,7 @@
           {
             "@type": "Question",
             "name": "Is Oneirox free?",
-            "acceptedAnswer": { "@type": "Answer", "text": "Yes. Dream Decode, Sensory Dream Mapper, and Dream Phase Calculator are free web applications. No login required." }
+            "acceptedAnswer": { "@type": "Answer", "text": "Yes. The Lab — Sensory Dream Mapper, Dream Phase Calculator, Sleep Cycle Calculator, and the somatic and dream-meaning libraries — is free with no login. Decode, the flagship AI reading, is also free but limited per day to keep the service sustainable." }
           }
         ]
       }

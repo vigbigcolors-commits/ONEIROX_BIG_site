@@ -45,8 +45,11 @@
   z-index: 1;
   overflow: hidden;
   contain: strict;
-  mask-image: linear-gradient(180deg, black 0%, black 50%, rgba(0,0,0,0.92) 72%, rgba(0,0,0,0.55) 100%);
-  -webkit-mask-image: linear-gradient(180deg, black 0%, black 50%, rgba(0,0,0,0.92) 72%, rgba(0,0,0,0.55) 100%);
+  opacity: 0.92;
+}
+
+html.is-scrolling .onx-neural-bg {
+  opacity: 0.78;
 }
 
 .onx-neural-bg__canvas {
@@ -139,10 +142,9 @@
   margin-bottom: 28px !important;
   padding: 8px 22px !important;
   border-radius: 50px !important;
-  background: rgba(255, 255, 255, 0.65) !important;
+  background: rgba(255, 255, 255, 0.88) !important;
   border: 1.5px solid rgba(90, 120, 70, 0.22) !important;
-  box-shadow: 0 4px 20px rgba(60, 90, 50, 0.1) !important;
-  backdrop-filter: blur(8px);
+  box-shadow: 0 4px 16px rgba(60, 90, 50, 0.08) !important;
 }
 
 #decode .onx-decode-panel__hero-title {
@@ -256,13 +258,16 @@
   transform: translateZ(0);
   -webkit-transform: translateZ(0);
   mix-blend-mode: screen;
-  filter: drop-shadow(0 0 6px rgba(80, 255, 160, 0.45));
+}
+
+html.is-scrolling #decode .onx-neiro-synapses,
+html.is-scrolling #decode .onx-neiro-synapses * {
+  animation-play-state: paused !important;
 }
 
 #decode .onx-neiro-synapses__link {
   stroke-width: 1.1;
   animation: onx-neiro-link 1.8s ease-in-out infinite;
-  will-change: stroke-opacity, opacity;
 }
 
 #decode .onx-neiro-synapses__link--a { stroke: rgba(55, 255, 120, 0.75); animation-delay: 0s; }
@@ -281,21 +286,17 @@
 #decode .onx-neiro-synapses__pulse--1 {
   stroke: rgba(55, 255, 130, 0.95);
   animation-delay: 0s;
-  filter: url(#onx-neiro-glow-green);
 }
 
 #decode .onx-neiro-synapses__pulse--2 {
   stroke: rgba(100, 200, 255, 0.95);
   animation-delay: 0.7s;
-  filter: url(#onx-neiro-glow-blue);
 }
 
 #decode .onx-neiro-synapses__node {
   transform-box: fill-box;
   transform-origin: center;
   animation: onx-neiro-spark 1.4s ease-in-out infinite;
-  will-change: transform, opacity;
-  filter: url(#onx-neiro-glow-white);
 }
 
 #decode .onx-neiro-synapses__node--1 { fill: #3dff88; animation-delay: 0s; }
@@ -315,7 +316,6 @@
 #decode .onx-neiro-synapses__spark {
   opacity: 0;
   animation: onx-neiro-float 2.2s ease-in-out infinite;
-  filter: url(#onx-neiro-glow-white);
 }
 
 #decode .onx-neiro-synapses__spark--1 { fill: #3dff88; animation-delay: 0.1s; }
@@ -544,11 +544,10 @@
 .decode-stats__item {
   text-align: center;
   padding: 16px 12px;
-  background: rgba(255, 255, 255, 0.6);
+  background: rgba(255, 255, 255, 0.88);
   border-radius: 14px;
   border: 1px solid rgba(58, 68, 53, 0.12);
-  backdrop-filter: blur(8px);
-  box-shadow: 0 8px 24px rgba(58, 68, 53, 0.06);
+  box-shadow: 0 6px 16px rgba(58, 68, 53, 0.05);
 }
 .decode-stats__val {
   font-family: var(--onx-font-serif);

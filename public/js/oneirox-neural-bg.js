@@ -94,51 +94,14 @@
     var x = ff.x;
     var y = ff.y;
 
-    c.save();
-    if (!lite) c.globalCompositeOperation = 'lighter';
-
-    if (lite) {
-      c.beginPath();
-      c.arc(x, y, r * 4.5, 0, PI2);
-      c.fillStyle = rgba(rgb, a * 0.35);
-      c.fill();
-      c.beginPath();
-      c.arc(x, y, r * 0.85, 0, PI2);
-      c.fillStyle = 'rgba(255,255,255,' + Math.min(1, a * 0.95) + ')';
-      c.fill();
-      c.restore();
-      return;
-    }
-
-    var outer = c.createRadialGradient(x, y, 0, x, y, r * 10);
-    outer.addColorStop(0, rgba(rgb, a * 0.55));
-    outer.addColorStop(0.12, rgba(rgb, a * 0.32));
-    outer.addColorStop(0.35, rgba(rgb, a * 0.1));
-    outer.addColorStop(1, rgba(rgb, 0));
-    c.fillStyle = outer;
     c.beginPath();
-    c.arc(x, y, r * 10, 0, PI2);
+    c.arc(x, y, r * (lite ? 4.2 : 5.5), 0, PI2);
+    c.fillStyle = rgba(rgb, a * (lite ? 0.32 : 0.4));
     c.fill();
-
-    var mid = c.createRadialGradient(x, y, 0, x, y, r * 3.5);
-    mid.addColorStop(0, rgba(rgb, a * 0.95));
-    mid.addColorStop(0.35, rgba(rgb, a * 0.5));
-    mid.addColorStop(1, rgba(rgb, 0));
-    c.fillStyle = mid;
     c.beginPath();
-    c.arc(x, y, r * 3.5, 0, PI2);
+    c.arc(x, y, r * 0.85, 0, PI2);
+    c.fillStyle = 'rgba(255,255,255,' + Math.min(1, a * 0.95) + ')';
     c.fill();
-
-    var core = c.createRadialGradient(x, y, 0, x, y, r * 1.1);
-    core.addColorStop(0, 'rgba(255,255,255,' + Math.min(1, a * 1.1) + ')');
-    core.addColorStop(0.45, rgba(rgb, a * 0.85));
-    core.addColorStop(1, rgba(rgb, 0));
-    c.fillStyle = core;
-    c.beginPath();
-    c.arc(x, y, r * 1.1, 0, PI2);
-    c.fill();
-
-    c.restore();
   }
 
   function airy(y, h) {
@@ -157,7 +120,8 @@
     this.canvasClass = opts.canvasClass || 'onx-neural-bg__canvas';
     this.minFrameMs = opts.minFrameMs || 16;
     this.lite = !!opts.lite;
-    this.maxDpr = opts.maxDpr || 1.25;
+    this.maxDpr = opts.maxDpr || 1;
+    this.scrollPaused = false;
 
     this.canvas = document.createElement('canvas');
     this.canvas.className = this.canvasClass;
@@ -181,7 +145,7 @@
     this.w = Math.max(rect.width, 1);
     this.h = Math.max(rect.height, 1);
     this.dpr = Math.min(window.devicePixelRatio || 1, this.maxDpr);
-    if (this.w * this.h > 900000) this.dpr = 1;
+    if (this.w * this.h > 500000) this.dpr = 1;
     this.canvas.width = Math.floor(this.w * this.dpr);
     this.canvas.height = Math.floor(this.h * this.dpr);
     this.canvas.style.width = this.w + 'px';
@@ -216,7 +180,7 @@
     if (!this.lastTs) this.lastTs = ts;
     var dt = (ts - this.lastTs) * 0.001;
     this.lastTs = ts;
-    if (!this.frozen && this.inView && !document.hidden) {
+    if (!this.frozen && this.inView && !this.scrollPaused && !document.hidden) {
       if (ts - this.lastPaint >= this.minFrameMs) {
         this.paint(Math.min(dt, 0.05));
         this.lastPaint = ts;
@@ -253,12 +217,12 @@
 
   if (heroContainer) {
     heroField = new FireflyField(heroContainer, {
-      count: isNarrow ? 24 : 40,
+      count: isMobilePerf ? 12 : 18,
       pad: 6,
-      visMul: 1.05,
-      lite: isTouch,
-      maxDpr: isTouch ? 1 : 1.25,
-      minFrameMs: isTouch ? 28 : 18
+      visMul: 1,
+      lite: true,
+      maxDpr: 1,
+      minFrameMs: isMobilePerf ? 40 : 33
     });
 
     axonCanvas = document.createElement('canvas');
@@ -274,13 +238,13 @@
   var logoField = null;
   if (logoIcon) {
     logoField = new FireflyField(logoIcon, {
-      count: isMobilePerf ? 7 : 12,
+      count: isMobilePerf ? 5 : 8,
       pad: 12,
-      visMul: isMobilePerf ? 1.25 : 1.35,
+      visMul: isMobilePerf ? 1.15 : 1.25,
       clipCircle: true,
       canvasClass: 'onx-neiro-fireflies',
-      minFrameMs: isMobilePerf ? 42 : 22,
-      lite: isMobilePerf,
+      minFrameMs: isMobilePerf ? 50 : 36,
+      lite: true,
       maxDpr: 1
     });
     logoField.resize();
@@ -302,7 +266,7 @@
     var nodes = [], edges = [], edgeKeys = {}, cachedPos = [];
     var nodeId = 0, time = 0, lastTs = 0, lastPaint = 0, rafId = 0;
     var frozen = true, inView = false, isScrolling = false, scrollTimer = 0, sparkTick = 0;
-    var MIN_FRAME_MS = isTouch || isNarrow ? 20 : 28;
+    var MIN_FRAME_MS = isMobilePerf ? 48 : 40;
     var NODE_COLORS = [
       [235, 255, 225], [210, 245, 255], [225, 252, 235],
       [200, 240, 255], [245, 255, 230], [195, 235, 250],
@@ -317,7 +281,7 @@
       w = Math.max(rect.width, 1);
       h = Math.max(rect.height, 1);
       span = Math.min(w, h);
-      dpr = w * h > 900000 ? 1 : Math.min(window.devicePixelRatio || 1, 1.12);
+      dpr = 1;
       axonCanvas.width = Math.floor(w * dpr);
       axonCanvas.height = Math.floor(h * dpr);
       axonCanvas.style.width = w + 'px';
@@ -408,20 +372,21 @@
     function buildNetwork() {
       nodes = []; edges = []; edgeKeys = {}; nodeId = 0;
       var hubs = [];
-      var hubSpots = [
-        [0.08, 0.2], [0.92, 0.18], [0.06, 0.52], [0.94, 0.5],
-        [0.2, 0.78], [0.8, 0.76], [0.5, 0.88],
-        [0.16, 0.4], [0.84, 0.38], [0.5, 0.55]
-      ];
+      var hubSpots = isMobilePerf
+        ? [[0.1, 0.22], [0.9, 0.2], [0.08, 0.55], [0.92, 0.52], [0.5, 0.86], [0.5, 0.48]]
+        : [
+          [0.08, 0.2], [0.92, 0.18], [0.06, 0.52], [0.94, 0.5],
+          [0.2, 0.78], [0.8, 0.76], [0.5, 0.88], [0.5, 0.55]
+        ];
       hubSpots.forEach(function (p) {
         var hub = placeHub(p[0], p[1]);
         if (hub) hubs.push(hub);
       });
       hubs.forEach(function (hub) {
-        var count = rand(2, 3) | 0;
+        var count = isMobilePerf ? 1 : (rand(1, 2) | 0);
         for (var s = 0; s < count; s++) {
           for (var attempt = 0; attempt < 10; attempt++) {
-            var ang = (PI2 / count) * s + rand(-0.35, 0.35);
+            var ang = (PI2 / Math.max(count, 1)) * s + rand(-0.35, 0.35);
             var r = rand(54, 108);
             var x = hub.x + Math.cos(ang) * r;
             var y = hub.y + Math.sin(ang) * r;
@@ -435,11 +400,11 @@
       for (var i = 0; i < hubs.length; i++) {
         for (var j = i + 1; j < hubs.length; j++) {
           if (dist(hubs[i], hubs[j]) < span * 0.24) continue;
-          if (Math.random() < 0.55) link(hubs[i], hubs[j], true);
+          if (Math.random() < 0.4) link(hubs[i], hubs[j], true);
         }
       }
-      var field = Math.max(16, (w * h / 20000) | 0);
-      field = Math.min(field, 24);
+      var field = Math.max(8, (w * h / 32000) | 0);
+      field = Math.min(field, isMobilePerf ? 10 : 14);
       var placed = 0, tries = 0;
       while (placed < field && tries < field * 14) {
         tries++;
@@ -462,7 +427,7 @@
           link(n, nearest[m].node, false);
         }
       });
-      for (var lr = 0; lr < 11; lr++) {
+      for (var lr = 0; lr < (isMobilePerf ? 4 : 6); lr++) {
         var a = pick(nodes), b = pick(nodes);
         if (a.id !== b.id && dist(a, b) > span * 0.26) link(a, b, true);
       }
@@ -471,7 +436,7 @@
         edge.isBlue = Math.random() < 0.48;
         edge.shimmer = rand(0, PI2);
         edge.travelers = [makeTraveler()];
-        if (edge.long && Math.random() < 0.35) edge.travelers.push(makeTraveler());
+        if (edge.long && !isMobilePerf && Math.random() < 0.25) edge.travelers.push(makeTraveler());
       });
     }
 
@@ -528,15 +493,9 @@
       var midY = (edge.a.y + edge.b.y) * 0.5;
       var a = (0.52 + (1 - edge.depth) * 0.38) * shimmer * axonAiry(midY);
       var lw = edge.long ? edge.widthB : edge.widthA;
-      if (edge.long) {
-        strokeCurve(c, ctrl, lw + 2.2, edge.isBlue
-          ? 'rgba(120, 200, 245, ' + (a * 0.28) + ')'
-          : 'rgba(140, 220, 130, ' + (a * 0.28) + ')');
-      }
-      strokeCurve(c, ctrl, lw, edge.isBlue
+      strokeCurve(c, ctrl, lw + (edge.long ? 0.8 : 0), edge.isBlue
         ? 'rgba(100, 195, 240, ' + a + ')'
         : 'rgba(120, 210, 110, ' + a + ')');
-      strokeCurve(c, ctrl, Math.max(0.12, lw * 0.3), 'rgba(255, 255, 255, ' + (a * 0.72) + ')');
     }
 
     function drawTraveler(c, edge, tr, dtSec) {
@@ -545,79 +504,35 @@
       if (tr.speed > 0 && tr.t > 1) { tr.t = 0; edge.a.flash = 1; }
       if (tr.speed < 0 && tr.t < 0) { tr.t = 1; edge.b.flash = 1; }
       var ctrl = edgeCtrl(edge);
-      var headT = tr.t;
-      var tailT = tr.speed > 0 ? headT - tr.trail : headT + tr.trail;
-      var t0 = Math.max(0, Math.min(headT, tailT));
-      var t1 = Math.min(1, Math.max(headT, tailT));
-      var steps = edge.long ? 7 : 5;
-      var head = bezierPt(ctrl, headT);
+      var head = bezierPt(ctrl, tr.t);
       var alpha = (0.72 + (1 - edge.depth) * 0.28) * axonAiry(head.y);
       c.beginPath();
-      for (var s = 0; s <= steps; s++) {
-        var tt = t0 + (t1 - t0) * (s / steps);
-        var p = bezierPt(ctrl, tt);
-        if (s === 0) c.moveTo(p.x, p.y);
-        else c.lineTo(p.x, p.y);
-      }
-      c.lineCap = 'round';
-      c.lineJoin = 'round';
-      c.strokeStyle = edge.isBlue
-        ? 'rgba(210, 245, 255, ' + (alpha * 0.82) + ')'
-        : 'rgba(230, 255, 210, ' + (alpha * 0.82) + ')';
-      c.lineWidth = tr.size * 0.9;
-      c.stroke();
-      c.save();
-      c.globalCompositeOperation = 'lighter';
-      c.beginPath();
-      c.arc(head.x, head.y, tr.size * 5, 0, PI2);
+      c.arc(head.x, head.y, tr.size * 2.4, 0, PI2);
       c.fillStyle = edge.isBlue
-        ? 'rgba(160, 220, 255, ' + (alpha * 0.38) + ')'
-        : 'rgba(190, 255, 170, ' + (alpha * 0.38) + ')';
+        ? 'rgba(180, 230, 255, ' + (alpha * 0.55) + ')'
+        : 'rgba(200, 255, 180, ' + (alpha * 0.55) + ')';
       c.fill();
       c.beginPath();
-      c.arc(head.x, head.y, tr.size * 2.2, 0, PI2);
-      c.fillStyle = edge.isBlue
-        ? 'rgba(200, 240, 255, ' + (alpha * 0.7) + ')'
-        : 'rgba(220, 255, 200, ' + (alpha * 0.7) + ')';
-      c.fill();
-      c.beginPath();
-      c.arc(head.x, head.y, tr.size * 0.7, 0, PI2);
+      c.arc(head.x, head.y, tr.size * 0.75, 0, PI2);
       c.fillStyle = 'rgba(255, 255, 255, ' + Math.min(1, alpha) + ')';
       c.fill();
-      c.restore();
     }
 
     function drawSynapse(c, node, pulse) {
       var pos = cachedPos[node.idx];
-      if (!node.hub) {
-        var crowded = 0;
-        for (var ci = 0; ci < nodes.length; ci++) {
-          if (ci === node.idx) continue;
-          if (dist(pos, cachedPos[ci]) < minSep() * 0.85) crowded++;
-        }
-        if (crowded > 1) return;
-      }
       var flash = node.flash || 0;
       node.flash = Math.max(0, flash - 0.04);
       var vis = (0.75 + (1 - node.depth) * 0.25 + flash * 0.35 + pulse * 0.15) * axonAiry(pos.y);
       var r = node.radius * (0.9 + pulse * 0.2 + flash * 0.25);
       var rgb = node.color;
-      var halo = r * (node.hub ? 5.2 : 4.2);
-      c.save();
-      c.globalCompositeOperation = 'lighter';
       c.beginPath();
-      c.arc(pos.x, pos.y, halo, 0, PI2);
-      c.fillStyle = rgba(rgb, vis * 0.28);
-      c.fill();
-      c.beginPath();
-      c.arc(pos.x, pos.y, r * 2.4, 0, PI2);
-      c.fillStyle = rgba(rgb, vis * 0.42);
+      c.arc(pos.x, pos.y, r * (node.hub ? 3.2 : 2.6), 0, PI2);
+      c.fillStyle = rgba(rgb, vis * 0.35);
       c.fill();
       c.beginPath();
       c.arc(pos.x, pos.y, r, 0, PI2);
       c.fillStyle = 'rgba(255, 255, 255, ' + Math.min(1, vis * 0.95) + ')';
       c.fill();
-      c.restore();
     }
 
     function drawSpark(c, x, y, life, isBlue) {
@@ -657,7 +572,7 @@
       if (!lastTs) lastTs = ts;
       var dt = ts - lastTs;
       lastTs = ts;
-      if (!frozen && inView && (!isScrolling || isTouch) && !document.hidden) {
+      if (!frozen && inView && !isScrolling && !document.hidden) {
         if (ts - lastPaint >= MIN_FRAME_MS) {
           time += dt;
           paintFrame(dt * 0.001);
@@ -679,11 +594,18 @@
 
     setSize();
     window.addEventListener('resize', function () { setTimeout(setSize, 200); }, { passive: true });
+
+    var setScrollPaused = function (paused) {
+      isScrolling = paused;
+      document.documentElement.classList.toggle('is-scrolling', paused);
+      if (heroField) heroField.scrollPaused = paused;
+      if (logoField) logoField.scrollPaused = paused;
+    };
+
     window.addEventListener('scroll', function () {
-      if (isTouch) return;
-      if (!isScrolling) isScrolling = true;
+      if (!isScrolling) setScrollPaused(true);
       clearTimeout(scrollTimer);
-      scrollTimer = setTimeout(function () { isScrolling = false; }, 100);
+      scrollTimer = setTimeout(function () { setScrollPaused(false); }, 140);
     }, { passive: true });
 
     if (heroField) {
@@ -698,7 +620,7 @@
         if ('IntersectionObserver' in window) {
           new IntersectionObserver(function (entries) {
             syncView(entries[0].isIntersecting);
-          }, { threshold: [0, 0.01, 0.05], rootMargin: '48px 0px' }).observe(hero);
+          }, { threshold: 0, rootMargin: '0px' }).observe(hero);
         } else syncView(true);
       }
     }

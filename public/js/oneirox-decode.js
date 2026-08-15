@@ -151,6 +151,12 @@ window.addEventListener('DOMContentLoaded', function () {
     var errNetwork = pageLang === 'ru'
       ? 'Не удалось связаться с декодером. Проверьте соединение и попробуйте снова.'
       : 'Could not reach the decoder. Check your connection and try again.';
+    var errBusy = pageLang === 'ru'
+      ? 'Сейчас много запросов. Подождите немного и попробуйте снова.'
+      : 'Decoder is busy. Wait a minute and try again.';
+    var errCapacity = pageLang === 'ru'
+      ? 'Декодер сегодня на лимите. Попробуйте завтра — или чуть позже.'
+      : 'Decoder is at capacity. Please try again later.';
     var btnLabel = 'Decode';
     var btnReading = pageLang === 'ru' ? 'Читаю…' : 'Reading…';
 
@@ -195,18 +201,25 @@ window.addEventListener('DOMContentLoaded', function () {
       body: JSON.stringify({ text: apiText, lang: pageLang })
     })
       .then(function (r) {
-        return r.json().then(function (data) {
+        return r.text().then(function (raw) {
+          var data = null;
+          if (raw) {
+            try { data = JSON.parse(raw); } catch (e) { data = null; }
+          }
           return { ok: r.ok, status: r.status, data: data };
         });
       })
       .then(function (res) {
         resultBox.classList.remove('is-loading');
         if (!res.ok) {
-          var msg = (res.data && res.data.detail)
-            ? res.data.detail
-            : errGeneric;
+          var msg = (res.data && res.data.detail) ? res.data.detail : null;
           if (Array.isArray(msg)) {
             msg = msg.map(function (item) { return item.msg || item; }).join(' ');
+          }
+          if (!msg) {
+            if (res.status === 429) msg = errBusy;
+            else if (res.status === 503 || res.status === 504) msg = errCapacity;
+            else msg = errGeneric;
           }
           showError(msg);
           return;

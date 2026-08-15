@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-R95EFBPZ6R" data-cfasync="false"></script>
+  <script data-cfasync="false">
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-R95EFBPZ6R');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <meta name="theme-color" content="#1e3224">
+  <title>Why I Built the Sleep Cycle Calculator — Vigen G.R. | Oneirox Notes</title>
+  <meta name="description" content="Vigen G.R. explains why Oneirox shipped a free 90-minute ultradian sleep cycle calculator: sleep inertia, Kleitman, and zero-API Lab instruments.">
+  <meta name="author" content="Vigen G.R.">
+  <link rel="canonical" href="https://oneirox.com/notes/why-i-built-the-sleep-cycle-calculator/">
+  <meta property="og:title" content="Why I Built the Sleep Cycle Calculator — Vigen G.R.">
+  <meta property="og:description" content="Sleep inertia is not a personality flaw — it is an interrupted ultradian cycle.">
+  <meta property="og:url" content="https://oneirox.com/notes/why-i-built-the-sleep-cycle-calculator/">
+  <meta property="og:type" content="article">
+  <meta property="article:author" content="Vigen G.R.">
+  <meta property="article:published_time" content="2026-08-15">
+  <link rel="stylesheet" href="/css/page.css">
+  <link rel="stylesheet" href="/css/notes.css">
+  <link rel="stylesheet" href="/css/main.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "@id": "https://oneirox.com/notes/why-i-built-the-sleep-cycle-calculator/#post",
+    "headline": "Why I built the Sleep Cycle Calculator",
+    "datePublished": "2026-08-15",
+    "dateModified": "2026-08-15",
+    "author": { "@id": "https://oneirox.com/about/#vigen" },
+    "publisher": { "@id": "https://oneirox.com/#organization" },
+    "mainEntityOfPage": "https://oneirox.com/notes/why-i-built-the-sleep-cycle-calculator/",
+    "url": "https://oneirox.com/notes/why-i-built-the-sleep-cycle-calculator/",
+    "description": "How ultradian ~90-minute cycles and sleep inertia led to a free Oneirox Lab calculator.",
+    "isPartOf": { "@id": "https://oneirox.com/notes/#blog" },
+    "inLanguage": "en"
+  }
+  </script>
+</head>
+<body class="page-oneirox">
+
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a href="/" class="site-logo" aria-label="Oneirox home">
+        <span class="site-logo__word"><span class="site-logo__one">One</span><span class="site-logo__irox">irox</span></span>
+        <svg class="site-logo__heart" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+          <path d="M12 20.5s-6.5-4.6-6.5-9.2C5.5 8.1 7.6 6 10.1 6c1.4 0 2.7.7 3.4 1.8.7-1.1 2-1.8 3.4-1.8 2.5 0 4.6 2.1 4.6 5.3 0 4.6-6.5 9.2-6.5 9.2z" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
+      <nav class="site-nav" aria-label="Main">
+        <ul>
+          <li><a href="/lab/">Lab</a></li>
+          <li><a href="/notes/">Notes</a></li>
+          <li><a href="/#instruments">Instruments</a></li>
+          <li><a href="/#decode">Decode</a></li>
+          <li><a href="/about/">About</a></li>
+        </ul>
+      </nav>
+      <div class="site-header__actions">
+        <a href="/lab/sleep-cycles/" class="btn btn--primary">Open calculator →</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <article class="onx-note" itemscope itemtype="https://schema.org/BlogPosting">
+      <header class="onx-note__rail">
+        <p class="onx-note__kicker">Lab Note 02 · Instrument</p>
+        <h1 class="onx-note__title" itemprop="headline">Why I built the <em>Sleep Cycle Calculator</em></h1>
+        <p class="onx-note__byline">
+          <a href="/about/" itemprop="author">Vigen G.R.</a>
+          <time datetime="2026-08-15" itemprop="datePublished">15 Aug 2026</time>
+          <span>· Oneirox Lab Notes</span>
+        </p>
+      </header>
+
+      <div class="onx-note__body" itemprop="articleBody">
+        <p>Decode is the reading you want when a dream is still in your chest. But most nights do not need a language model. They need a planning tool that respects how sleep is structured.</p>
+        <p>Human sleep moves in ultradian blocks that average around <strong>90 minutes</strong> — NREM into REM, then again, four to six times a night. That rhythm is not a lifehack invented on the internet. It sits in the classic EEG work of Dement &amp; Kleitman and in Kleitman’s broader rest–activity cycle. Cycle length is not a perfect clock — roughly 70–110 minutes, shifting across the night — so a good tool offers a window of options, not one rigid number.</p>
+
+        <div class="onx-note__pull">
+          <p>Sleep inertia is not a personality flaw. It is what happens when an alarm cuts mid-cycle.</p>
+        </div>
+
+        <h2>The problem I kept living</h2>
+        <p>I kept waking with that thick, delayed clarity — reaction time off, mood flat, body still halfway in slow-wave or REM. The literature name is <strong>sleep inertia</strong>. It is strongest when you interrupt deep NREM. It is milder when you surface near a cycle boundary, in lighter sleep.</p>
+        <p>So I built a calculator that does only one job: take a wake time or a bedtime, add a realistic sleep-onset buffer (~14 minutes), and count in ~90-minute steps so you can land between cycles instead of inside one.</p>
+
+        <h2>Why this belongs in the Lab, not behind Decode</h2>
+        <p>This tool sends <strong>no data to a server</strong>. No API. No login. That is intentional. Oneirox is becoming a laboratory you run with your hands — Mapper, Phase, Cycles, somatic profiles — with Decode as the flagship reading when the dream itself needs a mechanism-based answer.</p>
+        <p>If you use Cycles to plan the night, and a dream still lingers in the morning, that is when you open <a href="/#decode">Decode</a> — optionally after the <a href="/tools/oneirox-dream-mapper">Sensory Dream Mapper</a>.</p>
+
+        <aside class="onx-note__aside">
+          <p class="onx-note__aside-label">Product note</p>
+          <p>The calculator is planning math, not diagnosis. Individual cycles vary. Use it as a boundary finder, not a medical schedule. Instrument: <a href="/lab/sleep-cycles/">/lab/sleep-cycles/</a>.</p>
+        </aside>
+      </div>
+
+      <div class="onx-note__cta">
+        <p class="onx-note__cta-title">Try the math.<br><em>Free · no login.</em></p>
+        <p class="onx-note__cta-sub">Enter a wake time or bedtime — get cycle-aligned options.</p>
+        <a href="/lab/sleep-cycles/" class="btn btn--light">Open Sleep Cycle Calculator →</a>
+      </div>
+
+      <nav class="onx-note__nav" aria-label="More notes">
+        <a href="/notes/why-i-refuse-symbol-dictionaries/">← Previous note</a>
+        <a href="/notes/">All Lab Notes</a>
+        <a href="/notes/what-fifty-books-changed-in-decode/">Next: Fifty books →</a>
+      </nav>
+    </article>
+  </main>
+
+  <footer class="page-footer page-footer--rich">
+    <div class="page-footer__main">
+      <nav aria-label="Footer">
+        <a href="/notes/">Lab Notes</a>
+        <a href="/lab/sleep-cycles/">Sleep Cycle Calculator</a>
+        <a href="/lab/">Lab</a>
+        <a href="/about/">About</a>
+      </nav>
+      <p class="page-footer__tagline">Written by Vigen G.R. · ultradian rhythm · zero-API instrument</p>
+    </div>
+    <p class="page-footer__copy">© 2026 Oneirox · Vigen G.R.</p>
+  </footer>
+</body>
+</html>

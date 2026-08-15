@@ -1,0 +1,390 @@
+/* SLEEP CYCLE LAB — zero-API calculator. Visual language matches phase.css */
+
+.onx-cycles-hero {
+  position: relative;
+  padding: 48px 0 40px;
+  background: linear-gradient(175deg, #0c2422 0%, #123834 42%, #154a42 100%);
+  color: #e4f6f0;
+  overflow: hidden;
+}
+
+.onx-cycles-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(to right, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+.onx-cycles-hero__inner {
+  position: relative;
+  z-index: 1;
+  max-width: var(--onx-max-width);
+  margin: 0 auto;
+  padding: 0 28px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 32px 48px;
+  align-items: end;
+}
+
+.onx-cycles-hero__kicker {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: #7ec4b8;
+  margin: 0 0 14px;
+}
+
+.onx-cycles-hero__title {
+  font-family: var(--onx-font-serif);
+  font-size: clamp(30px, 3.8vw, 44px);
+  font-weight: 600;
+  line-height: 1.12;
+  letter-spacing: -0.03em;
+  color: #eefaf6;
+  margin: 0 0 14px;
+  max-width: 20ch;
+}
+
+.onx-cycles-hero__title em { font-style: italic; color: #a8e4d4; }
+
+.onx-cycles-hero__lead {
+  font-size: 16px;
+  line-height: 1.72;
+  color: rgba(220, 240, 232, 0.88);
+  margin: 0;
+  max-width: 54ch;
+}
+
+.onx-cycles-hero__stats {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 20px 22px;
+  border: 1px solid rgba(126, 196, 184, 0.3);
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  min-width: 140px;
+}
+
+.onx-cycles-hero__stat { text-align: center; }
+
+.onx-cycles-hero__stat-val {
+  font-family: var(--onx-font-serif);
+  font-size: 28px;
+  font-weight: 700;
+  color: #a8e4d4;
+  line-height: 1;
+}
+
+.onx-cycles-hero__stat-lbl {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(200, 230, 220, 0.7);
+  margin-top: 4px;
+  line-height: 1.35;
+}
+
+/* ── Tool card ── */
+.onx-cycles-tool {
+  background: var(--onx-canvas);
+  padding: 0 24px 24px;
+}
+
+.onx-cyc-card {
+  max-width: 760px;
+  margin: -28px auto 0;
+  background: var(--onx-white);
+  border: 2px solid var(--onx-forest);
+  border-radius: 20px;
+  box-shadow: 0 32px 80px rgba(42, 58, 32, 0.16), 8px 8px 0 rgba(58, 68, 53, 0.06);
+  padding: 28px 30px 30px;
+  position: relative;
+  z-index: 1;
+}
+
+.onx-cyc-toggle {
+  display: inline-flex;
+  border: 1.5px solid rgba(58, 68, 53, 0.25);
+  border-radius: 50px;
+  padding: 4px;
+  gap: 4px;
+  margin-bottom: 18px;
+}
+
+.onx-cyc-toggle__btn {
+  border: none;
+  background: transparent;
+  padding: 8px 18px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: #5a6450;
+  border-radius: 40px;
+  cursor: pointer;
+  transition: background 0.18s ease, color 0.18s ease;
+  font-family: var(--onx-font-sans);
+}
+
+.onx-cyc-toggle__btn.is-active {
+  background: var(--onx-moss);
+  color: #fff;
+}
+
+.onx-cyc-row {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 8px;
+}
+
+.onx-cyc-row label {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--onx-forest);
+}
+
+.onx-cyc-time-in {
+  font-family: var(--onx-font-sans);
+  font-size: 16px;
+  padding: 10px 14px;
+  border-radius: 10px;
+  border: 1.5px solid rgba(58, 68, 53, 0.25);
+  background: #fff;
+  color: var(--onx-forest);
+}
+
+.onx-cyc-time-in:focus {
+  outline: none;
+  border-color: var(--onx-emerald);
+  box-shadow: 0 0 0 3px rgba(38, 133, 113, 0.14);
+}
+
+.onx-cyc-btn {
+  border: none;
+  background: var(--onx-moss);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  padding: 11px 22px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.18s ease, transform 0.18s ease;
+  font-family: var(--onx-font-sans);
+}
+
+.onx-cyc-btn:hover { background: var(--onx-cta-hover); transform: translateY(-1px); }
+
+.onx-cyc-hint {
+  font-size: 12px;
+  color: #6a7565;
+  margin: 10px 0 0;
+}
+
+.onx-cyc-results {
+  margin-top: 22px;
+  display: none;
+}
+
+.onx-cyc-results.is-visible { display: block; }
+
+.onx-cyc-results__label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #5a6450;
+  margin: 0 0 12px;
+}
+
+.onx-cyc-result {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 14px 16px;
+  border-radius: 12px;
+  border: 1.5px solid rgba(58, 68, 53, 0.14);
+  margin-bottom: 10px;
+  background: #fafcf8;
+}
+
+.onx-cyc-result--best {
+  border-color: rgba(38, 133, 113, 0.5);
+  background: rgba(38, 133, 113, 0.08);
+}
+
+.onx-cyc-result__time {
+  font-family: var(--onx-font-serif);
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--onx-forest);
+  min-width: 92px;
+}
+
+.onx-cyc-result__body { flex: 1; min-width: 0; }
+
+.onx-cyc-result__label {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--onx-forest);
+  margin: 0 0 2px;
+}
+
+.onx-cyc-result__meta {
+  font-size: 12px;
+  color: #5a6450;
+  margin: 0;
+}
+
+.onx-cyc-result__badge {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 5px 12px;
+  border-radius: 50px;
+  background: var(--onx-emerald);
+  color: #fff;
+  flex-shrink: 0;
+}
+
+.onx-cyc-mech {
+  margin-top: 20px;
+  padding: 16px 18px;
+  border-radius: 12px;
+  background: rgba(38, 133, 113, 0.06);
+  border-left: 3px solid var(--onx-emerald);
+}
+
+.onx-cyc-mech p {
+  font-size: 13px;
+  line-height: 1.6;
+  color: #3a4435;
+  margin: 0;
+}
+
+/* ── Prose / flow sections (mirrors phase.css layout) ── */
+.onx-cycles-section {
+  padding: 56px 0 64px;
+  border-top: 1px solid rgba(58, 68, 53, 0.08);
+}
+
+.onx-cycles-section--alt { background: #fafbf8; }
+
+.onx-cycles-section__inner {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 0 28px;
+}
+
+.onx-cycles-section__inner--wide { max-width: var(--onx-max-width); }
+
+.onx-cycles-section__kicker {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--onx-moss);
+  margin: 0 0 14px;
+}
+
+.onx-cycles-section__title {
+  font-family: var(--onx-font-serif);
+  font-size: clamp(24px, 2.8vw, 32px);
+  font-weight: 600;
+  line-height: 1.15;
+  color: var(--onx-forest);
+  margin: 0 0 18px;
+  letter-spacing: -0.02em;
+}
+
+.onx-cycles-section__title em { font-style: italic; color: var(--onx-emerald); }
+
+.onx-cycles-prose {
+  font-size: 16px;
+  line-height: 1.78;
+  color: #3f4a3a;
+}
+
+.onx-cycles-prose p { margin: 0 0 16px; }
+.onx-cycles-prose p:last-child { margin-bottom: 0; }
+.onx-cycles-prose strong { color: #2a3228; font-weight: 600; }
+
+.onx-cycles-prose a {
+  color: #2d6a6a;
+  font-weight: 600;
+  text-decoration: underline;
+  text-decoration-color: rgba(0, 165, 168, 0.35);
+  text-underline-offset: 3px;
+}
+
+.onx-cycles-flow {
+  list-style: none;
+  margin: 28px 0 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.onx-cycles-flow__n {
+  font-family: var(--onx-font-serif);
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--onx-emerald);
+  margin: 0 0 8px;
+}
+
+.onx-cycles-flow__title {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--onx-forest);
+  margin: 0 0 6px;
+}
+
+.onx-cycles-flow__text {
+  font-size: 13px;
+  line-height: 1.6;
+  color: #4a5545;
+  margin: 0;
+}
+
+.onx-cycles-cta {
+  padding: 56px 24px 64px;
+  background: linear-gradient(175deg, #123834 0%, #154a42 100%);
+  text-align: center;
+}
+
+.onx-cycles-cta__title {
+  font-family: var(--onx-font-serif);
+  font-size: clamp(24px, 3.2vw, 34px);
+  font-weight: 600;
+  color: #eefaf6;
+  line-height: 1.25;
+  margin: 0 0 12px;
+}
+
+.onx-cycles-cta__title em { font-style: italic; color: #a8e4d4; }
+
+.onx-cycles-cta__sub {
+  font-size: 14px;
+  color: rgba(220, 240, 232, 0.75);
+  margin: 0 0 22px;
+}
+
+@media (max-width: 760px) {
+  .onx-cycles-hero__inner { grid-template-columns: 1fr; }
+  .onx-cycles-hero__stats { flex-direction: row; justify-content: center; }
+  .onx-cycles-flow { grid-template-columns: 1fr; }
+  .onx-cyc-card { padding: 22px 18px 24px; margin-top: -20px; }
+  .onx-cyc-result__time { min-width: 76px; font-size: 19px; }
+}
