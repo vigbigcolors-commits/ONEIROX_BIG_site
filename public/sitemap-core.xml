@@ -52,6 +52,12 @@
     <priority>0.75</priority>
   </url>
   <url>
+    <loc>https://oneirox.com/notes/ararat-dreams-through-the-body-not-omens/</loc>
+    <lastmod>2026-08-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+  </url>
+  <url>
     <loc>https://oneirox.com/about/</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://oneirox.com/about/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://oneirox.com/about/"/>

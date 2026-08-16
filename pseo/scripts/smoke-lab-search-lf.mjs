@@ -33,6 +33,11 @@ const queries = [
   "dog chasing me",
   "falling as I fall asleep",
   "sleep paralysis chest weight",
+  "ararat dream",
+  "dream about armenia",
+  "armenian grandmother dream",
+  "dream returning home armenia",
+  "passport border dream armenia",
 ];
 
 for (const q of queries) {

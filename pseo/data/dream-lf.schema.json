@@ -66,6 +66,6 @@
       "description": "Unique logic tag — must differ from siblings"
     },
     "indexable": { "type": "boolean" },
-    "wave": { "type": "string", "enum": ["A", "B"] }
+    "wave": { "type": "string", "enum": ["A", "B", "C"] }
   }
 }
