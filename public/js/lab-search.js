@@ -432,6 +432,22 @@
     });
 
     var ta = root.querySelector('[data-lab-search-input]');
+    if (ta) {
+      ta.addEventListener(
+        'keydown',
+        function (e) {
+          if (e.isComposing || e.keyCode === 229) return;
+          var isEnter =
+            e.key === 'Enter' || e.code === 'Enter' || e.keyCode === 13;
+          if (!isEnter || e.shiftKey || e.ctrlKey || e.metaKey || e.altKey) return;
+          e.preventDefault();
+          e.stopPropagation();
+          runSearch(root);
+        },
+        true
+      );
+    }
+
     var chips = root.querySelectorAll('[data-lab-search-chip]');
     for (var i = 0; i < chips.length; i++) {
       chips[i].addEventListener('click', function () {
