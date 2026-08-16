@@ -11,6 +11,70 @@
   var index = null;
   var loading = null;
 
+  /* Mechanism-first sleep tips — not omen folklore */
+  var LAB_TIPS = [
+    {
+      body: 'Name the body first, then the image — chest weight before “snake.” Search reads that order better.',
+      meta: 'SIGNAL · BODY · MORNING — Oneirox method'
+    },
+    {
+      body: 'A cool, dark room (~18–19°C) and a fixed wake time do more for dream recall than any symbol dictionary.',
+      meta: 'Sleep hygiene · circadian anchor'
+    },
+    {
+      body: 'Alcohol after dinner fragments second-half REM. Vivid, sticky dreams often follow — physiology, not prophecy.',
+      meta: 'REM architecture'
+    },
+    {
+      body: 'Caffeine after mid-afternoon can blunt deep sleep and leave you with light, plot-heavy nights.',
+      meta: 'Adenosine · sleep depth'
+    },
+    {
+      body: 'If you wake at 3am racing thoughts, jot one body note and return to bed — decoding at dawn beats decoding at dawn’s panic.',
+      meta: 'Cortisol awakening response'
+    },
+    {
+      body: 'Morning outdoor light within an hour of waking stabilizes the clock that decides when REM pressure peaks.',
+      meta: 'Circadian timing'
+    },
+    {
+      body: 'Jaw sore on waking? Bruxism and threat-rehearsal often travel together — map the mouth before the plot.',
+      meta: 'Somatic marker'
+    },
+    {
+      body: 'Heavy late meals raise night arousals. The “chase” may be autonomic noise wearing a costume.',
+      meta: 'Autonomic load'
+    },
+    {
+      body: 'Phones in bed delay melatonin. Dim screens an hour before sleep if you want cleaner REM later.',
+      meta: 'Light · melatonin'
+    },
+    {
+      body: 'Recurring dreams often mean unfinished consolidation — same mechanism file still open, not a curse.',
+      meta: 'Emotional memory'
+    },
+    {
+      body: 'Cannot move / chest pressure on waking: check sleep paralysis and atonia pages before omen blogs.',
+      meta: 'REM atonia'
+    },
+    {
+      body: 'Write three words max on waking: place · person · body. That triad beats a novel you will forget by breakfast.',
+      meta: 'Dream recall craft'
+    },
+    {
+      body: 'Homeland images (Ararat, Yerevan, grandmother) are dense place and attachment files — culture is the scene, not the oracle.',
+      meta: 'Place memory · diaspora'
+    },
+    {
+      body: 'Naps longer than ~20 minutes can steal REM pressure from tonight. Short reset; long nap reshuffles the script.',
+      meta: 'Ultradian balance'
+    },
+    {
+      body: 'Stress days load threat-simulation nights. A 10-minute walk after work lowers the amygdala dye more than interpretation.',
+      meta: 'Threat rehearsal'
+    }
+  ];
+
   /* User language → concept boosts (somatic / phase / dream themes) */
   var LEXICON = [
     { re: /\b(can'?t move|cannot move|paralys|paralyz|frozen|immobile|couldn'?t speak|can'?t speak|chest (weight|pressure)|weight on (my )?chest|someone (on|sitting) (on )?(my )?chest)\b/i, tags: ['atonia', 'paralysis', 'immobility', 'chest', 'pressure', 'vocalize'], w: 28 },
@@ -422,6 +486,40 @@
       });
   }
 
+  function bindTip(root) {
+    var tipRoot = root.querySelector('[data-lab-search-tip]');
+    if (!tipRoot || tipRoot.__onxTipBound) return;
+    tipRoot.__onxTipBound = true;
+
+    var bodyEl = tipRoot.querySelector('[data-lab-search-tip-body]');
+    var metaEl = tipRoot.querySelector('[data-lab-search-tip-meta]');
+    var nextBtn = tipRoot.querySelector('[data-lab-search-tip-next]');
+    var lastIdx = -1;
+
+    function pickTip() {
+      if (!LAB_TIPS.length || !bodyEl) return;
+      var idx = Math.floor(Math.random() * LAB_TIPS.length);
+      if (LAB_TIPS.length > 1) {
+        var guard = 0;
+        while (idx === lastIdx && guard < 6) {
+          idx = Math.floor(Math.random() * LAB_TIPS.length);
+          guard++;
+        }
+      }
+      lastIdx = idx;
+      var tip = LAB_TIPS[idx];
+      bodyEl.textContent = tip.body;
+      if (metaEl) metaEl.textContent = tip.meta || '';
+    }
+
+    pickTip();
+    if (nextBtn) {
+      nextBtn.addEventListener('click', function () {
+        pickTip();
+      });
+    }
+  }
+
   function bind(root) {
     var form = root.querySelector('[data-lab-search-form]');
     if (!form || form.__onxBound) return;
@@ -459,6 +557,8 @@
         this.classList.add('is-active');
       });
     }
+
+    bindTip(root);
   }
 
   function init() {

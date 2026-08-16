@@ -31,7 +31,7 @@
 .onx-lab-hero__inner {
   position: relative;
   z-index: 1;
-  max-width: 1000px;
+  max-width: var(--onx-max-width);
   margin: 0 auto;
   text-align: center;
 }

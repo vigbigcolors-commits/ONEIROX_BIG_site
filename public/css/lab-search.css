@@ -24,13 +24,13 @@
 
 .onx-lab-search:not(.onx-lab-search--in-hero) .onx-lab-search__inner,
 .onx-lab-search:not(.onx-lab-search--in-hero) .onx-lab-search__shell {
-  max-width: 1000px;
+  max-width: var(--onx-max-width);
   margin: 0 auto;
 }
 
 /* Hero-integrated instrument — sits under neiro + lead */
 .onx-lab-search--in-hero {
-  max-width: 1000px;
+  max-width: var(--onx-max-width);
   margin: 0 auto 36px;
   text-align: left;
   padding: 0;
@@ -40,7 +40,7 @@
 
 .onx-lab-search--in-hero .onx-lab-search__shell {
   position: relative;
-  padding: 22px 22px 20px;
+  padding: 26px 28px 22px;
   border-radius: 4px;
   background: #f4f8f1;
   border: 1.5px solid rgba(90, 120, 70, 0.2);
@@ -52,8 +52,8 @@
 .onx-lab-search--in-hero .onx-lab-search__shell::before {
   content: "";
   position: absolute;
-  left: 22px;
-  right: 22px;
+  left: 28px;
+  right: 28px;
   top: 0;
   height: 2px;
   border-radius: 2px;
@@ -121,9 +121,9 @@
 
 .onx-lab-search__lead {
   margin: 0 0 0;
-  max-width: 54ch;
-  font-size: 14.5px;
-  line-height: 1.55;
+  max-width: 62ch;
+  font-size: 15px;
+  line-height: 1.58;
   color: #3d4a38;
 }
 
@@ -331,6 +331,88 @@
   border-radius: 3px !important;
 }
 
+/* Tonight tip — mechanism hygiene, random each visit */
+.onx-lab-tip {
+  margin-top: 18px;
+  padding: 16px 18px 15px;
+  border-radius: 3px;
+  border: 1px solid rgba(38, 133, 113, 0.22);
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(236, 246, 240, 0.88) 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.onx-lab-tip::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: linear-gradient(180deg, #268571 0%, #73a563 100%);
+}
+
+.onx-lab-tip__rail {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+.onx-lab-tip__kicker {
+  margin: 0;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #1f5c4f;
+}
+
+.onx-lab-tip__next {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: none;
+  font-family: var(--onx-font-sans);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #268571;
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.onx-lab-tip__next:hover {
+  color: #1a5a4c;
+}
+
+.onx-lab-tip__next:focus-visible {
+  outline: 2px solid #268571;
+  outline-offset: 3px;
+}
+
+.onx-lab-tip__body {
+  margin: 0;
+  font-family: var(--onx-font-serif);
+  font-size: clamp(16px, 2.1vw, 19px);
+  font-weight: 500;
+  line-height: 1.45;
+  color: #243028;
+  letter-spacing: -0.015em;
+  max-width: 52rem;
+}
+
+.onx-lab-tip__meta {
+  margin: 8px 0 0;
+  font-size: 12px;
+  line-height: 1.45;
+  color: #5a6454;
+}
+
 @media (max-width: 640px) {
   .onx-lab-search:not(.onx-lab-search--in-hero) {
     padding: 40px 16px 48px;
@@ -345,6 +427,11 @@
     border-radius: 4px;
   }
 
+  .onx-lab-search--in-hero .onx-lab-search__shell::before {
+    left: 16px;
+    right: 16px;
+  }
+
   .onx-lab-search__actions {
     flex-direction: column;
     align-items: stretch;
@@ -352,5 +439,9 @@
 
   .onx-lab-search__submit {
     width: 100%;
+  }
+
+  .onx-lab-tip {
+    padding: 14px 14px 13px 16px;
   }
 }
