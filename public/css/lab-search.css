@@ -24,13 +24,13 @@
 
 .onx-lab-search:not(.onx-lab-search--in-hero) .onx-lab-search__inner,
 .onx-lab-search:not(.onx-lab-search--in-hero) .onx-lab-search__shell {
-  max-width: 720px;
+  max-width: 1000px;
   margin: 0 auto;
 }
 
 /* Hero-integrated instrument — sits under neiro + lead */
 .onx-lab-search--in-hero {
-  max-width: 720px;
+  max-width: 1000px;
   margin: 0 auto 36px;
   text-align: left;
   padding: 0;

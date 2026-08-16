@@ -227,9 +227,11 @@
     }
     if (tokHits >= 3 && reasons.length < 3) reasons.push(tokHits + ' matching terms');
 
-    /* Quality priors */
+    /* Quality priors — PSEO dream pages lead the product surface */
     if (doc.indexable) score += 6;
-    if (isDreamDoc(doc) && tokHits >= 2) score += 8;
+    if (isDreamDoc(doc)) score += 12;
+    if (doc.kind === 'dream-lf') score += 6;
+    if (isDreamDoc(doc) && tokHits >= 2) score += 10;
     if (doc.density > 100) score += 2;
     if (doc.rank && doc.rank <= 20) score += 3;
 
@@ -254,35 +256,41 @@
       });
     }
     scored.sort(function (a, b) {
+      /* Prefer dream PSEO when scores are close */
+      var aDream = isDreamDoc(a.doc) ? 1 : 0;
+      var bDream = isDreamDoc(b.doc) ? 1 : 0;
+      if (Math.abs(a.score - b.score) < 8 && aDream !== bDream) return bDream - aDream;
       return b.score - a.score || (a.doc.rank || 999) - (b.doc.rank || 999);
     });
 
-    /* Diversify: at most one primary dream + prefer different somatic symptoms */
+    /* Prefer PSEO dream pages: up to 2 dream hits, then optional somatic */
     var out = [];
     var seenSymptom = {};
     var dreamCount = 0;
+    var somaticCount = 0;
     for (i = 0; i < scored.length && out.length < 3; i++) {
       var item = scored[i];
       var d = item.doc;
       if (isDreamDoc(d)) {
-        if (dreamCount >= 1 && out.length > 0) continue;
+        if (dreamCount >= 2) continue;
         dreamCount++;
       } else {
+        if (somaticCount >= 1) continue;
         var sym = (d.href || '').split('/')[2] || d.id;
         if (seenSymptom[sym] && out.length > 0) continue;
         seenSymptom[sym] = 1;
+        somaticCount++;
       }
       out.push(item);
     }
 
-    /* If top is dream-only, try inject best somatic as #2 */
-    if (out.length && isDreamDoc(out[0].doc)) {
+    /* If top is dream-only and we have room, inject best somatic */
+    if (out.length && isDreamDoc(out[0].doc) && out.length < 3) {
       for (i = 0; i < scored.length; i++) {
         if (scored[i].doc.kind === 'somatic' && scored[i].score >= 18) {
           var exists = out.some(function (x) { return x.doc.id === scored[i].doc.id; });
           if (!exists) {
-            if (out.length >= 3) out[2] = scored[i];
-            else out.push(scored[i]);
+            out.push(scored[i]);
           }
           break;
         }
@@ -301,8 +309,8 @@
   }
 
   function kindLabel(kind) {
-    if (kind === 'dream' || kind === 'dream-lf') return 'Dream mechanism';
-    return 'Body-signal profile';
+    if (kind === 'dream' || kind === 'dream-lf') return 'Dream PSEO';
+    return 'Somatic PSEO';
   }
 
   function renderResults(root, items, query) {
@@ -313,7 +321,7 @@
       box.hidden = false;
       box.innerHTML =
         '<div class="onx-lab-search__empty">' +
-        '<p><strong>No close Lab page yet.</strong> Try naming a body sensation (chest pressure, jolt, jaw, can’t move) or a clear image (chase, falling, teeth).</p>' +
+        '<p><strong>No matching PSEO page yet.</strong> Try naming a body sensation (chest pressure, jolt, jaw, can’t move) or a clear image (snake, chase, falling, teeth).</p>' +
         '<p class="onx-lab-search__empty-links">Browse <a href="/dreams/">Dream Meaning</a> · <a href="/somatic/">Somatic library</a> · <a href="/tools/oneirox-dream-mapper">Mapper</a></p>' +
         '</div>';
       return;
@@ -323,17 +331,17 @@
     var rest = items.slice(1);
     var html = '';
 
-    html += '<p class="onx-lab-search__status">Closest Lab pages for your description</p>';
+    html += '<p class="onx-lab-search__status">Why you may have seen this</p>';
     html += '<article class="onx-lab-search__primary">';
-    html += '<span class="onx-lab-search__badge">' + escapeHtml(kindLabel(primary.doc.kind)) + ' · best match</span>';
+    html += '<span class="onx-lab-search__badge">' + escapeHtml(kindLabel(primary.doc.kind)) + ' · strongest match</span>';
     html += '<h3 class="onx-lab-search__hit-title"><a href="' + escapeHtml(primary.doc.href) + '">' + escapeHtml(primary.doc.title) + '</a></h3>';
     if (primary.doc.blurb) {
       html += '<p class="onx-lab-search__blurb">' + escapeHtml(primary.doc.blurb) + '</p>';
     }
     if (primary.reasons.length) {
-      html += '<p class="onx-lab-search__why">Why: ' + escapeHtml(primary.reasons.join(' · ')) + '</p>';
+      html += '<p class="onx-lab-search__why">Matched on: ' + escapeHtml(primary.reasons.join(' · ')) + '</p>';
     }
-    html += '<a class="btn btn--primary onx-lab-search__cta" href="' + escapeHtml(primary.doc.href) + '">Open page →</a>';
+    html += '<a class="btn btn--primary onx-lab-search__cta" href="' + escapeHtml(primary.doc.href) + '">Read why →</a>';
     html += '</article>';
 
     if (rest.length) {
@@ -352,9 +360,7 @@
     }
 
     html +=
-      '<p class="onx-lab-search__foot">Not a diagnosis · routes you to Lab pages built from sleep neurobiology' +
-      (query && query.length > 80 ? '' : '') +
-      '</p>';
+      '<p class="onx-lab-search__foot">Not a diagnosis · routes you to Oneirox dream &amp; somatic PSEO pages</p>';
 
     box.hidden = false;
     box.innerHTML = html;
@@ -376,7 +382,7 @@
     }
 
     var runLabel =
-      (btn && btn.getAttribute('data-lab-search-run-label')) || 'Find closest pages →';
+      (btn && btn.getAttribute('data-lab-search-run-label')) || 'Why did I see this? →';
 
     if (btn) {
       btn.disabled = true;
