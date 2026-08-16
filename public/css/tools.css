@@ -16,7 +16,11 @@
   align-items: flex-end;
   justify-content: space-between;
   gap: 24px;
-  margin-bottom: 32px;
+  margin-bottom: 20px;
+}
+
+.onx-tools__header-copy {
+  max-width: 40rem;
 }
 
 .onx-tools__label {
@@ -26,18 +30,108 @@
   letter-spacing: -0.02em;
   color: var(--onx-forest);
   line-height: 1.15;
-  margin: 0;
+  margin: 0 0 8px;
 }
 
 .onx-tools__sub {
-  font-size: 14px;
+  font-size: 15px;
   color: #5a6450;
-  font-style: italic;
-  text-align: right;
-  max-width: 340px;
-  line-height: 1.6;
+  text-align: left;
+  max-width: none;
+  line-height: 1.55;
   margin: 0;
+  font-style: normal;
 }
+
+/* Path bridge: Search → instruments */
+.onx-lab-path {
+  margin: 0 0 36px;
+  padding: 22px 22px 18px;
+  border: 1.5px solid rgba(90, 120, 70, 0.2);
+  border-radius: 4px;
+  background:
+    linear-gradient(165deg, rgba(255, 255, 255, 0.75) 0%, rgba(236, 244, 232, 0.55) 100%);
+}
+
+.onx-lab-path__kicker {
+  margin: 0 0 14px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #3d5234;
+}
+
+.onx-lab-path__steps {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 16px;
+}
+
+@media (min-width: 900px) {
+  .onx-lab-path__steps {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+}
+
+.onx-lab-path__steps li {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+}
+
+.onx-lab-path__n {
+  flex-shrink: 0;
+  width: 28px;
+  height: 28px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1.5px solid rgba(38, 133, 113, 0.45);
+  border-radius: 3px;
+  font-size: 13px;
+  font-weight: 700;
+  color: #1f5c4f;
+  background: rgba(255, 255, 255, 0.7);
+}
+
+.onx-lab-path__steps strong {
+  display: block;
+  margin: 0 0 6px;
+  font-family: var(--onx-font-serif);
+  font-size: 17px;
+  font-weight: 600;
+  color: #2a3228;
+  letter-spacing: -0.01em;
+}
+
+.onx-lab-path__steps p {
+  margin: 0;
+  font-size: 13.5px;
+  line-height: 1.55;
+  color: #3d4a38;
+}
+
+.onx-lab-path__steps a {
+  color: #268571;
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.onx-lab-path__steps em {
+  font-style: italic;
+  color: #2a3228;
+}
+
+.onx-lab-path__steps u {
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
+}
+
 
 .onx-tools__grid {
   display: grid;
