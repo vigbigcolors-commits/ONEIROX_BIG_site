@@ -127,32 +127,42 @@
           </div>
           <p class="onx-lab-hero__lead">Oneirox is a free sleep neurobiology lab you run with your hands — map body signals, calculate chronobiology, browse dream mechanisms. Built by Vigen G.R. after five years and fifty books of sleep research.</p>
         </div>
+
+        <div class="onx-lab-search onx-lab-search--in-hero" id="lab-search" data-lab-search aria-labelledby="lab-search-title">
+          <div class="onx-lab-search__shell">
+            <header class="onx-lab-search__intro">
+              <p class="onx-lab-search__whisper">Lab Search · no login · no AI</p>
+              <h2 class="onx-lab-search__title" id="lab-search-title">What stayed with you when you woke?</h2>
+              <p class="onx-lab-search__lead">Write it the way you’d tell a careful friend — the image, and what your body did. We’ll open the closest mechanism page in the Lab.</p>
+            </header>
+            <form class="onx-lab-search__form" data-lab-search-form>
+              <label class="visually-hidden" for="lab-search-input">Describe your dream and how your body felt</label>
+              <textarea id="lab-search-input" data-lab-search-input name="q" rows="3" placeholder="I was being chased and my legs wouldn’t move — woke with chest pressure…" autocomplete="off"></textarea>
+              <div class="onx-lab-search__chips" role="group" aria-label="Starting points">
+                <button type="button" class="onx-lab-search__chip" data-lab-search-chip="Snake bite in the dream — woke with heart racing">Snake · bite</button>
+                <button type="button" class="onx-lab-search__chip" data-lab-search-chip="Teeth falling out with blood — jaw sore on waking">Teeth · jaw</button>
+                <button type="button" class="onx-lab-search__chip" data-lab-search-chip="Being chased and legs won’t move — panic on waking">Chase · heavy legs</button>
+                <button type="button" class="onx-lab-search__chip" data-lab-search-chip="Falling as I fell asleep — sudden jolt awake">Fall · hypnic jolt</button>
+                <button type="button" class="onx-lab-search__chip" data-lab-search-chip="Couldn’t move or speak — weight on my chest at awakening">Paralysis · chest</button>
+              </div>
+              <div class="onx-lab-search__actions">
+                <button type="submit" class="btn btn--primary" data-lab-search-run data-lab-search-run-label="Find closest pages →">Find closest pages →</button>
+                <p class="onx-lab-search__hint">Body sensations rank first. Images second.</p>
+              </div>
+            </form>
+            <div class="onx-lab-search__results" data-lab-search-results hidden></div>
+          </div>
+        </div>
+
         <div class="onx-lab-hero__stats" role="list">
           <div role="listitem"><strong>3</strong><span>Free calculators</span></div>
           <div role="listitem"><strong>400+</strong><span>Body-signal profiles</span></div>
-          <div role="listitem"><strong>26</strong><span>Dream mechanisms</span></div>
+          <div role="listitem"><strong>100+</strong><span>Dream scenarios</span></div>
         </div>
         <div class="onx-lab-hero__cta">
-          <a href="#lab-search" class="btn btn--primary">Find your page →</a>
-          <a href="#instruments" class="btn btn--outline">Open instruments →</a>
+          <a href="#instruments" class="btn btn--outline">Browse instruments →</a>
+          <a href="/lab/" class="btn btn--outline">Lab home →</a>
         </div>
-      </div>
-    </section>
-
-    <section class="onx-lab-search" id="lab-search" data-lab-search aria-labelledby="lab-search-title">
-      <div class="onx-lab-search__inner">
-        <p class="onx-lab-search__kicker">Lab Search · Free · No API</p>
-        <h2 class="onx-lab-search__title" id="lab-search-title">Describe the dream.<br><em>We’ll route you to the closest Lab page.</em></h2>
-        <p class="onx-lab-search__lead">Not an AI reading — a search across body-signal profiles and dream-mechanism pages. Body sensations rank first; images second.</p>
-        <form class="onx-lab-search__form" data-lab-search-form>
-          <label class="visually-hidden" for="lab-search-input">Describe your dream and how your body felt</label>
-          <textarea id="lab-search-input" data-lab-search-input name="q" rows="4" placeholder="e.g. I was being chased and couldn’t run — woke with chest pressure and a jolt…" autocomplete="off"></textarea>
-          <div class="onx-lab-search__actions">
-            <button type="submit" class="btn btn--primary" data-lab-search-run>Find closest pages →</button>
-            <p class="onx-lab-search__hint">Tip: name what your body felt on waking</p>
-          </div>
-        </form>
-        <div class="onx-lab-search__results" data-lab-search-results hidden></div>
       </div>
     </section>
 

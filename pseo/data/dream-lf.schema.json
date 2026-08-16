@@ -1,0 +1,71 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Oneirox Dream LF PSEO entry",
+  "type": "object",
+  "required": [
+    "parent_slug",
+    "slug",
+    "title",
+    "meta_title",
+    "meta_description",
+    "kicker",
+    "lead",
+    "signal",
+    "body_paragraphs",
+    "morning_prompt",
+    "indexable",
+    "wave"
+  ],
+  "properties": {
+    "parent_slug": { "type": "string", "description": "Pillar slug under /dreams/{parent}/" },
+    "slug": { "type": "string", "description": "Child path segment" },
+    "title": { "type": "string" },
+    "meta_title": { "type": "string", "maxLength": 70 },
+    "meta_description": { "type": "string", "maxLength": 160 },
+    "kicker": { "type": "string" },
+    "lead": { "type": "string" },
+    "signal": { "type": "string" },
+    "body_paragraphs": {
+      "type": "array",
+      "minItems": 2,
+      "maxItems": 4,
+      "items": { "type": "string" }
+    },
+    "variants": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["q", "a"],
+        "properties": {
+          "q": { "type": "string" },
+          "a": { "type": "string" }
+        }
+      }
+    },
+    "morning_prompt": { "type": "string" },
+    "related_somatic": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["href", "label"],
+        "properties": {
+          "href": { "type": "string" },
+          "label": { "type": "string" }
+        }
+      }
+    },
+    "related_mechanics": {
+      "type": "object",
+      "properties": {
+        "href": { "type": "string" },
+        "label": { "type": "string" }
+      }
+    },
+    "mechanism_key": {
+      "type": "string",
+      "description": "Unique logic tag — must differ from siblings"
+    },
+    "indexable": { "type": "boolean" },
+    "wave": { "type": "string", "enum": ["A", "B"] }
+  }
+}

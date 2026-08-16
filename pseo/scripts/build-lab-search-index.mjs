@@ -18,6 +18,10 @@ const somatic = JSON.parse(
 const dreams = JSON.parse(
   fs.readFileSync(path.join(ROOT, "pseo/data/dream-meaning-matrix.json"), "utf8")
 );
+const dreamLfPath = path.join(ROOT, "pseo/data/dream-lf-matrix.json");
+const dreamLf = fs.existsSync(dreamLfPath)
+  ? JSON.parse(fs.readFileSync(dreamLfPath, "utf8"))
+  : { entries: [] };
 
 function tok(s) {
   return String(s || "")
@@ -98,6 +102,40 @@ for (const e of dreams.entries || []) {
     indexable: true,
     rank: 0,
     density: 100,
+  });
+}
+
+for (const e of dreamLf.entries || []) {
+  if (!e.parent_slug || !e.slug) continue;
+  const href = `/dreams/${e.parent_slug}/${e.slug}/`;
+  const variantQs = (e.variants || []).map((v) => v.q).join(" ");
+  const terms = uniq([
+    ...tok(e.title),
+    ...tok(e.slug),
+    ...tok(e.parent_slug),
+    ...tok(e.kicker),
+    ...tok(e.lead),
+    ...tok(e.signal),
+    ...tok(e.mechanism_key),
+    ...tok(variantQs),
+    ...tok((e.body_paragraphs || []).slice(0, 1).join(" ")),
+  ]);
+
+  docs.push({
+    id: `dream-lf:${e.parent_slug}/${e.slug}`,
+    kind: "dream-lf",
+    href,
+    title: e.title,
+    blurb: (e.signal || e.lead || "").slice(0, 180),
+    phase: "",
+    context: "",
+    markers: [],
+    zones: [],
+    category: e.parent_slug || "",
+    terms,
+    indexable: !!e.indexable,
+    rank: e.indexable ? 5 : 40,
+    density: e.indexable ? 90 : 50,
   });
 }
 

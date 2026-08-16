@@ -17,7 +17,7 @@
     { re: /\b(jolt|jerk|twitch|hypnic|falling (asleep|sensation)|fell (in|through)|elevator|startle|snap awake|body jump)\b/i, tags: ['jolt', 'jerk', 'falling', 'twitch', 'hypnic', 'startle'], w: 26 },
     { re: /\b(teeth|tooth|jaw|grind|clench|brux)\b/i, tags: ['teeth', 'jaw', 'bruxism', 'clench', 'grind', 'oral'], w: 26 },
     { re: /\b(chas(e|ed|ing)|pursu|running away|being chased|can'?t run)\b/i, tags: ['chase', 'threat', 'running', 'pursuer', 'amygdala'], w: 24 },
-    { re: /\b(snake|serpent)\b/i, tags: ['snake', 'serpent'], w: 24 },
+    { re: /\b(snake|serpent|snake.?bite|bitten)\b/i, tags: ['snake', 'serpent', 'bitten', 'bite'], w: 24 },
     { re: /\b(drown|underwater|flood|tidal|ocean|deep water)\b/i, tags: ['water', 'drown', 'flood', 'ocean'], w: 22 },
     { re: /\b(ex\b|ex[- ]partner|cheating|affair|wedding|marriage|pregnant|pregnancy)\b/i, tags: ['ex', 'partner', 'cheating', 'wedding', 'marriage', 'pregnant'], w: 22 },
     { re: /\b(exam|test|late|miss(ed)? (the )?(bus|train|flight|deadline)|naked|public)\b/i, tags: ['exam', 'late', 'naked', 'anxiety', 'deadline'], w: 20 },
@@ -40,6 +40,10 @@
     { re: /\b(middle of the night|3am|3 am|fragmented|kept waking)\b/i, phase: '', context: 'fragmentation', w: 12 },
     { re: /\b(rem|vivid dream|lucid)\b/i, phase: 'rem', context: '', w: 12 }
   ];
+
+  function isDreamDoc(doc) {
+    return doc && (doc.kind === 'dream' || doc.kind === 'dream-lf');
+  }
 
   function norm(s) {
     return String(s || '')
@@ -175,7 +179,7 @@
               break;
             }
           }
-          if (doc.kind === 'dream' && norm(doc.id + ' ' + doc.href).indexOf(tag) !== -1) tagHit = 1;
+          if (isDreamDoc(doc) && norm(doc.id + ' ' + doc.href).indexOf(tag) !== -1) tagHit = 1;
         }
         if (tagHit) {
           score += b.w;
@@ -197,18 +201,18 @@
     if (sig.context && doc.context === sig.context) score += 16;
 
     /* Dream slug / title direct hits (strong theme signal) */
-    if (doc.kind === 'dream') {
-      var slug = String(doc.href || '').replace(/^\/dreams\/|\/$/g, '');
+    if (isDreamDoc(doc)) {
+      var slug = String(doc.href || '').replace(/^\/dreams\/|\/$/g, '').replace(/\//g, '-');
       var slugBits = slug.split('-');
       var slugHits = 0;
       for (i = 0; i < slugBits.length; i++) {
         if (slugBits[i].length > 2 && sig.toks.indexOf(slugBits[i]) !== -1) slugHits++;
       }
       if (slugHits >= 2) {
-        score += 36;
+        score += doc.kind === 'dream-lf' ? 42 : 36;
         if (reasons.length < 3) reasons.push('dream theme match');
       } else if (slugHits === 1 && (slugBits.length <= 2 || sig.toks.length <= 4)) {
-        score += 18;
+        score += doc.kind === 'dream-lf' ? 22 : 18;
       }
     }
 
@@ -218,14 +222,14 @@
       t = sig.toks[i];
       if (termSet[t]) {
         tokHits++;
-        score += doc.kind === 'dream' ? 7 : 5;
+        score += isDreamDoc(doc) ? 7 : 5;
       }
     }
     if (tokHits >= 3 && reasons.length < 3) reasons.push(tokHits + ' matching terms');
 
     /* Quality priors */
     if (doc.indexable) score += 6;
-    if (doc.kind === 'dream' && tokHits >= 2) score += 8;
+    if (isDreamDoc(doc) && tokHits >= 2) score += 8;
     if (doc.density > 100) score += 2;
     if (doc.rank && doc.rank <= 20) score += 3;
 
@@ -260,7 +264,7 @@
     for (i = 0; i < scored.length && out.length < 3; i++) {
       var item = scored[i];
       var d = item.doc;
-      if (d.kind === 'dream') {
+      if (isDreamDoc(d)) {
         if (dreamCount >= 1 && out.length > 0) continue;
         dreamCount++;
       } else {
@@ -272,7 +276,7 @@
     }
 
     /* If top is dream-only, try inject best somatic as #2 */
-    if (out.length && out[0].doc.kind === 'dream') {
+    if (out.length && isDreamDoc(out[0].doc)) {
       for (i = 0; i < scored.length; i++) {
         if (scored[i].doc.kind === 'somatic' && scored[i].score >= 18) {
           var exists = out.some(function (x) { return x.doc.id === scored[i].doc.id; });
@@ -297,7 +301,8 @@
   }
 
   function kindLabel(kind) {
-    return kind === 'dream' ? 'Dream mechanism' : 'Body-signal profile';
+    if (kind === 'dream' || kind === 'dream-lf') return 'Dream mechanism';
+    return 'Body-signal profile';
   }
 
   function renderResults(root, items, query) {
@@ -370,6 +375,9 @@
       return;
     }
 
+    var runLabel =
+      (btn && btn.getAttribute('data-lab-search-run-label')) || 'Find closest pages →';
+
     if (btn) {
       btn.disabled = true;
       btn.textContent = 'Searching…';
@@ -390,7 +398,7 @@
       .finally(function () {
         if (btn) {
           btn.disabled = false;
-          btn.textContent = 'Find closest pages →';
+          btn.textContent = runLabel;
         }
       });
   }
@@ -403,6 +411,19 @@
       e.preventDefault();
       runSearch(root);
     });
+
+    var ta = root.querySelector('[data-lab-search-input]');
+    var chips = root.querySelectorAll('[data-lab-search-chip]');
+    for (var i = 0; i < chips.length; i++) {
+      chips[i].addEventListener('click', function () {
+        var text = this.getAttribute('data-lab-search-chip') || '';
+        if (!ta || !text) return;
+        ta.value = text;
+        ta.focus();
+        for (var j = 0; j < chips.length; j++) chips[j].classList.remove('is-active');
+        this.classList.add('is-active');
+      });
+    }
   }
 
   function init() {
