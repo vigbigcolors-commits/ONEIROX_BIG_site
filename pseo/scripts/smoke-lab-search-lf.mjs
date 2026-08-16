@@ -38,6 +38,13 @@ const queries = [
   "armenian grandmother dream",
   "dream returning home armenia",
   "passport border dream armenia",
+  "I was in Yerevan dream",
+  "lake sevan dream",
+  "glendale armenian dream",
+  "duduk dream",
+  "dhol drum dream",
+  "kamancha qyamancha dream",
+  "saying jan dream",
 ];
 
 for (const q of queries) {

@@ -31,7 +31,8 @@
     { re: /\b(money|wealth|rich|poor|debt)\b/i, tags: ['money', 'wealth'], w: 16 },
     { re: /\b(house|home|room|basement|attic)\b/i, tags: ['house', 'home', 'room'], w: 16 },
     { re: /\b(dog|cat|animal)\b/i, tags: ['dog', 'cat', 'animal'], w: 16 },
-    { re: /\b(ararat|armenia|armenian|yerevan|homeland|diaspora|exile|grandmother|grandma|passport|border)\b/i, tags: ['ararat', 'armenia', 'armenian', 'homeland', 'diaspora', 'exile', 'grandmother', 'passport', 'border', 'yerevan'], w: 26 },
+    { re: /\b(ararat|armenia|armenian|yerevan|sevan|glendale|etchmiadzin|zvartnots|cascade|homeland|diaspora|exile|grandmother|grandma|passport|border)\b/i, tags: ['ararat', 'armenia', 'armenian', 'homeland', 'diaspora', 'exile', 'grandmother', 'passport', 'border', 'yerevan', 'sevan', 'glendale', 'etchmiadzin', 'zvartnots'], w: 26 },
+    { re: /\b(duduk|dhol|kamancha|qyamancha|kemancha|lavash|tonir|soorj|jan)\b/i, tags: ['duduk', 'dhol', 'kamancha', 'qyamancha', 'lavash', 'tonir', 'coffee', 'jan', 'armenian'], w: 28 },
     { re: /\b(rem\b|deep sleep|n1|n2|n3|falling asleep|waking up|middle of the night)\b/i, tags: ['rem', 'n1', 'n2', 'n3', 'onset', 'awakening'], w: 14 }
   ];
 

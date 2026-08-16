@@ -1458,6 +1458,26 @@
         {
           "q": "Inherited grief or 1915 imagery",
           "a": "Intergenerational affect schemas can load in REM. Treat impairing nightmares seriously; we do not sensationalize them."
+        },
+        {
+          "q": "I was in Yerevan",
+          "a": "Capital-city place schema — see /dreams/homeland-and-diaspora/yerevan/. Mechanism is urban map bind, not prophecy."
+        },
+        {
+          "q": "Dream about Glendale",
+          "a": "US diaspora enclave place map — belonging on streets you actually know."
+        },
+        {
+          "q": "Hearing duduk or dhol",
+          "a": "Auditory cultural cues — timbre (duduk/kamancha) vs celebration rhythm (dhol). Not omen tables."
+        },
+        {
+          "q": "Someone said jan",
+          "a": "Untranslatable affection particle as kinship speech effector."
+        },
+        {
+          "q": "Lake Sevan or Etchmiadzin",
+          "a": "Named homeland place binds — highland lake or Mother See — distinct mechanisms each."
         }
       ],
       "morning_prompt": "Map the dream to one channel: place (Ararat/Armenia), people (elder/table), access (passport/border), or language. One channel beats a symbol list.",
