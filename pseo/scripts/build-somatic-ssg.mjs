@@ -172,8 +172,8 @@ function stepperHtml(entry) {
   return `<section class="sx-stepper" data-module="stepper" aria-label="Marker check">
   <h2>Which markers match waking recall?</h2>
   <div class="sx-stepper__list">${steps}</div>
-  <p class="sx-stepper__out" id="sx-step-out" hidden>Matches noted — open Decode with this somatic context.</p>
-  <a class="sx-stepper__cta" href="/#decode">Decode with body context →</a>
+  <p class="sx-stepper__out" id="sx-step-out" hidden>Matches noted — open Lab Search with this somatic context.</p>
+  <a class="sx-stepper__cta" href="/#lab-search">Search with body context →</a>
 </section>`;
 }
 
@@ -187,8 +187,8 @@ function feltOnWakingHtml(entry) {
 
 function decodeUseHtml(entry) {
   if (!entry.decode_use) return "";
-  return `<section class="sx-decode-use" data-module="decode_use" aria-label="How Decode uses this row">
-  <h2>How Decode uses this row</h2>
+  return `<section class="sx-decode-use" data-module="decode_use" aria-label="How Lab Search uses this row">
+  <h2>How Lab Search uses this row</h2>
   <p>${esc(entry.decode_use)}</p>
 </section>`;
 }

@@ -248,9 +248,9 @@ export function composeMechanismBullets(entry) {
 
   const mechTail = seededPick(entry, "mechtail", MECH_TAIL);
   const closers = [
-    `Decode treats "${markers[0] || entry.physiological_symptom}" here as ${entry.context} somatic evidence layered onto imagery for ${entry.sleep_phase} sleep — ${mechTail}.`,
-    `"${markers[0] || entry.physiological_symptom}" gets weighted as ${entry.context} body evidence for ${entry.sleep_phase} sleep in Decode — ${mechTail}.`,
-    `Decode's BODY line leans on "${markers[0] || entry.physiological_symptom}" for this ${entry.context}/${entry.sleep_phase} row — ${mechTail}.`,
+    `The Lab treats "${markers[0] || entry.physiological_symptom}" here as ${entry.context} somatic evidence layered onto imagery for ${entry.sleep_phase} sleep — ${mechTail}.`,
+    `"${markers[0] || entry.physiological_symptom}" gets weighted as ${entry.context} body evidence for ${entry.sleep_phase} sleep in Lab Search — ${mechTail}.`,
+    `The BODY line on this page leans on "${markers[0] || entry.physiological_symptom}" for this ${entry.context}/${entry.sleep_phase} row — ${mechTail}.`,
   ];
   bullets.push(seededPick(entry, "bullet5", closers));
 
@@ -299,11 +299,11 @@ export function composeDecodeHint(entry) {
   const m = (entry.somatic_markers || [])[0] || "the body signal";
   const ctxPhrase = CTX_PHRASE[entry.context] || `during ${entry.context}`;
   const variants = [
-    `If your recall includes "${m}" during ${entry.context} ${entry.sleep_phase} sleep, Decode weights it as somatic context beside the imagery — mechanism first, not symbolism.`,
-    `Recall naming "${m}" in ${entry.sleep_phase} sleep, ${ctxPhrase}, gets read by Decode as body evidence, not as a dream symbol.`,
-    `Decode treats "${m}" as a mechanism marker when it shows up ${ctxPhrase} in ${entry.sleep_phase} sleep — not something to look up in a dictionary.`,
-    `"${m}" logged ${ctxPhrase} shifts how Decode reads ${entry.sleep_phase} sleep: body signal first, imagery second.`,
-    `For ${entry.sleep_phase} sleep ${ctxPhrase}, "${m}" is exactly the kind of detail Decode weights over plot — mechanism before meaning.`,
+    `If your recall includes "${m}" during ${entry.context} ${entry.sleep_phase} sleep, Lab Search weights it as somatic context beside the imagery — mechanism first, not symbolism.`,
+    `Recall naming "${m}" in ${entry.sleep_phase} sleep, ${ctxPhrase}, gets read by the Lab as body evidence, not as a dream symbol.`,
+    `The Lab treats "${m}" as a mechanism marker when it shows up ${ctxPhrase} in ${entry.sleep_phase} sleep — not something to look up in a dictionary.`,
+    `"${m}" logged ${ctxPhrase} shifts how Lab Search ranks ${entry.sleep_phase} sleep pages: body signal first, imagery second.`,
+    `For ${entry.sleep_phase} sleep ${ctxPhrase}, "${m}" is exactly the kind of detail the Lab weights over plot — mechanism before meaning.`,
   ];
   return seededPick(entry, "decodehint", variants);
 }
@@ -319,17 +319,17 @@ export function composeFeltOnWaking(entry) {
   return `On waking, the marker named most often is "${m0}"${tail}. Because this row sits at ${entry.context} in ${entry.sleep_phase} sleep, ${feel}.`;
 }
 
-/** Concrete explanation of how Decode weighs this specific row. */
+/** Concrete explanation of how Lab Search weighs this specific row. */
 export function composeDecodeUse(entry) {
   const markers = entry.somatic_markers || [];
   const m0 = markers[0] || "this marker";
   const tx0 = (entry.neurotransmitters_involved || [])[0];
   const txPhrase = tx0 ? ` — tied here to ${tx0} activity` : "";
   const variants = [
-    `When your recall names "${m0}"${txPhrase}, Decode reads it as body-side evidence for the BODY line of your result rather than as a symbol. It adjusts the mechanism reading for ${entry.sleep_phase} sleep instead of guessing at what "${m0}" might "mean".`,
-    `Decode does not look up "${m0}" in a symbol table${txPhrase}; it uses it to weight the BODY line of your ${entry.sleep_phase} reading toward mechanism.`,
-    `Naming "${m0}"${txPhrase} shifts Decode's ${entry.sleep_phase}-sleep reading toward physiology — the BODY line moves, the SIGNAL line does not chase a symbolic guess.`,
-    `"${m0}"${txPhrase} is treated by Decode as a body-side input for ${entry.sleep_phase} sleep, not as imagery to interpret — it changes the mechanism weighting, not the story.`,
+    `When your recall names "${m0}"${txPhrase}, Lab Search reads it as body-side evidence for the BODY line of the matching page rather than as a symbol. It adjusts the mechanism ranking for ${entry.sleep_phase} sleep instead of guessing at what "${m0}" might "mean".`,
+    `The Lab does not look up "${m0}" in a symbol table${txPhrase}; it uses it to weight the BODY line of your ${entry.sleep_phase} reading toward mechanism.`,
+    `Naming "${m0}"${txPhrase} shifts the Lab's ${entry.sleep_phase}-sleep reading toward physiology — the BODY line moves, the SIGNAL line does not chase a symbolic guess.`,
+    `"${m0}"${txPhrase} is treated by Lab Search as a body-side input for ${entry.sleep_phase} sleep, not as imagery to interpret — it changes the mechanism weighting, not the story.`,
   ];
   return seededPick(entry, "decodeuse", variants);
 }

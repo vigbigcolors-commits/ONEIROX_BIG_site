@@ -19,7 +19,7 @@
 <body class="sx-type-eeg" data-indexable="true" data-chart-seed="10008" data-gauge-atonia="90" data-gauge-arousal="35" data-gauge-coherence="65">
   <header class="sx-top">
     <a class="sx-brand" href="/">Oneirox</a>
-    <nav class="sx-nav"><a href="/somatic/">Somatic DB</a><a href="/decode/">Decode</a></nav>
+    <nav class="sx-nav"><a href="/somatic/">Somatic DB</a><a href="/#lab-search">Lab Search</a></nav>
   </header>
   <main class="sx-main">
     <p class="sx-kicker">Utility type · EEG baseline · metric dataset</p>
@@ -64,8 +64,8 @@
     <section class="sx-mechanism" data-module="mechanism">
   <details open>
     <summary>Mechanism stack</summary>
-    <ol class="sx-mechanism__list"><li>Phasic REM eye-twitch burst, settling in once the cycle is underway sits inside REM sleep, with cortical activity running theta at 4–10 Hz.</li><li>The lead transmitter is acetylcholine (cholinergic REM drive elevates cortical activation), alongside glutamate, GABA — this row's density score is 94.</li><li>Dataset row #10008: atonia 90/100, arousal 35/100, coherence 65/100 — the motor brake is holding firm, against a stable, well-organized backdrop.</li><li>On this mid-cycle row the markers stack as &quot;facial micro-twitches&quot; → &quot;lid flutter&quot; → &quot;rapid eye movements&quot; — holding a steady pattern well inside the cycle.</li><li>Decode's BODY line leans on &quot;rapid eye movements&quot; for this mid-cycle/REM row — read as mechanism, not dream-symbol shorthand.</li></ol>
-    <p class="sx-decode-hint">For REM sleep in the mid-cycle window, &quot;rapid eye movements&quot; is exactly the kind of detail Decode weights over plot — mechanism before meaning.</p>
+    <ol class="sx-mechanism__list"><li>Phasic REM eye-twitch burst, settling in once the cycle is underway sits inside REM sleep, with cortical activity running theta at 4–10 Hz.</li><li>The lead transmitter is acetylcholine (cholinergic REM drive elevates cortical activation), alongside glutamate, GABA — this row's density score is 94.</li><li>Dataset row #10008: atonia 90/100, arousal 35/100, coherence 65/100 — the motor brake is holding firm, against a stable, well-organized backdrop.</li><li>On this mid-cycle row the markers stack as &quot;facial micro-twitches&quot; → &quot;lid flutter&quot; → &quot;rapid eye movements&quot; — holding a steady pattern well inside the cycle.</li><li>The BODY line on this page leans on &quot;rapid eye movements&quot; for this mid-cycle/REM row — read as mechanism, not dream-symbol shorthand.</li></ol>
+    <p class="sx-decode-hint">For REM sleep in the mid-cycle window, &quot;rapid eye movements&quot; is exactly the kind of detail the Lab weights over plot — mechanism before meaning.</p>
   </details>
 </section>
 <section class="sx-tx" data-module="tx_cards" aria-label="Transmitters"><h2>Transmitter focus</h2><div class="sx-tx-grid"><article class="sx-tx-card"><h3>acetylcholine</h3><p>REM-linked cortical drive</p></article><article class="sx-tx-card"><h3>glutamate</h3><p>excitatory push</p></article><article class="sx-tx-card"><h3>GABA</h3><p>inhibitory cortical/spinal brake</p></article></div></section>
@@ -77,15 +77,15 @@
   <h2>Related physiology</h2>
   <p>This row connects to <a href="/mechanics/rem/pgo-autonomic/">PGO &amp; autonomic drive</a> — the pontine spikes and autonomic swings behind eye, breath, and skin signals.</p>
 </section>
-<section class="sx-decode-use" data-module="decode_use" aria-label="How Decode uses this row">
-  <h2>How Decode uses this row</h2>
-  <p>When your recall names &quot;rapid eye movements&quot; — tied here to acetylcholine activity, Decode reads it as body-side evidence for the BODY line of your result rather than as a symbol. It adjusts the mechanism reading for REM sleep instead of guessing at what &quot;rapid eye movements&quot; might &quot;mean&quot;.</p>
+<section class="sx-decode-use" data-module="decode_use" aria-label="How Lab Search uses this row">
+  <h2>How Lab Search uses this row</h2>
+  <p>When your recall names &quot;rapid eye movements&quot; — tied here to acetylcholine activity, Lab Search reads it as body-side evidence for the BODY line of the matching page rather than as a symbol. It adjusts the mechanism ranking for REM sleep instead of guessing at what &quot;rapid eye movements&quot; might &quot;mean&quot;.</p>
 </section>
 <section class="sx-stepper" data-module="stepper" aria-label="Marker check">
   <h2>Which markers match waking recall?</h2>
   <div class="sx-stepper__list"><label class="sx-step"><input type="checkbox" data-step="0" /> <span>rapid eye movements</span></label><label class="sx-step"><input type="checkbox" data-step="1" /> <span>lid flutter</span></label><label class="sx-step"><input type="checkbox" data-step="2" /> <span>facial micro-twitches</span></label></div>
-  <p class="sx-stepper__out" id="sx-step-out" hidden>Matches noted — open Decode with this somatic context.</p>
-  <a class="sx-stepper__cta" href="/decode/">Decode with body context →</a>
+  <p class="sx-stepper__out" id="sx-step-out" hidden>Matches noted — open Lab Search with this somatic context.</p>
+  <a class="sx-stepper__cta" href="/#lab-search">Search with body context →</a>
 </section>
 <section class="sx-vote" data-module="useful_vote" aria-label="Was this useful">
   <p class="sx-vote__q">Was this utility useful?</p>
@@ -96,11 +96,11 @@
   <p class="sx-vote__msg" hidden>Saved on this device only.</p>
 </section>
 
-    <!-- Shared hard CTA — neurobiology Decode only -->
-<section class="sx-cta-hard" aria-label="Decode call to action">
-  <h2>Send your dream for neurobiological analysis</h2>
-  <p>Not a symbol dictionary. Paste what you remember — images, body sensations, waking state — into Decode for a mechanism-based reading.</p>
-  <a class="sx-btn sx-btn--hard" href="/decode/">Open Decode — analyze my dream</a>
+    <!-- Shared hard CTA — Lab Search (mechanism pages), not offline Decode -->
+<section class="sx-cta-hard" aria-label="Lab Search call to action">
+  <h2>Find the mechanism behind tonight’s signal</h2>
+  <p>Not a symbol dictionary. Describe what you remember — images, body sensations, waking state — in Lab Search for the closest dream or somatic mechanism page.</p>
+  <a class="sx-btn sx-btn--hard" href="/#lab-search">Open Lab Search →</a>
 </section>
 
 

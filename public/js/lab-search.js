@@ -559,6 +559,17 @@
     }
 
     bindTip(root);
+
+    var taPrefill = root.querySelector('[data-lab-search-input]');
+    if (taPrefill) {
+      try {
+        var pre = sessionStorage.getItem('onx_lab_search_prefill');
+        if (pre && !taPrefill.value.trim()) {
+          taPrefill.value = pre;
+          sessionStorage.removeItem('onx_lab_search_prefill');
+        }
+      } catch (e) {}
+    }
   }
 
   function init() {

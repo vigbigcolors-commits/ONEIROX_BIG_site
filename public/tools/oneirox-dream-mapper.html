@@ -363,7 +363,7 @@ body{font-family:'DM Sans',system-ui,sans-serif;background:var(--bg);color:var(-
   <div class="mstep"><div class="msn">02</div><div class="msb"><strong>Tactile Matrix</strong>Select textures describing the physical feeling.</div></div>
   <div class="mstep"><div class="msn">03</div><div class="msb"><strong>Somatic Map</strong>Tap zones where you felt sensation or pressure.</div></div>
   <div class="mstep"><div class="msn">04</div><div class="msb"><strong>Soundscape</strong>The texture of the sonic environment.</div></div>
-  <div class="mstep"><div class="msn">05</div><div class="msb"><strong>Read Your Results + Send to Decode</strong>Your Sensory Profile appears. Use "→ Decode Dream" to send your somatic context to the Oneirox AI engine.</div></div>
+  <div class="mstep"><div class="msn">05</div><div class="msb"><strong>Read Your Results + Send to Lab Search</strong>Your Sensory Profile appears. Use "→ Decode Dream" to send your somatic context to the Oneirox AI engine.</div></div>
 </div></div>
 
 <div class="mo" id="mo-hist" onclick="closeBg(event,'mo-hist')"><div class="mbox">
@@ -515,7 +515,7 @@ body{font-family:'DM Sans',system-ui,sans-serif;background:var(--bg);color:var(-
       <div style="display:flex;gap:.5rem;align-items:center;flex-wrap:wrap">
         <button class="share-btn" id="share-btn" onclick="shareReading()">Share</button>
         <button class="save-btn" id="save-btn" onclick="saveReading()">Save Reading</button>
-        <button class="decode-btn" id="decode-btn" onclick="sendToDecode()">Decode Dream</button>
+        <button class="decode-btn" id="decode-btn" onclick="sendToDecode()">Open Lab Search</button>
       </div>
     </div>
     <div class="ptop">
@@ -785,7 +785,7 @@ function shareReading(){
   else{navigator.clipboard?.writeText(text+'\n'+url).then(()=>{btn.textContent='Copied ✓';btn.classList.add('ok');setTimeout(()=>{btn.textContent='Share';btn.classList.remove('ok')},2200)})}
 }
 
-/* ── SEND TO DECODE ── */
+/* ── SEND TO LAB SEARCH ── */
 function sendToDecode() {
   var prof = getProf();
   var data = {
@@ -801,7 +801,15 @@ function sendToDecode() {
     timestamp: Date.now()
   };
   try { localStorage.setItem('onx_mapper_data', JSON.stringify(data)); } catch(e) {}
-  window.location.href = '/#decode';
+  var bits = [];
+  bits.push('Body profile: ' + prof.name);
+  if (data.thermal) bits.push('thermal ' + data.thermal);
+  if (data.textures && data.textures.length) bits.push('textures: ' + data.textures.join(', '));
+  if (data.zones && data.zones.length) bits.push('zones: ' + data.zones.join(', '));
+  if (data.sound) bits.push('sound: ' + data.sound);
+  bits.push('— add the dream image you remember');
+  try { sessionStorage.setItem('onx_lab_search_prefill', bits.join('; ')); } catch(e) {}
+  window.location.href = '/#lab-search';
 }
 
 update();

@@ -42,7 +42,7 @@
             n +
             " marker" +
             (n > 1 ? "s" : "") +
-            " matched — open Decode with this somatic context.";
+            " matched — open Lab Search with this somatic context.";
         }
       }
     }
