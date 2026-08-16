@@ -29,6 +29,7 @@
   <meta property="og:site_name" content="Oneirox">
   <link rel="stylesheet" href="/css/page.css">
   <link rel="stylesheet" href="/css/lab.css">
+  <link rel="stylesheet" href="/css/lab-search.css">
   <link rel="stylesheet" href="/css/tools.css">
   <link rel="stylesheet" href="/css/main.css">
   <script type="application/ld+json">
@@ -94,6 +95,23 @@
         <p class="onx-lab-hub-hero__lead">Every instrument below is real math or a real dataset, grounded in published sleep research — not a wrapper around a language model.</p>
       </div>
     </header>
+
+    <section class="onx-lab-search" id="lab-search" data-lab-search aria-labelledby="lab-search-title">
+      <div class="onx-lab-search__inner">
+        <p class="onx-lab-search__kicker">Lab Search · Free · No API</p>
+        <h2 class="onx-lab-search__title" id="lab-search-title">Describe the dream.<br><em>We’ll route you to the closest Lab page.</em></h2>
+        <p class="onx-lab-search__lead">Search across body-signal profiles and dream-mechanism pages. Body sensations rank first — not symbol keywords.</p>
+        <form class="onx-lab-search__form" data-lab-search-form>
+          <label class="visually-hidden" for="lab-search-input-lab">Describe your dream and how your body felt</label>
+          <textarea id="lab-search-input-lab" data-lab-search-input name="q" rows="4" placeholder="e.g. Teeth crumbling, woke with jaw sore and tight chest…" autocomplete="off"></textarea>
+          <div class="onx-lab-search__actions">
+            <button type="submit" class="btn btn--primary" data-lab-search-run>Find closest pages →</button>
+            <p class="onx-lab-search__hint">Tip: name what your body felt on waking</p>
+          </div>
+        </form>
+        <div class="onx-lab-search__results" data-lab-search-results hidden></div>
+      </div>
+    </section>
 
     <section class="onx-tools" id="onx-tools">
       <div class="onx-tools__inner">
@@ -339,6 +357,7 @@
     <p class="page-footer__copy">© 2026 Oneirox · Vigen G.R. · Independent researcher &amp; developer</p>
   </footer>
 
+  <script src="/js/lab-search.js" data-cfasync="false" defer></script>
   <script src="/js/back-to-top.js" defer></script>
   <script src="/js/oneirox-lang.js" data-cfasync="false" defer></script>
 </body>
