@@ -42,14 +42,11 @@
   position: relative;
   padding: 22px 22px 20px;
   border-radius: 4px;
-  background:
-    linear-gradient(165deg, rgba(255, 255, 255, 0.82) 0%, rgba(248, 252, 245, 0.72) 55%, rgba(236, 244, 232, 0.78) 100%);
+  background: #f4f8f1;
   border: 1.5px solid rgba(90, 120, 70, 0.2);
-  box-shadow:
-    0 1px 0 rgba(255, 255, 255, 0.7) inset,
-    0 18px 40px rgba(42, 58, 32, 0.08);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 8px 22px rgba(42, 58, 32, 0.06);
+  /* no backdrop-filter — expands with results and tanks scroll */
+  contain: layout paint;
 }
 
 .onx-lab-search--in-hero .onx-lab-search__shell::before {
@@ -69,6 +66,22 @@
     transparent 100%
   );
   pointer-events: none;
+}
+
+/* After results: keep paint cheap while scrolling past hero */
+.onx-lab-hero.has-lab-results .onx-neiro-synapses__node,
+.onx-lab-hero.has-lab-results .onx-neiro-synapses__link,
+.onx-lab-hero.has-lab-results .onx-neiro-synapses__pulse,
+.onx-lab-hero.has-lab-results .onx-neiro-synapses__spark {
+  animation: none;
+  opacity: 0.7;
+}
+
+.onx-lab-search__results {
+  margin-top: 20px;
+  contain: layout paint style;
+  content-visibility: auto;
+  contain-intrinsic-size: 280px;
 }
 
 .onx-lab-search__intro {
@@ -178,10 +191,6 @@
   font-size: 12px;
   color: #5a6454;
   max-width: 36ch;
-}
-
-.onx-lab-search__results {
-  margin-top: 20px;
 }
 
 .onx-lab-search__status {

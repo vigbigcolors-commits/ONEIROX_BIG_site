@@ -313,6 +313,14 @@
     return 'Somatic PSEO';
   }
 
+  function setResultsOpen(root, open) {
+    var hero = root.closest('.onx-lab-hero') || document.querySelector('.onx-lab-hero');
+    if (hero) {
+      if (open) hero.classList.add('has-lab-results');
+      else hero.classList.remove('has-lab-results');
+    }
+  }
+
   function renderResults(root, items, query) {
     var box = root.querySelector('[data-lab-search-results]');
     if (!box) return;
@@ -324,6 +332,7 @@
         '<p><strong>No matching PSEO page yet.</strong> Try naming a body sensation (chest pressure, jolt, jaw, can’t move) or a clear image (snake, chase, falling, teeth).</p>' +
         '<p class="onx-lab-search__empty-links">Browse <a href="/dreams/">Dream Meaning</a> · <a href="/somatic/">Somatic library</a> · <a href="/tools/oneirox-dream-mapper">Mapper</a></p>' +
         '</div>';
+      setResultsOpen(root, true);
       return;
     }
 
@@ -364,6 +373,7 @@
 
     box.hidden = false;
     box.innerHTML = html;
+    setResultsOpen(root, true);
   }
 
   function runSearch(root) {
@@ -377,6 +387,7 @@
       if (box) {
         box.hidden = false;
         box.innerHTML = '<div class="onx-lab-search__empty"><p>Add a bit more — an image <em>and</em> how your body felt on waking.</p></div>';
+        setResultsOpen(root, true);
       }
       return;
     }
