@@ -136,19 +136,12 @@
               <p class="onx-lab-search__lead">Write it the way you’d tell a careful friend — the image, and what your body did. We’ll show you <em>why you saw this</em> on our dream and body PSEO pages.</p>
             </header>
             <form class="onx-lab-search__form" data-lab-search-form>
-              <label class="visually-hidden" for="lab-search-input">Describe your dream and how your body felt</label>
-              <textarea id="lab-search-input" data-lab-search-input name="q" rows="3" placeholder="I was being chased and my legs wouldn’t move — woke with chest pressure…" autocomplete="off"></textarea>
-              <div class="onx-lab-search__chips" role="group" aria-label="Starting points">
-                <button type="button" class="onx-lab-search__chip" data-lab-search-chip="Snake bite in the dream — woke with heart racing">Snake · bite</button>
-                <button type="button" class="onx-lab-search__chip" data-lab-search-chip="Teeth falling out with blood — jaw sore on waking">Teeth · jaw</button>
-                <button type="button" class="onx-lab-search__chip" data-lab-search-chip="Being chased and legs won’t move — panic on waking">Chase · heavy legs</button>
-                <button type="button" class="onx-lab-search__chip" data-lab-search-chip="Falling as I fell asleep — sudden jolt awake">Fall · hypnic jolt</button>
-                <button type="button" class="onx-lab-search__chip" data-lab-search-chip="Couldn’t move or speak — weight on my chest at awakening">Paralysis · chest</button>
-              </div>
               <div class="onx-lab-search__actions">
-                <button type="submit" class="btn btn--primary" data-lab-search-run data-lab-search-run-label="Why did I see this? →">Why did I see this? →</button>
+                <button type="submit" class="btn btn--primary onx-lab-search__submit" data-lab-search-run data-lab-search-run-label="Why did I see this? →">Why did I see this? →</button>
                 <p class="onx-lab-search__hint">Searches our dream &amp; somatic PSEO pages. Body first, then image.</p>
               </div>
+              <label class="visually-hidden" for="lab-search-input">Describe your dream and how your body felt</label>
+              <textarea id="lab-search-input" data-lab-search-input name="q" rows="3" placeholder="I was being chased and my legs wouldn’t move — woke with chest pressure…" autocomplete="off"></textarea>
             </form>
             <div class="onx-lab-search__results" data-lab-search-results hidden></div>
           </div>
