@@ -1,11 +1,11 @@
 # Oneirox
 
-Oneirox is a free dream decoder that interprets dreams as neurobiological events, not as a symbol dictionary.
+Oneirox is a free dream lab that interprets dreams as neurobiological events, not as a symbol dictionary.
 
 ## Key Links
 
 - Home: https://oneirox.com/
-- Dream Decoder: https://oneirox.com/#decode
+- Lab: https://oneirox.com/#lab-search
 - Methodology: https://oneirox.com/methodology/
 - Sensory Dream Mapper: https://oneirox.com/tools/oneirox-dream-mapper
 - Dream Phase Calculator: https://oneirox.com/phase/

@@ -4,7 +4,7 @@
     "eyebrow": "Methodology · Oneirox · How I Read Dreams",
     "title": "Not a Clinician. Not a Dictionary. Something More Honest.",
     "lead": "Most dream interpretation has a methodology problem. The method is: look up the symbol, return the meaning. Fast, scalable, and completely indifferent to the person who had the dream.",
-    "lead_strong": "The person who had the dream is the entire point. Five years of reading. 50+ books. This is what I actually do instead — and why the Oneirox Dream Decoder works differently from anything else that exists."
+    "lead_strong": "The person who had the dream is the entire point. Five years of reading. 50+ books. This is what I actually do instead — and why the Oneirox Lab works differently from anything else that exists."
   },
   "stats": [
     { "value": "5", "label": "Years studying" },
@@ -60,7 +60,7 @@
     { "year": "02", "title": "The Body Layer — Damasio, Sapolsky, Porges", "text": "Somatic markers. Financial threat and physical danger produce identical alarm responses." },
     { "year": "03", "title": "The Depth Layer — Jung, van der Kolk, Levine", "text": "Images that carry weight beyond personal history. Trauma and recurring dreams." },
     { "year": "04", "title": "Building Oneirox", "text": "Cluster architecture. Every dream type connected to a psychological root." },
-    { "year": "05", "title": "Tools. Instruments. The Decode Engine.", "text": "Sensory Dream Mapper live. AI Dream Decoder live. Close the distance between what the brain was doing and what the waking mind can understand." }
+    { "year": "05", "title": "Tools. Instruments. The Lab.", "text": "Sensory Dream Mapper live. Lab Search live. Close the distance between what the brain was doing and what the waking mind can understand." }
   ],
   "limitations": {
     "title": "What This Methodology Cannot Do",

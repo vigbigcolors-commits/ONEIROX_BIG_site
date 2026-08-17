@@ -1,6 +1,6 @@
 # Oneirox.com — static site (GitHub + Cloudflare Pages)
 
-Scientific dream decoder. Not a symbol dictionary.
+Scientific dream lab. Not a symbol dictionary.
 
 **Продолжение работы в новом чате:** читай **[CONTINUATION.md](./CONTINUATION.md)** — полный снимок проекта, TODO, контракт Decode, два репозитория.
 
