@@ -486,13 +486,23 @@
       });
   }
 
+  function ensureTipSlot(tipRoot, attr, className) {
+    var el = tipRoot.querySelector('[' + attr + ']');
+    if (el) return el;
+    el = document.createElement('p');
+    el.className = className;
+    el.setAttribute(attr, '');
+    tipRoot.appendChild(el);
+    return el;
+  }
+
   function bindTip(root) {
     var tipRoot = root.querySelector('[data-lab-search-tip]');
     if (!tipRoot || tipRoot.__onxTipBound) return;
     tipRoot.__onxTipBound = true;
 
-    var bodyEl = tipRoot.querySelector('[data-lab-search-tip-body]');
-    var metaEl = tipRoot.querySelector('[data-lab-search-tip-meta]');
+    var bodyEl = ensureTipSlot(tipRoot, 'data-lab-search-tip-body', 'onx-lab-tip__body');
+    var metaEl = ensureTipSlot(tipRoot, 'data-lab-search-tip-meta', 'onx-lab-tip__meta');
     var nextBtn = tipRoot.querySelector('[data-lab-search-tip-next]');
     var lastIdx = -1;
 
@@ -558,8 +568,6 @@
       });
     }
 
-    bindTip(root);
-
     var taPrefill = root.querySelector('[data-lab-search-input]');
     if (taPrefill) {
       try {
@@ -574,7 +582,10 @@
 
   function init() {
     var roots = document.querySelectorAll('[data-lab-search]');
-    for (var i = 0; i < roots.length; i++) bind(roots[i]);
+    for (var i = 0; i < roots.length; i++) {
+      bindTip(roots[i]);
+      bind(roots[i]);
+    }
     /* Warm index after idle */
     if ('requestIdleCallback' in window) {
       requestIdleCallback(function () { loadIndex().catch(function () {}); }, { timeout: 2500 });

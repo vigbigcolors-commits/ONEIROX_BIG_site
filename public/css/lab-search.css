@@ -396,8 +396,10 @@
 }
 
 .onx-lab-tip__body {
+  display: block;
   margin: 0;
-  font-family: var(--onx-font-serif);
+  min-height: 1.45em;
+  font-family: var(--onx-font-serif, Georgia, "Times New Roman", serif);
   font-size: clamp(16px, 2.1vw, 19px);
   font-weight: 500;
   line-height: 1.45;
