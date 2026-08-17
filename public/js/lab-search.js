@@ -582,10 +582,7 @@
 
   function init() {
     var roots = document.querySelectorAll('[data-lab-search]');
-    for (var i = 0; i < roots.length; i++) {
-      bindTip(roots[i]);
-      bind(roots[i]);
-    }
+    for (var i = 0; i < roots.length; i++) bind(roots[i]);
     /* Warm index after idle */
     if ('requestIdleCallback' in window) {
       requestIdleCallback(function () { loadIndex().catch(function () {}); }, { timeout: 2500 });

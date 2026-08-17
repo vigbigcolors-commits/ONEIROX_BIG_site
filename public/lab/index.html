@@ -29,7 +29,7 @@
   <meta property="og:site_name" content="Oneirox">
   <link rel="stylesheet" href="/css/page.css">
   <link rel="stylesheet" href="/css/lab.css?v=tip1">
-  <link rel="stylesheet" href="/css/lab-search.css?v=tip2">
+  <link rel="stylesheet" href="/css/lab-search.css?v=tip3">
   <link rel="stylesheet" href="/css/tools.css">
   <link rel="stylesheet" href="/css/main.css">
   <script type="application/ld+json">
@@ -109,10 +109,10 @@
           <label class="visually-hidden" for="lab-search-input-lab">Describe your dream and how your body felt</label>
           <textarea id="lab-search-input-lab" data-lab-search-input name="q" rows="4" placeholder="e.g. Teeth crumbling, woke with jaw sore and tight chest…" autocomplete="off"></textarea>
         </form>
-        <aside class="onx-lab-tip" data-lab-search-tip aria-live="polite">
+        <aside class="onx-lab-tip" data-lab-search-tip data-tip-i="0" aria-live="polite">
           <div class="onx-lab-tip__rail">
             <p class="onx-lab-tip__kicker">Tonight’s Lab tip</p>
-            <button type="button" class="onx-lab-tip__next" data-lab-search-tip-next>Another tip →</button>
+            <button type="button" class="onx-lab-tip__next" data-lab-search-tip-next onclick="if(window.__onxCycleLabTip)return window.__onxCycleLabTip(event)">Another tip →</button>
           </div>
           <p class="onx-lab-tip__body" data-lab-search-tip-body>Name the body first, then the image — chest weight before “snake.” Search reads that order better.</p>
           <p class="onx-lab-tip__meta" data-lab-search-tip-meta>SIGNAL · BODY · MORNING — Oneirox method</p>
@@ -365,7 +365,8 @@
     <p class="page-footer__copy">© 2026 Oneirox · Vigen G.R. · Independent researcher &amp; developer</p>
   </footer>
 
-  <script src="/js/lab-search.js?v=tip2" data-cfasync="false" defer></script>
+  <script src="/js/lab-tips.js?v=tip3" data-cfasync="false"></script>
+  <script src="/js/lab-search.js?v=tip3" data-cfasync="false" defer></script>
   <script src="/js/back-to-top.js" defer></script>
   <script src="/js/oneirox-lang.js" data-cfasync="false" defer></script>
 </body>

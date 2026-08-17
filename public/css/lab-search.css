@@ -45,8 +45,7 @@
   background: #f4f8f1;
   border: 1.5px solid rgba(90, 120, 70, 0.2);
   box-shadow: 0 8px 22px rgba(42, 58, 32, 0.06);
-  /* no backdrop-filter — expands with results and tanks scroll */
-  contain: layout paint;
+  contain: layout;
 }
 
 .onx-lab-search--in-hero .onx-lab-search__shell::before {
@@ -372,9 +371,11 @@
 
 .onx-lab-tip__next {
   margin: 0;
-  padding: 0;
+  padding: 4px 2px;
   border: 0;
   background: none;
+  appearance: none;
+  -webkit-appearance: none;
   font-family: var(--onx-font-sans);
   font-size: 11px;
   font-weight: 700;
@@ -384,6 +385,9 @@
   cursor: pointer;
   text-decoration: underline;
   text-underline-offset: 3px;
+  position: relative;
+  z-index: 6;
+  pointer-events: auto;
 }
 
 .onx-lab-tip__next:hover {
