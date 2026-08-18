@@ -282,6 +282,37 @@ function writeUtility(entry, templates, byId) {
   fs.writeFileSync(path.join(dir, "index.html"), html);
 }
 
+const PHASE_HUB = {
+  n1: {
+    h2: "Map hypnagogic body signals in N1 sleep",
+    lead: "N1 is the theta gate into sleep (4–7 Hz). The body still reports falling, hypnic jerks, limb-float, and onset breathing pauses — residue of the wake-to-sleep switch, not a dream plot.",
+    h2_2: "Indexed N1 utilities — onset, fragmentation, awakening",
+    description: (n) =>
+      `Hypnagogic body signals in N1 (theta 4–7 Hz): jerks, limb-float, exploding-head bursts, onset pauses. ${n} indexed somatic utilities — Oneirox.`,
+  },
+  n2: {
+    h2: "Map spindle-stage body signals in N2 sleep",
+    lead: "N2 is the sigma window (11–16 Hz): spindles, K-complex, bruxism, periodic limb movements, pre-REM atonia ramp. The readout is muscle and EEG — not a symbol dictionary.",
+    h2_2: "Indexed N2 utilities — onset, mid-cycle, fragmentation, awakening",
+    description: (n) =>
+      `N2 body signals (sigma 11–16 Hz): bruxism, PLM, alpha intrusion, pre-REM atonia ramp. ${n} indexed somatic utilities — Oneirox.`,
+  },
+  n3: {
+    h2: "Map slow-wave body residue in N3 sleep",
+    lead: "N3 is delta (0.5–2 Hz). Confusional motor residue at N3-exit is a stage-shift in the body, not a story the cortex finished telling.",
+    h2_2: "Indexed N3 utilities — slow-wave exit and motor residue",
+    description: (n) =>
+      `N3 slow-wave body residue (delta 0.5–2 Hz): confusional arousal motor leftover at stage exit. ${n} indexed somatic utilit${n === 1 ? "y" : "ies"} — Oneirox.`,
+  },
+  rem: {
+    h2: "Map REM atonia and somatic residue during dreaming sleep",
+    lead: "REM runs theta (4–8 Hz) with spinal atonia, phasic twitches, thermoregulatory blunting, and paralysis at the wake border. The body is the metric. The dream narrative is secondary.",
+    h2_2: "Indexed REM utilities — onset, mid-cycle, fragmentation, awakening",
+    description: (n) =>
+      `REM somatic metrics (theta 4–8 Hz): atonia failure, sleep paralysis, hypnopompic surge, distal twitches. ${n} indexed utilities — Oneirox.`,
+  },
+};
+
 function writeHubs(tpl, entries) {
   const indexable = entries.filter((e) => e.indexable);
   const byPhase = { n1: [], n2: [], n3: [], rem: [] };
@@ -316,6 +347,9 @@ function writeHubs(tpl, entries) {
         url: `${SITE}/somatic/`,
         numberOfItems: indexable.length,
       }),
+      H2: "Read the body's sleep-phase metrics, not dream symbols",
+      LEAD: `Each utility is a unique EEG/atonia/marker readout for one symptom × phase × context. ${indexable.length} pages are in the index; the rest stay noindex until density is enough.`,
+      H2_2: "Indexed utilities across N1, N2, N3, and REM",
       PHASE_LINKS: phaseLinks,
       LINK_LIST: mainLinks + "\n" + CTA,
     })
@@ -330,6 +364,7 @@ function writeHubs(tpl, entries) {
     const list = byPhase[slug] || [];
     const dir = path.join(OUT_DIR, "phase", slug);
     ensureDir(dir);
+    const copy = PHASE_HUB[slug];
     const links = list
       .map(
         (e) =>
@@ -340,7 +375,7 @@ function writeHubs(tpl, entries) {
       path.join(dir, "index.html"),
       fill(tpl, {
         TITLE: `${label} indexed somatic utilities`,
-        DESCRIPTION: `High-density ${label} metric utilities currently open to indexing (${list.length}).`,
+        DESCRIPTION: copy.description(list.length),
         CANONICAL: `${SITE}/somatic/phase/${slug}/`,
         JSON_LD: JSON.stringify({
           "@context": "https://schema.org",
@@ -349,6 +384,9 @@ function writeHubs(tpl, entries) {
           url: `${SITE}/somatic/phase/${slug}/`,
           numberOfItems: list.length,
         }),
+        H2: copy.h2,
+        LEAD: copy.lead,
+        H2_2: copy.h2_2,
         PHASE_LINKS: phaseLinks,
         LINK_LIST: links,
       })
