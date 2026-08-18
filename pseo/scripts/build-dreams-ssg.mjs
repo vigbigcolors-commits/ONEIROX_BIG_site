@@ -8,6 +8,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { expandDreamLongform } from "../lib/expand-dream-prose.mjs";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, "../..");
@@ -119,9 +120,11 @@ ${cards.join("\n")}
 }
 
 function bodyParagraphsHtml(entry) {
-  return (entry.body_paragraphs || [])
+  const core = (entry.body_paragraphs || [])
     .map((p) => `      <p>${esc(p)}</p>`)
     .join("\n");
+  const extra = expandDreamLongform(entry).html;
+  return `${core}\n${extra}`;
 }
 
 function siblingsHtml(siblings, parentTitle) {
@@ -420,6 +423,14 @@ ${navHtml("dreams")}
     <p class="dm-kicker">Dream symbol library — mechanism-first</p>
     <h1 class="dm-title">What your dream is actually doing</h1>
     <p class="dm-lead dm-hub-lead">${entries.length} pillar themes and ${lfCount} scenario pages, each explained through the specific REM mechanism behind it — memory consolidation, threat simulation, autonomic arousal, atonia — instead of a fixed symbol dictionary. Pick the dream you actually had.</p>
+
+    <div class="dm-prose">
+      <h2>How this library is built</h2>
+      <p>I am Vigen G.R. Oneirox Dream Meaning is not a scraped omen table. Each pillar is a mechanism: teeth pages start in the jaw, chase pages start in atonia plus threat simulation, snakes start in amygdala-biased predator schema, sleep paralysis starts at the REM–wake motor lock. Scenario URLs exist only when the verb changes the circuit (bite vs watch, reject vs reunite), not when the title is a synonym farm.</p>
+      <p>Counts on this hub: ${entries.length} pillars, ${lfCount} scenario pages. Categories: ${esc(CATEGORY_ORDER.join(", "))}. If your night was mostly body (weight, mute, jerk, heat) and almost no plot, skip this library and open Somatic utilities or the Sensory Dream Mapper. If you have both, Lab Search can route you.</p>
+      <p>What we refuse: “snake = enemy,” “teeth = money,” “water = emotion” as fixed equations. What we keep: SIGNAL (what the night was doing), BODY (what you still felt), MORNING (one check you can actually do). Then an instrument. Educational neuroscience — not a diagnosis.</p>
+      <p>Pillars currently on this hub: ${entries.map((e) => `${esc(e.title)} (${esc(e.kicker || e.slug)})`).join("; ")}.</p>
+    </div>
 
 ${groups}
 

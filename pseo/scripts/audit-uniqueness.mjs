@@ -9,6 +9,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { dreamAuditBlob } from "../lib/expand-dream-prose.mjs";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const MATRIX = path.join(__dirname, "../data/somatic-matrix.json");
@@ -62,14 +63,7 @@ function proseBlob(entry) {
 }
 
 function dreamProseBlob(entry) {
-  return [
-    entry.title,
-    entry.lead,
-    entry.signal,
-    entry.morning_prompt,
-    ...(entry.body_paragraphs || []),
-    ...(entry.variants || []).map((v) => `${v.q} ${v.a}`),
-  ].join(" ");
+  return dreamAuditBlob(entry);
 }
 
 function main() {

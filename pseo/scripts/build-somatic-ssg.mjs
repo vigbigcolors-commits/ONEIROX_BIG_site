@@ -9,6 +9,7 @@ import { fileURLToPath } from "node:url";
 import { buildEegSvg } from "../lib/chart-svg.mjs";
 import { markIndexable } from "../lib/rank.mjs";
 import { buildZoneSvg } from "../lib/compose.mjs";
+import { phaseHubEssayHtml, utilityEssayHtml } from "../lib/expand-somatic-prose.mjs";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, "../..");
@@ -276,7 +277,7 @@ function writeUtility(entry, templates, byId) {
     MARKER_LIST: listItems(entry.somatic_markers),
     SOURCE_LIST: listItems(entry.sources),
     DENSITY: String(entry.density_score ?? "—"),
-    MODULES_EXTRA: extraModules(entry, byId),
+    MODULES_EXTRA: extraModules(entry, byId) + "\n" + utilityEssayHtml(entry),
     CTA_HARD: CTA,
   });
   fs.writeFileSync(path.join(dir, "index.html"), html);
@@ -350,6 +351,11 @@ function writeHubs(tpl, entries) {
       H2: "Read the body's sleep-phase metrics, not dream symbols",
       LEAD: `Each utility is a unique EEG/atonia/marker readout for one symptom × phase × context. ${indexable.length} pages are in the index; the rest stay noindex until density is enough.`,
       H2_2: "Indexed utilities across N1, N2, N3, and REM",
+      ESSAY: phaseHubEssayHtml("all", "somatic", indexable, {
+        h2: "Read the body's sleep-phase metrics, not dream symbols",
+        lead: `Indexed dataset: ${indexable.length} high-density utilities. Full DB held offline from index until promoted.`,
+        h2_2: "Indexed utilities across N1, N2, N3, and REM",
+      }),
       PHASE_LINKS: phaseLinks,
       LINK_LIST: mainLinks + "\n" + CTA,
     })
@@ -387,6 +393,7 @@ function writeHubs(tpl, entries) {
         H2: copy.h2,
         LEAD: copy.lead,
         H2_2: copy.h2_2,
+        ESSAY: phaseHubEssayHtml(slug, label, list, copy),
         PHASE_LINKS: phaseLinks,
         LINK_LIST: links,
       })

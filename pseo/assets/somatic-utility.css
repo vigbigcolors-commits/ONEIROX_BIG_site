@@ -361,6 +361,26 @@ body {
   border-bottom: 1px solid transparent;
 }
 
+.sx-essay {
+  margin: 2rem 0 1.5rem;
+  max-width: 46rem;
+}
+.sx-essay h2 {
+  font-family: var(--onx-font-serif);
+  font-size: 1.25rem;
+  margin: 1.5rem 0 0.65rem;
+}
+.sx-essay p,
+.sx-essay-row {
+  font-size: 1.02rem;
+  line-height: 1.7;
+  color: #445040;
+  margin: 0 0 1rem;
+}
+.sx-essay-row a { color: var(--onx-forest); font-weight: 600; }
+.sx-essay-mech { margin: 0 0 1rem; padding-left: 1.2rem; }
+.sx-essay-mech li { margin: 0 0 0.4rem; }
+
 .sx-hub-list a:hover { border-bottom-color: var(--onx-moss); }
 
 .sx-phase-links {

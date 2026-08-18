@@ -7,6 +7,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { dreamAuditBlob } from "../lib/expand-dream-prose.mjs";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const MATRIX = path.join(__dirname, "../data/dream-lf-matrix.json");
@@ -47,15 +48,7 @@ function jaccard(a, b) {
 }
 
 function blob(e) {
-  return [
-    e.title,
-    e.lead,
-    e.signal,
-    e.morning_prompt,
-    e.mechanism_key,
-    ...(e.body_paragraphs || []),
-    ...(e.variants || []).map((v) => `${v.q} ${v.a}`),
-  ].join(" ");
+  return dreamAuditBlob(e);
 }
 
 function main() {
