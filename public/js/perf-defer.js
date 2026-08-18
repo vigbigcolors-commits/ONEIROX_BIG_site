@@ -38,6 +38,8 @@
     document.head.appendChild(s);
   }
 
+  bindScrollPause();
+
   var ran = false;
   function schedule() {
     if (ran) return;
@@ -53,6 +55,29 @@
         loadAnalytics();
       }, 800);
     }
+  }
+
+  function bindScrollPause() {
+    if (window.__onxScrollPauseBound) return;
+    window.__onxScrollPauseBound = true;
+    var scrolling = false;
+    var timer = 0;
+    var root = document.documentElement;
+    window.addEventListener(
+      'scroll',
+      function () {
+        if (!scrolling) {
+          scrolling = true;
+          root.classList.add('is-scrolling');
+        }
+        clearTimeout(timer);
+        timer = setTimeout(function () {
+          scrolling = false;
+          root.classList.remove('is-scrolling');
+        }, 120);
+      },
+      { passive: true }
+    );
   }
 
   // Hard fallbacks: idle path alone can miss if load/complete never settles (CF quirks).

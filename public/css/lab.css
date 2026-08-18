@@ -6,7 +6,7 @@
   background:
     radial-gradient(ellipse 70% 55% at 50% -12%, rgba(115, 165, 99, 0.28) 0%, transparent 65%),
     linear-gradient(175deg, #dbe6d2 0%, var(--onx-canvas) 46%, #c4d0b8 100%);
-  overflow: clip;
+  overflow: hidden;
 }
 
 .onx-lab-hero::before {
@@ -208,6 +208,17 @@
     animation: none;
     opacity: 0.65;
   }
+}
+
+html.is-scrolling .onx-lab-hero .onx-neiro-synapses {
+  mix-blend-mode: normal;
+}
+
+html.is-scrolling .onx-lab-hero .onx-neiro-synapses__node,
+html.is-scrolling .onx-lab-hero .onx-neiro-synapses__link,
+html.is-scrolling .onx-lab-hero .onx-neiro-synapses__pulse,
+html.is-scrolling .onx-lab-hero .onx-neiro-synapses__spark {
+  animation: none !important;
 }
 
 .onx-lab-hero__lead {

@@ -1,17 +1,12 @@
 /* ONEIROX — site shell (below-fold sections, footer). Decode: decode.css */
 /* Load order in HTML: tokens.css → site-nav.css → decode.css → main.css (deferred) */
 
-/* Skip layout/paint for offscreen sections — major scroll win on long homepage */
-.flow-strip-outer,
-.onx-corpus,
-.onx-decode-aside,
-.onx-dreams-teaser,
-.onx-why-decode,
-.onx-insight,
+/* Skip layout/paint for offscreen *short* blocks only.
+   Variable-height .onx-insight / flow-strip + sticky header caused scroll jump. */
 .cta-band,
 .site-footer {
   content-visibility: auto;
-  contain-intrinsic-size: auto 520px;
+  contain-intrinsic-size: auto 280px;
 }
 
 a { color: var(--onx-moss); text-decoration: none; }

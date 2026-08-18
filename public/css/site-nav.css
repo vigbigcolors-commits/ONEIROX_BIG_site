@@ -8,6 +8,8 @@
   border-bottom: 1px solid rgba(0, 165, 168, 0.14);
   box-shadow: 0 2px 12px rgba(42, 58, 32, 0.05);
   contain: layout style;
+  transform: translateZ(0);
+  backface-visibility: hidden;
 }
 
 .site-header__inner {
