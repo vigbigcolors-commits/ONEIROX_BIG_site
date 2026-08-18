@@ -1,7 +1,7 @@
 {
-  "version": 8,
+  "version": 3,
   "architecture": "safe-pseo-db-first",
-  "generated_at": "2026-07-22T09:06:06.515Z",
+  "generated_at": "2026-08-18T08:55:15.764Z",
   "count": 400,
   "indexable_count": 50,
   "indexable_cap": 50,
@@ -29293,5 +29293,5 @@
       "pillar_blurb": "the wake-like cortical activity that drives memory work in this stage"
     }
   ],
-  "enriched_at": "2026-08-16T18:51:14.127Z"
+  "enriched_at": "2026-08-18T08:55:21.087Z"
 }

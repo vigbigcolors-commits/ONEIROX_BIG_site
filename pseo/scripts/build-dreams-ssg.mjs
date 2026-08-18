@@ -17,6 +17,7 @@ const LF_MATRIX = path.join(PSEO, "data", "dream-lf-matrix.json");
 const OUT_DIR = path.join(ROOT, "public", "dreams");
 const SITE = "https://oneirox.com";
 const PUBLISHED = "2026-08-16";
+const DREAM_INDEX_CAP = 50;
 
 function ensureDir(d) {
   fs.mkdirSync(d, { recursive: true });
@@ -473,6 +474,41 @@ function writeDreamAllowlist(pillars, lfIndexable) {
   return urls.length;
 }
 
+function selectLfIndexable(lfEntries, pillarMap) {
+  const baseCount = 1 + pillarMap.size; // hub + pillars
+  const lfCap = Math.max(0, DREAM_INDEX_CAP - baseCount);
+  const candidates = lfEntries.filter((e) => e.indexable && pillarMap.has(e.parent_slug));
+  if (candidates.length <= lfCap) return candidates;
+
+  const byParent = new Map();
+  for (const lf of candidates) {
+    if (!byParent.has(lf.parent_slug)) byParent.set(lf.parent_slug, []);
+    byParent.get(lf.parent_slug).push(lf);
+  }
+
+  const picked = [];
+  const seen = new Set();
+
+  // First pass: keep breadth across pillars before depth within one pillar.
+  for (const [parent, list] of byParent) {
+    if (picked.length >= lfCap) break;
+    const lf = list[0];
+    picked.push(lf);
+    seen.add(`${parent}/${lf.slug}`);
+  }
+
+  // Second pass: fill remaining slots in original matrix order.
+  for (const lf of candidates) {
+    if (picked.length >= lfCap) break;
+    const key = `${lf.parent_slug}/${lf.slug}`;
+    if (seen.has(key)) continue;
+    picked.push(lf);
+    seen.add(key);
+  }
+
+  return picked;
+}
+
 function main() {
   if (!fs.existsSync(MATRIX)) {
     console.error("Missing dream-meaning-matrix.json");
@@ -498,6 +534,8 @@ function main() {
   for (const [, list] of lfByParent) {
     list.sort((a, b) => a.slug.localeCompare(b.slug));
   }
+  const lfIndexable = selectLfIndexable(lfEntries, pillarMap);
+  const lfIndexableSet = new Set(lfIndexable.map((e) => `${e.parent_slug}/${e.slug}`));
 
   if (fs.existsSync(OUT_DIR)) {
     for (const name of fs.readdirSync(OUT_DIR)) {
@@ -561,13 +599,19 @@ function main() {
     );
     const dir = path.join(OUT_DIR, lf.parent_slug, lf.slug);
     ensureDir(dir);
-    fs.writeFileSync(path.join(dir, "index.html"), pageHtmlLf(lf, parent, siblings));
+    fs.writeFileSync(
+      path.join(dir, "index.html"),
+      pageHtmlLf(
+        { ...lf, indexable: lfIndexableSet.has(`${lf.parent_slug}/${lf.slug}`) },
+        parent,
+        siblings
+      )
+    );
     lfWritten++;
   }
 
   fs.writeFileSync(path.join(OUT_DIR, "index.html"), hubHtml(entries, lfByParent));
 
-  const lfIndexable = lfEntries.filter((e) => e.indexable && pillarMap.has(e.parent_slug));
   const sm = writeSitemap(entries, lfIndexable);
   const al = writeDreamAllowlist(entries, lfIndexable);
 
