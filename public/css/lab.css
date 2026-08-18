@@ -306,7 +306,16 @@
   letter-spacing: 0.16em;
   text-transform: uppercase;
   color: #5a6450;
-  margin: 0 0 16px;
+  margin: 0 0 8px;
+  text-align: center;
+}
+
+.onx-corpus__sub {
+  margin: 0 auto 20px;
+  max-width: 52ch;
+  font-size: 15px;
+  line-height: 1.55;
+  color: #3d4a38;
   text-align: center;
 }
 

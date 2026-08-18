@@ -1,0 +1,41 @@
+---
+description: Google Core Updates 2026 — PQ/NM, E-E-A-T, first-party data. Trigger phrase «по правилам google».
+alwaysApply: true
+---
+
+# Google Core Updates 2026 (Oneirox)
+
+**Триггер:** когда пользователь пишет **«по правилам google»** — работать строго по этому документу + Universal Product & PSEO Law.
+
+## Ранжирование (2026)
+
+1. **Information Originality** — страница должна давать данные/механизм, которых нет в топ-5. Рерайт заголовков = брак. Тест: *лучший ответ в выдаче?*
+2. **First-Party Data** — приоритет проприетарным инструментам, расчётам, матрицам, readout UI. Текст без функции не индексировать.
+3. **Author Authority (E-E-A-T)** — только именованный автор (Vigen G.R.). Без «команды редакции». About + Methodology + Lab Notes + schema Person на каждой pillar-странице.
+4. **Topical completeness** — глубина > ширина. Pillar → перелинковка узких механизмов. Главная = хаб Lab, не keyword-ферма.
+5. **Consolidation** — не размывать смысл тысячами thin URL. Индекс = allowlist. Слабое — noindex или merge.
+
+## SQRG-линза (Page Quality + Needs Met)
+
+- **PQ:** доверие, репутация, E-E-A-T — независимо от запроса.
+- **NM:** интент закрыт быстро и полно? Инструмент > лонгрид, если SERP сменился на калькуляторы/интерактив.
+- Oneirox NM = **Lab Search + instrument action** → mechanism page (SIGNAL·BODY·MORNING).
+
+## Чеклист перед публикацией/правкой страницы
+
+- [ ] Есть уникальная добавленная ценность (не в топ-5)?
+- [ ] Есть first-party слой (input → расчёт/readout)?
+- [ ] Автор виден (имя, роль, ссылка на About)?
+- [ ] Страница в pillar-кластере с перелинковкой?
+- [ ] Не thin / не near-dup?
+- [ ] CTA ведёт в продукт (Lab Search / instrument)?
+
+## Запреты
+
+- SEO-портянки, «PSEO» в user-facing copy, symbol-dictionary voice
+- Анонимный контент, fake breadth (сотни однотипных URL в sitemap)
+- Продавать paused Decode как live product
+
+## Мониторинг
+
+GSC: корреляция показов с Core Update dates. SERP shift: если топ = tools — усиливать инструменты, не текст.
