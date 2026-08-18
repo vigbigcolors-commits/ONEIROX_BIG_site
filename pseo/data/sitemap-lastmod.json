@@ -1,0 +1,422 @@
+{
+  "https://oneirox.com/somatic/": {
+    "hash": "096777026f6313db",
+    "lastmod": "2026-08-18"
+  },
+  "https://oneirox.com/somatic/phase/n1/": {
+    "hash": "651006dd9bb161bd",
+    "lastmod": "2026-08-18"
+  },
+  "https://oneirox.com/somatic/phase/n2/": {
+    "hash": "77280315676027a4",
+    "lastmod": "2026-08-18"
+  },
+  "https://oneirox.com/somatic/phase/n3/": {
+    "hash": "303aa8f4f0b885dd",
+    "lastmod": "2026-08-18"
+  },
+  "https://oneirox.com/somatic/phase/rem/": {
+    "hash": "664c8c144d7ff552",
+    "lastmod": "2026-08-18"
+  },
+  "https://oneirox.com/somatic/hypnopompic-somatic-surge/rem/awakening/": {
+    "hash": "040f9515af23e892",
+    "lastmod": "2026-08-18"
+  },
+  "https://oneirox.com/somatic/pre-rem-atonia-ramp/n2/onset/": {
+    "hash": "00e8a750e7fbfe0a",
+    "lastmod": "2026-08-18"
+  },
+  "https://oneirox.com/somatic/fragmented-rem-microarousal/rem/fragmentation/": {
+    "hash": "adf190e730dd6634",
+    "lastmod": "2026-08-18"
+  },
+  "https://oneirox.com/somatic/rem-muscle-twitch-finger/rem/mid-cycle/": {
+    "hash": "f20f9897a071ff59",
+    "lastmod": "2026-08-18"
+  },
+  "https://oneirox.com/somatic/sleep-paralysis-onset/rem/awakening/": {
+    "hash": "94c234ce887e9b62",
+    "lastmod": "2026-08-18"
+  },
+  "https://oneirox.com/somatic/rem-atonia-failure/rem/mid-cycle/": {
+    "hash": "9742990ae69b4cbe",
+    "lastmod": "2026-08-18"
+  },
+  "https://oneirox.com/somatic/sleep-paralysis-onset/rem/fragmentation/": {
+    "hash": "2e5f247b89fbf2bd",
+    "lastmod": "2026-08-18"
+  },
+  "https://oneirox.com/somatic/hypnopompic-immobility/rem/fragmentation/": {
+    "hash": "72d9fac03c88fa2c",
+    "lastmod": "2026-08-18"
+  },
+  "https://oneirox.com/somatic/exploding-head-sensory-burst/n1/onset/": {
+    "hash": "6a7cb6efdd412cb3",
+    "lastmod": "2026-08-18"
+  },
+  "https://oneirox.com/somatic/rem-atonia-failure/rem/fragmentation/": {
+    "hash": "6de2f88843a22edc",
+    "lastmod": "2026-08-18"
+  },
+  "https://oneirox.com/somatic/fragmented-rem/rem/fragmentation/": {
+    "hash": "92d42b7075e88001",
+    "lastmod": "2026-08-18"
+  },
+  "https://oneirox.com/somatic/hypnopompic-somatic-surge/rem/fragmentation/": {
+    "hash": "4d3242fd17614090",
+    "lastmod": "2026-08-18"
+  },
+  "https://oneirox.com/somatic/fragmented-rem/rem/awakening/": {
+    "hash": "8107f1cc16e63ab1",
+    "lastmod": "2026-08-18"
+  },
+  "https://oneirox.com/somatic/rem-atonia-failure/rem/awakening/": {
+    "hash": "f287a066f80ebd84",
+    "lastmod": "2026-08-18"
+  },
+  "https://oneirox.com/somatic/rem-distal-twitch/rem/fragmentation/": {
+    "hash": "81c1f42eee5ca945",
+    "lastmod": "2026-08-18"
+  },
+  "https://oneirox.com/somatic/periodic-limb-movement/n2/fragmentation/": {
+    "hash": "e6d5fc37be9993f1",
+    "lastmod": "2026-08-18"
+  },
+  "https://oneirox.com/somatic/rem-distal-twitch/rem/awakening/": {
+    "hash": "371bf0375b118300",
+    "lastmod": "2026-08-18"
+  },
+  "https://oneirox.com/somatic/n3-confusional-arousal-motor/n3/awakening/": {
+    "hash": "67d3dddfde2efe7b",
+    "lastmod": "2026-08-18"
+  },
+  "https://oneirox.com/somatic/pre-rem-atonia-ramp/n2/fragmentation/": {
+    "hash": "aeb7ae54eade6eec",
+    "lastmod": "2026-08-18"
+  },
+  "https://oneirox.com/somatic/pre-rem-atonia-ramp/n2/awakening/": {
+    "hash": "9209c94a87852f5f",
+    "lastmod": "2026-08-18"
+  },
+  "https://oneirox.com/somatic/sleep-onset-apnea-like-pause/n1/onset/": {
+    "hash": "c4c99a46ae3efe7e",
+    "lastmod": "2026-08-18"
+  },
+  "https://oneirox.com/somatic/hypnic-jerk/n1/onset/": {
+    "hash": "07a6b65c3bcab409",
+    "lastmod": "2026-08-18"
+  },
+  "https://oneirox.com/somatic/hypnagogic-tachycardia/n1/onset/": {
+    "hash": "48aa71df9a159cd0",
+    "lastmod": "2026-08-18"
+  },
+  "https://oneirox.com/somatic/pre-rem-atonia-ramp/n2/mid-cycle/": {
+    "hash": "eb4ba4b35f90c4b2",
+    "lastmod": "2026-08-18"
+  },
+  "https://oneirox.com/somatic/sleep-related-bruxism/n2/mid-cycle/": {
+    "hash": "f23e05d30fb0dfed",
+    "lastmod": "2026-08-18"
+  },
+  "https://oneirox.com/somatic/sleep-paralysis-onset/rem/mid-cycle/": {
+    "hash": "98c44e66b6badc1a",
+    "lastmod": "2026-08-18"
+  },
+  "https://oneirox.com/somatic/alpha-intrusion-nrem/n2/awakening/": {
+    "hash": "7f93d97d1733d691",
+    "lastmod": "2026-08-18"
+  },
+  "https://oneirox.com/somatic/hypnopompic-immobility/rem/awakening/": {
+    "hash": "593ba080c731dbfc",
+    "lastmod": "2026-08-18"
+  },
+  "https://oneirox.com/somatic/sleep-related-bruxism/n2/awakening/": {
+    "hash": "ddc7da4d3e79c281",
+    "lastmod": "2026-08-18"
+  },
+  "https://oneirox.com/somatic/hypnopompic-immobility/rem/mid-cycle/": {
+    "hash": "e6ea4341fcd6acf9",
+    "lastmod": "2026-08-18"
+  },
+  "https://oneirox.com/somatic/rem-atonia-failure/rem/onset/": {
+    "hash": "89482ab6953e097a",
+    "lastmod": "2026-08-18"
+  },
+  "https://oneirox.com/somatic/microsleep-nod/n1/fragmentation/": {
+    "hash": "5beab3d4860d8afd",
+    "lastmod": "2026-08-18"
+  },
+  "https://oneirox.com/somatic/alpha-intrusion-nrem/n2/fragmentation/": {
+    "hash": "928852db4f833ecf",
+    "lastmod": "2026-08-18"
+  },
+  "https://oneirox.com/somatic/hypnic-jerk/n1/awakening/": {
+    "hash": "f420be32076d0a1b",
+    "lastmod": "2026-08-18"
+  },
+  "https://oneirox.com/somatic/exploding-head-burst/n1/fragmentation/": {
+    "hash": "a368956bdaf6c73d",
+    "lastmod": "2026-08-18"
+  },
+  "https://oneirox.com/somatic/hypnagogic-tachycardia/n1/fragmentation/": {
+    "hash": "ae3bc003d29a8b23",
+    "lastmod": "2026-08-18"
+  },
+  "https://oneirox.com/somatic/n1-falling-elevator/n1/awakening/": {
+    "hash": "b44ff478e0b15046",
+    "lastmod": "2026-08-18"
+  },
+  "https://oneirox.com/somatic/fragmented-rem/rem/onset/": {
+    "hash": "abc9f00748f2f65c",
+    "lastmod": "2026-08-18"
+  },
+  "https://oneirox.com/somatic/alpha-intrusion-nrem/n2/onset/": {
+    "hash": "e9df399aa99227d0",
+    "lastmod": "2026-08-18"
+  },
+  "https://oneirox.com/somatic/fragmented-rem/rem/mid-cycle/": {
+    "hash": "05e60d61aa5cfeb1",
+    "lastmod": "2026-08-18"
+  },
+  "https://oneirox.com/somatic/periodic-limb-movement/n2/awakening/": {
+    "hash": "c6dd19c6c8372974",
+    "lastmod": "2026-08-18"
+  },
+  "https://oneirox.com/somatic/sleep-related-bruxism/n2/fragmentation/": {
+    "hash": "aee3bc06a57fa0a0",
+    "lastmod": "2026-08-18"
+  },
+  "https://oneirox.com/somatic/hypnagogic-limb-float/n1/onset/": {
+    "hash": "2810cfb8f3046425",
+    "lastmod": "2026-08-18"
+  },
+  "https://oneirox.com/somatic/hypnagogic-limb-float/n1/fragmentation/": {
+    "hash": "76a8c99658c94eb3",
+    "lastmod": "2026-08-18"
+  },
+  "https://oneirox.com/somatic/hypnagogic-limb-float/n1/awakening/": {
+    "hash": "1b3343c896148e22",
+    "lastmod": "2026-08-18"
+  },
+  "https://oneirox.com/somatic/rem-temperature-deregulation/rem/mid-cycle/": {
+    "hash": "4ffbcb8481047e86",
+    "lastmod": "2026-08-18"
+  },
+  "https://oneirox.com/somatic/rem-eye-twitch-burst/rem/mid-cycle/": {
+    "hash": "68ae3dbe8b83d1f4",
+    "lastmod": "2026-08-18"
+  },
+  "https://oneirox.com/somatic/rem-sawtooth-wave-window/rem/onset/": {
+    "hash": "11aeed7589f7756d",
+    "lastmod": "2026-08-18"
+  },
+  "https://oneirox.com/somatic/rem-penile-or-clitoral-engorgement/rem/mid-cycle/": {
+    "hash": "51ccc39684379287",
+    "lastmod": "2026-08-18"
+  },
+  "https://oneirox.com/somatic/cortisol-awakening-motor/n1/awakening/": {
+    "hash": "096696b63c302450",
+    "lastmod": "2026-08-18"
+  },
+  "https://oneirox.com/dreams/": {
+    "hash": "cc04fd2985f10659",
+    "lastmod": "2026-08-18"
+  },
+  "https://oneirox.com/dreams/teeth-falling-out/": {
+    "hash": "413365658c212e57",
+    "lastmod": "2026-08-18"
+  },
+  "https://oneirox.com/dreams/being-chased/": {
+    "hash": "2848db615a82fa78",
+    "lastmod": "2026-08-18"
+  },
+  "https://oneirox.com/dreams/falling/": {
+    "hash": "af588e2b2d8a1124",
+    "lastmod": "2026-08-18"
+  },
+  "https://oneirox.com/dreams/exam-anxiety-dreams/": {
+    "hash": "c1b5f041a12c6095",
+    "lastmod": "2026-08-18"
+  },
+  "https://oneirox.com/dreams/snakes/": {
+    "hash": "bc6c17af4d2d8d0e",
+    "lastmod": "2026-08-18"
+  },
+  "https://oneirox.com/dreams/dogs/": {
+    "hash": "b933a8b4ef76038f",
+    "lastmod": "2026-08-18"
+  },
+  "https://oneirox.com/dreams/cats/": {
+    "hash": "0ffdce1016d94550",
+    "lastmod": "2026-08-18"
+  },
+  "https://oneirox.com/dreams/sleep-paralysis/": {
+    "hash": "be0c92f91dc14340",
+    "lastmod": "2026-08-18"
+  },
+  "https://oneirox.com/dreams/death-of-a-loved-one/": {
+    "hash": "1fae8e75349a5e4b",
+    "lastmod": "2026-08-18"
+  },
+  "https://oneirox.com/dreams/cheating-dreams/": {
+    "hash": "af7d08367e838c57",
+    "lastmod": "2026-08-18"
+  },
+  "https://oneirox.com/dreams/ex-partner/": {
+    "hash": "29fb75ec8d47f1e2",
+    "lastmod": "2026-08-18"
+  },
+  "https://oneirox.com/dreams/being-pregnant/": {
+    "hash": "50f880c0ed6bbfd9",
+    "lastmod": "2026-08-18"
+  },
+  "https://oneirox.com/dreams/water-and-drowning/": {
+    "hash": "78ac16cd74510c75",
+    "lastmod": "2026-08-18"
+  },
+  "https://oneirox.com/dreams/house-dreams/": {
+    "hash": "5c7b76685de3a984",
+    "lastmod": "2026-08-18"
+  },
+  "https://oneirox.com/dreams/money-and-wealth/": {
+    "hash": "dddc20c46c981aff",
+    "lastmod": "2026-08-18"
+  },
+  "https://oneirox.com/dreams/body-wont-move-or-speak/": {
+    "hash": "fd59d50f5f9051f4",
+    "lastmod": "2026-08-18"
+  },
+  "https://oneirox.com/dreams/being-watched/": {
+    "hash": "1980b05e87a1dfb6",
+    "lastmod": "2026-08-18"
+  },
+  "https://oneirox.com/dreams/job-and-career/": {
+    "hash": "4a73d8d3ed7032f0",
+    "lastmod": "2026-08-18"
+  },
+  "https://oneirox.com/dreams/wedding-and-marriage/": {
+    "hash": "c09889ad5254f4b5",
+    "lastmod": "2026-08-18"
+  },
+  "https://oneirox.com/dreams/repeating-numbers/": {
+    "hash": "b7bf3a82509aa498",
+    "lastmod": "2026-08-18"
+  },
+  "https://oneirox.com/dreams/losing-control/": {
+    "hash": "5dd9c69b94b704d5",
+    "lastmod": "2026-08-18"
+  },
+  "https://oneirox.com/dreams/being-late/": {
+    "hash": "7fd4eb2ae774dc5d",
+    "lastmod": "2026-08-18"
+  },
+  "https://oneirox.com/dreams/recurring-dreams/": {
+    "hash": "4b23af566f38113b",
+    "lastmod": "2026-08-18"
+  },
+  "https://oneirox.com/dreams/why-we-dream/": {
+    "hash": "1339074340a8b632",
+    "lastmod": "2026-08-18"
+  },
+  "https://oneirox.com/dreams/anxiety-dreams/": {
+    "hash": "a8e0cc93e90976b7",
+    "lastmod": "2026-08-18"
+  },
+  "https://oneirox.com/dreams/naked-in-public/": {
+    "hash": "9bf0e995d882780c",
+    "lastmod": "2026-08-18"
+  },
+  "https://oneirox.com/dreams/homeland-and-diaspora/": {
+    "hash": "9d0c44d8f46cfd2c",
+    "lastmod": "2026-08-18"
+  },
+  "https://oneirox.com/dreams/snakes/bitten/": {
+    "hash": "1e29b57cf5c1a6c9",
+    "lastmod": "2026-08-18"
+  },
+  "https://oneirox.com/dreams/teeth-falling-out/with-blood/": {
+    "hash": "736f802474e98e68",
+    "lastmod": "2026-08-18"
+  },
+  "https://oneirox.com/dreams/dogs/biting/": {
+    "hash": "727a2827192139dd",
+    "lastmod": "2026-08-18"
+  },
+  "https://oneirox.com/dreams/falling/hypnic-onset-jolt/": {
+    "hash": "2ab0d8ddd340e87a",
+    "lastmod": "2026-08-18"
+  },
+  "https://oneirox.com/dreams/being-chased/known-person/": {
+    "hash": "eac737ad43f96606",
+    "lastmod": "2026-08-18"
+  },
+  "https://oneirox.com/dreams/cats/attacking/": {
+    "hash": "10977a32e2e410aa",
+    "lastmod": "2026-08-18"
+  },
+  "https://oneirox.com/dreams/sleep-paralysis/with-presence/": {
+    "hash": "9093d1dd9cf327fa",
+    "lastmod": "2026-08-18"
+  },
+  "https://oneirox.com/dreams/water-and-drowning/drowning/": {
+    "hash": "7b2c5016251ce329",
+    "lastmod": "2026-08-18"
+  },
+  "https://oneirox.com/dreams/anxiety-dreams/free-floating-dread/": {
+    "hash": "7a3480cd1041df82",
+    "lastmod": "2026-08-18"
+  },
+  "https://oneirox.com/dreams/naked-in-public/workplace/": {
+    "hash": "f4060918ea3c617c",
+    "lastmod": "2026-08-18"
+  },
+  "https://oneirox.com/dreams/house-dreams/childhood-house/": {
+    "hash": "089ad752cad22ddd",
+    "lastmod": "2026-08-18"
+  },
+  "https://oneirox.com/dreams/homeland-and-diaspora/mount-ararat/": {
+    "hash": "0be02c6d3f2a9dff",
+    "lastmod": "2026-08-18"
+  },
+  "https://oneirox.com/dreams/snakes/chasing-you/": {
+    "hash": "a89ac45a8cf2c29f",
+    "lastmod": "2026-08-18"
+  },
+  "https://oneirox.com/dreams/snakes/shedding-skin/": {
+    "hash": "ae83b7902d0c5905",
+    "lastmod": "2026-08-18"
+  },
+  "https://oneirox.com/dreams/snakes/coiled-watching/": {
+    "hash": "28577f4c4ddf4f75",
+    "lastmod": "2026-08-18"
+  },
+  "https://oneirox.com/dreams/snakes/many-snakes/": {
+    "hash": "3bfc4c330e4f0541",
+    "lastmod": "2026-08-18"
+  },
+  "https://oneirox.com/dreams/snakes/dead-snake/": {
+    "hash": "3a93b3d8ae55b47a",
+    "lastmod": "2026-08-18"
+  },
+  "https://oneirox.com/dreams/snakes/in-house/": {
+    "hash": "9f4b10683f2dc24f",
+    "lastmod": "2026-08-18"
+  },
+  "https://oneirox.com/dreams/snakes/in-bed/": {
+    "hash": "a2c4705fdd5cb422",
+    "lastmod": "2026-08-18"
+  },
+  "https://oneirox.com/dreams/teeth-falling-out/painless/": {
+    "hash": "942a03ca99e32a15",
+    "lastmod": "2026-08-18"
+  },
+  "https://oneirox.com/dreams/teeth-falling-out/crumbling/": {
+    "hash": "c1c6c43e2006a2d9",
+    "lastmod": "2026-08-18"
+  },
+  "https://oneirox.com/dreams/teeth-falling-out/pulling-own/": {
+    "hash": "661e79efe14d63aa",
+    "lastmod": "2026-08-18"
+  }
+}

@@ -13,7 +13,7 @@
     <loc>https://oneirox.com/lab/</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://oneirox.com/lab/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://oneirox.com/lab/"/>
-    <lastmod>2026-08-15</lastmod>
+    <lastmod>2026-08-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
@@ -29,7 +29,7 @@
     <loc>https://oneirox.com/notes/</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://oneirox.com/notes/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://oneirox.com/notes/"/>
-    <lastmod>2026-08-15</lastmod>
+    <lastmod>2026-08-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -41,7 +41,7 @@
   </url>
   <url>
     <loc>https://oneirox.com/notes/why-i-built-the-sleep-cycle-calculator/</loc>
-    <lastmod>2026-08-15</lastmod>
+    <lastmod>2026-08-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
   </url>
@@ -77,7 +77,7 @@
     <loc>https://oneirox.com/phase/</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://oneirox.com/phase/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://oneirox.com/phase/"/>
-    <lastmod>2026-08-15</lastmod>
+    <lastmod>2026-08-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
@@ -119,25 +119,25 @@
   </url>
   <url>
     <loc>https://oneirox.com/mechanics/rem/cortex-eeg/</loc>
-    <lastmod>2026-07-26</lastmod>
+    <lastmod>2026-08-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://oneirox.com/mechanics/rem/atonia/</loc>
-    <lastmod>2026-07-26</lastmod>
+    <lastmod>2026-08-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://oneirox.com/mechanics/rem/pgo-autonomic/</loc>
-    <lastmod>2026-07-26</lastmod>
+    <lastmod>2026-08-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://oneirox.com/mechanics/rem/cycle-timing/</loc>
-    <lastmod>2026-07-26</lastmod>
+    <lastmod>2026-08-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>

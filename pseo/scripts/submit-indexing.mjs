@@ -26,7 +26,7 @@ const ALLOWLIST = path.join(PSEO, "data", "indexable-allowlist.json");
 const DREAM_ALLOWLIST = path.join(PSEO, "data", "dream-allowlist.json");
 const LOG_SQLITE = path.join(PSEO, "data", "indexing-log.sqlite");
 const LOG_JSONL = path.join(PSEO, "data", "indexing-log.jsonl");
-const DAILY_CAP = 200;
+const DAILY_CAP = 50;
 
 function parseArgs(argv) {
   let limit = 50;

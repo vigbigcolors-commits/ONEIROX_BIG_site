@@ -9,6 +9,17 @@ import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { expandDreamLongform } from "../lib/expand-dream-prose.mjs";
+import {
+  writeRobotsTxt,
+  writeAllowlistIfChanged,
+  stableLastmod,
+  flushLastmodStore,
+  sitemapUrlXml,
+  relForTarget,
+  pullAllowlistUrls,
+  pathnameOf,
+  isFollowableSomaticPath,
+} from "../lib/crawl-budget.mjs";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, "../..");
@@ -19,6 +30,8 @@ const OUT_DIR = path.join(ROOT, "public", "dreams");
 const SITE = "https://oneirox.com";
 const PUBLISHED = "2026-08-16";
 const DREAM_INDEX_CAP = 50;
+
+let somaticFollowable = new Set();
 
 function ensureDir(d) {
   fs.mkdirSync(d, { recursive: true });
@@ -98,8 +111,9 @@ ${items}
 function relatedHtml(entry, extras = []) {
   const cards = [];
   for (const s of entry.related_somatic || []) {
+    const follow = isFollowableSomaticPath(s.href, somaticFollowable);
     cards.push(
-      `      <a class="dm-related-card" href="${esc(s.href)}"><span class="dm-related-card__eyebrow">Somatic marker</span><span class="dm-related-card__label">${esc(s.label)}</span></a>`
+      `      <a class="dm-related-card" href="${esc(s.href)}"${follow ? "" : ' rel="nofollow"'}><span class="dm-related-card__eyebrow">Somatic marker</span><span class="dm-related-card__label">${esc(s.label)}</span></a>`
     );
   }
   if (entry.related_mechanics) {
@@ -119,18 +133,25 @@ ${cards.join("\n")}
     </section>`;
 }
 
+function nofollowOffAllowlist(html, somaticFollowable) {
+  return String(html).replace(/<a href="(\/somatic\/[^"]+)"/g, (full, href) => {
+    if (isFollowableSomaticPath(href, somaticFollowable)) return full;
+    return `<a href="${href}" rel="nofollow"`;
+  });
+}
+
 function bodyParagraphsHtml(entry) {
   const core = (entry.body_paragraphs || [])
     .map((p) => `      <p>${esc(p)}</p>`)
     .join("\n");
   const extra = expandDreamLongform(entry).html;
-  return `${core}\n${extra}`;
+  return nofollowOffAllowlist(`${core}\n${extra}`, somaticFollowable);
 }
 
 function siblingsHtml(siblings, parentTitle) {
   if (!siblings.length) return "";
   const links = siblings
-    .map((s) => `      <a class="dm-sibling" href="${esc(lfPath(s))}">${esc(s.title)}</a>`)
+    .map((s) => `      <a class="dm-sibling" href="${esc(lfPath(s))}"${relForTarget(!!s.indexable)}>${esc(s.title)}</a>`)
     .join("\n");
   return `    <section class="dm-siblings" aria-label="More scenarios">
       <h2>More ${esc(parentTitle)} scenarios</h2>
@@ -143,7 +164,7 @@ ${links}
 function pillarChildrenHtml(children) {
   if (!children.length) return "";
   const links = children
-    .map((s) => `      <a class="dm-sibling" href="${esc(lfPath(s))}">${esc(s.title)}</a>`)
+    .map((s) => `      <a class="dm-sibling" href="${esc(lfPath(s))}"${relForTarget(!!s.indexable)}>${esc(s.title)}</a>`)
     .join("\n");
   return `    <section class="dm-siblings" aria-label="Scenario pages">
       <h2>Scenario pages</h2>
@@ -445,22 +466,20 @@ ${ctaHtml("hub")}
 }
 
 function writeSitemap(pillars, lfIndexable) {
-  const today = new Date().toISOString().slice(0, 10);
   const urls = [
-    { loc: `${SITE}/dreams/`, priority: "0.9" },
-    ...pillars.map((e) => ({ loc: pillarUrl(e), priority: "0.85" })),
-    ...lfIndexable.map((e) => ({ loc: lfUrl(e), priority: "0.75" })),
+    { loc: `${SITE}/dreams/`, priority: "0.9", key: `hub:${pillars.map((e) => e.slug).join("|")}` },
+    ...pillars.map((e) => ({
+      loc: pillarUrl(e),
+      priority: "0.85",
+      key: `${e.slug}|${e.title}|${e.lead || ""}`,
+    })),
+    ...lfIndexable.map((e) => ({
+      loc: lfUrl(e),
+      priority: "0.75",
+      key: `${e.parent_slug}/${e.slug}|${e.title}|${e.lead || ""}`,
+    })),
   ];
-  const body = urls
-    .map(
-      (u) => `  <url>
-    <loc>${u.loc}</loc>
-    <lastmod>${today}</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>${u.priority}</priority>
-  </url>`
-    )
-    .join("\n");
+  const body = urls.map((u) => sitemapUrlXml(u.loc, stableLastmod(u.loc, u.key), u.priority)).join("\n");
   fs.writeFileSync(
     path.join(ROOT, "public", "sitemap-dreams.xml"),
     `<?xml version="1.0" encoding="UTF-8"?>
@@ -469,6 +488,7 @@ ${body}
 </urlset>
 `
   );
+  flushLastmodStore();
   return urls.length;
 }
 
@@ -478,11 +498,7 @@ function writeDreamAllowlist(pillars, lfIndexable) {
     ...pillars.map((e) => pillarUrl(e)),
     ...lfIndexable.map((e) => lfUrl(e)),
   ];
-  fs.writeFileSync(
-    path.join(PSEO, "data", "dream-allowlist.json"),
-    JSON.stringify({ generated_at: new Date().toISOString(), urls }, null, 2)
-  );
-  return urls.length;
+  return writeAllowlistIfChanged(path.join(PSEO, "data", "dream-allowlist.json"), urls);
 }
 
 function selectLfIndexable(lfEntries, pillarMap) {
@@ -547,6 +563,9 @@ function main() {
   }
   const lfIndexable = selectLfIndexable(lfEntries, pillarMap);
   const lfIndexableSet = new Set(lfIndexable.map((e) => `${e.parent_slug}/${e.slug}`));
+  somaticFollowable = new Set(
+    pullAllowlistUrls(path.join(PSEO, "data", "indexable-allowlist.json")).map(pathnameOf)
+  );
 
   if (fs.existsSync(OUT_DIR)) {
     for (const name of fs.readdirSync(OUT_DIR)) {
@@ -592,7 +611,10 @@ function main() {
   }
 
   for (const entry of entries) {
-    const children = lfByParent.get(entry.slug) || [];
+    const children = (lfByParent.get(entry.slug) || []).map((c) => ({
+      ...c,
+      indexable: lfIndexableSet.has(`${c.parent_slug}/${c.slug}`),
+    }));
     const dir = path.join(OUT_DIR, entry.slug);
     ensureDir(dir);
     fs.writeFileSync(path.join(dir, "index.html"), pageHtmlPillar(entry, children));
@@ -605,9 +627,12 @@ function main() {
       console.warn("LF parent missing, skip", lf.parent_slug, lf.slug);
       continue;
     }
-    const siblings = (lfByParent.get(lf.parent_slug) || []).filter(
-      (s) => s.slug !== lf.slug
-    );
+    const siblings = (lfByParent.get(lf.parent_slug) || [])
+      .filter((s) => s.slug !== lf.slug)
+      .map((s) => ({
+        ...s,
+        indexable: lfIndexableSet.has(`${s.parent_slug}/${s.slug}`),
+      }));
     const dir = path.join(OUT_DIR, lf.parent_slug, lf.slug);
     ensureDir(dir);
     fs.writeFileSync(
@@ -625,6 +650,7 @@ function main() {
 
   const sm = writeSitemap(entries, lfIndexable);
   const al = writeDreamAllowlist(entries, lfIndexable);
+  writeRobotsTxt();
 
   console.log(
     `Dream Meaning SSG: ${entries.length} pillars · ${lfWritten} LF · sitemap ${sm} · allowlist ${al} · indexable LF ${lfIndexable.length}`

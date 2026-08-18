@@ -36,7 +36,7 @@ alwaysApply: true
 1. **Не** вываливать сотни/тысячи URL за сутки — триггер бана.
 2. Пилот → измерить GSC/логи ботов → только потом вентиль.
 3. Порции: ориентир **до ~50–100 новых indexable URL/день** после зелёного пилота.
-4. Большая БД допустима offline; в индекс — только лучший слой (`indexable` / allowlist). Остальное `noindex` или вне sitemap.
+4. Большая БД допустима offline; в индекс — только лучший слой (`indexable` / allowlist). Остальное: вне sitemap + robots Disallow. `noindex` без Disallow **не** экономит краул.
 5. Indexing API / IndexNow = ускоритель. Primary = sitemap + реальный спрос.
 
 ## 4. Голос продукта

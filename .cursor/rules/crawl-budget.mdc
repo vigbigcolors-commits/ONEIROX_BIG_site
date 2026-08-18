@@ -1,0 +1,30 @@
+---
+description: Hard ban on wasting Google crawl budget — allowlist sitemap, stable lastmod, robots Disallow bulk PSEO
+alwaysApply: true
+---
+
+# Crawl budget — запрет уничтожения
+
+Нарушение = стоп. `noindex` **не** экономит краул: бот всё равно качает HTML.
+
+## Закон
+
+1. В индекс и в sitemap — **только allowlist**. Сейчас: somatic топ-50 + хабы; dreams ≤50 (хаб + pillars + indexable LF). Остальное не в sitemap.
+2. Bulk `/somatic/{symptom}/{phase}/{context}/` вне allowlist и noindex LF — **`Disallow` в robots.txt**. Не `Allow: /` без Disallow массы.
+3. **Не** штамповать `lastmod=today` на весь sitemap при каждом SSG. `lastmod` только если хеш контента этого URL изменился (`stableLastmod`).
+4. С индексных страниц **не** `follow`-ссылать на noindex массу. `rel="nofollow"` на цели вне allowlist. Хабы `/somatic/`, `/somatic/phase/*`, `/dreams/` pillars — follow.
+5. Indexing API / IndexNow — **только allowlist**, порция **≤50 URL/сутки**. Не гонять `pseo:notify` после косметического SSG. Не пинговать 400 DB-страниц.
+6. Не раздувать индексный слой «потому что текст стал 600 слов». Объём ≠ право на index. Промоут — только dense-gate + вентиль GSC.
+7. Не трогать `robots.txt` / sitemap / allowlist / `indexable` без явной задачи на краул/индекс.
+
+## Запрещено
+
+- 400 URL в sitemap или массовый `lastmod` bump
+- Снятие `noindex` пачкой
+- `Allow: /` как единственная защита при линке на всю БД
+- IndexNow/Indexing API на noindex URL
+- Внутренняя сетка indexable → сотни noindex `follow`
+
+## Команды
+
+`npm run pseo:build` = uniqueness + SSG + **crawl-budget audit**. Audit красный → не коммитить.

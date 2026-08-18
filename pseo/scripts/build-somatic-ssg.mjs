@@ -10,6 +10,14 @@ import { buildEegSvg } from "../lib/chart-svg.mjs";
 import { markIndexable } from "../lib/rank.mjs";
 import { buildZoneSvg } from "../lib/compose.mjs";
 import { phaseHubEssayHtml, utilityEssayHtml } from "../lib/expand-somatic-prose.mjs";
+import {
+  writeRobotsTxt,
+  writeAllowlistIfChanged,
+  stableLastmod,
+  flushLastmodStore,
+  sitemapUrlXml,
+  relForTarget,
+} from "../lib/crawl-budget.mjs";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, "../..");
@@ -151,10 +159,10 @@ function relatedHtml(entry, byId) {
   const links = ids
     .map((id) => byId[id])
     .filter(Boolean)
-    .map(
-      (e) =>
-        `<li><a href="/somatic/${e.slug_symptom}/${e.slug_phase}/${e.slug_context}/">${esc(e.title)}</a></li>`
-    )
+    .map((e) => {
+      const href = `/somatic/${e.slug_symptom}/${e.slug_phase}/${e.slug_context}/`;
+      return `<li><a href="${href}"${relForTarget(!!e.indexable)}>${esc(e.title)}</a></li>`;
+    })
     .join("");
   if (!links) return "";
   return `<section class="sx-related" data-module="related"><h2>Related metric rows</h2><ul>${links}</ul></section>`;
@@ -402,26 +410,21 @@ function writeHubs(tpl, entries) {
 }
 
 function writeSitemap(entries) {
-  const today = new Date().toISOString().slice(0, 10);
   const indexable = entries.filter((e) => e.indexable);
+  const hubKey = indexable.map((e) => `${e.slug_symptom}/${e.slug_phase}/${e.slug_context}`).join("|");
   const urls = [
-    { loc: `${SITE}/somatic/`, priority: "0.8" },
-    { loc: `${SITE}/somatic/phase/n1/`, priority: "0.7" },
-    { loc: `${SITE}/somatic/phase/n2/`, priority: "0.7" },
-    { loc: `${SITE}/somatic/phase/n3/`, priority: "0.7" },
-    { loc: `${SITE}/somatic/phase/rem/`, priority: "0.7" },
-    ...indexable.map((e) => ({ loc: pageUrl(e), priority: "0.65" })),
+    { loc: `${SITE}/somatic/`, priority: "0.8", key: `hub-all:${hubKey}` },
+    { loc: `${SITE}/somatic/phase/n1/`, priority: "0.7", key: `hub-n1:${hubKey}` },
+    { loc: `${SITE}/somatic/phase/n2/`, priority: "0.7", key: `hub-n2:${hubKey}` },
+    { loc: `${SITE}/somatic/phase/n3/`, priority: "0.7", key: `hub-n3:${hubKey}` },
+    { loc: `${SITE}/somatic/phase/rem/`, priority: "0.7", key: `hub-rem:${hubKey}` },
+    ...indexable.map((e) => ({
+      loc: pageUrl(e),
+      priority: "0.65",
+      key: `${e.id}|${e.title}|${e.density_score}|${(e.somatic_markers || []).join(",")}`,
+    })),
   ];
-  const body = urls
-    .map(
-      (u) => `  <url>
-    <loc>${u.loc}</loc>
-    <lastmod>${today}</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>${u.priority}</priority>
-  </url>`
-    )
-    .join("\n");
+  const body = urls.map((u) => sitemapUrlXml(u.loc, stableLastmod(u.loc, u.key), u.priority)).join("\n");
   fs.writeFileSync(
     path.join(ROOT, "public", "sitemap-somatic.xml"),
     `<?xml version="1.0" encoding="UTF-8"?>
@@ -430,39 +433,13 @@ ${body}
 </urlset>
 `
   );
+  flushLastmodStore();
   return urls.length;
 }
 
-function writeRobotsAllowlist() {
-  // Do NOT Disallow /ru/ here: those paths already 301 via _redirects, and
-  // blocking them in robots.txt stops Googlebot from ever seeing the 301,
-  // which leaves old /ru/ URLs stuck under "Blocked by robots.txt" forever
-  // instead of being consolidated/dropped. Let the crawler hit the redirect.
-  //
-  // Per-URL "Allow:" lines for indexable somatic rows are intentionally
-  // omitted: "Allow: /" already permits crawling every somatic sub-page —
-  // the noindex meta tag (not robots.txt) is what keeps the other rows out
-  // of the index. Listing 50 redundant Allow lines adds noise, not signal.
-  const text = `User-agent: *
-Allow: /
-
-# Safe PSEO crawl budget: bulk somatic DB is noindex,follow in HTML (not blocked here).
-Allow: /somatic/$
-Allow: /somatic/phase/
-
-Sitemap: https://oneirox.com/sitemap.xml
-`;
-  fs.writeFileSync(path.join(ROOT, "public", "robots.txt"), text);
-}
-
 function writeAllowlist(entries) {
-  const urls = entries
-    .filter((e) => e.indexable)
-    .map((e) => pageUrl(e));
-  fs.writeFileSync(
-    path.join(PSEO, "data", "indexable-allowlist.json"),
-    JSON.stringify({ generated_at: new Date().toISOString(), urls }, null, 2)
-  );
+  const urls = entries.filter((e) => e.indexable).map((e) => pageUrl(e));
+  writeAllowlistIfChanged(path.join(PSEO, "data", "indexable-allowlist.json"), urls);
 }
 
 function main() {
@@ -515,8 +492,8 @@ function main() {
   for (const entry of entries) writeUtility(entry, templates, byId);
   writeHubs(tplHub, entries);
   const sm = writeSitemap(entries);
-  writeRobotsAllowlist();
   writeAllowlist(entries);
+  writeRobotsTxt();
 
   const idx = entries.filter((e) => e.indexable).length;
   const layouts = {};
