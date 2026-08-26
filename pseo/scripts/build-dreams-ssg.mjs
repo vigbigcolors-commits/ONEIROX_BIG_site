@@ -140,26 +140,56 @@ function nofollowOffAllowlist(html, somaticFollowable) {
   });
 }
 
+const GOLD_FORBIDDEN_PHRASES = [
+  "start with the body, not the Wikipedia of symbols",
+  "The circuit we actually track here",
+  "that variant is not a second omen",
+  "MORNING for Dream About",
+  "foggy plot + loud body",
+  "Lab Search should land here because",
+  "What's actually happening",
+  'class="dm-signal"',
+  'dm-signal__tag',
+  "Map this scenario in the Lab",
+  "MORNING — what to ask yourself",
+];
+
+function assertGoldHtmlClean(html, entry) {
+  const key = `${entry.parent_slug}/${entry.slug}`;
+  const hits = GOLD_FORBIDDEN_PHRASES.filter((p) => html.includes(p));
+  if (hits.length) {
+    throw new Error(`Gold page ${key} still contains legacy phrases: ${hits.join(" | ")}`);
+  }
+  if ((html.match(/<h1[\s>]/g) || []).length !== 1) {
+    throw new Error(`Gold page ${key} must have exactly one H1`);
+  }
+  if (!html.includes('class="dm-prose dm-prose--gold"')) {
+    throw new Error(`Gold page ${key} missing gold article shell`);
+  }
+  // Legacy chrome must not appear outside shared header/footer.
+  for (const cls of ["dm-signal", "dm-variants", "dm-morning", "dm-cta", "dm-siblings", "dm-related", "dm-lead", "dm-kicker"]) {
+    if (html.includes(`class="${cls}`) || html.includes(`class='${cls}`)) {
+      throw new Error(`Gold page ${key} still renders legacy chrome .${cls}`);
+    }
+  }
+}
+
 function bodyParagraphsHtml(entry) {
   if (entry.article_mode === "gold") {
     const gold = loadGoldBodyHtml(entry);
-    if (gold) return nofollowOffAllowlist(gold, somaticFollowable);
+    if (!gold || !String(gold).trim()) {
+      throw new Error(
+        `Gold page ${entry.parent_slug}/${entry.slug} has no custom body (file/html missing)`
+      );
+    }
+    // Never append expandDreamLongform / body_paragraphs on gold pages.
+    return nofollowOffAllowlist(gold, somaticFollowable);
   }
   const core = (entry.body_paragraphs || [])
     .map((p) => `      <p>${esc(p)}</p>`)
     .join("\n");
   const extra = expandDreamLongform(entry).html;
   return nofollowOffAllowlist(`${core}\n${extra}`, somaticFollowable);
-}
-
-function goldCtaHtml() {
-  return `    <section class="dm-cta">
-      <h2>If the plot is gone and the body is still loud</h2>
-      <p>Paste the bite location, emotion, and any waking skin or pulse residue into Lab Search — route by mechanism, not by omen synonym.</p>
-      <p class="dm-cta-row">
-        <a class="dm-btn" href="/#lab-search">Open Lab Search →</a>
-      </p>
-    </section>`;
 }
 
 function siblingsHtml(siblings, parentTitle, opts = {}) {
@@ -331,7 +361,7 @@ ${relatedHtml(entry)}
 
 function pageHtmlLf(entry, parent, siblings) {
   if (entry.article_mode === "gold") {
-    return pageHtmlLfGold(entry, parent, siblings);
+    return pageHtmlLfGold(entry, parent);
   }
   const url = lfUrl(entry);
   const parentTitle = parent?.title || entry.parent_slug;
@@ -397,15 +427,13 @@ ${relatedHtml(entry, extras)}
 `;
 }
 
-function pageHtmlLfGold(entry, parent, siblings) {
+function pageHtmlLfGold(entry, parent) {
   const url = lfUrl(entry);
   const parentTitle = parent?.title || entry.parent_slug;
   const parentPath = `/dreams/${entry.parent_slug}/`;
-  const extras = [
-    { href: parentPath, eyebrow: "Broader theme", label: parentTitle },
-  ];
-  const siblingSlugs = entry.gold_sibling_slugs || [];
-  return `<!DOCTYPE html>
+  // Gold pages: article body exclusively from gold fragment.
+  // No lead / SIGNAL / expand / variants / MORNING / Lab CTA / sibling farm / related cards.
+  const html = `<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -428,29 +456,22 @@ ${navHtml("lf")}
   </header>
   <main class="dm-main">
     <p class="dm-breadcrumb"><a href="/">Oneirox</a> · <a href="/dreams/">Dream Meaning</a> · <a href="${esc(parentPath)}">${esc(parentTitle)}</a> · ${esc(entry.title)}</p>
-    <p class="dm-kicker">${esc(entry.kicker)}</p>
     <h1 class="dm-title">${esc(entry.title)}</h1>
-    <p class="dm-lead">${esc(entry.lead)}</p>
 
     <article class="dm-prose dm-prose--gold">
 ${bodyParagraphsHtml(entry)}
     </article>
 
-${siblingsHtml(siblings, parentTitle, {
-  onlySlugs: siblingSlugs,
-  heading: "Related snake scenarios",
-})}
-${goldCtaHtml()}
-${relatedHtml(entry, extras)}
-
     <p class="dm-disclaimer">Educational neuroscience and dream-research synthesis. Not medical or psychological advice. Persistent nightmares, panic, or distress deserve a conversation with a clinician.</p>
   </main>
   <footer class="dm-foot">
-    <a href="/dreams/">Dream Meaning</a> · <a href="${esc(parentPath)}">${esc(parentTitle)}</a> · <a href="/#lab-search">Lab Search</a> · <a href="/lab/">Lab</a>
+    <a href="/dreams/">Dream Meaning</a> · <a href="${esc(parentPath)}">${esc(parentTitle)}</a> · <a href="/lab/">Lab</a>
   </footer>
 </body>
 </html>
 `;
+  assertGoldHtmlClean(html, entry);
+  return html;
 }
 
 const CATEGORY_ORDER = [
