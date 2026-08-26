@@ -1,8 +1,8 @@
 User-agent: *
 Allow: /
 
-# Do not Disallow /ru/: those paths 301 via _redirects. Blocking them leaves old URLs stuck.
 # Crawl budget: bulk PSEO is Disallow. noindex still spends crawl if linked.
+# Explicit Allow lines must out-specify Disallow (/dreams/*/*/ and /somatic/).
 Allow: /somatic/$
 Allow: /somatic/phase/
 Allow: /somatic/assets/

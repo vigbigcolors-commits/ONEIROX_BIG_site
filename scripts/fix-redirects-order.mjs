@@ -24,21 +24,10 @@ const FORCE = [
   ['/category/control-power/', '/dreams/losing-control/'],
 ];
 
-const WILDCARD_TAIL = [
-  '/comments/* / 301',
-  '/author/* /about/ 301',
-  '/category/* /dreams/ 301',
-  '/wp-admin/* / 301',
-  '/wp-content/* / 301',
-  '/wp-includes/* / 301',
-  '/wp-json/* / 301',
-  '/trackback/* / 301',
-  '/page/* / 301',
-  '/feed/* / 301',
-  '/tag/* / 301',
-  // last: leftover RU deep paths → strip /ru prefix
-  '/ru/* /:splat 301',
-];
+// No catch-all wildcards: author/category/ru splat are not real equivalents
+// and /ru/* → /:splat created chains onto intermediate English slugs.
+// Keep only exact static RU/page rules above. WP system paths → natural 404.
+const WILDCARD_TAIL = [];
 
 function parseLine(line) {
   const t = line.trim();
@@ -86,15 +75,16 @@ const header = `# Oneirox WordPress → Cloudflare Pages redirects
 # rules past that budget are silently dropped (no build warning).
 # Run: node scripts/fix-redirects-order.mjs
 # ${statics.length} static + ${WILDCARD_TAIL.length} dynamic
+# No catch-all author/category/ru wildcards (not real equivalents; ru splat caused chains).
 
 `;
 
 const body = [
   ...statics.map((r) => r.raw),
-  '',
-  '# Dynamic / wildcard (must stay last; budget ≤ 100)',
-  ...WILDCARD_TAIL,
-].join('\n');
+  ...(WILDCARD_TAIL.length
+    ? ["", "# Dynamic / wildcard (must stay last; budget <= 100)", ...WILDCARD_TAIL]
+    : []),
+].join("\n");
 
 fs.writeFileSync(file, header + body + '\n', 'utf8');
 

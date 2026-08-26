@@ -1,133 +1,70 @@
 /**
- * Generate public/_redirects from legacy WordPress sitemap XML.
+ * Generate / refresh curated redirects helpers.
+ * Does NOT dump legacy blog posts onto homepage (SEO damage).
+ * Semantic post→pillar maps live in public/_redirects and are preserved
+ * by scripts/cleanup-redirects-seo.mjs + fix-redirects-order.mjs.
+ *
  * Run: node scripts/generate-redirects.mjs
  */
-import fs from 'fs';
-import path from 'path';
-import { fileURLToPath } from 'url';
+import fs from "fs";
+import path from "path";
+import { fileURLToPath } from "url";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const root = path.join(__dirname, '..');
-const legacyDir = path.join(root, 'content', 'legacy');
+const root = path.join(__dirname, "..");
+const outPath = path.join(root, "public", "_redirects");
 
 const PAGE_TARGETS = {
-  'terms-of-use': '/terms/',
-  'privacy-policy-the-vault-of-shadows': '/privacy/',
-  'sensory-dream-mapper-decode-what-your-body-felt-while-you-slept':
-    '/tools/oneirox-dream-mapper.html',
-  'our-philosophy': '/methodology/',
+  "terms-of-use": "/terms/",
+  "privacy-policy-the-vault-of-shadows": "/privacy/",
+  "sensory-dream-mapper-decode-what-your-body-felt-while-you-slept":
+    "/tools/oneirox-dream-mapper",
+  "our-philosophy": "/methodology/",
 };
 
-// Pages that exist at the same URL on the new site — no redirect rule needed.
-
-function extractSlugs(xml) {
-  const slugs = [];
-  for (const match of xml.matchAll(/<loc>https:\/\/oneirox\.com\/([^<]+?)<\/loc>/g)) {
-    const raw = match[1].replace(/\/$/, '');
-    if (raw) slugs.push(raw);
-  }
-  return slugs;
-}
-
-function readXml(name) {
-  const file = path.join(legacyDir, name);
-  if (!fs.existsSync(file)) {
-    console.warn(`Skip missing ${name}`);
-    return '';
-  }
-  return fs.readFileSync(file, 'utf8');
-}
+const SITEMAP_ALIASES = [
+  ["/post-sitemap.xml", "/sitemap.xml"],
+  ["/page-sitemap.xml", "/sitemap.xml"],
+  ["/category-sitemap.xml", "/sitemap.xml"],
+  ["/author-sitemap.xml", "/sitemap.xml"],
+  ["/sitemap_index.xml", "/sitemap.xml"],
+  ["/main-sitemap.xsl", "/sitemap.xml"],
+  ["/wp-sitemap.xml", "/sitemap.xml"],
+];
 
 function toRedirectLine(from, to) {
-  const src = from.startsWith('/') ? from : `/${from}`;
-  const base = src.split('?')[0];
+  const src = from.startsWith("/") ? from : `/${from}`;
+  const base = src.split("?")[0];
   const hasExtension = /\.[a-z0-9]+$/i.test(base);
-  const hasWildcard = src.includes('*');
+  const hasWildcard = src.includes("*");
   const normalized =
-    hasExtension || hasWildcard
-      ? src
-      : src.endsWith('/')
-        ? src
-        : `${src}/`;
+    hasExtension || hasWildcard ? src : src.endsWith("/") ? src : `${src}/`;
   return `${normalized} ${to} 301`;
 }
 
-const postXml = readXml('post-sitemap-0.xml');
-const pageXml = readXml('page-sitemap.xml');
-const categoryXml = readXml('category-sitemap.xml');
-const authorXml = readXml('author-sitemap.xml');
-
-const postSlugs = extractSlugs(postXml);
-const pageSlugs = extractSlugs(pageXml);
-
-const lines = [];
-const seen = new Set();
-
-function add(from, to) {
-  const key = toRedirectLine(from, to);
-  if (seen.has(key)) return;
-  seen.add(key);
-  lines.push(key);
+const existing = fs.existsSync(outPath) ? fs.readFileSync(outPath, "utf8") : "";
+const kept = new Map();
+for (const line of existing.split(/\r?\n/)) {
+  const t = line.trim();
+  if (!t || t.startsWith("#")) continue;
+  const [from, to, status] = t.split(/\s+/);
+  if (!from || !to) continue;
+  kept.set(from, `${from} ${to} ${status || "301"}`);
 }
 
-// ── Exact legacy pages ──
-for (const slug of pageSlugs) {
-  if (PAGE_TARGETS[slug]) {
-    add(slug, PAGE_TARGETS[slug]);
-  }
+for (const [slug, to] of Object.entries(PAGE_TARGETS)) {
+  kept.set(`/${slug}/`, toRedirectLine(slug, to));
+}
+for (const [from, to] of SITEMAP_ALIASES) {
+  kept.set(from, `${from} ${to} 301`);
 }
 
-// ── All blog posts → homepage (link equity to main tool) ──
-for (const slug of postSlugs) {
-  add(slug, '/');
-}
-
-// ── WordPress taxonomy & author archives ──
-add('/category/*', '/');
-add('/author/*', '/about/');
-add('/tag/*', '/');
-add('/page/*', '/');
-
-// ── WordPress system paths ──
-add('/wp-admin/*', '/');
-add('/wp-login.php', '/');
-add('/feed', '/');
-add('/feed/*', '/');
-add('/comments/feed', '/');
-add('/xmlrpc.php', '/');
-
-// ── Old Rank Math sitemap index (no longer valid; point crawlers to new sitemap) ──
-add('/post-sitemap.xml', '/sitemap.xml');
-add('/page-sitemap.xml', '/sitemap.xml');
-add('/category-sitemap.xml', '/sitemap.xml');
-add('/author-sitemap.xml', '/sitemap.xml');
-add('/sitemap_index.xml', '/sitemap.xml');
-add('/main-sitemap.xsl', '/sitemap.xml');
-
-// Sort: longer/more specific paths first (wildcards last among same prefix)
-lines.sort((a, b) => {
-  const aWild = a.includes('*');
-  const bWild = b.includes('*');
-  if (aWild !== bWild) return aWild ? 1 : -1;
-  return b.length - a.length;
-});
-
-const header = `# Oneirox WordPress to Cloudflare Pages redirects
-# Generated by scripts/generate-redirects.mjs
-# ${postSlugs.length} posts -> / (301)
-# Legacy pages mapped to new static routes
-
-`;
-
-const outPath = path.join(root, 'public', '_redirects');
-fs.writeFileSync(outPath, header + lines.join('\n') + '\n', 'utf8');
-
-const csvPath = path.join(root, 'content', 'redirects.csv');
-const csvLines = ['from,to,status', ...lines.map((l) => {
-  const [from, to, status] = l.split(' ');
-  return `${from},${to},${status}`;
-})];
-fs.writeFileSync(csvPath, csvLines.join('\n') + '\n', 'utf8');
-
-console.log(`Wrote ${lines.length} redirects → public/_redirects`);
-console.log(`Wrote ${csvLines.length - 1} rows → content/redirects.csv`);
+// Never reintroduce mass homepage / WP system dumps here.
+console.log(
+  "generate-redirects.mjs: merged PAGE_TARGETS + sitemap aliases into existing _redirects map."
+);
+console.log(
+  "Refusing mass post→/ and wp-admin/feed/tag→/ dumps. Run cleanup-redirects-seo.mjs + fix-redirects-order.mjs next."
+);
+console.log(`Map size (in-memory merge only): ${kept.size}`);
+console.log("No file rewrite performed — use cleanup-redirects-seo.mjs to mutate _redirects.");
