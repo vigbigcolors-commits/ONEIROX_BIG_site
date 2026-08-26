@@ -118,7 +118,29 @@ body.dm-body {
   font-size: 1.4rem;
 }
 
+.dm-prose h3 {
+  margin: 1.35rem 0 0.45rem;
+  font-family: var(--dm-serif);
+  font-size: 1.12rem;
+  color: var(--dm-forest);
+}
+
 .dm-prose p { margin: 0 0 1rem; max-width: 42rem; }
+
+.dm-prose ul,
+.dm-prose ol {
+  margin: 0 0 1.15rem;
+  padding-left: 1.25rem;
+  max-width: 42rem;
+}
+
+.dm-prose li {
+  margin: 0 0 0.45rem;
+}
+
+.dm-prose--gold > h2:first-child {
+  margin-top: 0.5rem;
+}
 
 .dm-variants {
   margin: 1.5rem 0 2rem;

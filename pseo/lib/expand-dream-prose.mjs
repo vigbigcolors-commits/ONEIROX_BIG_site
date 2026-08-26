@@ -2,9 +2,15 @@
  * Unique long-form for Dream Meaning pages.
  * Every sentence interpolates row-specific fields so Jaccard stays low.
  * Vigen first-person only on a seeded minority of URLs.
+ * Gold pages (article_mode: "gold") skip template expand and use custom body files.
  */
 
+import fs from "fs";
+import path from "path";
+import { fileURLToPath } from "url";
 import { hashString, mulberry32 } from "./seed.mjs";
+
+const GOLD_DIR = path.join(path.dirname(fileURLToPath(import.meta.url)), "../data/gold");
 
 function esc(s) {
   return String(s ?? "")
@@ -12,6 +18,16 @@ function esc(s) {
     .replace(/</g, "&lt;")
     .replace(/>/g, "&gt;")
     .replace(/"/g, "&quot;");
+}
+
+/** @param {Record<string, unknown>} entry */
+export function loadGoldBodyHtml(entry) {
+  if (entry?.custom_body_html) return String(entry.custom_body_html);
+  if (entry?.article_mode !== "gold") return "";
+  const file = String(entry.custom_body_file || `${entry.parent_slug}-${entry.slug}.html`);
+  const p = path.join(GOLD_DIR, path.basename(file));
+  if (!fs.existsSync(p)) return "";
+  return fs.readFileSync(p, "utf8");
 }
 
 function wordCount(text) {
@@ -93,6 +109,9 @@ function vigenBlock(entry, rng, title, soma) {
  * @returns {{ html: string, blob: string, words: number }}
  */
 export function expandDreamLongform(entry) {
+  if (entry?.article_mode === "gold") {
+    return { html: "", blob: "", words: 0 };
+  }
   const title = entry.title || "this dream";
   const key = `${entry.parent_slug || "pillar"}/${entry.slug || ""}/${entry.mechanism_key || ""}/${title}`;
   const rng = mulberry32(hashString(key));
@@ -166,6 +185,7 @@ ${pRelated}`;
 }
 
 export function dreamAuditBlob(entry) {
+  const gold = loadGoldBodyHtml(entry).replace(/<[^>]+>/g, " ");
   return [
     entry.title,
     entry.lead,
@@ -174,5 +194,6 @@ export function dreamAuditBlob(entry) {
     entry.mechanism_key,
     ...(entry.body_paragraphs || []),
     ...(entry.variants || []).map((v) => `${v.q} ${v.a}`),
+    gold,
   ].join(" ");
 }

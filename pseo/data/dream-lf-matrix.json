@@ -10,40 +10,39 @@
     {
       "parent_slug": "snakes",
       "slug": "bitten",
+      "article_mode": "gold",
+      "custom_body_file": "snakes-bitten.html",
+      "gold_sibling_slugs": ["chasing-you", "in-bed"],
       "title": "Dream About Being Bitten by a Snake",
-      "meta_title": "Snake Bite Dream Meaning — Contact Threat in REM | Oneirox",
-      "meta_description": "A snake bite in a dream is contact threat, not omen. Amygdala-led REM maps cutaneous contact onto a high-salience predator schema.",
-      "kicker": "When the threat lands on skin",
-      "lead": "The fang finds you. There is a flash of contact, then either panic or a strange calm that does not match the image. This is not a prophecy about enemies — it is a threat circuit that completed the contact phase.",
-      "signal": "Your REM threat map finished the loop: detection → approach → cutaneous contact, so the narrative ends with a bite instead of a distant coil.",
-      "body_paragraphs": [
-        "Snake imagery recruits ancient predator-detection circuitry. Öhman’s work on fear-relevant stimuli shows snakes hold attention faster than many cultural threats; during REM, that bias can dominate scene construction even when you have never been bitten awake. The bite specifically marks contact completion — the simulation did not stay at watching distance.",
-        "Skin contact in dream reports often co-occurs with phasic REM: brief autonomic surges, PGO-linked bursts, and a spike in amygdala drive. The cortex explains the surge with the most available predator schema. Blood or pain in the scene usually tracks higher arousal amplitude, not a separate “spiritual” layer.",
-        "If you wake with a real sting, itch, or pressure on skin, treat that as interoceptive seed first — a real cutaneous signal can be narrativized as a bite within seconds of REM storytelling."
-      ],
+      "meta_title": "Snake Bite Dream Meaning — Why Contact Differs from Seeing a Snake | Oneirox",
+      "meta_description": "What a dream about a snake biting you can mean when you weigh bite timing, body location, pain, and waking sensation — without a universal symbol dictionary.",
+      "kicker": "Snake bite dream — contact completed",
+      "lead": "If you dreamed a snake bit you, the useful question is not “what does a snake always mean?” It is what kind of night this was: when contact happened, where on the body, whether it hurt or scared you, whether the place felt familiar, whether you woke on the bite, and whether any real skin or pulse sensation was still there when you woke. Those details beat any fixed omen chart.",
+      "signal": "Contact-complete threat simulation under a predator schema — detection and approach finished as cutaneous contact, not as distant watching or open pursuit.",
+      "body_paragraphs": [],
       "variants": [
         {
-          "q": "Bitten on the hand or arm",
-          "a": "Distal limbs are high-resolution in the body map; hand/arm bites often pair with nights when you were gesturing, typing, or holding tension in the upper limb before sleep."
+          "q": "What does it mean when a snake bites you in a dream?",
+          "a": "There is no universal symbol. The most useful reading uses bite timing, body location, pain or fear, setting familiarity, wake timing, and any real skin sensation after waking — not a one-word omen."
         },
         {
-          "q": "Bite with no pain",
-          "a": "Contact without pain is still a completed threat loop — lower nociceptive tagging, same predator schema."
+          "q": "Why is a snake bite dream different from seeing a snake?",
+          "a": "Seeing is presence and monitoring. Chase is pursuit. A bite is contact completion — the threat loop closed. That verb change is why this page is separate from the broader snake dream guide."
         },
         {
-          "q": "Multiple bites",
-          "a": "Repeated contact usually means the arousal spike re-triggered mid-scene rather than a coded message about repeated betrayal."
+          "q": "Does pain in a snake bite dream matter?",
+          "a": "Pain usually tracks higher arousal and nociceptive tagging inside the scene. Contact without pain still completes the threat loop; it marks touch more than injury."
+        },
+        {
+          "q": "When should a physical explanation get attention?",
+          "a": "If bite-like dreams repeatedly leave real ongoing pain, numbness, weakness, breathing trouble, or other new waking symptoms, treat the body as primary and talk to a clinician. Dream interpretation is not medical evaluation."
         }
       ],
-      "morning_prompt": "On waking, check skin and pulse first: any real itch, pressure, or heart-race residue? That outranks symbol lookup.",
+      "morning_prompt": "Record bite location, emotion before and after contact, any sensation that remained after waking, and the last event before the bite.",
       "related_somatic": [
         {
           "href": "/somatic/hypnagogic-tachycardia/n1/onset/",
           "label": "Hypnagogic tachycardia — N1/onset"
-        },
-        {
-          "href": "/somatic/rem-eye-twitch-burst/rem/mid-cycle/",
-          "label": "Phasic REM eye-twitch burst"
         }
       ],
       "related_mechanics": {

@@ -8,7 +8,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-import { expandDreamLongform } from "../lib/expand-dream-prose.mjs";
+import { expandDreamLongform, loadGoldBodyHtml } from "../lib/expand-dream-prose.mjs";
 import {
   writeRobotsTxt,
   writeAllowlistIfChanged,
@@ -141,6 +141,10 @@ function nofollowOffAllowlist(html, somaticFollowable) {
 }
 
 function bodyParagraphsHtml(entry) {
+  if (entry.article_mode === "gold") {
+    const gold = loadGoldBodyHtml(entry);
+    if (gold) return nofollowOffAllowlist(gold, somaticFollowable);
+  }
   const core = (entry.body_paragraphs || [])
     .map((p) => `      <p>${esc(p)}</p>`)
     .join("\n");
@@ -148,13 +152,29 @@ function bodyParagraphsHtml(entry) {
   return nofollowOffAllowlist(`${core}\n${extra}`, somaticFollowable);
 }
 
-function siblingsHtml(siblings, parentTitle) {
-  if (!siblings.length) return "";
-  const links = siblings
+function goldCtaHtml() {
+  return `    <section class="dm-cta">
+      <h2>If the plot is gone and the body is still loud</h2>
+      <p>Paste the bite location, emotion, and any waking skin or pulse residue into Lab Search — route by mechanism, not by omen synonym.</p>
+      <p class="dm-cta-row">
+        <a class="dm-btn" href="/#lab-search">Open Lab Search →</a>
+      </p>
+    </section>`;
+}
+
+function siblingsHtml(siblings, parentTitle, opts = {}) {
+  let list = siblings;
+  if (Array.isArray(opts.onlySlugs) && opts.onlySlugs.length) {
+    const allow = new Set(opts.onlySlugs);
+    list = siblings.filter((s) => allow.has(s.slug));
+  }
+  if (!list.length) return "";
+  const heading = opts.heading || `More ${parentTitle} scenarios`;
+  const links = list
     .map((s) => `      <a class="dm-sibling" href="${esc(lfPath(s))}"${relForTarget(!!s.indexable)}>${esc(s.title)}</a>`)
     .join("\n");
   return `    <section class="dm-siblings" aria-label="More scenarios">
-      <h2>More ${esc(parentTitle)} scenarios</h2>
+      <h2>${esc(heading)}</h2>
       <div class="dm-sibling-grid">
 ${links}
       </div>
@@ -310,6 +330,9 @@ ${relatedHtml(entry)}
 }
 
 function pageHtmlLf(entry, parent, siblings) {
+  if (entry.article_mode === "gold") {
+    return pageHtmlLfGold(entry, parent, siblings);
+  }
   const url = lfUrl(entry);
   const parentTitle = parent?.title || entry.parent_slug;
   const parentPath = `/dreams/${entry.parent_slug}/`;
@@ -362,6 +385,62 @@ ${siblingsHtml(siblings, parentTitle)}
     </section>
 
 ${ctaHtml("lf")}
+${relatedHtml(entry, extras)}
+
+    <p class="dm-disclaimer">Educational neuroscience and dream-research synthesis. Not medical or psychological advice. Persistent nightmares, panic, or distress deserve a conversation with a clinician.</p>
+  </main>
+  <footer class="dm-foot">
+    <a href="/dreams/">Dream Meaning</a> · <a href="${esc(parentPath)}">${esc(parentTitle)}</a> · <a href="/#lab-search">Lab Search</a> · <a href="/lab/">Lab</a>
+  </footer>
+</body>
+</html>
+`;
+}
+
+function pageHtmlLfGold(entry, parent, siblings) {
+  const url = lfUrl(entry);
+  const parentTitle = parent?.title || entry.parent_slug;
+  const parentPath = `/dreams/${entry.parent_slug}/`;
+  const extras = [
+    { href: parentPath, eyebrow: "Broader theme", label: parentTitle },
+  ];
+  const siblingSlugs = entry.gold_sibling_slugs || [];
+  return `<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <title>${esc(entry.meta_title)}</title>
+  <meta name="description" content="${esc(entry.meta_description)}">
+  <link rel="canonical" href="${url}">
+  <meta name="robots" content="${robotsMeta(!!entry.indexable)}">
+  <link rel="stylesheet" href="/css/fonts.css">
+  <link rel="stylesheet" href="/dreams/assets/dream-meaning.css">
+  <script type="application/ld+json">
+  ${jsonLdLf(entry, parent)}
+  </script>
+</head>
+<body class="dm-body">
+  <header class="dm-top">
+    <a class="dm-brand" href="/">Oneirox</a>
+${navHtml("lf")}
+  </header>
+  <main class="dm-main">
+    <p class="dm-breadcrumb"><a href="/">Oneirox</a> · <a href="/dreams/">Dream Meaning</a> · <a href="${esc(parentPath)}">${esc(parentTitle)}</a> · ${esc(entry.title)}</p>
+    <p class="dm-kicker">${esc(entry.kicker)}</p>
+    <h1 class="dm-title">${esc(entry.title)}</h1>
+    <p class="dm-lead">${esc(entry.lead)}</p>
+
+    <article class="dm-prose dm-prose--gold">
+${bodyParagraphsHtml(entry)}
+    </article>
+
+${siblingsHtml(siblings, parentTitle, {
+  onlySlugs: siblingSlugs,
+  heading: "Related snake scenarios",
+})}
+${goldCtaHtml()}
 ${relatedHtml(entry, extras)}
 
     <p class="dm-disclaimer">Educational neuroscience and dream-research synthesis. Not medical or psychological advice. Persistent nightmares, panic, or distress deserve a conversation with a clinician.</p>
