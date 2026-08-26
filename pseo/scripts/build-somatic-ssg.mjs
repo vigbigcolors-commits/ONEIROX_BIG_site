@@ -75,6 +75,22 @@ function esc(s) {
     .replace(/"/g, "&quot;");
 }
 
+/** Safe inline links: [anchor](/dreams|somatic|mechanics/...) */
+function inlineMdLinks(text) {
+  const src = String(text ?? "");
+  const re = /\[([^\]]+)\]\((\/(?:dreams|somatic|mechanics)\/[^)\s]+)\)/g;
+  let out = "";
+  let last = 0;
+  let m;
+  while ((m = re.exec(src))) {
+    out += esc(src.slice(last, m.index));
+    out += `<a href="${esc(m[2])}">${esc(m[1])}</a>`;
+    last = m.index + m[0].length;
+  }
+  out += esc(src.slice(last));
+  return out;
+}
+
 function fill(tpl, map) {
   let out = tpl;
   for (const [k, v] of Object.entries(map)) {
@@ -125,7 +141,7 @@ function mechanismHtml(entry) {
   <details open>
     <summary>Mechanism stack</summary>
     <ol class="sx-mechanism__list">${bullets}</ol>
-    <p class="sx-decode-hint">${esc(entry.decode_hint || "")}</p>
+    <p class="sx-decode-hint">${inlineMdLinks(entry.decode_hint || "")}</p>
   </details>
 </section>`;
 }
@@ -190,7 +206,7 @@ function feltOnWakingHtml(entry) {
   if (!entry.felt_on_waking) return "";
   return `<section class="sx-felt" data-module="felt_on_waking" aria-label="Felt on waking">
   <h2>Felt on waking</h2>
-  <p>${esc(entry.felt_on_waking)}</p>
+  <p>${inlineMdLinks(entry.felt_on_waking)}</p>
 </section>`;
 }
 

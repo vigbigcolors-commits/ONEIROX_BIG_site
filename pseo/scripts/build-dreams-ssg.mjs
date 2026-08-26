@@ -45,6 +45,37 @@ function esc(s) {
     .replace(/"/g, "&quot;");
 }
 
+/** Safe inline links: [anchor](/dreams/.../) or /somatic/ /mechanics/ only. */
+function inlineMdLinks(text) {
+  const src = String(text ?? "");
+  const re = /\[([^\]]+)\]\((\/(?:dreams|somatic|mechanics)\/[^)\s]+)\)/g;
+  let out = "";
+  let last = 0;
+  let m;
+  while ((m = re.exec(src))) {
+    out += esc(src.slice(last, m.index));
+    out += `<a href="${esc(m[2])}">${esc(m[1])}</a>`;
+    last = m.index + m[0].length;
+  }
+  out += esc(src.slice(last));
+  return out;
+}
+
+function sortChildrenForFarm(children) {
+  const list = [...(children || [])];
+  list.sort((a, b) => {
+    const ai = a.indexable ? 0 : 1;
+    const bi = b.indexable ? 0 : 1;
+    if (ai !== bi) return ai - bi;
+    return String(a.slug).localeCompare(String(b.slug));
+  });
+  const indexable = list.filter((c) => c.indexable);
+  const noindex = list.filter((c) => !c.indexable);
+  // Prefer indexable/Gold first. Soft-cap noindex shown (nofollow via relForTarget) — UX without huge lists.
+  const NOINDEX_CAP = 6;
+  return [...indexable, ...noindex.slice(0, NOINDEX_CAP)];
+}
+
 function pillarUrl(entry) {
   return `${SITE}/dreams/${entry.slug}/`;
 }
@@ -97,7 +128,7 @@ function variantsHtml(entry) {
     .map(
       (v, i) => `      <details class="dm-variant"${i === 0 ? " open" : ""}>
         <summary>${esc(v.q)}</summary>
-        <p>${esc(v.a)}</p>
+        <p>${inlineMdLinks(v.a)}</p>
       </details>`
     )
     .join("\n");
@@ -186,7 +217,7 @@ function bodyParagraphsHtml(entry) {
     return nofollowOffAllowlist(gold, somaticFollowable);
   }
   const core = (entry.body_paragraphs || [])
-    .map((p) => `      <p>${esc(p)}</p>`)
+    .map((p) => `      <p>${inlineMdLinks(p)}</p>`)
     .join("\n");
   const extra = expandDreamLongform(entry).html;
   return nofollowOffAllowlist(`${core}\n${extra}`, somaticFollowable);
@@ -198,6 +229,7 @@ function siblingsHtml(siblings, parentTitle, opts = {}) {
     const allow = new Set(opts.onlySlugs);
     list = siblings.filter((s) => allow.has(s.slug));
   }
+  list = sortChildrenForFarm(list);
   if (!list.length) return "";
   const heading = opts.heading || `More ${parentTitle} scenarios`;
   const links = list
@@ -212,8 +244,9 @@ ${links}
 }
 
 function pillarChildrenHtml(children) {
-  if (!children.length) return "";
-  const links = children
+  const list = sortChildrenForFarm(children);
+  if (!list.length) return "";
+  const links = list
     .map((s) => `      <a class="dm-sibling" href="${esc(lfPath(s))}"${relForTarget(!!s.indexable)}>${esc(s.title)}</a>`)
     .join("\n");
   return `    <section class="dm-siblings" aria-label="Scenario pages">
@@ -547,7 +580,7 @@ ${navHtml("dreams")}
 
     <div class="dm-prose">
       <h2>How this library is built</h2>
-      <p>I am Vigen G.R. Oneirox Dream Meaning is not a scraped omen table. Each pillar is a mechanism: teeth pages start in the jaw, chase pages start in atonia plus threat simulation, snakes start in amygdala-biased predator schema, sleep paralysis starts at the REM–wake motor lock. Scenario URLs exist only when the verb changes the circuit (bite vs watch, reject vs reunite), not when the title is a synonym farm.</p>
+      <p>I am Vigen G.R. Oneirox Dream Meaning is not a scraped omen table. Each pillar is a mechanism: teeth pages start in the jaw, chase pages start in atonia plus threat simulation, snakes start in amygdala-biased predator schema, sleep paralysis starts at the REM–wake motor lock. Scenario URLs exist only when the verb changes the circuit (bite vs watch, reject vs reunite), not when the title is a synonym farm. Place-memory deep dives that often need their own circuit: <a href="/dreams/being-chased/known-person/">being chased by a known person</a>, a <a href="/dreams/house-dreams/childhood-house/">childhood house dream</a>, and <a href="/dreams/homeland-and-diaspora/mount-ararat/">Mount Ararat in a dream</a>.</p>
       <p>Counts on this hub: ${entries.length} pillars, ${lfCount} scenario pages. Categories: ${esc(CATEGORY_ORDER.join(", "))}. If your night was mostly body (weight, mute, jerk, heat) and almost no plot, skip this library and open Somatic utilities or the Sensory Dream Mapper. If you have both, Lab Search can route you.</p>
       <p>What we refuse: “snake = enemy,” “teeth = money,” “water = emotion” as fixed equations. What we keep: SIGNAL (what the night was doing), BODY (what you still felt), MORNING (one check you can actually do). Then an instrument. Educational neuroscience — not a diagnosis.</p>
       <p>Pillars currently on this hub: ${entries.map((e) => `${esc(e.title)} (${esc(e.kicker || e.slug)})`).join("; ")}.</p>
