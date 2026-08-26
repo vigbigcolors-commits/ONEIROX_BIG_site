@@ -7,7 +7,7 @@
     "dev": "npx --yes serve public -p 3000",
     "preview": "npx --yes serve public -p 3000",
     "favicons": "node scripts/generate-favicons.mjs",
-    "pseo:expand": "node pseo/scripts/expand-matrix.mjs --target=400 --indexable=50",
+    "pseo:expand": "node pseo/scripts/expand-matrix.mjs --target=400 --indexable=11",
     "pseo:enrich": "node pseo/scripts/enrich-matrix.mjs",
     "pseo:audit": "node pseo/scripts/audit-uniqueness.mjs",
     "pseo:audit:crawl": "node pseo/scripts/audit-crawl-budget.mjs",

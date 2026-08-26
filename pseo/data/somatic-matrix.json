@@ -3,8 +3,8 @@
   "architecture": "safe-pseo-db-first",
   "generated_at": "2026-08-18T08:55:15.764Z",
   "count": 400,
-  "indexable_count": 50,
-  "indexable_cap": 50,
+  "indexable_count": 11,
+  "indexable_cap": 11,
   "entries": [
     {
       "id": "hypnopompic-somatic-surge--rem--awakening",
@@ -120,8 +120,8 @@
         "Atonia onset timing"
       ],
       "density_score": 127.4,
-      "indexable": true,
-      "index_rank": 2,
+      "indexable": false,
+      "index_rank": null,
       "body_zones": [
         "limbs",
         "axial-motor",
@@ -198,8 +198,8 @@
         "Micro-arousal taxonomy"
       ],
       "density_score": 125.6,
-      "indexable": true,
-      "index_rank": 3,
+      "indexable": false,
+      "index_rank": null,
       "body_zones": [
         "axial-motor"
       ],
@@ -274,8 +274,8 @@
         "Distal vs proximal atonia"
       ],
       "density_score": 124.8,
-      "indexable": true,
-      "index_rank": 4,
+      "indexable": false,
+      "index_rank": null,
       "body_zones": [
         "limbs"
       ],
@@ -350,7 +350,7 @@
       ],
       "density_score": 121.4,
       "indexable": true,
-      "index_rank": 5,
+      "index_rank": 2,
       "body_zones": [
         "limbs",
         "axial-motor",
@@ -428,7 +428,7 @@
       ],
       "density_score": 121,
       "indexable": true,
-      "index_rank": 6,
+      "index_rank": 3,
       "body_zones": [
         "limbs",
         "craniofacial",
@@ -505,8 +505,8 @@
         "Muscle atonia circuits"
       ],
       "density_score": 119.8,
-      "indexable": true,
-      "index_rank": 7,
+      "indexable": false,
+      "index_rank": null,
       "body_zones": [
         "thoracic",
         "craniofacial",
@@ -583,8 +583,8 @@
         "Homeostatic sleep pressure"
       ],
       "density_score": 119,
-      "indexable": true,
-      "index_rank": 8,
+      "indexable": false,
+      "index_rank": null,
       "body_zones": [
         "thoracic",
         "ocular"
@@ -660,7 +660,7 @@
       ],
       "density_score": 118,
       "indexable": true,
-      "index_rank": 9,
+      "index_rank": 4,
       "body_zones": [
         "axial-motor"
       ],
@@ -737,8 +737,8 @@
         "REM–NREM flip-flop"
       ],
       "density_score": 117.2,
-      "indexable": true,
-      "index_rank": 10,
+      "indexable": false,
+      "index_rank": null,
       "body_zones": [
         "thoracic",
         "axial-motor",
@@ -815,7 +815,7 @@
       ],
       "density_score": 114.8,
       "indexable": true,
-      "index_rank": 11,
+      "index_rank": 5,
       "body_zones": [
         "axial-motor"
       ],
@@ -890,8 +890,8 @@
         "REM–NREM flip-flop"
       ],
       "density_score": 114.8,
-      "indexable": true,
-      "index_rank": 12,
+      "indexable": false,
+      "index_rank": null,
       "body_zones": [
         "thoracic",
         "axial-motor",
@@ -968,8 +968,8 @@
         "Thalamocortical gating"
       ],
       "density_score": 114,
-      "indexable": true,
-      "index_rank": 13,
+      "indexable": false,
+      "index_rank": null,
       "body_zones": [
         "axial-motor"
       ],
@@ -1045,8 +1045,8 @@
         "Aminergic–cholinergic balance"
       ],
       "density_score": 113.8,
-      "indexable": true,
-      "index_rank": 14,
+      "indexable": false,
+      "index_rank": null,
       "body_zones": [
         "thoracic"
       ],
@@ -1120,8 +1120,8 @@
         "Thalamocortical gating"
       ],
       "density_score": 113.2,
-      "indexable": true,
-      "index_rank": 25,
+      "indexable": false,
+      "index_rank": null,
       "body_zones": [
         "limbs"
       ],
@@ -1196,7 +1196,7 @@
       ],
       "density_score": 112.6,
       "indexable": true,
-      "index_rank": 15,
+      "index_rank": 6,
       "body_zones": [
         "limbs"
       ],
@@ -1272,8 +1272,8 @@
         "REM–NREM flip-flop"
       ],
       "density_score": 112.2,
-      "indexable": true,
-      "index_rank": 26,
+      "indexable": false,
+      "index_rank": null,
       "body_zones": [
         "limbs"
       ],
@@ -1348,7 +1348,7 @@
       ],
       "density_score": 111.6,
       "indexable": true,
-      "index_rank": 16,
+      "index_rank": 7,
       "body_zones": [
         "axial-motor"
       ],
@@ -1418,8 +1418,8 @@
         "Autonomic sleep physiology"
       ],
       "density_score": 110.6,
-      "indexable": true,
-      "index_rank": 27,
+      "indexable": false,
+      "index_rank": null,
       "body_zones": [
         "ocular",
         "craniofacial",
@@ -1495,8 +1495,8 @@
         "Homeostatic sleep pressure"
       ],
       "density_score": 110.5,
-      "indexable": true,
-      "index_rank": 28,
+      "indexable": false,
+      "index_rank": null,
       "body_zones": [
         "ocular"
       ],
@@ -1571,7 +1571,7 @@
       ],
       "density_score": 110.4,
       "indexable": true,
-      "index_rank": 29,
+      "index_rank": 8,
       "body_zones": [
         "thoracic",
         "axial-motor"
@@ -1648,7 +1648,7 @@
       ],
       "density_score": 110,
       "indexable": true,
-      "index_rank": 30,
+      "index_rank": 9,
       "body_zones": [
         "limbs",
         "thoracic"
@@ -1725,7 +1725,7 @@
       ],
       "density_score": 110,
       "indexable": true,
-      "index_rank": 31,
+      "index_rank": 10,
       "body_zones": [
         "thoracic",
         "limbs",
@@ -1802,8 +1802,8 @@
         "Brainstem motor inhibition"
       ],
       "density_score": 109.8,
-      "indexable": true,
-      "index_rank": 32,
+      "indexable": false,
+      "index_rank": null,
       "body_zones": [
         "ocular",
         "craniofacial",
@@ -1881,7 +1881,7 @@
       ],
       "density_score": 109,
       "indexable": true,
-      "index_rank": 33,
+      "index_rank": 11,
       "body_zones": [
         "craniofacial"
       ],
@@ -1956,8 +1956,8 @@
         "Aminergic–cholinergic balance"
       ],
       "density_score": 107.9,
-      "indexable": true,
-      "index_rank": 34,
+      "indexable": false,
+      "index_rank": null,
       "body_zones": [
         "thoracic",
         "craniofacial"
@@ -2033,8 +2033,8 @@
         "Autonomic sleep physiology"
       ],
       "density_score": 107.2,
-      "indexable": true,
-      "index_rank": 35,
+      "indexable": false,
+      "index_rank": null,
       "body_zones": [
         "axial-motor"
       ],
@@ -2109,8 +2109,8 @@
         "Aminergic–cholinergic balance"
       ],
       "density_score": 106.9,
-      "indexable": true,
-      "index_rank": 36,
+      "indexable": false,
+      "index_rank": null,
       "body_zones": [
         "thoracic"
       ],
@@ -2185,8 +2185,8 @@
         "REM–NREM flip-flop"
       ],
       "density_score": 106.8,
-      "indexable": true,
-      "index_rank": 37,
+      "indexable": false,
+      "index_rank": null,
       "body_zones": [
         "craniofacial"
       ],
@@ -2262,8 +2262,8 @@
         "Brainstem motor inhibition"
       ],
       "density_score": 106.6,
-      "indexable": true,
-      "index_rank": 38,
+      "indexable": false,
+      "index_rank": null,
       "body_zones": [
         "thoracic",
         "ocular"
@@ -2338,8 +2338,8 @@
         "Autonomic sleep physiology"
       ],
       "density_score": 106.5,
-      "indexable": true,
-      "index_rank": 39,
+      "indexable": false,
+      "index_rank": null,
       "body_zones": [
         "thoracic",
         "craniofacial"
@@ -2415,8 +2415,8 @@
         "Sleep stage EEG banding"
       ],
       "density_score": 106.2,
-      "indexable": true,
-      "index_rank": 40,
+      "indexable": false,
+      "index_rank": null,
       "body_zones": [
         "ocular",
         "limbs",
@@ -2493,8 +2493,8 @@
         "Non-restorative NREM"
       ],
       "density_score": 104,
-      "indexable": true,
-      "index_rank": 41,
+      "indexable": false,
+      "index_rank": null,
       "body_zones": [
         "axial-motor"
       ],
@@ -2570,8 +2570,8 @@
         "Brainstem motor inhibition"
       ],
       "density_score": 103.9,
-      "indexable": true,
-      "index_rank": 42,
+      "indexable": false,
+      "index_rank": null,
       "body_zones": [
         "thoracic"
       ],
@@ -2646,8 +2646,8 @@
         "Sleep stage EEG banding"
       ],
       "density_score": 103.6,
-      "indexable": true,
-      "index_rank": 43,
+      "indexable": false,
+      "index_rank": null,
       "body_zones": [
         "axial-motor"
       ],
@@ -2723,8 +2723,8 @@
         "Autonomic sleep physiology"
       ],
       "density_score": 103.3,
-      "indexable": true,
-      "index_rank": 44,
+      "indexable": false,
+      "index_rank": null,
       "body_zones": [
         "axial-motor",
         "thoracic",
@@ -2802,8 +2802,8 @@
         "Thalamocortical gating"
       ],
       "density_score": 102.7,
-      "indexable": true,
-      "index_rank": 45,
+      "indexable": false,
+      "index_rank": null,
       "body_zones": [
         "limbs",
         "pelvic"
@@ -2878,8 +2878,8 @@
         "Thalamocortical gating"
       ],
       "density_score": 102.6,
-      "indexable": true,
-      "index_rank": 46,
+      "indexable": false,
+      "index_rank": null,
       "body_zones": [
         "axial-motor"
       ],
@@ -2955,8 +2955,8 @@
         "Homeostatic sleep pressure"
       ],
       "density_score": 102.4,
-      "indexable": true,
-      "index_rank": 47,
+      "indexable": false,
+      "index_rank": null,
       "body_zones": [
         "axial-motor"
       ],
@@ -3032,8 +3032,8 @@
         "Muscle atonia circuits"
       ],
       "density_score": 102.4,
-      "indexable": true,
-      "index_rank": 48,
+      "indexable": false,
+      "index_rank": null,
       "body_zones": [
         "axial-motor"
       ],
@@ -3108,8 +3108,8 @@
         "Homeostatic sleep pressure"
       ],
       "density_score": 102,
-      "indexable": true,
-      "index_rank": 49,
+      "indexable": false,
+      "index_rank": null,
       "body_zones": [
         "limbs"
       ],
@@ -3184,8 +3184,8 @@
         "Thalamocortical gating"
       ],
       "density_score": 101.8,
-      "indexable": true,
-      "index_rank": 50,
+      "indexable": false,
+      "index_rank": null,
       "body_zones": [
         "craniofacial",
         "axial-motor"
@@ -3261,8 +3261,8 @@
         "N1 tone reduction"
       ],
       "density_score": 100,
-      "indexable": true,
-      "index_rank": 17,
+      "indexable": false,
+      "index_rank": null,
       "body_zones": [
         "limbs",
         "axial-motor"
@@ -3337,8 +3337,8 @@
         "Thalamocortical gating"
       ],
       "density_score": 97,
-      "indexable": true,
-      "index_rank": 18,
+      "indexable": false,
+      "index_rank": null,
       "body_zones": [
         "axial-motor",
         "limbs"
@@ -3415,8 +3415,8 @@
         "Muscle atonia circuits"
       ],
       "density_score": 95.2,
-      "indexable": true,
-      "index_rank": 19,
+      "indexable": false,
+      "index_rank": null,
       "body_zones": [
         "axial-motor",
         "limbs"
@@ -3492,8 +3492,8 @@
         "Hypothalamic sleep control"
       ],
       "density_score": 94.4,
-      "indexable": true,
-      "index_rank": 20,
+      "indexable": false,
+      "index_rank": null,
       "body_zones": [
         "autonomic-skin"
       ],
@@ -3568,8 +3568,8 @@
         "PGO-related REM activity"
       ],
       "density_score": 94,
-      "indexable": true,
-      "index_rank": 21,
+      "indexable": false,
+      "index_rank": null,
       "body_zones": [
         "ocular",
         "limbs"
@@ -3645,8 +3645,8 @@
         "REM onset markers"
       ],
       "density_score": 92,
-      "indexable": true,
-      "index_rank": 22,
+      "indexable": false,
+      "index_rank": null,
       "body_zones": [
         "ocular",
         "axial-motor",
@@ -3723,8 +3723,8 @@
         "Nocturnal tumescence as REM marker"
       ],
       "density_score": 91,
-      "indexable": true,
-      "index_rank": 23,
+      "indexable": false,
+      "index_rank": null,
       "body_zones": [
         "pelvic",
         "limbs",
@@ -3801,8 +3801,8 @@
         "Sleep–wake motor recovery"
       ],
       "density_score": 91,
-      "indexable": true,
-      "index_rank": 24,
+      "indexable": false,
+      "index_rank": null,
       "body_zones": [
         "limbs",
         "craniofacial"

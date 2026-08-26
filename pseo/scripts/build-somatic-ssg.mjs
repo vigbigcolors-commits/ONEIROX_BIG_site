@@ -30,7 +30,7 @@ const CTA = fs.readFileSync(
 );
 const OUT_DIR = path.join(ROOT, "public", "somatic");
 const SITE = "https://oneirox.com";
-const INDEXABLE_CAP = 50;
+const INDEXABLE_CAP = 11;
 
 const TPL = {
   eeg_baseline: path.join(PSEO, "templates", "somatic-eeg-baseline.html"),

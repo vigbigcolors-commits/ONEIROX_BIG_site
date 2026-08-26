@@ -49,8 +49,10 @@ function main() {
   const dreamSm = locs(path.join(PUBLIC, "sitemap-dreams.xml"));
   const robots = fs.readFileSync(path.join(PUBLIC, "robots.txt"), "utf8");
 
-  if (!robots.includes("Disallow: /somatic/")) {
-    fails.push("robots.txt missing Disallow: /somatic/");
+  if (robots.includes("Disallow: /somatic/")) {
+    fails.push(
+      "robots.txt must NOT Disallow: /somatic/ (noindex demoted pages must stay crawlable)"
+    );
   }
   if (!robots.includes("Disallow: /dreams/*/*/")) {
     fails.push("robots.txt missing Disallow: /dreams/*/*/");
@@ -87,7 +89,7 @@ function main() {
     process.exit(1);
   }
   console.log(
-    `Crawl-budget OK: somatic sitemap ${somaticSm.length} · dreams sitemap ${dreamSm.length} · bulk Disallow present`
+    `Crawl-budget OK: somatic sitemap ${somaticSm.length} · dreams sitemap ${dreamSm.length} · no somatic Disallow · dreams LF Disallow present`
   );
 }
 

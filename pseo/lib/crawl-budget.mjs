@@ -1,6 +1,6 @@
 /**
  * Crawl-budget lock: sitemap = allowlist only; lastmod only on content hash change;
- * robots.txt Disallow for bulk PSEO (noindex is not a crawl-budget tool).
+ * dreams bulk LF Disallow; somatic indexing via sitemap + noindex (pages stay crawlable).
  */
 import fs from "node:fs";
 import path from "node:path";
@@ -14,7 +14,7 @@ const LASTMOD_STORE = path.join(PSEO, "data", "sitemap-lastmod.json");
 const SOMATIC_ALLOW = path.join(PSEO, "data", "indexable-allowlist.json");
 const DREAM_ALLOW = path.join(PSEO, "data", "dream-allowlist.json");
 
-export const SOMATIC_INDEXABLE_CAP = 50;
+export const SOMATIC_INDEXABLE_CAP = 11;
 export const DREAM_INDEX_CAP = 50;
 export const INDEX_PING_DAILY_CAP = 50;
 
@@ -98,14 +98,15 @@ export function writeRobotsTxt() {
     "User-agent: *",
     "Allow: /",
     "",
-    "# Crawl budget: bulk PSEO is Disallow. noindex still spends crawl if linked.",
-    "# Explicit Allow lines must out-specify Disallow (/dreams/*/*/ and /somatic/).",
+    "# Somatic: no Disallow:/somatic/ — demoted/noindex rows must stay crawlable",
+    "# so Google can read meta robots=noindex. Index control = sitemap + meta.",
+    "# Explicit Allow lists the KEEP deep set + hubs/assets for clarity.",
     "Allow: /somatic/$",
     "Allow: /somatic/phase/",
     "Allow: /somatic/assets/",
     ...somaticAllows,
-    "Disallow: /somatic/",
     "",
+    "# Dreams: bulk LF Disallow; Allowlines out-specify for indexable scenarios.",
     "Allow: /dreams/$",
     "Allow: /dreams/assets/",
     ...dreamAllows.filter((line) => line !== "Allow: /dreams/$"),
