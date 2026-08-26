@@ -721,6 +721,7 @@ function main() {
   }
 
   let lfWritten = 0;
+  let goldWritten = 0;
   for (const lf of lfEntries) {
     const parent = pillarMap.get(lf.parent_slug);
     if (!parent) {
@@ -735,14 +736,17 @@ function main() {
       }));
     const dir = path.join(OUT_DIR, lf.parent_slug, lf.slug);
     ensureDir(dir);
-    fs.writeFileSync(
-      path.join(dir, "index.html"),
-      pageHtmlLf(
-        { ...lf, indexable: lfIndexableSet.has(`${lf.parent_slug}/${lf.slug}`) },
-        parent,
-        siblings
-      )
+    const rendered = pageHtmlLf(
+      { ...lf, indexable: lfIndexableSet.has(`${lf.parent_slug}/${lf.slug}`) },
+      parent,
+      siblings
     );
+    fs.writeFileSync(path.join(dir, "index.html"), rendered);
+    if (lf.article_mode === "gold") {
+      // Re-assert from disk so generated HTML — not only in-memory string — is gated.
+      assertGoldHtmlClean(fs.readFileSync(path.join(dir, "index.html"), "utf8"), lf);
+      goldWritten++;
+    }
     lfWritten++;
   }
 
@@ -753,7 +757,7 @@ function main() {
   writeRobotsTxt();
 
   console.log(
-    `Dream Meaning SSG: ${entries.length} pillars · ${lfWritten} LF · sitemap ${sm} · allowlist ${al} · indexable LF ${lfIndexable.length}`
+    `Dream Meaning SSG: ${entries.length} pillars · ${lfWritten} LF · gold ${goldWritten} · sitemap ${sm} · allowlist ${al} · indexable LF ${lfIndexable.length}`
   );
 }
 

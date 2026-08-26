@@ -12,7 +12,10 @@
       "slug": "bitten",
       "article_mode": "gold",
       "custom_body_file": "snakes-bitten.html",
-      "gold_sibling_slugs": ["chasing-you", "in-bed"],
+      "gold_sibling_slugs": [
+        "chasing-you",
+        "in-bed"
+      ],
       "title": "Dream About Being Bitten by a Snake",
       "meta_title": "Snake Bite Dream Meaning — Why Contact Differs from Seeing a Snake | Oneirox",
       "meta_description": "What a dream about a snake biting you can mean when you weigh bite timing, body location, pain, and waking sensation — without a universal symbol dictionary.",
@@ -135,40 +138,37 @@
       "parent_slug": "snakes",
       "slug": "coiled-watching",
       "title": "Dream About a Coiled Snake Watching You",
-      "meta_title": "Coiled Snake Watching Dream — Freeze Threat Pose | Oneirox",
-      "meta_description": "A coiled watching snake is freeze-phase threat simulation: high vigilance, low locomotion — not a color omen.",
-      "kicker": "Freeze phase, not strike phase",
-      "lead": "It does not chase. It watches. Coil tight, head angled, distance fixed. That pose is the threat system stuck in freeze — maximum monitoring, minimum movement.",
+      "meta_title": "Coiled Snake Watching You in a Dream — Vigilance Threat | Oneirox",
+      "meta_description": "Why a coiled staring snake is stationary monitored threat — freeze and anticipation — not chase, not bite, not a color omen.",
+      "kicker": "Watched by a coil",
+      "lead": "",
       "signal": "Your REM threat circuit is in vigilance-without-locomotion mode; the coiled snake is the freeze schema rendered as predator geometry.",
-      "body_paragraphs": [
-        "Threat responses are not only fight or flight. Freeze and tonic immobility are core mammalian options. In REM, when motor output is already locked by atonia, freeze narratives are cheap to build: a still threat that watches you matches the felt inability to act.",
-        "Eye contact with a coiled snake often coincides with elevated heart-rate variability swings on wearable data from nightmare labs — monitoring without resolution. Dictionaries invent “wisdom” or “jealousy”; the physiology is unresolved vigilance.",
-        "If the coil never strikes across the whole dream, the night’s arousal may have stayed sub-threshold for a full panic cascade while still keeping threat online."
-      ],
+      "body_paragraphs": [],
       "variants": [
         {
-          "q": "Snake watches but never moves",
-          "a": "Classic freeze tableau — threat salience without pursuit completion."
+          "q": "What does a coiled snake watching me mean?",
+          "a": "It usually maps to vigilance under uncertainty: threat held ready without strike or chase. Write whether distance stayed fixed and whether you froze too."
         },
         {
-          "q": "You freeze when it looks at you",
-          "a": "Mutual immobility: dream ego mirrors REM motor lock."
-        }
-      ],
-      "morning_prompt": "Where in waking life are you monitoring a problem without acting? That matches freeze geometry better than symbol charts.",
-      "related_somatic": [
+          "q": "How is that different from a snake bite dream?",
+          "a": "Watching is open-loop monitoring. A bite is contact completion. Different verbs, different pages."
+        },
         {
-          "href": "/somatic/hypnopompic-immobility/rem/awakening/",
-          "label": "Hypnopompic immobility"
+          "q": "Does the stare mean someone is jealous?",
+          "a": "Not as a scientific claim. Eye-contact intensity tracks monitoring demand in the scene — personal social mappings are optional after that."
         }
       ],
+      "morning_prompt": "Note distance held, movement yes/no, freeze in yourself, and any waking problem you are only monitoring.",
+      "related_somatic": [],
       "related_mechanics": {
         "href": "/mechanics/rem/atonia/",
         "label": "REM atonia lock"
       },
       "mechanism_key": "freeze_vigilance_coil_pose",
       "indexable": true,
-      "wave": "A"
+      "wave": "A",
+      "article_mode": "gold",
+      "custom_body_file": "snakes-coiled-watching.html"
     },
     {
       "parent_slug": "snakes",
@@ -213,40 +213,37 @@
       "parent_slug": "snakes",
       "slug": "dead-snake",
       "title": "Dream About a Dead Snake",
-      "meta_title": "Dead Snake Dream Meaning — Threat Offline Signal | Oneirox",
-      "meta_description": "A dead snake dream often marks threat-offline consolidation — the fear-relevant object without the autonomic engine running.",
-      "kicker": "Threat object, engine off",
-      "lead": "The snake is there, but it does not move. Dead, limp, already finished. Dictionaries sell victory metaphors. Mechanically, you are looking at a fear-relevant object with the arousal engine dialed down.",
+      "meta_title": "Dead Snake Dream Meaning — Threat Offline, Not Instant Victory | Oneirox",
+      "meta_description": "What a dead or inert snake in a dream can mean when threat imagery remains but approach and attack are offline — without assuming the problem is solved.",
+      "kicker": "Inert snake, threat offline",
+      "lead": "",
       "signal": "Predator schema is still available to imagery, but amygdala drive is low enough that the scene resolves as inert rather than attacking.",
-      "body_paragraphs": [
-        "Fear-relevant categories can appear in non-threat modes. A dead snake keeps the category (attention bias) while removing pursuit, bite, and freeze. That combination often shows up after a stressor has been partially resolved waking — residual imagery without live panic.",
-        "Memory consolidation sometimes replays the “solved” version of a fear stimulus. Lab nightmare treatments that reduce affective charge can leave patients dreaming of the same figure with lower intensity; dead/inert variants fit that arc.",
-        "If disgust dominates over fear, olfactory or visceral cues may be co-driving the scene more than predator detection."
-      ],
+      "body_paragraphs": [],
       "variants": [
         {
-          "q": "You kill the snake",
-          "a": "Active termination usually mirrors waking agency reclaiming a previously stuck threat loop."
+          "q": "What does a dead snake mean in a dream?",
+          "a": "Often a fear-relevant image with the approach engine off — residual category without live attack. That can feel like relief, but it is not automatic proof a waking conflict is closed."
         },
         {
-          "q": "Finding a dead snake unexpectedly",
-          "a": "Discovery without combat leans consolidation residue over live simulation."
-        }
-      ],
-      "morning_prompt": "Did a waking conflict ease in the last 48 hours? Dead-threat imagery often lags resolution by a night or two.",
-      "related_somatic": [
+          "q": "Is killing the snake different from finding it dead?",
+          "a": "Yes as agency story. Killing leans closure fantasy; finding leans discovery/aftermath. Neither is a guaranteed certificate of resolution."
+        },
         {
-          "href": "/somatic/early-n3-stillness/n3/mid-cycle/",
-          "label": "Early N3 stillness"
+          "q": "Why was I still afraid of a dead snake?",
+          "a": "Visual offline and autonomic charge can diverge. Fear can stay high even when the plot shows an inert body."
         }
       ],
+      "morning_prompt": "Note dead vs merely still, who caused death, fear level, and any conflict that only went quiet.",
+      "related_somatic": [],
       "related_mechanics": {
         "href": "/mechanics/rem/cortex-eeg/",
         "label": "REM cortex & EEG"
       },
       "mechanism_key": "threat_schema_arousal_offline",
       "indexable": true,
-      "wave": "A"
+      "wave": "A",
+      "article_mode": "gold",
+      "custom_body_file": "snakes-dead-snake.html"
     },
     {
       "parent_slug": "snakes",
@@ -291,35 +288,31 @@
       "parent_slug": "snakes",
       "slug": "in-bed",
       "title": "Dream About a Snake in Your Bed",
-      "meta_title": "Snake in Bed Dream — Intimate-Zone Threat | Oneirox",
-      "meta_description": "A snake in the bed is intimate-zone threat plus real sheet/skin cues — proximity, not sexual superstition by default.",
-      "kicker": "Threat in the sleep surface",
-      "lead": "It is in the sheets with you. Against your leg, under the pillow, along your spine. This is maximum proximity: the predator schema occupying the same surface your body occupies.",
+      "meta_title": "Snake in Bed Dream Meaning — Threat in Sleep Space | Oneirox",
+      "meta_description": "Why a snake in bed combines threat imagery with intimate sleep space and possible tactile cues — distinct from merely seeing, chasing, or being bitten.",
+      "kicker": "Snake in the sleep surface",
+      "lead": "",
       "signal": "Intimate-zone threat plus possible real cutaneous feedback from sheets, partner movement, or limb paresthesia get bound into one snake-in-bed narrative.",
-      "body_paragraphs": [
-        "The bed is both a sleep instrument and an affectively loaded place. Threat there compresses escape options to near zero inside the dream’s logic. Amygdala responds hard to inescapable proximity.",
-        "Real signals matter: a foot cramp, sheet tuck, partner’s leg, or hypnagogic limb-float can be misattributed as a living form beside you. Snake is a high-salience default for elongated pressure along the body.",
-        "Sexualized readings are optional continuity overlays, not required. Start with proximity + cutaneous seed before symbolism."
-      ],
+      "body_paragraphs": [],
       "variants": [
         {
-          "q": "Snake wrapping your leg in bed",
-          "a": "Limb wrapping maps cleanly onto real pressure or circulatory oddness in the same limb."
+          "q": "What does a snake in my bed mean in a dream?",
+          "a": "It places a threat image on the sleep surface — maximum proximity. Check whether it was only present, touching, or biting before any relationship superstition."
         },
         {
-          "q": "You wake and still feel it",
-          "a": "Hypnopompic residue: dream percept briefly outlives REM before sensory gates reopen fully."
+          "q": "Is a snake in bed the same as a snake bite dream?",
+          "a": "No. Bed presence or touch is not contact-complete bite. Bite nights need the bite-specific reading."
+        },
+        {
+          "q": "Why did I still feel it after waking?",
+          "a": "Residual pressure, tingling, or sheet tangle can outlast the dream image. Treat lasting numbness or pain as body-first."
         }
       ],
-      "morning_prompt": "Any real pressure, cramp, or sheet tangle on waking? Log that before any relationship interpretation.",
+      "morning_prompt": "Record present vs touch vs bite, mattress location, and any waking skin residue.",
       "related_somatic": [
         {
-          "href": "/somatic/hypnagogic-limb-float/n1/onset/",
-          "label": "Hypnagogic limb float"
-        },
-        {
-          "href": "/somatic/n1-skin-crawl/n1/onset/",
-          "label": "N1 skin-crawl"
+          "href": "/somatic/hypnagogic-tachycardia/n1/onset/",
+          "label": "Hypnagogic tachycardia — N1/onset"
         }
       ],
       "related_mechanics": {
@@ -328,33 +321,35 @@
       },
       "mechanism_key": "intimate_surface_cutaneous_bind",
       "indexable": true,
-      "wave": "A"
+      "wave": "A",
+      "article_mode": "gold",
+      "custom_body_file": "snakes-in-bed.html"
     },
     {
       "parent_slug": "teeth-falling-out",
       "slug": "with-blood",
       "title": "Dream About Teeth Falling Out with Blood",
-      "meta_title": "Teeth Falling Out with Blood Dream — High-Arousal Bruxism | Oneirox",
-      "meta_description": "Bloody teeth dreams add amygdala spike to oral-pressure interoception — higher arousal bruxism nights, not a death omen.",
-      "kicker": "Oral pressure + threat dye",
-      "lead": "Teeth loosen, then blood. The mouth fills. Search engines will sell you catastrophe. The mechanism is usually the same jaw story with the threat dial turned up.",
+      "meta_title": "Teeth Falling Out Dream with Blood — Intensity, Not Omen | Oneirox",
+      "meta_description": "Why blood in a teeth-falling dream raises felt injury intensity without creating a universal symbolic meaning — and how to check jaw clues carefully.",
+      "kicker": "Bloody teeth dream",
+      "lead": "",
       "signal": "Sleep-related oral pressure is still the seed; blood tags the scene with higher limbic arousal so the narrative reads as injury, not mere looseness.",
-      "body_paragraphs": [
-        "Sleep bruxism delivers real periodontal and masseter signals. On higher-arousal nights — stress, caffeine, REM fragmentation — amygdala dye stains the same oral data as injury. Blood is the dye, not a new dental mechanism.",
-        "Survey work links teeth dreams to anxiety load, but the bloody subset clusters with more intense autonomic nights. That is amplitude, not a separate superstition lane.",
-        "If you taste metal or wake with a bitten cheek, treat that as possible microtrauma seed worth a dental check — physiology first."
-      ],
+      "body_paragraphs": [],
       "variants": [
         {
-          "q": "Spitting teeth and blood",
-          "a": "Expulsion motor framing often pairs with stronger masseter bursts and a need to “clear” the oral cavity in the dream’s logic."
+          "q": "What does it mean when teeth fall out with blood in a dream?",
+          "a": "Blood usually marks higher injury tagging and arousal in an oral scene — not a fixed death or money omen. Check morning jaw state before symbol charts."
         },
         {
-          "q": "Blood but little pain",
-          "a": "Visual threat tagging without full nociceptive narrative — common when arousal is visual-limbic more than pain-map driven."
+          "q": "Does blood prove bruxism?",
+          "a": "No. Bruxism is a waking/sleep physiology hypothesis to check with sore jaw, cheek bite, or grinding reports — not a diagnosis from one dream."
+        },
+        {
+          "q": "Is bloody worse than painless teeth dreams?",
+          "a": "It often feels worse as intensity. That is amplitude in the scene, not a guaranteed worse waking fortune."
         }
       ],
-      "morning_prompt": "Jaw sore? Cheek bitten? Headache at the temples? Those three checks beat omen lists.",
+      "morning_prompt": "Note blood/pain/spitting, then check jaw, cheek, temples, and sleep fragmentation.",
       "related_somatic": [
         {
           "href": "/somatic/sleep-related-bruxism/n2/mid-cycle/",
@@ -367,7 +362,9 @@
       },
       "mechanism_key": "oral_pressure_high_arousal_bleed",
       "indexable": true,
-      "wave": "A"
+      "wave": "A",
+      "article_mode": "gold",
+      "custom_body_file": "teeth-falling-out-with-blood.html"
     },
     {
       "parent_slug": "teeth-falling-out",
@@ -810,35 +807,31 @@
       "parent_slug": "falling",
       "slug": "hypnic-onset-jolt",
       "title": "Dream About Falling as You Fall Asleep",
-      "meta_title": "Falling Asleep Jolt Dream — Hypnic Jerk Mechanism | Oneirox",
-      "meta_description": "The classic falling-as-you-doze dream is usually a hypnic jerk plus vestibular misbind — N1 physiology, not prophecy.",
-      "kicker": "N1 myoclonic startle",
-      "lead": "You are drifting, then the bed vanishes and you drop. You jerk awake. That is one of the best-mapped dream-body events in sleep science.",
+      "meta_title": "Falling Sensation When Falling Asleep — Hypnic Jolt | Oneirox",
+      "meta_description": "Why the falling-as-you-doze jolt is an N1 sleep-onset event — hypnic jerk and vestibular misbind — not the same as a long REM falling dream.",
+      "kicker": "Sleep-onset falling jolt",
+      "lead": "",
       "signal": "A hypnic jerk (sleep-onset myoclonus) plus transient vestibular/proprioceptive misbind is being narrativized as falling at the N1 edge.",
-      "body_paragraphs": [
-        "Hypnic jerks are common in healthy people, especially with caffeine, stress, or irregular schedules. The muscle twitch is real; the falling story is the cortex explaining a sudden motor and vestibular mismatch while consciousness is half-online.",
-        "Unlike long REM falling dreams, onset jolts are brief, often single-cycle, and tightly coupled to the bodily startle.",
-        "If jolts are frequent and violent, discuss with a clinician — still, the dream content itself is usually explanatory theater, not omen."
-      ],
+      "body_paragraphs": [],
       "variants": [
         {
-          "q": "Falling then immediate wake",
-          "a": "Classic hypnic exit — arousal ends the scene before REM storytelling deepens."
+          "q": "Why do I feel like I’m falling as I fall asleep?",
+          "a": "Often a hypnic jerk plus a brief body-position mismatch at sleep onset gets narrated as falling — then you wake. It is timing-linked to N1, not a prophecy."
         },
         {
-          "q": "Falling into bed from height at onset",
-          "a": "Same N1 mechanism with a taller visual drop attached to the twitch."
+          "q": "Is this the same as dreaming of falling from a height?",
+          "a": "Usually not. Onset jolts are seconds and body-first. Longer mid-night falling scenes are different REM plots."
+        },
+        {
+          "q": "What makes hypnic jolts more frequent?",
+          "a": "Sleep debt, irregular bedtimes, late caffeine, and high evening arousal are commonly discussed gates — check those before omen charts."
         }
       ],
-      "morning_prompt": "Caffeine late? Sleep debt? Irregular bedtime? Those three gate hypnic frequency.",
+      "morning_prompt": "Confirm onset timing, real twitch, and caffeine/sleep-debt for that day.",
       "related_somatic": [
         {
           "href": "/somatic/hypnic-jerk/n1/onset/",
           "label": "Hypnic jerk — N1/onset"
-        },
-        {
-          "href": "/somatic/n1-falling-elevator/n1/onset/",
-          "label": "N1 falling-elevator percept"
         }
       ],
       "related_mechanics": {
@@ -847,7 +840,9 @@
       },
       "mechanism_key": "n1_hypnic_vestibular_jolt",
       "indexable": true,
-      "wave": "A"
+      "wave": "A",
+      "article_mode": "gold",
+      "custom_body_file": "falling-hypnic-onset-jolt.html"
     },
     {
       "parent_slug": "falling",
@@ -1009,27 +1004,27 @@
       "parent_slug": "being-chased",
       "slug": "known-person",
       "title": "Dream About Being Chased by Someone You Know",
-      "meta_title": "Chased by Someone You Know — Relational Threat REM | Oneirox",
-      "meta_description": "Known-person chase dreams bind threat-simulation to an active relational stressor — continuity plus REM pursuit hardware.",
-      "kicker": "Familiar face, pursuit engine",
-      "lead": "It is not a stranger. It is someone with a name. That name is the continuity clue; the chase geometry is still REM threat hardware.",
+      "meta_title": "Dream of Being Chased by Someone You Know | Oneirox",
+      "meta_description": "How a known pursuer differs from anonymous chase dreams — autobiographical memory on pursuit hardware, without relationship fortune-telling.",
+      "kicker": "Named pursuer chase",
+      "lead": "",
       "signal": "Pursuit threat-simulation with a personally tagged pursuer — memory consolidation is attaching an unresolved relational file to the chase loop.",
-      "body_paragraphs": [
-        "Undefined pursuers fit diffuse stress. Named pursuers fit specific unfinished interpersonal business. The legs still feel heavy for atonia reasons either way.",
-        "The known person need not be literally dangerous waking. Your brain may cast them as pursuer because they are the highest-salience agent attached to a conflict you have not closed.",
-        "If you feel guilt while fleeing, note that — affective tone sorts confrontation-avoidance from pure fear."
-      ],
+      "body_paragraphs": [],
       "variants": [
         {
-          "q": "Chased by a boss or teacher",
-          "a": "Evaluation authority cast into pursuit — performance threat with legs."
+          "q": "What does it mean to be chased by someone I know in a dream?",
+          "a": "Often the chase engine binds an unfinished relational file to pursuit geometry. The person is continuity content — not proof of their waking intent."
         },
         {
-          "q": "Chased by an ex",
-          "a": "Attachment residue plus pursuit — see also ex-partner LF pages for bond-specific angles."
+          "q": "Why not a stranger?",
+          "a": "Anonymous pursuers fit diffuse threat. Named pursuers fit specific hot interpersonal memory. Motor lock can feel the same either way."
+        },
+        {
+          "q": "Does this mean that person is dangerous?",
+          "a": "Not by default. Casting someone as pursuer can mean the relationship file is emotionally salient, not that they will harm you tomorrow."
         }
       ],
-      "morning_prompt": "What conversation with that person is still pending? Pending talk feeds named chase.",
+      "morning_prompt": "Name the person/role, unfinished waking thread, and whether violence exceeded waking reality.",
       "related_somatic": [
         {
           "href": "/somatic/cortisol-awakening-motor/n1/awakening/",
@@ -1042,7 +1037,9 @@
       },
       "mechanism_key": "named_agent_pursuit_continuity",
       "indexable": true,
-      "wave": "A"
+      "wave": "A",
+      "article_mode": "gold",
+      "custom_body_file": "being-chased-known-person.html"
     },
     {
       "parent_slug": "being-chased",
@@ -1364,35 +1361,31 @@
       "parent_slug": "sleep-paralysis",
       "slug": "with-presence",
       "title": "Sleep Paralysis with a Presence in the Room",
-      "meta_title": "Sleep Paralysis Presence — Intruder Hallucination + Atonia | Oneirox",
-      "meta_description": "A felt presence during sleep paralysis is intruder hallucination on REM atonia — terrifying, common, not a visitation.",
-      "kicker": "Atonia + intruder schema",
-      "lead": "You cannot move. Something is in the room. You know it is there before you see it. This is one of the most replicated REM-wake overlap phenomena in the literature.",
+      "meta_title": "Sleep Paralysis with a Presence or Shadow Figure | Oneirox",
+      "meta_description": "Why a sensed presence or shadow figure during sleep paralysis is different from paralysis alone — layers of atonia, presence, and hallucination without visitation claims.",
+      "kicker": "Presence during paralysis",
+      "lead": "",
       "signal": "REM atonia persists into wake-like awareness while threat-intruder hallucination fills the sensory gap — classic sleep-paralysis package.",
-      "body_paragraphs": [
-        "Sleep paralysis occurs when REM muscle inhibition outlasts the dream or arrives at the wrong edge of sleep. Consciousness returns; the body stays locked.",
-        "Felt presence is a common accompanying hallucination: the brain expects an agent when threat arousal is high and sensory data is incomplete. Cross-cultural “old hag / intruder” reports share this hardware.",
-        "Supine position, irregular sleep, and anxiety increase odds. It is frightening and usually benign — still worth clinical advice if frequent."
-      ],
+      "body_paragraphs": [],
       "variants": [
         {
-          "q": "Shadow figure at the foot of the bed",
-          "a": "Common visual bind for the presence hallucination — shape without face detail."
+          "q": "What does a presence during sleep paralysis mean?",
+          "a": "It usually means wake-like awareness while the body stays locked, plus a threat-agent hallucination filling incomplete sensory data — terrifying and common, not proof of a visitor."
         },
         {
-          "q": "Presence without visual form",
-          "a": "Pure agency detection without imagery — still the same intruder tagging."
+          "q": "Is a shadow figure the same as sensed presence?",
+          "a": "No. Presence can arrive without a finished visual. A shadow is visual completion; footsteps or pressure are other channels. Write which you had."
+        },
+        {
+          "q": "When should I talk to a clinician?",
+          "a": "Recurrent episodes with daytime sleepiness, choking/snoring collapse, or severe schedule disruption deserve a sleep-aware clinician. This page is educational, not a diagnosis."
         }
       ],
-      "morning_prompt": "Sleep schedule chaos this week? Irregular REM timing is a major gate for paralysis nights.",
+      "morning_prompt": "Note sleep-onset vs waking, presence vs visual vs auditory vs pressure, and sleep timing that week.",
       "related_somatic": [
         {
           "href": "/somatic/sleep-paralysis-onset/rem/awakening/",
           "label": "Sleep paralysis onset — REM/awakening"
-        },
-        {
-          "href": "/somatic/hypnopompic-immobility/rem/awakening/",
-          "label": "Hypnopompic immobility"
         }
       ],
       "related_mechanics": {
@@ -1401,7 +1394,9 @@
       },
       "mechanism_key": "atonia_intruder_presence_hallucination",
       "indexable": true,
-      "wave": "A"
+      "wave": "A",
+      "article_mode": "gold",
+      "custom_body_file": "sleep-paralysis-with-presence.html"
     },
     {
       "parent_slug": "sleep-paralysis",
@@ -1696,40 +1691,37 @@
       "parent_slug": "house-dreams",
       "slug": "childhood-house",
       "title": "Dream About Your Childhood House",
-      "meta_title": "Childhood House Dream — Old Spatial-Affect Map | Oneirox",
-      "meta_description": "Childhood-house dreams reactivate old spatial-affect maps — dense memory, not a real-estate omen.",
-      "kicker": "Old map, live affect",
-      "lead": "The hallway is wrong and right at once. Rooms from age nine. Your current adult body walking a child’s floorplan. Memory architecture is the mechanism.",
+      "meta_title": "Dream About Childhood House or Home — Place Memory | Oneirox",
+      "meta_description": "Why childhood-house dreams reactivate old spatial-affect maps — returning, trapped, or observing — without claiming house universally equals the self.",
+      "kicker": "Childhood house in dreams",
+      "lead": "",
       "signal": "Early spatial-affect maps are being re-entered during consolidation — high-density autobiographical place memory online in REM.",
-      "body_paragraphs": [
-        "Houses in dreams often stand for self-structure in popular talk. Mechanically, childhood homes are simply among the densest place memories you own — easy for REM to load.",
-        "Returning there during adult stress is common: the brain searches early safety/threat templates when current maps feel unstable.",
-        "Detail accuracy varies; emotional tone of the rooms is the useful morning signal."
-      ],
+      "body_paragraphs": [],
       "variants": [
         {
-          "q": "Childhood house with wrong rooms",
-          "a": "Map corruption — memory reconsolidation under stress, not a secret wing prophecy."
+          "q": "What does it mean to dream about your childhood home?",
+          "a": "Usually an old place-memory map coming online — rooms, people, era — not a fixed law that house equals the self."
         },
         {
-          "q": "Parents still living there as then",
-          "a": "Time-locked cast — affective memory more than current family logistics."
-        }
-      ],
-      "morning_prompt": "What current instability sent you looking for an old map? Name the instability.",
-      "related_somatic": [
+          "q": "Why is the layout wrong?",
+          "a": "Memory recombination. Wrong-and-right floorplans are reconstruction, not real-estate prophecy."
+        },
         {
-          "href": "/somatic/early-n3-stillness/n3/mid-cycle/",
-          "label": "Early N3 stillness"
+          "q": "Why can’t I leave the house in the dream?",
+          "a": "Trapped verb reduces escape options inside an old map. Note returning vs trapped vs observing — those verbs matter more than décor."
         }
       ],
+      "morning_prompt": "Note era/address, who was present, returning/trapped/observing, and current instability that may have pulled the old map.",
+      "related_somatic": [],
       "related_mechanics": {
         "href": "/mechanics/rem/cycle-timing/",
         "label": "REM cycle timing"
       },
       "mechanism_key": "autobiographical_place_map_reactivation",
       "indexable": true,
-      "wave": "A"
+      "wave": "A",
+      "article_mode": "gold",
+      "custom_body_file": "house-dreams-childhood-house.html"
     },
     {
       "parent_slug": "water-and-drowning",
@@ -4060,48 +4052,37 @@
       "parent_slug": "homeland-and-diaspora",
       "slug": "mount-ararat",
       "title": "Dream About Mount Ararat",
-      "meta_title": "Dream About Mount Ararat — Homeland Place Memory | Oneirox",
-      "meta_description": "An Ararat dream is homeland place-map salience in REM — attachment and autobiographical geography, not a Noah omen chart.",
-      "kicker": "The densest homeland place schema",
-      "lead": "The mountain is there — snow line, mass, distance that feels personal even if you have never stood on it. Spiritual blogs sell salvation metaphors. The Lab reads place memory and attachment under REM.",
+      "meta_title": "Dream About Mount Ararat — Place Memory & Diaspora | Oneirox",
+      "meta_description": "How Mount Ararat dreams often draw on homeland place memory and diaspora geography — cultural density and personal affect without Noah-dictionary claims.",
+      "kicker": "Ararat as place memory",
+      "lead": "",
       "signal": "Your cortex loaded a culturally overtrained place schema — Mount Ararat as homeland peak — into REM consolidation; high visual salience meets diaspora attachment drive.",
-      "body_paragraphs": [
-        "For many Armenians in the diaspora, Ararat is not a random mountain. It is among the densest place images in cultural memory — seen in photos, paintings, church backdrops, family talk — even when the waking body lives in Los Angeles, Glendale, Boston, or New York. REM loves high-density place maps. Continuity hypothesis: unfinished homeland affect gets the most available peak.",
-        "Spiritual SERP pages map Ararat to Noah, renewal, and enlightenment. That is folklore SEO. Oneirox starts elsewhere: place cells and autobiographical geography still operate in sleep; a mountain that already carries identity load is cheap for the dream engine to cast when attachment or belonging is consolidating.",
-        "If the dream is calm awe, amygdala dye is lower. If panic or unreachable distance dominates, threat/access geometry is stacked on the same place schema. Check body residue on waking — chest weight, tearfulness, or calm — before any omen list."
-      ],
+      "body_paragraphs": [],
       "variants": [
         {
-          "q": "Ararat huge and close",
-          "a": "Proximity intensifies place salience — the map pulled you into contact range, often when belonging feels urgent waking."
+          "q": "What does dreaming of Mount Ararat mean?",
+          "a": "Often a high-density homeland place image entering REM — belonging, distance, or return themes — not a mandatory flood-myth decoding."
         },
         {
-          "q": "Ararat far across a border you cannot cross",
-          "a": "Place schema plus access denial — diaspora geometry: the peak exists, the path does not."
+          "q": "I have never been to Armenia. Why Ararat?",
+          "a": "Mediated cultural memory can still load a place file from family, images, and talk. That is continuity, not a supernatural summons."
         },
         {
-          "q": "You have never been to Armenia but dream Ararat",
-          "a": "Cultural place training is enough. The schema can load from family narrative and media without episodic travel memory."
+          "q": "Is this a spiritual prophecy?",
+          "a": "Oneirox does not treat Ararat dreams as prophecy. Affect and personal/community meaning are yours; neuroscience only supports familiar places being easy to cast in sleep."
         }
       ],
-      "morning_prompt": "Did the mountain feel like home, like loss, or like a postcard? That affect sorts attachment consolidation from generic mountain awe.",
-      "related_somatic": [
-        {
-          "href": "/somatic/hypnopompic-chest-weight/rem/awakening/",
-          "label": "Hypnopompic chest weight"
-        },
-        {
-          "href": "/somatic/early-n3-stillness/n3/mid-cycle/",
-          "label": "Early N3 stillness"
-        }
-      ],
+      "morning_prompt": "Write affect (home/loss/awe), access (close/far/blocked), and any recent homeland cues.",
+      "related_somatic": [],
       "related_mechanics": {
         "href": "/mechanics/rem/cycle-timing/",
         "label": "REM cycle timing"
       },
       "mechanism_key": "homeland_peak_place_map_salience",
       "indexable": true,
-      "wave": "C"
+      "wave": "C",
+      "article_mode": "gold",
+      "custom_body_file": "homeland-and-diaspora-mount-ararat.html"
     },
     {
       "parent_slug": "homeland-and-diaspora",
