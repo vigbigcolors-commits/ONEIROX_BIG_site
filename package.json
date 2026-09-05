@@ -13,6 +13,8 @@
     "pseo:audit:crawl": "node pseo/scripts/audit-crawl-budget.mjs",
     "pseo:dreams:build": "node pseo/scripts/build-dreams-ssg.mjs",
     "pseo:build": "node pseo/scripts/audit-uniqueness.mjs && node pseo/scripts/build-somatic-ssg.mjs && node pseo/scripts/link-mechanics-pillars.mjs && node pseo/scripts/build-dreams-ssg.mjs && node pseo/scripts/audit-crawl-budget.mjs",
+    "pseo:lab-search:index": "node pseo/scripts/build-lab-search-index.mjs",
+    "pseo:lab-search:test": "node pseo/scripts/test-lab-search.mjs",
     "pseo:link-mechanics": "node pseo/scripts/link-mechanics-pillars.mjs",
     "pseo:index": "node pseo/scripts/submit-indexing.mjs --source=all --limit=50",
     "pseo:index:dreams": "node pseo/scripts/submit-indexing.mjs --source=dreams --limit=50",

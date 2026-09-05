@@ -67,7 +67,12 @@
   pointer-events: none;
 }
 
-/* After results: keep paint cheap while scrolling past hero */
+/* After results: keep paint cheap while scrolling past hero.
+   overflow:visible so expanded results are never clipped by hero shell. */
+.onx-lab-hero.has-lab-results {
+  overflow: visible;
+}
+
 .onx-lab-hero.has-lab-results .onx-neiro-synapses__node,
 .onx-lab-hero.has-lab-results .onx-neiro-synapses__link,
 .onx-lab-hero.has-lab-results .onx-neiro-synapses__pulse,
@@ -79,8 +84,11 @@
 .onx-lab-search__results {
   margin-top: 20px;
   contain: layout paint style;
-  content-visibility: auto;
-  contain-intrinsic-size: 280px;
+  scroll-margin-top: 24px;
+}
+
+.onx-lab-search__results:focus {
+  outline: none;
 }
 
 .onx-lab-search__intro {
