@@ -107,12 +107,27 @@ async function staticServer() {
 }
 
 async function browserTests() {
-  const { server, base } = await staticServer();
+  const externalBase = process.env.LAB_SEARCH_BASE;
+  const local = externalBase ? null : await staticServer();
+  const base = externalBase || local.base;
   const browser = await chromium.launch({ headless: true });
   const page = await browser.newPage({ viewport: { width: 1280, height: 900 } });
   const errors = [];
   page.on("pageerror", (e) => errors.push(e.message));
   await page.goto(base + "/", { waitUntil: "networkidle" });
+  const runtime = await page.evaluate(async () => {
+    const script = [...document.scripts].find((el) => /lab-search\.js/.test(el.src));
+    const response = await fetch("/data/lab-search-index.json", { credentials: "same-origin" });
+    return {
+      script: script?.src || "",
+      hook: !!window.__ONX_LAB_SEARCH__,
+      indexStatus: response.status,
+      indexVersion: response.ok ? (await response.json()).version : null,
+    };
+  });
+  if (!runtime.hook || runtime.indexStatus !== 200 || runtime.indexVersion !== 2) {
+    throw new Error("production/runtime search assets unavailable " + JSON.stringify(runtime));
+  }
 
   async function search(q, how) {
     await page.fill("#lab-search-input", q);
@@ -151,7 +166,7 @@ async function browserTests() {
 
   const clickSnake = await search("dream about snake", "click");
   if (clickSnake.href !== "/dreams/snakes/") {
-    throw new Error("click dream about snake → " + clickSnake.href);
+    throw new Error("click dream about snake → " + JSON.stringify(clickSnake));
   }
   if (!clickSnake.cta || clickSnake.hidden || !clickSnake.hasLive) {
     throw new Error("click UX incomplete " + JSON.stringify(clickSnake));
@@ -195,7 +210,7 @@ async function browserTests() {
   }
 
   await browser.close();
-  server.close();
+  if (local) local.server.close();
   if (errors.length) throw new Error("page errors: " + errors.join("; "));
 }
 

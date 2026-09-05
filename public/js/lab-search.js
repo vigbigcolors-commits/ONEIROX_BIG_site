@@ -789,6 +789,32 @@
     }
   }
 
+  /* The homepage is partly deferred. Keep a document-level fallback so a
+     browser never falls through to the form's native reload if binding races. */
+  function bindDocumentFallback() {
+    if (document.__onxLabSearchFallbackBound) return;
+    document.__onxLabSearchFallbackBound = true;
+
+    document.addEventListener('submit', function (e) {
+      var form = e.target && e.target.closest && e.target.closest('[data-lab-search-form]');
+      if (!form) return;
+      e.preventDefault();
+      var root = form.closest('[data-lab-search]');
+      if (root) runSearch(root);
+    }, true);
+
+    document.addEventListener('keydown', function (e) {
+      var ta = e.target && e.target.closest && e.target.closest('[data-lab-search-input]');
+      var isEnter = e.key === 'Enter' || e.code === 'Enter' || e.keyCode === 13;
+      if (!ta || !isEnter || e.shiftKey || e.ctrlKey || e.metaKey || e.altKey || e.isComposing || e.keyCode === 229) return;
+      e.preventDefault();
+      var root = ta.closest('[data-lab-search]');
+      if (root) runSearch(root);
+    }, true);
+  }
+
+  bindDocumentFallback();
+
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', init);
   } else {
