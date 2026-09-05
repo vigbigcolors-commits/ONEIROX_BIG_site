@@ -33,6 +33,22 @@ const DREAM_INDEX_CAP = 50;
 
 let somaticFollowable = new Set();
 
+// Curated historical restorations whose intent is broader or distinct from a
+// generated scenario. Keep these links small and attached only to the hub that
+// gives the reader useful next reading.
+const RESTORED_BY_PILLAR = {
+  "recurring-dreams": [
+    { href: "/dreaming-about-someone-you-havent-seen-in-years/", label: "Dreaming About Someone You Haven't Seen in Years" },
+  ],
+  snakes: [
+    { href: "/dream-about-big-snake-meaning-interpretation/", label: "Dream About a Big Snake" },
+  ],
+  dogs: [
+    { href: "/dream-about-a-dog-in-your-house/", label: "Dream About a Dog in Your House" },
+    { href: "/dream-about-saving-a-dog/", label: "Dream About Saving a Dog" },
+  ],
+};
+
 function ensureDir(d) {
   fs.mkdirSync(d, { recursive: true });
 }
@@ -257,6 +273,17 @@ ${links}
     </section>`;
 }
 
+function restoredLinksHtml(entry) {
+  const items = RESTORED_BY_PILLAR[entry.slug] || [];
+  if (!items.length) return "";
+  return `    <section class="dm-siblings" aria-label="Related historical articles">
+      <h2>Related scenarios</h2>
+      <div class="dm-sibling-grid">
+${items.map((item) => `      <a class="dm-sibling" href="${item.href}">${esc(item.label)}</a>`).join("\n")}
+      </div>
+    </section>`;
+}
+
 function jsonLdPillar(entry) {
   const url = pillarUrl(entry);
   const graph = [
@@ -373,6 +400,7 @@ ${bodyParagraphsHtml(entry)}
 
 ${variantsHtml(entry)}
 ${pillarChildrenHtml(children)}
+${restoredLinksHtml(entry)}
 
     <section class="dm-morning" aria-label="Morning prompt">
       <h2>MORNING — what to ask yourself</h2>
