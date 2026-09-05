@@ -19,6 +19,8 @@ const slugs = [
 const restoredRedirects = new Set([
   "/dreaming-about-someone-you-havent-seen-in-years/",
   "/dream-about-big-snake-meaning-interpretation/",
+  "/dream-about-a-dog-in-your-house/",
+  "/dream-about-saving-a-dog/",
 ]);
 const redirects = fs.readFileSync(path.join(publicDir, "_redirects"), "utf8");
 const sitemap = fs.readFileSync(path.join(publicDir, "sitemap-core.xml"), "utf8");
