@@ -29,6 +29,7 @@ const LF_MATRIX = path.join(PSEO, "data", "dream-lf-matrix.json");
 const OUT_DIR = path.join(ROOT, "public", "dreams");
 const SITE = "https://oneirox.com";
 const PUBLISHED = "2026-08-16";
+const REVIEWED_MODIFIED = "2026-09-23";
 const DREAM_INDEX_CAP = 50;
 
 let somaticFollowable = new Set();
@@ -140,6 +141,7 @@ function ctaHtml(kind) {
 }
 
 function variantsHtml(entry) {
+  if (entry.science_reviewed_core && entry.variants_reviewed !== true) return "";
   const items = (entry.variants || [])
     .map(
       (v, i) => `      <details class="dm-variant"${i === 0 ? " open" : ""}>
@@ -310,7 +312,7 @@ function jsonLdPillar(entry) {
       ],
     },
   ];
-  if ((entry.variants || []).length) {
+  if ((!entry.science_reviewed_core || entry.variants_reviewed === true) && (entry.variants || []).length) {
     graph.push({
       "@type": "FAQPage",
       mainEntity: entry.variants.map((v) => ({
@@ -335,7 +337,7 @@ function jsonLdLf(entry, parent) {
       description: entry.meta_description,
       url,
       datePublished: PUBLISHED,
-      dateModified: PUBLISHED,
+      dateModified: entry.science_reviewed_core ? REVIEWED_MODIFIED : PUBLISHED,
       author: { "@type": "Person", name: "Vigen G.R." },
       isPartOf: { "@id": `${SITE}/#website` },
     },

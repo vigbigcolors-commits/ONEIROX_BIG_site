@@ -13,7 +13,8 @@
       "body_paragraphs": [
         "Sleep bruxism is a recognized sleep-related masticatory activity and can leave jaw soreness, tooth sensitivity, or morning headache. If those signs were present, oral sensation is reasonable context to record. What is not established is that bruxism generally causes teeth-loss dreams, so Oneirox does not treat the dream as a bruxism test.",
         "Stress, salience, body image, and threat-related themes may all shape dream content, but there is no neuroscientific rule that turns “teeth” into one hidden message. Threat-simulation theory is one research framework for negative dream content; evidence for it is mixed and it does not validate a fixed interpretation for an individual dream.",
-        "If you repeatedly wake with jaw pain, tooth damage, or signs of clenching, that is a waking symptom worth discussing with a dentist or sleep clinician. The dream can prompt observation; it cannot diagnose the condition."
+        "If you repeatedly wake with jaw pain, tooth damage, or signs of clenching, that is a waking symptom worth discussing with a dentist or sleep clinician. The dream can prompt observation; it cannot diagnose the condition.",
+        "Evidence boundary: known sleep physiology can constrain an explanation, but it does not assign a fixed meaning to a dream image."
       ],
       "variants": [
         {
@@ -60,7 +61,10 @@
         "/teeth-crumbling-dream-meaning/",
         "/dream-about-teeth-rotting/"
       ],
-      "date_modified": "2026-09-23"
+      "date_modified": "2026-09-23",
+      "science_reviewed_core": true,
+      "variants_reviewed": false,
+      "evidence_boundary": "Evidence boundary: known sleep physiology can constrain an explanation, but it does not assign a fixed meaning to a dream image."
     },
     {
       "slug": "being-chased",
@@ -74,7 +78,8 @@
       "body_paragraphs": [
         "Dreaming occurs in both REM and NREM sleep. REM often supports vivid, emotional mentation, but the familiar shorthand “amygdala on, prefrontal cortex off” is too crude to diagnose a specific dream. Brain-state findings describe groups and sleep states; they do not let us infer the cause of one chase scene.",
         "Threat-simulation theory proposes that dreaming can rehearse threat perception and avoidance. Some studies support parts of the theory, while others find mixed or contradictory results. It is useful as a hypothesis for chase dreams, not as proof that your brain was literally training for danger.",
-        "REM atonia is a real motor phenomenon, but there is not strong evidence that the common dream feeling of slow or ineffective running is a direct perception of spinal motor inhibition. If your legs felt heavy in the dream, keep that as a phenomenological detail rather than turning it into a hardware diagnosis."
+        "REM atonia is a real motor phenomenon, but there is not strong evidence that the common dream feeling of slow or ineffective running is a direct perception of spinal motor inhibition. If your legs felt heavy in the dream, keep that as a phenomenological detail rather than turning it into a hardware diagnosis.",
+        "Evidence boundary: known sleep physiology can constrain an explanation, but it does not assign a fixed meaning to a dream image."
       ],
       "variants": [
         {
@@ -116,7 +121,10 @@
         "/dream-about-running-away-from-danger-what-youre-avoiding/",
         "/dream-about-being-chased/"
       ],
-      "date_modified": "2026-09-23"
+      "date_modified": "2026-09-23",
+      "science_reviewed_core": true,
+      "variants_reviewed": false,
+      "evidence_boundary": "Evidence boundary: known sleep physiology can constrain an explanation, but it does not assign a fixed meaning to a dream image."
     },
     {
       "slug": "falling",
@@ -130,7 +138,8 @@
       "body_paragraphs": [
         "Hypnic jerks, also called sleep starts, are brief involuntary muscle contractions that occur around sleep onset and can be accompanied by a falling sensation or sensory flash. They are common and usually benign. When the timing is immediate — drifting off, sudden drop, body jolt, awake — this is one of the clearer physiology-first patterns in the dream library.",
         "What is less certain is the direction of causality between the body jerk and the perceived fall. The brain may integrate a motor or vestibular event into the experience, but Oneirox should not state that the dream story is always built after the jerk.",
-        "A falling dream that occurs much later in the night, inside a longer narrative, should not be forced into the hypnic-jerk explanation. It may involve vestibular imagery, threat, memory, or ordinary dream construction; no single mechanism has been validated for all later-night falling dreams."
+        "A falling dream that occurs much later in the night, inside a longer narrative, should not be forced into the hypnic-jerk explanation. It may involve vestibular imagery, threat, memory, or ordinary dream construction; no single mechanism has been validated for all later-night falling dreams.",
+        "Evidence boundary: known sleep physiology can constrain an explanation, but it does not assign a fixed meaning to a dream image."
       ],
       "variants": [
         {
@@ -171,21 +180,24 @@
         "/dream-about-falling-from-office-window-meaning/",
         "/losing-balance-and-falling-repeatedly-the-psychology-of-life-instability/"
       ],
-      "date_modified": "2026-09-23"
+      "date_modified": "2026-09-23",
+      "science_reviewed_core": true,
+      "variants_reviewed": false,
+      "evidence_boundary": "Evidence boundary: known sleep physiology can constrain an explanation, but it does not assign a fixed meaning to a dream image."
     },
     {
       "slug": "exam-anxiety-dreams",
       "category": "Situational stress",
       "title": "Dream About Failing or Being Unprepared for an Exam",
       "meta_title": "Dream About Failing an Exam — Why It Happens Years Later | Oneirox",
-      "meta_description": "You haven't taken a test in decades and you're still dreaming about an exam you didn't study for. Here's the memory-consolidation mechanism behind it.",
+      "meta_description": "Exam dreams often reuse familiar evaluation and time-pressure memories. Research supports continuity between waking concerns and dream content, but not a fixed one-to-one meaning.",
       "kicker": "Happens to people decades out of school",
       "lead": "You're sitting down for a test you forgot existed, in a language you don't understand, in a classroom you can't find, and time is running out. This dream does not require you to currently be a student.",
-      "signal": "Your brain is using a well-worn threat template — evaluation, time pressure, being watched and judged — and loading it with whatever performance stress is active right now, whether or not it's academic.",
+      "signal": "An exam dream can reuse a familiar evaluation-and-deadline template during periods when performance, judgment, or preparedness is salient; it is not a diagnosis of what is wrong in waking life.",
       "body_paragraphs": [
-        "Exam-anxiety dreams are one of the best-documented \"universal\" dream themes, reported across cultures and age groups well into adulthood. The continuity hypothesis of dreaming (Domhoff) holds that dream content statistically tracks waking concerns and emotional preoccupations. School exams were, for most people, an early and intense template for a very specific feeling: being evaluated by an authority, under a deadline, with a real consequence for failure. That template gets stored and reused — the sleeping brain doesn't need a current exam to activate it, only a current situation that rhymes with it emotionally.",
-        "REM sleep is also heavily implicated in emotional memory consolidation — processing and filing the day's charged experiences rather than its neutral ones. A work review, a difficult conversation, a decision you're not sure you're ready for: these get folded into REM processing, and the exam template is one of the most efficient containers your memory system has for \"evaluation with stakes,\" even when the actual content has nothing to do with school.",
-        "This is also why the details are so often absurd — unknown languages, missing classrooms, a test you never studied for because you didn't know it existed. The dream isn't simulating a real exam; it's simulating the feeling of being unprepared for evaluation, and pulling whichever surreal props make that feeling vivid."
+        "Exam and school themes are common long after formal education ends. The strongest research-based frame is continuity: dream content often draws on waking concerns, emotionally salient memories, and familiar social situations. An old exam is therefore a plausible memory template for evaluation or preparedness, but neuroscience does not establish that every exam dream has the same cause.",
+        "Sleep participates in memory processing across the night, and dreaming can incorporate recent as well as remote material. That makes it reasonable to compare an exam dream with current situations involving deadlines or judgment. The useful move is comparison, not decoding: ask whether the emotion in the dream resembles anything active while awake, and allow the answer to be no.",
+        "Evidence boundary: research does not support a one-to-one translation from a dream theme to a single waking-life cause. Use the physiology and continuity evidence as context, not diagnosis."
       ],
       "variants": [
         {
@@ -209,7 +221,7 @@
           "a": "Recurrence usually means the underlying stressor hasn't resolved yet; the dream will keep recruiting this template until the waking situation changes."
         }
       ],
-      "morning_prompt": "What are you currently being evaluated on — at work, in a relationship, by yourself? The exam is a stand-in, and naming the real evaluation usually breaks the dream's grip fast.",
+      "morning_prompt": "What felt strongest in the dream — lack of preparation, time pressure, judgment, or something else? Compare that feeling with current life without assuming the exam is a hidden message.",
       "related_somatic": [
         {
           "href": "/somatic/cortisol-awakening-motor/n1/awakening/",
@@ -245,21 +257,24 @@
         "/dream-about-classroom-you-cant-find/",
         "/dream-about-being-the-only-one-who-fails-2/",
         "/dream-about-teacher-watching-you-fail/"
-      ]
+      ],
+      "science_reviewed_core": true,
+      "variants_reviewed": false,
+      "evidence_boundary": "Evidence boundary: research does not support a one-to-one translation from a dream theme to a single waking-life cause. Use the physiology and continuity evidence as context, not diagnosis."
     },
     {
       "slug": "snakes",
       "category": "Threat & anxiety",
       "title": "Dream About Snakes",
       "meta_title": "Dream About Snakes — Meaning, Color & Scenario Guide | Oneirox",
-      "meta_description": "Snake dreams are near-universal across cultures. Here's the visual-threat mechanism behind them — PGO waves and evolutionary threat detection — plus what color and scenario actually change.",
+      "meta_description": "Snake dreams are common and culturally salient. Humans show rapid attention to snake-like threats while awake, but research does not support a fixed neural meaning for a snake in a dream.",
       "kicker": "One of the most cross-culturally consistent dream images",
       "lead": "Snakes appear in dream reports across virtually every culture studied, independent of how common snakes actually are in a given environment. That consistency is itself a clue that something structural, not symbolic, is going on.",
-      "signal": "Humans carry an evolutionarily old, fast visual-threat detection bias toward snake-like shapes — REM sleep's visual-threat circuitry recruits it easily, regardless of your actual daytime exposure to snakes.",
+      "signal": "Snake imagery may draw on threat salience, memory, culture, and personal experience, but no validated neuroscience rule lets a snake dream identify a specific waking-life threat.",
       "body_paragraphs": [
-        "Research on visual threat detection (Öhman & Mineka's \"fear module\" work) shows humans and other primates detect snake-like shapes faster and with more automatic attention than comparably shaped non-threatening objects — a bias that appears to be evolutionarily old rather than individually learned. During REM sleep, PGO waves (ponto-geniculo-occipital spikes) fire from the brainstem through the visual thalamus into the occipital cortex, effectively hijacking the visual system to generate imagery. When that system needs a fast, high-salience threat shape, a snake is one of the most efficient templates available — including [a snake bite dream](/dreams/snakes/bitten/) when contact becomes the verb — which is a plausible reason the image recurs across cultures with wildly different real-world snake exposure.",
-        "The emotional content layered on top is usually about a specific relational or situational threat that feels ambiguous, slow-building, or hard to see coming — the qualities snakes have as predators (silent, low to the ground, striking without much warning) map well onto the felt sense of a threat you can't fully track. That's continuity-hypothesis content riding on top of a threat-detection template, not the snake itself \"meaning\" betrayal or transformation. Intimate proximity — [a snake in bed](/dreams/snakes/in-bed/) — tightens the same circuit; [a coiled snake watching](/dreams/snakes/coiled-watching/) holds threat without strike; [a dead snake](/dreams/snakes/dead-snake/) flips the valence while the template stays visual.",
-        "Color and scenario variants change the emotional flavor but not the underlying mechanism — they're all the same visual-threat circuitry, styled differently by whatever associations you personally carry."
+        "Humans and other primates can show rapid visual attention to snake-like stimuli in waking experiments. That finding is interesting background for why snakes are highly salient images, but it does not prove that REM sleep selects snakes through a dedicated threat circuit or that a snake dream has one universal meaning.",
+        "Dream content is built from memory, emotion, recent experience, and older associations. A snake can therefore carry very different weight for someone who fears snakes, works with them, grew up around them, or associates them with a cultural story. On Oneirox, the scientifically safer question is not 'what does snake mean?' but 'what did this snake do, how did you feel, and what associations are actually yours?'",
+        "Evidence boundary: research does not support a one-to-one translation from a dream theme to a single waking-life cause. Use the physiology and continuity evidence as context, not diagnosis."
       ],
       "variants": [
         {
@@ -283,7 +298,7 @@
           "a": "Both are resolution-flavored images — actively ending the threat, or the threat transforming into something else — and tend to show up once the underlying stressor is already de-escalating."
         }
       ],
-      "morning_prompt": "Is there a threat in your life right now that feels slow-moving or hard to see clearly, rather than sudden? That's usually the closer match to a snake dream than any single fixed meaning.",
+      "morning_prompt": "Write the snake's behavior and your emotion before interpreting it. Then note your own real associations with snakes; do not substitute a universal threat meaning for personal evidence.",
       "related_somatic": [
         {
           "href": "/somatic/rem-eye-twitch-burst/rem/mid-cycle/",
@@ -319,21 +334,24 @@
         "/dream-about-dead-snake-meaning-interpretation/",
         "/dream-about-big-snake-meaning-interpretation/",
         "/dream-about-snake-in-bed-meaning-interpretation/"
-      ]
+      ],
+      "science_reviewed_core": true,
+      "variants_reviewed": false,
+      "evidence_boundary": "Evidence boundary: research does not support a one-to-one translation from a dream theme to a single waking-life cause. Use the physiology and continuity evidence as context, not diagnosis."
     },
     {
       "slug": "dogs",
       "category": "Threat & anxiety",
       "title": "Dream About Dogs",
       "meta_title": "Dream About Dogs — Attacking, Chasing, Dying & More | Oneirox",
-      "meta_description": "Dog dreams split cleanly by tone: friendly dogs read as social-bond signals, aggressive dogs read as threat-circuit signals. Here's the mechanism and the scenario breakdown.",
+      "meta_description": "Dog dreams can reflect personal memory, attachment, fear, or ordinary continuity from waking life. There is no validated dog-specific dream circuit or fixed meaning.",
       "kicker": "The most emotionally split animal in dream reports",
       "lead": "Unlike most threat-figure dreams, dogs show up on both sides — as comfort and as danger, sometimes in the same week. That split is not random; it tracks your real-world relationship to dogs as loyal-but-unpredictable animals.",
-      "signal": "A dog dream recruits the same visual-threat or social-bond circuitry as any other REM figure — the difference is that your waking associations with dogs are unusually mixed, so the dream's tone swings with your current stress level rather than a fixed script.",
+      "signal": "A dog in a dream is best treated as remembered social material whose meaning depends on your own history with dogs and the scene, not as a direct readout of stress or attachment circuitry.",
       "body_paragraphs": [
-        "Dogs occupy a specific niche in most people's associative memory: domesticated, bonded, generally safe — but also capable of sudden aggression, unpredictable in ways a person can misjudge. REM sleep's visual and threat-detection systems don't invent a new relationship to \"dog\" each night; they pull from whatever associative weight you already carry, then dial the tone up or down based on your current arousal level. A calm night recruits the loyal-companion association. A high-stress night recruits the unpredictable-aggression one, using the identical animal.",
-        "This makes dog dreams a good real-world illustration of continuity-hypothesis dreaming: the figure is stable, but its behavior in the dream is a fairly direct readout of your current emotional baseline, more than of anything specific about dogs. An attacking-dog dream during a stretch of high work stress and a friendly-puppy dream during a calm week can use the exact same visual template.",
-        "Dogs dying or being harmed in a dream is a distinct sub-pattern worth separating out: it tends to correlate with anticipatory loss processing — either a real pet health concern, or a more general fear of losing something dependable and loyal in your life, with the dog standing in as the most available symbol of unconditional loyalty."
+        "Dogs are socially and emotionally rich stimuli for many people, which gives the dreaming brain abundant memory material to reuse. Research on dreaming supports continuity with waking concerns and relationships, but it does not establish a dog-specific 'bond circuit' for friendly dreams or a dog-specific 'threat circuit' for aggressive ones.",
+        "Tone still matters descriptively. A friendly dog and an attacking dog create different emotional scenes, and those differences are worth comparing with recent experience. What is not justified is turning that comparison into a biological diagnosis of your current stress level. Personal history with dogs is often more informative than any universal symbol rule.",
+        "Evidence boundary: research does not support a one-to-one translation from a dream theme to a single waking-life cause. Use the physiology and continuity evidence as context, not diagnosis."
       ],
       "variants": [
         {
@@ -357,7 +375,7 @@
           "a": "Color symbolism here is cultural and individual rather than mechanistic; the underlying dream-generation process is identical regardless of coat color."
         }
       ],
-      "morning_prompt": "Was the dog a source of comfort or a source of threat in the dream? That single detail tracks your current emotional baseline more reliably than anything else about the dream.",
+      "morning_prompt": "Was the dog familiar, comforting, frightening, injured, or simply present? Start with your own history with dogs and the emotion in the scene, not a universal meaning.",
       "related_somatic": [
         {
           "href": "/somatic/hypnagogic-tachycardia/n1/onset/",
@@ -387,21 +405,24 @@
         "/dream-about-a-dog-in-your-house/",
         "/dream-about-saving-a-dog/",
         "/dream-about-a-dog-dying/"
-      ]
+      ],
+      "science_reviewed_core": true,
+      "variants_reviewed": false,
+      "evidence_boundary": "Evidence boundary: research does not support a one-to-one translation from a dream theme to a single waking-life cause. Use the physiology and continuity evidence as context, not diagnosis."
     },
     {
       "slug": "cats",
       "category": "Threat & anxiety",
       "title": "Dream About Cats",
       "meta_title": "Dream About Cats — Black Cat, White Cat & Attack Meaning | Oneirox",
-      "meta_description": "Cats read as ambiguous-threat figures in dream cognition — present but unreadable. Here's the mechanism, plus what black cats, white cats, and attacks specifically track.",
+      "meta_description": "Cat dreams are shaped by personal associations and waking-life memory. Science does not support a universal 'ambiguous threat' meaning for cats in dreams.",
       "kicker": "The dream animal defined by ambiguity, not aggression",
       "lead": "Cats rarely chase in dreams the way dogs or snakes do. Instead, they watch, they're present without explanation, or they turn on you without warning. That's a specific emotional flavor, and it's not an accident.",
-      "signal": "A cat's dream-behavior is harder to predict than a dog's or a snake's, which makes it an efficient template for a threat you can't quite read — something present, watching, and unclear in its intent.",
+      "signal": "A cat dream can be emotionally important, but its significance cannot be inferred from cat behavior alone; personal memory and waking context matter more than a fixed symbolic or neural rule.",
       "body_paragraphs": [
-        "Cats are unusual among common dream animals because they're domesticated but not reliably legible — waking-life cat behavior is famously harder for most people to predict than dog behavior. REM's threat-simulation machinery seems to borrow that exact quality: a cat dream frequently isn't about an active chase or attack, but about an ambiguous presence whose intentions you can't determine. That maps well onto waking situations involving a person or dynamic you can't quite get a read on.",
-        "When a cat does turn aggressive in a dream, it tends to correlate with a trust relationship that has just shown an unexpected edge — a person or situation you'd filed as safe suddenly displaying a capacity for harm you hadn't accounted for. This is different from the dog-attack pattern, which more often tracks general unpredictability rather than a specific breach of trust.",
-        "A cat simply present, watching, without threat or affection, is one of the more common \"unexplained figure\" dreams people report — and it tends to correlate less with a specific person and more with a general sense of being observed or evaluated in some part of your life right now."
+        "Cats can carry very different associations across people and cultures: comfort, independence, unpredictability, fear, affection, grief, or no strong meaning at all. Dream research supports the reuse of salient waking and autobiographical material, but it does not validate a universal cat-as-unreadable-threat mechanism.",
+        "If a cat watches, attacks, hides, or approaches in a dream, those actions can change the emotional structure of the scene. Use them as descriptive evidence about the dream itself. Then compare the feeling with recent life only as a hypothesis, not as proof that a particular relationship or hidden threat caused the dream.",
+        "Evidence boundary: research does not support a one-to-one translation from a dream theme to a single waking-life cause. Use the physiology and continuity evidence as context, not diagnosis."
       ],
       "variants": [
         {
@@ -425,7 +446,7 @@
           "a": "The threat-or-ambiguity is already established in a space you consider safe — often matches a situation where you've realized, after the fact, that a concern has been present for longer than you noticed."
         }
       ],
-      "morning_prompt": "Is there someone or something in your life right now whose intentions you genuinely can't read? That unreadability, more than any specific threat, is what a cat dream is usually pointing at.",
+      "morning_prompt": "What did the cat actually do, and what did you feel? Keep those observations separate from any interpretation, then compare them with your own associations.",
       "related_somatic": [
         {
           "href": "/somatic/alpha-intrusion-nrem/n2/fragmentation/",
@@ -443,21 +464,24 @@
         "/dream-about-cat-what-your-body-already-knew/",
         "/dead-cat-dream-the-end-of-an-arrangement/",
         "/cat-in-your-house-it-was-already-inside/"
-      ]
+      ],
+      "science_reviewed_core": true,
+      "variants_reviewed": false,
+      "evidence_boundary": "Evidence boundary: research does not support a one-to-one translation from a dream theme to a single waking-life cause. Use the physiology and continuity evidence as context, not diagnosis."
     },
     {
       "slug": "sleep-paralysis",
       "category": "Body & appearance",
       "title": "Sleep Paralysis Dreams",
       "meta_title": "Sleep Paralysis — Why You Can't Move (and the Shadow Figure) | Oneirox",
-      "meta_description": "Sleep paralysis is a well-documented REM-atonia border phenomenon. Here's exactly what's happening in your brainstem, why there's often a presence in the room, and what helps.",
+      "meta_description": "Sleep paralysis is a documented REM–wake boundary state: awareness returns while REM-related muscle atonia persists. Hallucinations and sensed presence can occur during episodes.",
       "kicker": "The dream that isn't really a dream — it's a border-state glitch",
       "lead": "You're awake enough to know you're in your room, but you cannot move a single muscle, and there is very often something — a shape, a presence, a weight on your chest — that feels unmistakably real. This is one of the most physiologically well-understood experiences in sleep science.",
-      "signal": "Your consciousness has woken up before your REM-atonia motor lock has released — you get waking-level awareness stacked on top of a body that is still, correctly, paralyzed.",
+      "signal": "During sleep paralysis, awareness can return before REM-related muscle atonia has fully resolved; vivid sensory experiences or a sensed presence can occur during this mixed state.",
       "body_paragraphs": [
-        "REM atonia is the brainstem-driven inhibition of motoneurons — mediated by GABA and glycine — that normally prevents you from physically acting out dreams. It's supposed to switch off cleanly as you wake. In sleep paralysis, the border between REM and wake state gets crossed unevenly: your cortex reaches waking-level awareness of your surroundings while the atonia circuit is still active, or releases with a delay. The result is the exact experience people report — fully awake, unable to move, often for anywhere from several seconds to a couple of minutes.",
-        "The sense of a presence in the room — [the sensed presence during sleep paralysis](/dreams/sleep-paralysis/with-presence/) — sometimes called an incubus phenomenon, is not a coincidence layered on top — it's a documented, common feature of the state. REM sleep continues generating dream-like sensory content even after cortical arousal begins, so the visual and threat-detection systems keep producing imagery (frequently a figure, a shadow, a weight) while your waking mind is simultaneously trying to process \"I am awake and I cannot move,\" which is itself an alarming, threat-triggering realization. The chest pressure many people report during episodes has a plausible physiological correlate too: breathing during REM is naturally more irregular and diaphragm-dependent, and that irregularity, combined with panic, reads easily as pressure or weight.",
-        "It is common, it is not dangerous on its own, and it is not a psychiatric symptom by default — though frequent episodes correlate with sleep deprivation, irregular sleep schedules, and sleeping on your back, all of which increase how often the REM/wake border gets crossed unevenly."
+        "Sleep paralysis is one of the strongest physiology-first topics in this library. During REM sleep, motor output is strongly inhibited. In an episode of sleep paralysis, awareness returns while that REM-related atonia persists briefly, producing the characteristic experience of being awake or nearly awake but unable to move voluntarily.",
+        "Visual, auditory, tactile, and sensed-presence experiences are also reported during sleep paralysis. They are best described as REM-related dream imagery or hallucination-like experiences intruding into wakefulness, not evidence of an external presence. Sleep deprivation, irregular schedules, and supine sleep have been associated with episodes in some studies, but no single trigger explains every case.",
+        "Evidence boundary: research does not support a one-to-one translation from a dream theme to a single waking-life cause. Use the physiology and continuity evidence as context, not diagnosis."
       ],
       "variants": [
         {
@@ -477,7 +501,7 @@
           "a": "Strongly correlates with irregular sleep timing, sleep deprivation, and supine (back) sleeping position; regularizing sleep schedule is the single most evidence-backed lever for reducing frequency."
         }
       ],
-      "morning_prompt": "Were you sleep-deprived, on an irregular schedule, or sleeping on your back that night? Episodes cluster hard around those three variables.",
+      "morning_prompt": "If this was true waking immobility, note sleep timing, position, sleep loss, and recurrence. Frequent or very distressing episodes are worth discussing with a clinician.",
       "related_somatic": [
         {
           "href": "/somatic/sleep-paralysis-onset/rem/awakening/",
@@ -504,21 +528,24 @@
         "/the-presence-in-sleep-paralysis/",
         "/sleep-paralysis-dream-meaning/",
         "/sleep-paralysis-shadow-figure/"
-      ]
+      ],
+      "science_reviewed_core": true,
+      "variants_reviewed": false,
+      "evidence_boundary": "Evidence boundary: research does not support a one-to-one translation from a dream theme to a single waking-life cause. Use the physiology and continuity evidence as context, not diagnosis."
     },
     {
       "slug": "death-of-a-loved-one",
       "category": "People & relationships",
       "title": "Dreaming About a Deceased Loved One",
       "meta_title": "Dreaming About Someone Who Died — Why It Happens | Oneirox",
-      "meta_description": "Visitation dreams about deceased parents, partners, and friends are extremely common and follow a predictable memory-processing timeline. Here's what's actually happening.",
+      "meta_description": "Dreams of deceased loved ones are common in bereavement. Sleep and dreaming interact with memory and emotion, but science does not support a single 'visitation' or REM-processing explanation.",
       "kicker": "One of the most emotionally loaded — and most common — dream categories",
       "lead": "They look healthy. They're not angry, even if the last conversation you had was hard. Sometimes they say something specific, sometimes they just sit with you. Then you wake up and lose them again, in real time.",
-      "signal": "REM sleep is deeply involved in emotional memory processing, and a person you loved is the single highest-salience memory file your brain has — grief keeps that file open and active for a long time.",
+      "signal": "A deceased loved one can reappear because emotionally important memories remain highly accessible; the dream can matter deeply without proving a message, visitation, or single neural mechanism.",
       "body_paragraphs": [
-        "REM sleep plays a documented role in consolidating and re-processing emotionally significant memories — sorting, re-filing, and gradually reducing the raw emotional charge attached to them (a process sometimes called sleep-dependent affective processing). A person you loved and lost is, almost by definition, the most emotionally weighted memory network you have. It makes sense that the brain returns to that network repeatedly during REM, especially in the weeks and months after a loss, and often at specific anniversaries or triggers well after that.",
-        "The detail that they often appear peaceful, healthy, or at ease — even after a difficult death or a difficult final conversation — is one of the most consistently reported features of these dreams, across independent accounts. One plausible explanation is that the dream is drawing on your broader, longer-term memory of the person (who they were across a whole relationship) rather than replaying the specific, most recent, most painful memory. The dreaming brain appears to default toward the more complete, less acutely painful version of the memory file.",
-        "First dreams after a loss often take longer to arrive than people expect — sometimes weeks — which is not a sign that the grief process is stalled. It more likely reflects the time it takes for the memory-consolidation system to move a very raw, very recent loss into a state where it can be processed during REM without triggering a full wake-up from the intensity of it."
+        "Bereavement dreams and dreams of deceased loved ones are widely reported. Sleep is involved in memory and emotional processing, and dreams often draw on highly salient autobiographical material. Those facts make the reappearance of a loved one unsurprising, but they do not establish that REM is performing one specific grief task each time.",
+        "The person may appear healthy, ill, silent, ordinary, younger, or exactly as remembered. Those differences can reflect the broad memory network available to the dream, recent triggers, and the dreamer's current emotional state. Oneirox treats the experience as psychologically meaningful to the dreamer while keeping the scientific boundary clear: there is no validated method for reading the dream as communication from the deceased.",
+        "Evidence boundary: research does not support a one-to-one translation from a dream theme to a single waking-life cause. Use the physiology and continuity evidence as context, not diagnosis."
       ],
       "variants": [
         {
@@ -542,7 +569,7 @@
           "a": "Funeral-dream imagery often shows up when you're processing the loss's finality itself, separate from the relationship — the ceremony is your mind's own closure marker, not theirs."
         }
       ],
-      "morning_prompt": "Was there something specific in the dream you wish you'd said or asked? That detail is usually more useful to sit with than the dream's overall meaning.",
+      "morning_prompt": "What part of the encounter stayed with you — comfort, grief, unfinished conversation, or simple presence? Record that experience without forcing it into either a supernatural claim or a single clinical explanation.",
       "related_somatic": [
         {
           "href": "/somatic/fragmented-rem/rem/awakening/",
@@ -581,21 +608,24 @@
         "/watching-your-own-funeral-from-the-crowd/",
         "/dream-about-losing-someone-you-love-meaning/",
         "/why-do-i-dream-about-someone-who-died-years-ago-suddenly/"
-      ]
+      ],
+      "science_reviewed_core": true,
+      "variants_reviewed": false,
+      "evidence_boundary": "Evidence boundary: research does not support a one-to-one translation from a dream theme to a single waking-life cause. Use the physiology and continuity evidence as context, not diagnosis."
     },
     {
       "slug": "cheating-dreams",
       "category": "People & relationships",
       "title": "Dream About Your Partner Cheating (or You Cheating)",
       "meta_title": "Dream About Partner Cheating — It Doesn't Mean What You Think | Oneirox",
-      "meta_description": "Cheating dreams are one of the most common relationship-anxiety dreams and correlate poorly with actual infidelity. Here's the attachment-security mechanism behind them.",
+      "meta_description": "Cheating dreams can reflect relationship concerns, insecurity, recent media, memory, or ordinary dream recombination. They do not provide evidence that a partner is unfaithful.",
       "kicker": "The dream people most often mistake for a prophecy",
       "lead": "You wake up with real anger, real hurt, sometimes real distance from a partner who did nothing — because in the dream, they did. This is one of the most common relationship dreams reported, and it correlates poorly with actual infidelity.",
-      "signal": "Cheating dreams are much more reliably a readout of attachment-security anxiety — a general fear of loss or replacement — than a signal about your partner's actual behavior.",
+      "signal": "A cheating dream can express fear, jealousy, insecurity, or unrelated emotional material, but it is not evidence of real infidelity and does not have a validated attachment-only mechanism.",
       "body_paragraphs": [
-        "Research on dream content and relationships consistently finds that infidelity dreams are common even in secure, happy, low-conflict relationships, and don't correlate meaningfully with a partner's real likelihood of cheating. What they do correlate with is attachment-related anxiety — a general vulnerability to fear of loss, replacement, or not being enough — which can spike for reasons that have nothing to do with the relationship itself: a stressful period, a personal insecurity, even an unrelated rejection.",
-        "The dream uses your partner because they're the highest-stakes attachment figure available to your threat-simulation system; the specific plot (cheating) is simply the most efficient way for the sleeping brain to generate the felt sense of loss and betrayal without requiring an actual external threat. It is running a fear, not reporting evidence.",
-        "Dreams where you are the one cheating follow a related but distinct pattern — they correlate more often with guilt, self-doubt, or ambivalence about commitment in general (sometimes about the relationship, sometimes about an unrelated life decision) than with any real desire or intention. The dreaming brain frequently uses the same script to explore several different kinds of guilt."
+        "Relationship themes are common in dreams because close partners are highly salient in waking life. Continuity research makes it reasonable to compare dream emotion with current relationship concerns, but a cheating plot can also be assembled from old memories, media, unrelated rejection, or ordinary dream recombination.",
+        "The scientifically important limit is simple: dream content cannot verify a partner's behavior. Even when the dream feels convincing, it is internal experience, not external evidence. If the scene is useful, use it to identify the emotion it produced — fear of loss, anger, shame, curiosity — and then evaluate waking life on waking evidence.",
+        "Evidence boundary: research does not support a one-to-one translation from a dream theme to a single waking-life cause. Use the physiology and continuity evidence as context, not diagnosis."
       ],
       "variants": [
         {
@@ -615,7 +645,7 @@
           "a": "Usually tracks an ongoing, unresolved undercurrent of insecurity rather than repeated 'evidence' — worth naming directly rather than reading as a pattern of truth."
         }
       ],
-      "morning_prompt": "Has anything unrelated to your relationship made you feel replaceable, not-enough, or at risk of loss recently? That's usually the real source material.",
+      "morning_prompt": "Name the emotion the dream produced, then separate it from facts about the relationship. Do not use the dream itself as evidence of cheating.",
       "related_somatic": [
         {
           "href": "/somatic/cortisol-awakening-motor/n1/awakening/",
@@ -636,21 +666,24 @@
         "/dreaming-your-partner-is-cheating/",
         "/i-dreamed-i-cheated-on-my-partner/",
         "/dream-about-cheating-with-an-ex/"
-      ]
+      ],
+      "science_reviewed_core": true,
+      "variants_reviewed": false,
+      "evidence_boundary": "Evidence boundary: research does not support a one-to-one translation from a dream theme to a single waking-life cause. Use the physiology and continuity evidence as context, not diagnosis."
     },
     {
       "slug": "ex-partner",
       "category": "People & relationships",
       "title": "Dream About an Ex",
       "meta_title": "Dream About an Ex — Why They Show Up Years Later | Oneirox",
-      "meta_description": "Dreaming about an ex, even in a happy relationship or years after a breakup, is a memory-reconsolidation event — not a sign you still want them back.",
+      "meta_description": "Dreaming about an ex can arise from autobiographical memory, current cues, emotion, or ordinary recombination. It does not prove unresolved love or a wish to reunite.",
       "kicker": "Shows up even in relationships with zero real problems",
       "lead": "You're in a good relationship, or you haven't thought about them in years, and then they show up in a dream — sometimes warmly, sometimes with unfinished tension — and you spend the next day wondering what it means.",
-      "signal": "An ex is a fully-loaded memory network your brain already has on file — an efficient, high-detail character for the dream-generation system to reuse, not a signal about your current desires.",
+      "signal": "An ex is a richly encoded autobiographical person, so the memory can reappear for many reasons; the dream alone cannot tell you whether you still want the relationship.",
       "body_paragraphs": [
-        "By the time a relationship has ended, your memory system has an unusually rich, emotionally tagged file on that person — years of context the brain can pull from without having to build a character from scratch. When REM sleep needs to explore a relational theme — security, being wanted, an old wound, a decision point — an ex is often the cheapest, most detailed character available, independent of whether you have any actual unresolved feelings.",
-        "This is closely related to why exes often surface during moments of transition or decision in a current relationship: the dreaming brain seems to use past relational templates as a comparison point when processing present-day relational uncertainty, a kind of internal risk-assessment using historical data. It's less \"you want them back\" and more \"your memory system is running a familiar simulation to stress-test a current feeling.\"",
-        "First loves and early relationships show a documented tendency to resurface across a person's life, even decades later and even in long, happy subsequent relationships — likely because early attachment experiences get encoded with unusual intensity, and REM's memory-consolidation process periodically revisits high-intensity files regardless of their current relevance."
+        "Former partners occupy dense autobiographical memory networks: places, routines, emotions, conflict, intimacy, and periods of life. Dreaming can reactivate remote as well as recent material, so an ex can appear even after years of little conscious thought.",
+        "That reappearance does not establish a hidden desire to reunite, nor does it prove that the ex is merely a stand-in for a current relationship problem. Both are possible interpretations, but neither is a neuroscience result. The useful evidence is the specific emotion, recent trigger, and personal association that accompanied the dream.",
+        "Evidence boundary: research does not support a one-to-one translation from a dream theme to a single waking-life cause. Use the physiology and continuity evidence as context, not diagnosis."
       ],
       "variants": [
         {
@@ -670,7 +703,7 @@
           "a": "Reflects the memory network's detail and familiarity more than active longing — the brain reaches for a character it already has fully modeled."
         }
       ],
-      "morning_prompt": "What decision or uncertainty are you actually sitting with right now? The ex is very often a stand-in character for that, not the subject itself.",
+      "morning_prompt": "What was emotionally important in the dream — the person, the period of life, rejection, comfort, conflict, or something else? Treat the answer as reflection, not proof of hidden desire.",
       "related_somatic": [
         {
           "href": "/somatic/fragmented-rem/rem/fragmentation/",
@@ -691,21 +724,24 @@
         "/dream-about-ex-girlfriend/",
         "/dream-about-ex-coming-back/",
         "/dream-about-sleeping-with-ex/"
-      ]
+      ],
+      "science_reviewed_core": true,
+      "variants_reviewed": false,
+      "evidence_boundary": "Evidence boundary: research does not support a one-to-one translation from a dream theme to a single waking-life cause. Use the physiology and continuity evidence as context, not diagnosis."
     },
     {
       "slug": "being-pregnant",
       "category": "People & relationships",
       "title": "Dream About Being Pregnant (or Having a Baby)",
       "meta_title": "Dream About Being Pregnant — When You're Not | Oneirox",
-      "meta_description": "Pregnancy dreams show up across genders and life stages, with or without any real pregnancy plan. Here's the growth-and-change mechanism behind them.",
+      "meta_description": "Pregnancy and birth dreams occur in many contexts. They may draw on body sensations, identity, responsibility, recent experience, or metaphor, but no fixed 'growth' meaning is scientifically established.",
       "kicker": "Reported across genders and ages, not just those trying to conceive",
       "lead": "You wake up certain something in the dream was growing, changing, or about to become real — and it doesn't require you to be pregnant, trying to conceive, or even biologically able to be.",
-      "signal": "Pregnancy is one of the most universally understood templates for \"something is growing and will eventually demand to be dealt with\" — the dream can be using it for almost any slow-building life change.",
+      "signal": "Pregnancy imagery can carry themes of body change, responsibility, identity, or anticipation, but it is not a validated universal symbol for a project or life transformation.",
       "body_paragraphs": [
-        "Pregnancy and birth dreams are reported across genders, ages, and life circumstances, including by people with no plans or ability to conceive — a strong hint that the image functions as a template rather than a literal signal. Continuity-hypothesis research suggests dreams frequently borrow the most emotionally resonant available metaphor for a waking concern, and few images carry more universal weight for \"something is developing and will eventually require attention\" than pregnancy.",
-        "That makes the theme unusually flexible: a new project, a relationship reaching a turning point, a personal transformation you can feel building but haven't named yet — all can recruit the pregnancy template, because the emotional shape (growth, inevitability, a coming change in identity or responsibility) is a close match regardless of the literal subject.",
-        "Dreams about someone else being pregnant, rather than you, often track a milestone or change you're watching happen nearby — in a friend, a sibling, a colleague — that's stirring up your own feelings about timing, readiness, or comparison, without being about pregnancy at all."
+        "Pregnancy and birth are biologically and culturally high-salience themes, so they provide rich material for dreams. For some people the content may be closely connected to real pregnancy, fertility, parenting, body sensations, or recent conversations; for others it may have no literal connection.",
+        "Metaphorical readings such as 'something is developing' can feel useful, but they are interpretive hypotheses rather than established neuroscience. Oneirox therefore keeps literal context, personal associations, and bodily state ahead of any universal growth narrative.",
+        "Evidence boundary: research does not support a one-to-one translation from a dream theme to a single waking-life cause. Use the physiology and continuity evidence as context, not diagnosis."
       ],
       "variants": [
         {
@@ -725,7 +761,7 @@
           "a": "These carry real emotional weight tied to grief or hope around an actual reproductive experience for some dreamers, and deserve to be sat with directly rather than only intellectualized."
         }
       ],
-      "morning_prompt": "Is there something in your life right now that's 'growing' but not yet public or fully formed — a plan, a decision, a version of yourself? That's the more common real subject.",
+      "morning_prompt": "Was pregnancy or parenthood already salient in waking life? If not, note the emotion and context before considering a metaphor such as responsibility, change, or anticipation.",
       "related_somatic": [
         {
           "href": "/somatic/rem-temperature-deregulation/rem/mid-cycle/",
@@ -748,21 +784,24 @@
         "/dream-about-losing-a-baby/",
         "/the-miscarriage-dream-what-the-brain-is-actually-carrying/",
         "/the-baby-was-a-boy-the-baby-was-a-girl-why-the-gender-is-never-random/"
-      ]
+      ],
+      "science_reviewed_core": true,
+      "variants_reviewed": false,
+      "evidence_boundary": "Evidence boundary: research does not support a one-to-one translation from a dream theme to a single waking-life cause. Use the physiology and continuity evidence as context, not diagnosis."
     },
     {
       "slug": "water-and-drowning",
       "category": "Places & symbols",
       "title": "Dream About Water or Drowning",
       "meta_title": "Dream About Drowning or Water — The Breathing Connection | Oneirox",
-      "meta_description": "Drowning and water dreams correlate with real sleep-breathing irregularity more often than people realize. Here's the physiological and emotional mechanism.",
+      "meta_description": "Water and drowning dreams can be vivid, but dream content cannot diagnose airway obstruction or sleep apnea. Recurrent gasping or choking on waking deserves medical attention independently of the dream.",
       "kicker": "One of the few dream themes with a direct breathing correlate",
       "lead": "Water shows up gentle and clear, or it shows up as something you're fighting to stay above, or it's actively closing over your head. The tone varies enormously; the underlying mechanism is more consistent than you'd expect.",
-      "signal": "Breathing during REM is naturally irregular, and any real airway restriction — even mild, positional, or brief — is efficiently narrated by the sleeping brain as water and the struggle to breathe through it.",
+      "signal": "A drowning dream is not a validated marker of breathing obstruction; if you repeatedly wake gasping, choking, or short of breath, treat those waking symptoms as the important evidence.",
       "body_paragraphs": [
-        "REM sleep involves genuinely irregular, less-protected breathing compared to NREM stages — the muscles that normally help keep the airway open are affected by the same atonia that silences your limbs, which is part of why conditions like sleep apnea are often most severe during REM. When breathing becomes briefly restricted or irregular — from position, mild congestion, or an apnea-like pause — drowning and struggling-in-water are some of the most efficient narratives the dreaming brain can build from that raw respiratory signal.",
-        "That physiological layer doesn't account for every water dream — calm, clear water without struggle is reported far more often in low-stress periods, and turbulent or dirty water without any breathing distress correlates well with a general sense of being emotionally overwhelmed or unable to see clearly through a situation. Water is one of the most flexible dream elements precisely because it can carry either a respiratory signal or a pure emotional metaphor for being submerged in something, and the two aren't always easy to tell apart from the dream content alone.",
-        "The clearest way to separate them: if the water dream is dramatic, involves active struggle, and you wake up gasping or with your heart pounding, it is worth paying attention to as a possible physiological signal, especially if it recurs. If it's calm, symbolic, and doesn't wake you abruptly, it is much more likely to be a pure emotional-processing dream."
+        "Breathing can be irregular during REM, and sleep-disordered breathing can worsen in REM for some people. However, research does not support a reliable rule that converts a drowning or underwater dream into evidence of apnea, congestion, or a specific respiratory event.",
+        "Water imagery also appears without any breathing problem and can arise from memory, recent experience, emotion, or ordinary dream construction. The safe physiology-first approach is to separate the remembered story from waking symptoms. A dream is not a diagnostic test; recurrent gasping, choking, witnessed apneas, or marked daytime sleepiness are reasons to seek clinical evaluation.",
+        "Evidence boundary: research does not support a one-to-one translation from a dream theme to a single waking-life cause. Use the physiology and continuity evidence as context, not diagnosis."
       ],
       "variants": [
         {
@@ -782,7 +821,7 @@
           "a": "A specific variant that often marks something that's been building or 'held back' finally becoming impossible to contain — an emotional release rather than a resolution."
         }
       ],
-      "morning_prompt": "Did you wake up gasping, with a pounding heart, or feeling like you'd been holding your breath? If yes and this recurs, it's worth flagging to a doctor alongside the dream content.",
+      "morning_prompt": "Did you actually wake gasping, choking, or short of breath? Record that separately from the dream. Recurrent waking breathing symptoms matter more medically than the water imagery.",
       "related_somatic": [
         {
           "href": "/somatic/sleep-onset-apnea-like-pause/n1/onset/",
@@ -799,21 +838,24 @@
         "/clear-water-in-dreams-meaning/",
         "/dirty-water-dream-meaning/",
         "/dream-about-house-flooding-what-was-being-held-has-finally-moved/"
-      ]
+      ],
+      "science_reviewed_core": true,
+      "variants_reviewed": false,
+      "evidence_boundary": "Evidence boundary: research does not support a one-to-one translation from a dream theme to a single waking-life cause. Use the physiology and continuity evidence as context, not diagnosis."
     },
     {
       "slug": "house-dreams",
       "category": "Places & symbols",
       "title": "Dream About a House",
       "meta_title": "Dream About Your House — Rooms, Moving & Collapse | Oneirox",
-      "meta_description": "Houses in dreams reliably track identity and stability, tied to how spatial memory (hippocampus) organizes your sense of self. Here's the mechanism and scenario guide.",
+      "meta_description": "House dreams often recruit rich spatial and autobiographical memory. A house may feel connected to identity or safety, but neuroscience does not assign rooms or structures fixed psychological meanings.",
       "kicker": "One of the most reliable identity-metaphors in dream research",
       "lead": "A house you don't recognize but somehow live in. Your childhood home, rearranged. A room you never knew was there. Houses are among the most consistent metaphor-carriers in dream content across studies.",
-      "signal": "Spatial memory and self-related memory are processed by overlapping brain networks (the hippocampus is central to both), which is a plausible reason a familiar building becomes such an efficient stand-in for your sense of identity and stability.",
+      "signal": "Familiar buildings are dense spatial and autobiographical memories, so they can be powerful dream settings; what a house means depends on the dreamer's own history rather than a universal hippocampal code.",
       "body_paragraphs": [
-        "The hippocampus, deeply active during REM sleep, is core to both spatial navigation memory and autobiographical memory — the sense of your own life as a continuous, located story. A house, especially a childhood home, is one of the most spatially detailed and emotionally loaded memory structures most people carry. It makes structural sense that the dreaming brain reaches for \"a house\" when it needs to represent something about identity, foundation, or the structure of your current life.",
-        "This is why house dreams track so consistently with life-stage and stability content: moving to a new house maps well onto starting a new chapter; a house collapsing or losing its foundation tends to show up during periods when something you'd counted on feels destabilized; finding a previously unknown room is one of the more common \"unexpected capacity or resource I didn't know I had\" dreams people report.",
-        "A [childhood house dream](/dreams/house-dreams/childhood-house/) specifically seems to function differently from dreams about your current home — it more often correlates with revisiting or re-evaluating foundational identity material (who you were, what shaped you) rather than processing anything about your present circumstances."
+        "Houses, especially childhood homes, are unusually detailed memory environments. Spatial memory and autobiographical memory interact in the brain, which makes familiar places natural material for dreams. That supports a memory-based explanation for why homes recur without turning the building into a fixed symbol for 'the self.'",
+        "A collapsing house, locked room, basement, or new room can feel metaphorically precise, but those interpretations remain hypotheses. The scientifically safer method is to ask what the place is in your actual history, what changed in the dream, and what emotion accompanied that change.",
+        "Evidence boundary: research does not support a one-to-one translation from a dream theme to a single waking-life cause. Use the physiology and continuity evidence as context, not diagnosis."
       ],
       "variants": [
         {
@@ -837,7 +879,7 @@
           "a": "Often maps to a sense that a boundary has been crossed — a person or obligation intruding on space you consider yours."
         }
       ],
-      "morning_prompt": "Which part of the house stood out — a room, a foundation issue, an unfamiliar space? That detail usually maps directly onto which part of your life the dream is processing.",
+      "morning_prompt": "Which place was it, and what is your real history with it? Record the spatial change and emotion first; only then consider whether a metaphor is useful.",
       "related_somatic": [],
       "related_mechanics": {
         "href": "/mechanics/rem/cortex-eeg/",
@@ -854,21 +896,24 @@
         "/the-house-on-fire-dream-what-burns-is-not-what-you-think/",
         "/someone-is-in-your-house-and-its-not-you/",
         "/the-new-room-dream-it-was-always-there/"
-      ]
+      ],
+      "science_reviewed_core": true,
+      "variants_reviewed": false,
+      "evidence_boundary": "Evidence boundary: research does not support a one-to-one translation from a dream theme to a single waking-life cause. Use the physiology and continuity evidence as context, not diagnosis."
     },
     {
       "slug": "money-and-wealth",
       "category": "Situational stress",
       "title": "Dream About Money, Wealth, or Losing It",
       "meta_title": "Dream About Money or Winning the Lottery — What It Tracks | Oneirox",
-      "meta_description": "Money dreams reliably track security and value, not literal finances. Here's why the dopamine salience system recruits money as a stand-in symbol so easily.",
+      "meta_description": "Money dreams can reflect recent financial concerns, status, security, reward, or ordinary memory. There is no validated dopamine-based rule that makes money a universal dream symbol.",
       "kicker": "Rarely about actual finances, almost always about security",
       "lead": "Finding gold, winning a fortune, being unable to pay for something in public, watching cash slip through your hands — money dreams are common regardless of your actual financial situation.",
-      "signal": "Money is a near-universal symbol for security and personal value, which makes it an efficient template the dreaming brain reaches for even when the underlying concern has nothing to do with finances.",
+      "signal": "Because money is highly salient in waking life, it can appear in dreams for many reasons; the dream does not reliably reveal hidden self-worth or predict financial outcomes.",
       "body_paragraphs": [
-        "Dopamine-linked salience circuits — the systems that flag what matters and what's rewarding — remain active during REM sleep, and money is one of the most heavily salience-loaded objects in most people's daily cognitive environment: it's continuously tied to security, worth, freedom, and status. That makes it a highly efficient dream symbol for processing any of those underlying concerns, whether or not actual money is the real subject.",
-        "Windfall dreams (finding gold, winning the lottery, receiving an inheritance) correlate more often with a general hope for relief or a shift in circumstances than with literal financial expectation. Loss and shortfall dreams (an empty safe, being unable to pay a bill in public, giving cash away) correlate more with an active sense of insufficiency or exposure — frequently about self-worth, competence, or social standing rather than a bank balance.",
-        "The public-exposure variant — being unable to pay in front of others — deserves its own note: it shares emotional territory with naked-in-public dreams, both tracking a fear of visible inadequacy in front of witnesses, with money simply providing the socially legible stakes."
+        "Money is repeatedly encountered in daily life and is linked to security, choice, status, reward, and practical stress. That makes it plausible dream material under the continuity principle, especially when finances or work have recently been salient.",
+        "What is not established is a direct dopamine-to-dream-symbol pathway or a universal rule that money always stands for personal value. Finding, losing, owing, or giving money can be explored in context, but the interpretation must remain personal and provisional.",
+        "Evidence boundary: research does not support a one-to-one translation from a dream theme to a single waking-life cause. Use the physiology and continuity evidence as context, not diagnosis."
       ],
       "variants": [
         {
@@ -888,7 +933,7 @@
           "a": "Correlates with either genuine generosity currently active in your life, or a subconscious sense that you're 'spending down' something — time, energy, goodwill — faster than you're comfortable with."
         }
       ],
-      "morning_prompt": "Where in your life do you currently feel either unexpectedly resourced, or unexpectedly exposed? Money dreams usually track one of those two poles.",
+      "morning_prompt": "Was money already on your mind recently? If not, focus on the emotion in the scene — relief, scarcity, exposure, generosity, panic — without assuming a fixed symbolic translation.",
       "related_somatic": [],
       "related_mechanics": {
         "href": "/mechanics/rem/cortex-eeg/",
@@ -905,21 +950,24 @@
         "/dream-about-counting-cash-meaning/",
         "/dream-about-finding-gold-meaning/",
         "/dream-about-receiving-an-unexpected-inheritance-meaning/"
-      ]
+      ],
+      "science_reviewed_core": true,
+      "variants_reviewed": false,
+      "evidence_boundary": "Evidence boundary: research does not support a one-to-one translation from a dream theme to a single waking-life cause. Use the physiology and continuity evidence as context, not diagnosis."
     },
     {
       "slug": "body-wont-move-or-speak",
       "category": "Body & appearance",
       "title": "Dream Where Your Body Won't Move or Your Voice Won't Work",
       "meta_title": "Dream About Not Being Able to Move or Speak | Oneirox",
-      "meta_description": "Trying to run, scream, or move and nothing happens is a direct dramatization of REM motor atonia — a real brainstem mechanism, not a metaphor for helplessness.",
+      "meta_description": "Immobility in dreams can resemble REM atonia, but dream difficulty moving or speaking is not automatically a direct readout of motor inhibition. Waking paralysis is a distinct REM–wake boundary phenomenon.",
       "kicker": "The closest a dream gets to reporting its own mechanism directly",
       "lead": "You try to run and your legs won't cooperate. You try to scream and nothing comes out. Your hands won't do what you're telling them to do. Of every dream theme, this one maps most directly onto documented sleep physiology.",
-      "signal": "REM atonia — the brainstem's GABA/glycine-driven suppression of motor output — is active while you dream, and this entire dream category is what that suppression feels like from inside the narrative.",
+      "signal": "If immobility continues after awareness of the room returns, sleep paralysis is plausible; if it occurs only inside the dream, neuroscience cannot infer a single motor-atonia cause from the plot alone.",
       "body_paragraphs": [
-        "REM atonia exists specifically to stop you from physically acting out dream content — a protective brainstem mechanism, not a malfunction. But the inhibition doesn't stop at your limbs; the same descending suppression affects the felt sense of motor intention throughout the body, including the vocal apparatus. When the dream narrative calls for running, fighting, or shouting, the actual motor system underneath is throttled, and the dream absorbs that mismatch directly: legs that won't move fast enough, a scream that produces no sound, hands that won't grip.",
-        "This makes the theme unusually literal compared to most dream content — it isn't really a metaphor for waking helplessness so much as a real-time narration of an active physiological state. That said, the emotional intensity of these dreams does correlate with waking stress: higher background anxiety appears to make the atonia-mismatch more distressing and more memorable, even though the underlying brainstem mechanism is present most nights regardless of stress level.",
-        "A distinct but related pattern — the sense that your body is moving on its own, without your control — reflects the opposite mismatch: motor output breaking through the atonia lock (as in sleepwalking-adjacent phenomena or partial atonia failure) rather than being suppressed, producing a feeling of the body acting autonomously."
+        "REM sleep normally includes strong suppression of skeletal motor output. True sleep paralysis occurs when awareness returns while REM-related atonia persists. That physiology is well established. What is less certain is whether ordinary dream experiences such as heavy legs, weak punches, or a silent scream are direct sensory readouts of that motor inhibition.",
+        "Dreams can generate movement, speech, and failure of movement without a simple one-to-one link to the body's actual motor state. Oneirox therefore separates two observations: dream-only immobility is a content feature; waking immobility at the REM–wake border is a physiological event that can be discussed much more confidently.",
+        "Evidence boundary: research does not support a one-to-one translation from a dream theme to a single waking-life cause. Use the physiology and continuity evidence as context, not diagnosis."
       ],
       "variants": [
         {
@@ -939,7 +987,7 @@
           "a": "A broader dissociation variant — often correlates with a period of feeling generally unable to affect outcomes in a specific waking-life situation."
         }
       ],
-      "morning_prompt": "Was the paralysis paired with high fear, or was it almost neutral? The emotional layer on top of the mechanism is the part worth examining — the mechanism itself is present most nights regardless.",
+      "morning_prompt": "Did the inability to move or speak continue after you knew you were awake? That distinction is more informative than the dream plot itself.",
       "related_somatic": [
         {
           "href": "/somatic/rem-atonia-failure/rem/onset/",
@@ -969,21 +1017,24 @@
         "/dreaming-that-everything-stops-responding-around-you/",
         "/dream-about-losing-control-of-your-body-the-somatic-lockdown/",
         "/stuck-in-one-place-while-others-move-the-psychology-of-social-paralysis/"
-      ]
+      ],
+      "science_reviewed_core": true,
+      "variants_reviewed": false,
+      "evidence_boundary": "Evidence boundary: research does not support a one-to-one translation from a dream theme to a single waking-life cause. Use the physiology and continuity evidence as context, not diagnosis."
     },
     {
       "slug": "being-watched",
       "category": "Threat & anxiety",
       "title": "Dream About Being Watched or Trapped",
       "meta_title": "Dream About Being Watched — The Hypervigilance Mechanism | Oneirox",
-      "meta_description": "Dreams of being watched or trapped without being able to react map to a documented hypervigilance marker in NREM sleep. Here's the mechanism.",
+      "meta_description": "Dreams of being watched, judged, or trapped can reflect social-evaluation concerns, fear, memory, or ordinary dream construction. They are not a validated EEG marker of hypervigilance.",
       "kicker": "The feeling of exposure without an identifiable threat",
       "lead": "Someone or something is watching, and you can't tell why, or you're pinned in place and can't get away from a pressure you can't name. There's rarely a clear antagonist in these dreams — that's the point.",
-      "signal": "A generalized sense of exposure without a defined threat maps onto a hypervigilance state — heightened alertness circuitry running without a specific target.",
+      "signal": "A watched-or-trapped dream may feel like exposure or vigilance, but the theme cannot be used to infer a specific NREM hypervigilance state from dream content alone.",
       "body_paragraphs": [
-        "Some dream content involves an identifiable threat: a chaser, an attacker, a specific danger. Being-watched dreams are different — they're defined by a diffuse sense of exposure or surveillance without a clear source. This pattern correlates with generalized hypervigilance: an alertness system that's activated but hasn't (or can't) localize a specific threat, which shows up in EEG as intrusions of faster, more wake-like activity into otherwise slower sleep stages — the brain staying partially 'on guard' even during sleep.",
-        "Being trapped or unable to escape a pressure you can't identify follows a similar logic, layered with the atonia-mismatch described elsewhere in this library: a felt sense of danger, combined with suppressed motor output, combined with no clear exit because the threat itself was never concrete enough to solve.",
-        "Both variants tend to correlate more with a general period of low psychological safety — feeling exposed, judged, or unable to control your circumstances — than with any single identifiable event or person."
+        "Feeling watched is a potent social-threat scene, and dreams often incorporate waking concerns about evaluation, privacy, or safety. That makes continuity with current stress plausible when the same emotional theme is active during the day.",
+        "However, the dream theme itself does not establish a documented EEG signature of hypervigilance, nor can it reveal which sleep stage or arousal pattern produced the experience. Use the scene as subjective data about fear or exposure, not as a physiological measurement.",
+        "Evidence boundary: research does not support a one-to-one translation from a dream theme to a single waking-life cause. Use the physiology and continuity evidence as context, not diagnosis."
       ],
       "variants": [
         {
@@ -999,7 +1050,7 @@
           "a": "When threat-simulation activates without enough waking-life material to build a specific scenario, the result is often just tone — fear without content."
         }
       ],
-      "morning_prompt": "Is there a situation right now where you feel exposed or judged without being able to name exactly who or what is doing the judging? That diffuse quality is the dream's actual subject.",
+      "morning_prompt": "What made the scene threatening — judgment, surveillance, inability to leave, or uncertainty? Compare that emotion with waking life without treating the dream as an EEG readout.",
       "related_somatic": [
         {
           "href": "/somatic/alpha-intrusion-nrem/n2/onset/",
@@ -1016,21 +1067,24 @@
         "/dream-about-being-robbed-in-your-own-office-meaning/",
         "/dream-about-darkness-and-fear-the-unknown-you-avoid/",
         "/dream-about-being-trapped-pressure-you-cant-escape/"
-      ]
+      ],
+      "science_reviewed_core": true,
+      "variants_reviewed": false,
+      "evidence_boundary": "Evidence boundary: research does not support a one-to-one translation from a dream theme to a single waking-life cause. Use the physiology and continuity evidence as context, not diagnosis."
     },
     {
       "slug": "job-and-career",
       "category": "Situational stress",
       "title": "Dream About Your Job or Career",
       "meta_title": "Dream About Losing Your Job or Getting Promoted | Oneirox",
-      "meta_description": "Career dreams track your relationship to status and competence, using the workplace as the highest-detail template your memory has available for evaluation and standing.",
+      "meta_description": "Work dreams commonly reuse highly familiar people, places, deadlines, and evaluation. They may track waking concerns, but they do not have a single status-or-competence mechanism.",
       "kicker": "Runs whether or not work is actually your biggest stressor",
       "lead": "A promotion that feels hollow, a job loss that hits like a real one, graduation replayed years later — work dreams borrow the workplace's structure to process something usually bigger than the job itself.",
-      "signal": "Work is one of the most detailed, evaluation-heavy environments most adults have — the dreaming brain reuses that structure whenever it needs to process competence, standing, or evaluation, regardless of the real subject.",
+      "signal": "Work is a dense source of recent memory and social evaluation, so it often appears in dreams; the dream cannot by itself determine whether the real issue is competence, status, security, or simply recent exposure.",
       "body_paragraphs": [
-        "For most adults, the workplace is the single richest, most frequently updated memory environment involving hierarchy, evaluation, and competence — colleagues, expectations, consequences for failure, rewards for success. That density makes it an efficient template whenever REM's memory-consolidation and emotional-processing systems need to work through anything related to being judged, valued, or measured, whether the underlying concern is actually about work or not.",
-        "Job-loss dreams, in particular, are reported by people with very stable employment almost as often as by people with real job insecurity — a strong signal that they're frequently standing in for a broader fear of losing standing, identity, or security rather than literally predicting or reflecting employment risk.",
-        "Graduation dreams, which persist for decades after someone has actually graduated, follow a similar logic: the milestone represents a completed evaluation, a proof of adequacy, and the dream reuses it whenever a current situation raises the same underlying question — 'have I actually finished proving myself here?'"
+        "Work occupies many waking hours and supplies recurring people, locations, tasks, deadlines, and social hierarchies. Under the continuity principle, that makes job content unsurprising in dreams, especially during periods of change or stress.",
+        "Dreaming of being fired, promoted, unprepared, or back at an old job can be explored against current concerns, but no single neuroscience rule maps those scenes to hidden status or competence problems. Recent work exposure may be sufficient explanation in some cases.",
+        "Evidence boundary: research does not support a one-to-one translation from a dream theme to a single waking-life cause. Use the physiology and continuity evidence as context, not diagnosis."
       ],
       "variants": [
         {
@@ -1050,7 +1104,7 @@
           "a": "Reuses the 'proof of completed evaluation' template whenever a current situation raises a similar underlying question about whether you've adequately proven yourself."
         }
       ],
-      "morning_prompt": "Is there an area of life right now — not necessarily work — where you feel your competence or standing is being actively evaluated?",
+      "morning_prompt": "What part of the job scene mattered emotionally — evaluation, conflict, loss, success, workload, or familiarity? Compare that with waking evidence rather than assuming a hidden career message.",
       "related_somatic": [
         {
           "href": "/somatic/cortisol-awakening-motor/n1/awakening/",
@@ -1067,21 +1121,24 @@
         "/dream-about-losing-your-job-meaning/",
         "/sun-turning-black-over-your-career-the-eclipse-of-ambition/",
         "/dream-about-graduation-meaning/"
-      ]
+      ],
+      "science_reviewed_core": true,
+      "variants_reviewed": false,
+      "evidence_boundary": "Evidence boundary: research does not support a one-to-one translation from a dream theme to a single waking-life cause. Use the physiology and continuity evidence as context, not diagnosis."
     },
     {
       "slug": "wedding-and-marriage",
       "category": "Situational stress",
       "title": "Dream About a Wedding Going Wrong",
       "meta_title": "Dream About Your Wedding Going Wrong — Meaning | Oneirox",
-      "meta_description": "Wedding-disaster dreams are extremely common in engaged and married people and rarely predict relationship trouble. Here's the transition-anxiety mechanism.",
+      "meta_description": "Wedding dreams can reflect anticipation, logistics, social evaluation, relationship concerns, or memory. A wedding-disaster dream does not predict relationship failure.",
       "kicker": "Common even in couples with zero real relationship problems",
       "lead": "The dress doesn't fit, the venue is wrong, you're late, or the wrong person shows up at the altar. Wedding-disaster dreams are one of the most reliably misread dreams there is.",
-      "signal": "A wedding is a high-visibility, high-stakes public transition — the dream is very often about the pressure and visibility of the event itself, not about doubts regarding the relationship.",
+      "signal": "Because weddings combine commitment, planning, social attention, and emotion, they are rich dream material; a disaster plot is not evidence that the relationship is wrong.",
       "body_paragraphs": [
-        "Surveys of engaged and recently married people find wedding-disaster dreams extremely common, and they don't correlate with actual relationship satisfaction or doubt in any consistent way. What they do correlate with is the sheer logistical and social pressure of the event: a wedding is one of the most public, most scrutinized, most planned single days most people ever have, and REM's threat-simulation machinery treats 'high-stakes public event' as fertile ground regardless of how solid the underlying relationship is.",
-        "This is a useful example of why a dream's surface content (your wedding) and its actual subject (visibility, performance pressure, the fear of something going wrong in front of witnesses) can be almost entirely separate things. The disaster in the dream is rarely a coded prediction; it's closer to your nervous system rehearsing 'what if this goes wrong' for an event you consciously know matters enormously.",
-        "Marriage dreams outside the wedding-day context — dreaming about getting married in general — tend to track a broader readiness or commitment theme, and follow patterns closer to the transition-anxiety seen in job-change or moving-house dreams than to relationship-specific content."
+        "Major events often enter dreams because they dominate attention and emotion while awake. Weddings are especially dense: relationships, family, logistics, performance, money, identity, and public visibility can all be active at once.",
+        "That makes anxiety-themed wedding dreams unsurprising before or after major relationship events, but it does not justify reading them as predictions or as proof of hidden doubt. The most defensible interpretation starts with whatever waking concern was already present.",
+        "Evidence boundary: research does not support a one-to-one translation from a dream theme to a single waking-life cause. Use the physiology and continuity evidence as context, not diagnosis."
       ],
       "variants": [
         {
@@ -1097,7 +1154,7 @@
           "a": "Tends to track a broader readiness-for-commitment or life-transition theme, closer to job-change dreams than to relationship-specific anxiety."
         }
       ],
-      "morning_prompt": "Is there a high-visibility commitment or event coming up in your life — wedding or otherwise — where you feel the pressure of being watched more than you feel doubt about the decision itself?",
+      "morning_prompt": "Was there a real event, decision, family pressure, or logistical stress already active? Separate that waking evidence from the dramatic disaster plot.",
       "related_somatic": [],
       "related_mechanics": {
         "href": "/mechanics/rem/cortex-eeg/",
@@ -1106,21 +1163,24 @@
       "old_redirect_slugs": [
         "/dream-about-wedding-going-wrong-meaning/",
         "/dream-about-getting-married-meaning/"
-      ]
+      ],
+      "science_reviewed_core": true,
+      "variants_reviewed": false,
+      "evidence_boundary": "Evidence boundary: research does not support a one-to-one translation from a dream theme to a single waking-life cause. Use the physiology and continuity evidence as context, not diagnosis."
     },
     {
       "slug": "repeating-numbers",
       "category": "Places & symbols",
       "title": "Dream About Repeating Numbers (111, 222, 333)",
       "meta_title": "Repeating Numbers in Dreams (111, 222, 333) — Real Cause | Oneirox",
-      "meta_description": "Seeing repeating number patterns in dreams is a pattern-completion effect of a cortex running with reduced logical oversight — not a numerological message.",
+      "meta_description": "Repeating numbers in dreams do not have a scientifically validated numerological meaning. They may reflect salience, recent exposure, memory, or ordinary pattern perception.",
       "kicker": "A pattern your cortex builds, not a message sent to you",
       "lead": "A clock, a sign, a page — the same digits keep showing up, and it feels too specific to be random. The specificity is real. The message is not what most numerology content claims.",
-      "signal": "The cortex is a pattern-completion machine even at rest, and during REM — with reduced logical oversight from the prefrontal cortex — it readily generates and then over-weights coincidental numeric patterns.",
+      "signal": "A repeated number can feel striking, but neuroscience does not establish that REM assigns it a coded message; first check recent exposure and personal associations.",
       "body_paragraphs": [
-        "Apophenia — the tendency to perceive meaningful patterns in random or ambiguous data — is a normal, well-documented feature of human cognition, and it's amplified during REM sleep because the prefrontal regions that would normally apply skeptical, logical filtering to a pattern are less active. A repeating digit is an unusually easy pattern for a dreaming brain to generate and then flag as significant, precisely because numbers are simple, discrete, and easy for the visual-cognitive system to render cleanly compared to more complex imagery.",
-        "This doesn't mean the specific numbers are meaningless as data about you — they're often genuinely drawn from something salient in recent memory (a date, an age, an address, a repeated real-world sighting that primed the pattern) — but the significance is retrospective and personal, not a message being sent to you from outside your own memory and cognition.",
-        "The emotional charge people attach to these dreams (a sense of being 'given a sign') is itself worth taking seriously as data about your current state — usually a desire for reassurance or direction during a period of uncertainty — even while the numerological content itself isn't literally instructive."
+        "Human cognition is highly sensitive to repetition and pattern, and dreams freely recombine recently seen as well as older material. Numbers can therefore recur after exposure to dates, times, prices, addresses, ages, scores, or repeated-number content encountered while awake.",
+        "It is reasonable to ask whether a number is personally meaningful. It is not scientifically justified to infer an external message, universal numerological code, or a specific REM mechanism from repetition alone. If there is no concrete association, uncertainty is the correct answer.",
+        "Evidence boundary: research does not support a one-to-one translation from a dream theme to a single waking-life cause. Use the physiology and continuity evidence as context, not diagnosis."
       ],
       "variants": [
         {
@@ -1132,7 +1192,7 @@
           "a": "This is the more genuinely meaningful version — the number is drawn from real salient memory, and worth examining directly rather than symbolically."
         }
       ],
-      "morning_prompt": "Does the number connect to anything concrete in your life — a date, an age, an amount? If yes, that's worth sitting with directly. If not, it's most likely pattern-completion doing what it does every night.",
+      "morning_prompt": "Write the exact number and check for recent real-world exposure — dates, clocks, prices, addresses, ages. If nothing connects, leave the meaning open.",
       "related_somatic": [],
       "related_mechanics": {
         "href": "/mechanics/rem/cortex-eeg/",
@@ -1141,21 +1201,24 @@
       "old_redirect_slugs": [
         "/numbers-in-dreams-meaning-111-222-333/",
         "/dreaming-of-repeating-numbers-meaning/"
-      ]
+      ],
+      "science_reviewed_core": true,
+      "variants_reviewed": false,
+      "evidence_boundary": "Evidence boundary: research does not support a one-to-one translation from a dream theme to a single waking-life cause. Use the physiology and continuity evidence as context, not diagnosis."
     },
     {
       "slug": "losing-control",
       "category": "Threat & anxiety",
       "title": "Dream About Losing Control",
       "meta_title": "Dream About Losing Control — Chaos & Overwhelm Meaning | Oneirox",
-      "meta_description": "Chaos and loss-of-control dreams track a real mismatch between REM's high emotional intensity and the reduced logical oversight that would normally regulate it.",
+      "meta_description": "Loss-of-control dreams can accompany stress or overload, but they are not a direct readout of reduced prefrontal activity in REM. Dream content and REM physiology should be kept distinct.",
       "kicker": "The dream that names the REM state directly",
       "lead": "Everything is happening too fast, nothing responds the way it should, and you can't get a handle on any of it. Unlike most dream themes, this one is fairly transparent about what it's describing.",
-      "signal": "REM sleep genuinely combines high emotional and sensory intensity with reduced prefrontal regulation — a loss-of-control dream is a fairly direct description of that neurological state, applied to whatever waking-life chaos is active.",
+      "signal": "A loss-of-control theme may resemble waking overload, but the dream itself cannot identify a specific prefrontal or emotional-regulation mechanism.",
       "body_paragraphs": [
-        "The reduced dorsolateral prefrontal activity during REM — the same feature responsible for chase dreams feeling so viscerally real — also means the normal top-down regulation that keeps waking emotion proportionate is largely offline. When a dream needs to represent a waking-life situation that already feels unmanageable, it doesn't need much embellishment: the neurological environment it's built in is itself somewhat chaotic and under-regulated, and that quality bleeds directly into the content.",
-        "This is one of the more transparent dream categories because the mechanism and the content are unusually well-matched — a mind with weakened logical oversight, generating a dream about a mind (or life) with weakened logical oversight. It tends to spike during periods of genuine overload rather than requiring much symbolic decoding.",
-        "Overthinking dreams — a racing, looping quality to the dream's internal logic — follow a related pattern: default-mode-network activity, associated with self-referential rumination, remains active during REM, and a mind that ruminates while awake often produces dreams with a similarly looping, unresolved structure."
+        "REM sleep differs from waking cognition in several ways, including regional changes in activation, but it is too strong to say that a dream about chaos is a direct neurological description of reduced prefrontal regulation. Dream content is generated by distributed brain activity and personal memory, not a one-to-one translation of one region being more or less active.",
+        "Continuity with waking stress is still a useful hypothesis when someone already feels overloaded or powerless. The key is direction of evidence: waking circumstances can help contextualize the dream; the dream should not be used to diagnose the waking state.",
+        "Evidence boundary: research does not support a one-to-one translation from a dream theme to a single waking-life cause. Use the physiology and continuity evidence as context, not diagnosis."
       ],
       "variants": [
         {
@@ -1175,7 +1238,7 @@
           "a": "REM doesn't preserve normal time-perception logic, and this distortion becomes especially noticeable when overlaid on a waking feeling of being out of time or out of control."
         }
       ],
-      "morning_prompt": "Is there one specific situation currently overloaded, or does everything genuinely feel unmanageable right now? The dream's intensity usually matches the real scope, once you name it precisely.",
+      "morning_prompt": "What felt uncontrollable in the dream, and is anything similar already evident while awake? Use waking evidence to test the comparison, not the dream to prove it.",
       "related_somatic": [
         {
           "href": "/somatic/alpha-intrusion-nrem/n2/fragmentation/",
@@ -1194,21 +1257,24 @@
         "/why-your-dreams-feel-dangerous-and-out-of-control/",
         "/dream-about-overthinking-why-your-mind-wont-stop/",
         "/being-the-last-person-in-a-dead-city-the-apex-of-isolation/"
-      ]
+      ],
+      "science_reviewed_core": true,
+      "variants_reviewed": false,
+      "evidence_boundary": "Evidence boundary: research does not support a one-to-one translation from a dream theme to a single waking-life cause. Use the physiology and continuity evidence as context, not diagnosis."
     },
     {
       "slug": "being-late",
       "category": "Situational stress",
       "title": "Dream About Being Late or Time Moving Wrong",
       "meta_title": "Dream About Being Late — Why Time Feels Distorted | Oneirox",
-      "meta_description": "REM sleep doesn't preserve normal time perception. Here's why being-late dreams and backward clocks are a direct symptom of how the brain tracks time while dreaming.",
+      "meta_description": "Being-late and distorted-time dreams are common, but they are not a validated direct symptom of REM timekeeping. They may reflect memory, deadlines, anxiety, or ordinary dream-time distortion.",
       "kicker": "Time genuinely works differently while you dream",
       "lead": "You're already late and getting later, or a clock is visibly moving the wrong way, or a whole day compresses into what feels like minutes. This isn't a metaphor stretch — dream cognition really does distort time.",
-      "signal": "The neural systems responsible for tracking duration and sequence are affected by REM's altered activation state, and time-distortion in dream content is a fairly direct readout of that.",
+      "signal": "Dream time can feel compressed, stretched, or inconsistent; a being-late dream may connect with waking time pressure, but no single REM timing mechanism explains the theme.",
       "body_paragraphs": [
-        "Time perception depends on cortical and subcortical systems that are themselves altered in activity during REM — which is a plausible reason dream narratives so often compress, stretch, skip, or reverse time in ways that would be immediately jarring while awake but pass without comment inside the dream. A being-late dream doesn't need a rational explanation for why the clock behaves strangely; it simply runs with whatever time-logic the underlying neural state produces.",
-        "Layered on top of that mechanism is a very common waking correlate: an active feeling of being behind, rushed, or unable to catch up on something specific. The distorted-time dream provides vivid content for that feeling — a clock spinning backward, a deadline collapsing — because the felt sense of 'not enough time' is exactly what the underlying physiology is already generating.",
-        "This theme overlaps heavily with exam-anxiety dreams (being late for a test is one of its most common variants) but shows up independently across many other contexts — travel, meetings, general life pacing — whenever a real deadline-pressure feeling is active."
+        "Dream narratives often contain discontinuities in sequence, duration, place, and causality. Research does not provide a simple neural clock rule that lets us translate a backward clock or missed deadline into a specific REM mechanism.",
+        "Being late is also a familiar waking concern, so continuity with deadlines, travel, obligations, or a general sense of time pressure is plausible. That interpretation should be tested against current life rather than assumed from the imagery.",
+        "Evidence boundary: research does not support a one-to-one translation from a dream theme to a single waking-life cause. Use the physiology and continuity evidence as context, not diagnosis."
       ],
       "variants": [
         {
@@ -1224,7 +1290,7 @@
           "a": "Time-compression dreams are common and don't require a specific waking trigger — they reflect a general property of dream cognition more than a targeted message."
         }
       ],
-      "morning_prompt": "What specifically do you feel behind on right now? Naming it precisely usually does more than analyzing the dream's clock imagery.",
+      "morning_prompt": "Was time pressure already present in waking life? If yes, note the overlap. If not, treat the distorted clock as a dream feature rather than a hidden diagnosis.",
       "related_somatic": [],
       "related_mechanics": {
         "href": "/mechanics/rem/cycle-timing/",
@@ -1234,21 +1300,24 @@
         "/dream-about-being-late-the-temporal-compression/",
         "/time-moving-too-fast-to-control-the-psychology-of-temporal-collapse/",
         "/a-clock-moving-backward-rapidly-the-temporal-degeneration/"
-      ]
+      ],
+      "science_reviewed_core": true,
+      "variants_reviewed": false,
+      "evidence_boundary": "Evidence boundary: research does not support a one-to-one translation from a dream theme to a single waking-life cause. Use the physiology and continuity evidence as context, not diagnosis."
     },
     {
       "slug": "recurring-dreams",
       "category": "Meta & educational",
       "title": "Why You Keep Having the Same Dream",
       "meta_title": "Why Do I Keep Having the Same Dream? The Real Reason | Oneirox",
-      "meta_description": "Recurring dreams happen because the underlying stressor your brain is processing hasn't resolved — a memory-consolidation loop, not an omen or a message.",
+      "meta_description": "Recurring dreams are associated with repeated themes and can occur during stress, but science does not show that every recurrent dream is an unresolved memory-consolidation loop.",
       "kicker": "The dream that keeps coming back because the problem does too",
       "lead": "Same scenario, same feeling, sometimes for years — recurring dreams are one of the more frustrating patterns people search for answers about, and the mechanism is more mundane, and more actionable, than it feels.",
-      "signal": "REM's memory-consolidation and emotional-processing systems keep recruiting the same template because the underlying concern it's tied to hasn't been resolved or downgraded in salience yet.",
+      "signal": "A recurring dream signals that a theme is recurring in dream experience; it may track ongoing concerns, stress, or stable memory patterns, but it does not prove one unresolved cause.",
       "body_paragraphs": [
-        "Recurring dreams are generally understood as a sign that the emotional-processing work REM sleep is doing on a particular concern hasn't finished — the memory network stays flagged as high-priority, and the same template gets pulled up again on subsequent nights, sometimes for months or years, until the underlying situation changes or the emotional charge naturally fades. This is closer to an unfinished background process than a message with hidden meaning.",
-        "This is also why recurring dreams about the same person — someone you haven't seen in years, someone you think about rarely while awake — don't necessarily mean anything is currently wrong with that relationship. It more often means that person is tied to a memory network that's still doing active processing work for unrelated reasons: a period of life they represent, an unresolved feeling from the past, or a comparison your mind keeps returning to.",
-        "The practical upshot is that recurring dreams usually respond to identifying and directly addressing the underlying waking concern, rather than to analyzing the dream's symbolic content in more depth — the content is often stable specifically because the analysis isn't the missing piece; the resolution of the real situation is."
+        "Recurring dreams and nightmares are well documented, and their themes can persist across long periods. They are often reported more during stress or psychological difficulty, which supports looking for continuity with waking concerns.",
+        "What remains uncertain is the mechanism. It is too strong to say the brain keeps re-running one dream because a memory has not been 'resolved' or 'downgraded.' Stable memory networks, repeated stress, sleep disruption, trauma-related processes, and ordinary thematic recurrence can all contribute depending on the person.",
+        "Evidence boundary: research does not support a one-to-one translation from a dream theme to a single waking-life cause. Use the physiology and continuity evidence as context, not diagnosis."
       ],
       "variants": [
         {
@@ -1264,7 +1333,7 @@
           "a": "Usually means a current situation has enough emotional overlap with the original trigger to reactivate the same template, even if the surface details look unrelated."
         }
       ],
-      "morning_prompt": "What was true in your life the first time you remember having this dream? The overlap between then and now is usually the real thread.",
+      "morning_prompt": "Track when the dream returns and what was happening in the days before it. Patterns across several episodes are more informative than a single symbolic explanation.",
       "related_somatic": [],
       "related_mechanics": {
         "href": "/mechanics/rem/cycle-timing/",
@@ -1277,7 +1346,10 @@
         "/what-does-it-mean-when-you-dream-about-someone-repeatedly/",
         "/dreaming-about-someone-you-havent-seen-in-years/",
         "/what-does-it-mean-when-you-dream-about-someone/"
-      ]
+      ],
+      "science_reviewed_core": true,
+      "variants_reviewed": false,
+      "evidence_boundary": "Evidence boundary: research does not support a one-to-one translation from a dream theme to a single waking-life cause. Use the physiology and continuity evidence as context, not diagnosis."
     },
     {
       "slug": "why-we-dream",
@@ -1291,7 +1363,8 @@
       "body_paragraphs": [
         "Dreaming is strongly associated with REM sleep, but it is not exclusive to REM. High-density EEG studies have recorded dream experience in both REM and NREM sleep; in both states, dream reports have been associated with changes in posterior cortical activity. That means “REM equals dreaming” is too simple, and so is the claim that one REM mechanism explains every dream.",
         "Memory and emotion are relevant to sleep, but dream content is not a direct readout of memory consolidation or emotional processing. Research linking task-related dream content to later memory is interesting but mixed, and methods vary substantially. Oneirox treats memory reactivation and affective processing as supported possibilities, not as a decoder that can infer a hidden message from a single scene.",
-        "Threat-simulation theory, activation-synthesis, continuity models, and predictive-processing accounts each explain part of the landscape. None is a settled universal function of dreaming. The evidence-first approach is therefore to label the sleep physiology we know, the associations we can support, and the interpretation that remains a hypothesis."
+        "Threat-simulation theory, activation-synthesis, continuity models, and predictive-processing accounts each explain part of the landscape. None is a settled universal function of dreaming. The evidence-first approach is therefore to label the sleep physiology we know, the associations we can support, and the interpretation that remains a hypothesis.",
+        "Evidence boundary: known sleep physiology can constrain an explanation, but it does not assign a fixed meaning to a dream image."
       ],
       "variants": [
         {
@@ -1331,21 +1404,24 @@
         "/rem-rebound-why-stopping-alcohol-makes-dreams-intense/",
         "/dream-symbols-and-their-spiritual-meanings-complete-guide/"
       ],
-      "date_modified": "2026-09-23"
+      "date_modified": "2026-09-23",
+      "science_reviewed_core": true,
+      "variants_reviewed": false,
+      "evidence_boundary": "Evidence boundary: known sleep physiology can constrain an explanation, but it does not assign a fixed meaning to a dream image."
     },
     {
       "slug": "anxiety-dreams",
       "category": "Threat & anxiety",
       "title": "Anxiety Dreams and Panic in Sleep",
       "meta_title": "Anxiety Dreams — Why Your Body Reacts Even in Sleep | Oneirox",
-      "meta_description": "Anxiety dreams and panic-during-sleep are amygdala-driven autonomic events with real physical correlates — racing heart, dread with no clear cause. Here's the mechanism.",
+      "meta_description": "Anxiety dreams can include strong fear and autonomic arousal, but the direction of cause is not always knowable. The body may arouse with the dream rather than before it.",
       "kicker": "When the dream's threat has no face",
       "lead": "A racing heart, a wave of dread, a public-exposure scenario with no clear cause — anxiety dreams don't always need a monster or a chase to feel intensely, physically real.",
-      "signal": "REM's amygdala-driven autonomic arousal (heart rate, breathing, adrenaline signaling) can run at high intensity independent of a coherent narrative — the fear is often the primary event, with the storyline built around it.",
+      "signal": "Fear in a dream can be accompanied by real autonomic changes, but dream content alone cannot tell whether bodily arousal caused the narrative or the narrative and arousal emerged together.",
       "body_paragraphs": [
-        "In most threat dreams (chases, snakes, attacks), the narrative and the physiological arousal build together. Pure anxiety dreams sometimes run the arousal first — a genuine autonomic nervous system spike, heart rate and breathing shifting, adrenaline-adjacent signaling active — with a comparatively thin or generic narrative wrapped around it after the fact. This is a reasonable account of why some anxiety dreams feel intensely frightening despite very little actually happening in them: the fear is real and physiologically driven; the plot is almost incidental.",
-        "This also explains why anxiety dreams so often carry over into waking physical sensation — a racing heart or shallow breathing that persists for a minute or two after you're fully awake. The autonomic nervous system doesn't distinguish cleanly between 'this happened in a dream' and 'this happened,' and takes a short while to downregulate regardless of which one it was.",
-        "Public-exposure and being-afraid-of-someone-familiar variants both draw on the same underlying arousal system, differing mainly in which social fear template gets attached to it — visibility and judgment in the first case, safety and trust in the second."
+        "Nightmares and anxiety dreams can produce intense fear, racing heart, sweating, and abrupt awakening. Those bodily responses are real. What is less certain is the sequence: current evidence does not let us reliably say that an autonomic spike happened first and the dream merely built a story around it.",
+        "The most useful observation is phenomenological: what did you feel, what woke you, and did the physical arousal persist after waking? Repeated nocturnal panic, severe sleep disruption, or concerning cardiopulmonary symptoms deserve clinical attention independent of any dream interpretation.",
+        "Evidence boundary: research does not support a one-to-one translation from a dream theme to a single waking-life cause. Use the physiology and continuity evidence as context, not diagnosis."
       ],
       "variants": [
         {
@@ -1365,7 +1441,7 @@
           "a": "Normal autonomic carryover — the nervous system needs a short window to downregulate after a high-arousal dream, independent of dream content."
         }
       ],
-      "morning_prompt": "Did your body feel afraid before the dream gave you a reason to be? That order matters — it tells you whether you're looking at an arousal event or a narrative one.",
+      "morning_prompt": "Record the emotion, the first physical sensations on waking, and whether they settled quickly. Do not assume the body or the narrative came first unless you have independent evidence.",
       "related_somatic": [
         {
           "href": "/somatic/cortisol-awakening-motor/n1/awakening/",
@@ -1388,21 +1464,24 @@
         "/dream-about-fear-with-no-reason-the-hidden-trigger-explained/",
         "/dream-about-being-afraid-of-someone-you-know-what-it-reveals/",
         "/fear-and-anxiety-dreams/"
-      ]
+      ],
+      "science_reviewed_core": true,
+      "variants_reviewed": false,
+      "evidence_boundary": "Evidence boundary: research does not support a one-to-one translation from a dream theme to a single waking-life cause. Use the physiology and continuity evidence as context, not diagnosis."
     },
     {
       "slug": "naked-in-public",
       "category": "Body & appearance",
       "title": "Dream About Being Naked in Public",
       "meta_title": "Dream About Being Naked in Public — Meaning | Oneirox",
-      "meta_description": "One of the most universally reported dreams. Here's the exposure-and-self-referential-processing mechanism behind being naked in public dreams.",
+      "meta_description": "Naked-in-public dreams are common social-exposure themes. They may connect with embarrassment or evaluation, but science does not establish a universal self-processing mechanism.",
       "kicker": "Reported across cultures as one of the most universal dreams",
       "lead": "You're at work, at a meeting, in a crowd — and you're not wearing what you should be, and everyone can see, and somehow you're the only one who seems to notice at first.",
-      "signal": "This dream is a near-literal dramatization of exposure anxiety — being seen more fully or more vulnerably than you're prepared for, in a setting where standing and judgment matter.",
+      "signal": "Public nudity in a dream can evoke exposure, embarrassment, or vulnerability, but the theme is not a validated readout of one self-referential brain network.",
       "body_paragraphs": [
-        "Being-naked-in-public is one of the dream themes most consistently reported as universal across independent surveys, regardless of culture, gender, or age. That consistency suggests it's tapping something structural about self-referential processing during REM: the default mode network, involved in thinking about the self and how the self is perceived by others, remains active during dreaming, and exposure — being seen without your usual protections — is one of the most efficient ways to dramatize vulnerability to social judgment.",
-        "The setting matters more than the nudity itself: a high-level meeting, a classroom, a stage — these are consistently high-stakes evaluative environments, reinforcing that the dream is about exposure to judgment in a context where standing or competence is being assessed, not about the body specifically.",
-        "The detail that other people in the dream often don't react, or barely notice, is one of the more interesting recurring features — it may reflect that the anxiety is more about your own felt vulnerability than about an actual external judgment being delivered; the fear is generated internally and the dream's other characters don't necessarily confirm it."
+        "Public-nudity dreams are familiar across many dream reports and naturally create a social-evaluation scene. If someone is already worried about judgment, visibility, or embarrassment, continuity with waking concerns is a reasonable hypothesis.",
+        "The brain-network story should remain modest. Dreaming involves distributed activity, and current neuroscience does not justify mapping this theme directly to the default mode network or to a universal fear of being 'seen for who you are.' Personal history and the specific setting matter.",
+        "Evidence boundary: research does not support a one-to-one translation from a dream theme to a single waking-life cause. Use the physiology and continuity evidence as context, not diagnosis."
       ],
       "variants": [
         {
@@ -1418,7 +1497,7 @@
           "a": "The gradual-realization variant often correlates with a real waking situation where you've recently become aware of being less prepared or covered than you thought."
         }
       ],
-      "morning_prompt": "Is there a context right now where you feel more exposed or evaluated than you're comfortable with? The specific setting in the dream is usually the more useful detail than the nudity itself.",
+      "morning_prompt": "What mattered more — nudity, the audience, the setting, or your own reaction? Use that distinction to explore the dream without assuming a universal exposure code.",
       "related_somatic": [],
       "related_mechanics": {
         "href": "/mechanics/rem/cortex-eeg/",
@@ -1426,21 +1505,24 @@
       },
       "old_redirect_slugs": [
         "/dream-about-being-naked-at-a-high-level-meeting-meaning/"
-      ]
+      ],
+      "science_reviewed_core": true,
+      "variants_reviewed": false,
+      "evidence_boundary": "Evidence boundary: research does not support a one-to-one translation from a dream theme to a single waking-life cause. Use the physiology and continuity evidence as context, not diagnosis."
     },
     {
       "slug": "homeland-and-diaspora",
       "category": "People & relationships",
       "title": "Dreams About Homeland and Diaspora",
       "meta_title": "Homeland & Diaspora Dreams — Place Memory, Not Omens | Oneirox",
-      "meta_description": "Homeland dreams — Ararat, return, grandmother, borders — explained through place memory and attachment in REM, not spiritual symbol charts. For diaspora nights.",
+      "meta_description": "Homeland and diaspora dreams can draw on autobiographical memory, language, family, place, migration, and belonging. They do not require a spiritual or national-prophecy explanation.",
       "kicker": "When the map of home runs overnight",
       "lead": "You wake thinking of a mountain, a grandmother's table, a passport queue, a country you love from a distance. Diaspora dreams are not rare and they are not mystical by default. They are high-density place and attachment files consolidating while you sleep.",
-      "signal": "REM is replaying culturally overtrained place and kinship schemas — homeland peaks, elders, borders, language — under attachment and belonging drive, not a national prophecy engine.",
+      "signal": "Culturally important places, people, languages, and rituals are dense autobiographical material and can reappear in dreams without implying prophecy or a universal biological meaning.",
       "body_paragraphs": [
-        "For people living far from a homeland — including Armenian communities across the United States — certain images arrive pre-loaded with meaning before the dream even starts: a mountain silhouette, a church smell, a language half-spoken. Sleep science does not need folklore to explain that. Autobiographical and cultural place maps are dense; REM prefers dense material when belonging, duty, grief, or return-plans are unfinished waking business.",
-        "Threat-simulation and continuity hypotheses both apply. A closed border or lost passport is access threat with bureaucratic costume. A grandmother at the table is elder attachment. [Mount Ararat in a dream](/dreams/homeland-and-diaspora/mount-ararat/) is often the single densest homeland landmark available to the visual system — which is why spiritual blogs fill the SERP with Noah metaphors, and why Oneirox answers with place-memory and attachment instead.",
-        "This pillar is English-first for US searchers. It refuses an Armenian-symbol dictionary (no pomegranate omens, no flag fortune-telling). Culture supplies the scene. Neurobiology supplies the mechanism. If inherited-grief nights stay heavy, that is a clinical conversation — not an SEO article."
+        "Migration and diaspora can make place, language, family, borders, food, music, and landmarks unusually emotionally dense memory material. Dreaming often incorporates autobiographical and waking concerns, so homeland imagery can emerge naturally from memory and belonging without a symbol dictionary.",
+        "For an Armenian dreamer, Ararat, Yerevan, a grandmother's table, a passport, a church, or a familiar language may each carry a different personal history. Oneirox should preserve that specificity rather than converting cultural memory into either mysticism or an invented neural code.",
+        "Evidence boundary: research does not support a one-to-one translation from a dream theme to a single waking-life cause. Use the physiology and continuity evidence as context, not diagnosis."
       ],
       "variants": [
         {
@@ -1484,7 +1566,7 @@
           "a": "Named homeland place binds — highland lake or Mother See — distinct mechanisms each."
         }
       ],
-      "morning_prompt": "Map the dream to one channel: place (Ararat/Armenia), people (elder/table), access (passport/border), or language. One channel beats a symbol list.",
+      "morning_prompt": "Name the concrete channel first: place, person, language, border/access, ritual, or family memory. Then write what that element actually means in your own history.",
       "related_somatic": [
         {
           "href": "/somatic/hypnopompic-chest-weight/rem/awakening/",
@@ -1499,7 +1581,10 @@
         "href": "/mechanics/rem/cycle-timing/",
         "label": "REM cycle timing"
       },
-      "old_redirect_slugs": []
+      "old_redirect_slugs": [],
+      "science_reviewed_core": true,
+      "variants_reviewed": false,
+      "evidence_boundary": "Evidence boundary: research does not support a one-to-one translation from a dream theme to a single waking-life cause. Use the physiology and continuity evidence as context, not diagnosis."
     }
   ]
 }
