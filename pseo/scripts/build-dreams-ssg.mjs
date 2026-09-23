@@ -235,8 +235,11 @@ function bodyParagraphsHtml(entry) {
   const core = (entry.body_paragraphs || [])
     .map((p) => `      <p>${inlineMdLinks(p)}</p>`)
     .join("\n");
-  const extra = expandDreamLongform(entry).html;
-  return nofollowOffAllowlist(`${core}\n${extra}`, somaticFollowable);
+  // Pillars already have curated body paragraphs + variants. Do not append
+  // synthetic long-form padding to pillar pages; it dilutes scientific accuracy
+  // and search intent. Scenario/LF pages keep the existing expansion for now.
+  const extra = entry.parent_slug ? expandDreamLongform(entry).html : "";
+  return nofollowOffAllowlist(extra ? `${core}\n${extra}` : core, somaticFollowable);
 }
 
 function siblingsHtml(siblings, parentTitle, opts = {}) {
@@ -294,7 +297,7 @@ function jsonLdPillar(entry) {
       description: entry.meta_description,
       url,
       datePublished: PUBLISHED,
-      dateModified: PUBLISHED,
+      dateModified: entry.date_modified || PUBLISHED,
       author: { "@type": "Person", name: "Vigen G.R." },
       isPartOf: { "@id": `${SITE}/#website` },
     },

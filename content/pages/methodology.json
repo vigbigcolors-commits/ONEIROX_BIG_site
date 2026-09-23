@@ -2,14 +2,24 @@
   "source": "https://oneirox.com/methodology/",
   "hero": {
     "eyebrow": "Methodology · Oneirox · How I Read Dreams",
-    "title": "Not a Clinician. Not a Dictionary. Something More Honest.",
+    "title": "A Mechanism-First Method, With the Limits Stated Plainly.",
     "lead": "Most dream interpretation has a methodology problem. The method is: look up the symbol, return the meaning. Fast, scalable, and completely indifferent to the person who had the dream.",
-    "lead_strong": "The person who had the dream is the entire point. Five years of reading. 50+ books. This is what I actually do instead — and why the Oneirox Lab works differently from anything else that exists."
+    "lead_strong": "The person who had the dream matters. The science also has limits. Oneirox separates established sleep physiology, supported associations, and interpretation instead of pretending one dream can be decoded like a lab result."
   },
   "stats": [
-    { "value": "5", "label": "Years studying" },
-    { "value": "50+", "label": "Books read" },
-    { "value": "14", "label": "Researchers cited", "note": "Methodology page said 12; align with engine at 14" }
+    {
+      "value": "5",
+      "label": "Years studying"
+    },
+    {
+      "value": "50+",
+      "label": "Books read"
+    },
+    {
+      "value": "14",
+      "label": "Researchers cited",
+      "note": "Methodology page said 12; align with engine at 14"
+    }
   ],
   "origin": {
     "title": "The Gap Between What People Say and What the Body Registers",
@@ -19,60 +29,111 @@
   "principles": [
     {
       "n": "01",
-      "title": "The Emotional Signature Is Primary. The Visual Content Is Secondary.",
-      "body": "Standard dream interpretation starts with the image. What the neuroscience of REM sleep suggests is the opposite: the emotional state is primary. The image is selected by the dreaming brain to encode and process that emotional state as efficiently as possible.",
-      "citation": "Cartwright — The Twenty-Four Hour Mind"
+      "title": "The Emotional Signature Comes Before the Symbol Table.",
+      "body": "Dream research does not show that a dream image has a fixed biological meaning. Oneirox starts with felt quality and waking context because emotion and salience are measurable parts of sleep mentation while symbolic decoding remains interpretive.",
+      "citation": "Siclari et al. 2017 · Bloxham 2024"
     },
     {
       "n": "02",
-      "title": "The Body Knows Before the Mind Names It.",
-      "body": "The amygdala receives threat-relevant information from the thalamus before that information reaches the cortex. The physical residue after waking is not a side effect of the dream. It is the most honest available data about what the dream was processing.",
-      "citation": "LeDoux — The Emotional Brain · Damasio — The Feeling of What Happens"
+      "title": "Waking Body Signals Are Context, Not Proof.",
+      "body": "Chest pressure, jaw tension, temperature, immobility, or a jolt can be useful observations because sleep physiology can cross the wake boundary. They can constrain an interpretation, but they do not prove what a dream meant.",
+      "citation": "REM physiology + interoceptive context; dream-specific inference remains a hypothesis"
     },
     {
       "n": "03",
-      "title": "The Neuroscience Tells You What. The Life Tells You Why.",
-      "body": "The human brain cannot distinguish between financial threat, social status threat, and physical danger at the level of the amygdala's alarm response. The neuroscience gives me the structure. The life gives me the address.",
-      "citation": "Sapolsky — Behave · Why Zebras Don't Get Ulcers"
+      "title": "Mechanism and Life Context Must Stay Separate.",
+      "body": "Sleep stage, arousal, memory reactivation, and autonomic state can shape dream experience. Waking concerns can also be incorporated into dreams. Oneirox uses both layers without claiming that a specific image uniquely identifies a specific neural mechanism.",
+      "citation": "Siclari et al. 2017 · Salvesen et al. 2024"
     },
     {
       "n": "04",
-      "title": "Timing Is the Most Diagnostic Element.",
-      "body": "Dreams track life transitions with remarkable precision — and often slightly before those changes are fully consciously acknowledged. The amygdala updates before the cortex has finished its assessment.",
-      "citation": "Cartwright — longitudinal dream research, Rush University"
+      "title": "Timing Can Be Informative, Not Diagnostic.",
+      "body": "Dreams often incorporate recent or salient waking experience, but there is no validated rule that a dream appearing before a life event diagnoses that event. Timing is context that may raise or lower a hypothesis.",
+      "citation": "Dream-incorporation literature; effect sizes and methods vary"
     },
     {
       "n": "05",
-      "title": "The Dream Is Not Prophetic. It Is Diagnostic.",
-      "body": "The dreaming brain does not know the future. It generates accurate current assessments of the emotional state of ongoing situations. Dreams are the nervous system's most honest available communication. They are not oracular. They are diagnostic.",
-      "citation": "Walker — Why We Sleep · Hobson — The Dreaming Brain"
+      "title": "A Dream Is Not Prophecy — and It Is Not a Neural Readout.",
+      "body": "Current neuroscience does not support fixed dream dictionaries or a method that can infer one hidden message from one dream. Oneirox returns a working explanation: what is established, what is plausible, and what remains speculative.",
+      "citation": "Siclari et al. 2017 · Bloxham 2024 · Valli & Revonsuo 2009"
     }
   ],
   "reading_sequence": [
-    { "n": 1, "title": "The Feeling", "text": "What is the felt quality of this dream? Where does it live in the body? This is the primary data." },
-    { "n": 2, "title": "The Timing", "text": "What is the waking-life context that generates this specific emotional charge right now?" },
-    { "n": 3, "title": "The Neuroscience", "text": "What is the brain actually doing when it produces this image? Walker, Cartwright, LeDoux, Sapolsky, Damasio, Porges." },
-    { "n": 4, "title": "The Specificity", "text": "What distinguishes this version of the dream from other versions of the same image?" },
-    { "n": 5, "title": "The Honest Sentence", "text": "The sentence the dreaming mind was building toward — the thing it would have said directly if waking management hadn't required images instead." }
+    {
+      "n": 1,
+      "title": "The Feeling",
+      "text": "What is the felt quality of the dream, and what did the body feel like on waking? Record these as observations, not as proof of meaning."
+    },
+    {
+      "n": 2,
+      "title": "The Timing",
+      "text": "What waking-life material was recent, salient, or emotionally loaded? Treat timing as context, not diagnosis."
+    },
+    {
+      "n": 3,
+      "title": "The Neuroscience",
+      "text": "Which sleep mechanisms could plausibly contribute — and which claims are established versus still hypothetical?"
+    },
+    {
+      "n": 4,
+      "title": "The Specificity",
+      "text": "What distinguishes this version of the dream from other versions of the same image?"
+    },
+    {
+      "n": 5,
+      "title": "The Working Interpretation",
+      "text": "State the narrowest explanation consistent with the evidence. Label what is established, supported, or speculative; do not pretend certainty."
+    }
   ],
   "timeline": [
-    { "year": "01", "title": "Foundation — Walker, Cartwright, LeDoux", "text": "By the end of year one: the emotion is primary, the image is the encoding mechanism." },
-    { "year": "02", "title": "The Body Layer — Damasio, Sapolsky, Porges", "text": "Somatic markers. Financial threat and physical danger produce identical alarm responses." },
-    { "year": "03", "title": "The Depth Layer — Jung, van der Kolk, Levine", "text": "Images that carry weight beyond personal history. Trauma and recurring dreams." },
-    { "year": "04", "title": "Building Oneirox", "text": "Cluster architecture. Every dream type connected to a psychological root." },
-    { "year": "05", "title": "Tools. Instruments. The Lab.", "text": "Sensory Dream Mapper live. Lab Search live. Close the distance between what the brain was doing and what the waking mind can understand." }
+    {
+      "year": "01",
+      "title": "Foundation — Walker, Cartwright, LeDoux",
+      "text": "Dreaming is not random, but neither dream function nor dream meaning has one settled neural explanation. That uncertainty became part of the method."
+    },
+    {
+      "year": "02",
+      "title": "The Body Layer — Damasio, Sapolsky, Porges",
+      "text": "Body-state observations can add useful context, but they are not a decoder key. The method began separating physiology from interpretation."
+    },
+    {
+      "year": "03",
+      "title": "The Depth Layer — Jung, van der Kolk, Levine",
+      "text": "Recurring dreams, nightmares, and trauma-related sleep showed why clinical phenomena and symbolic interpretation must not be collapsed into one claim."
+    },
+    {
+      "year": "04",
+      "title": "Building Oneirox",
+      "text": "Cluster architecture connected related dream themes while keeping shared mechanisms separate from page-specific interpretation."
+    },
+    {
+      "year": "05",
+      "title": "Tools. Instruments. The Lab.",
+      "text": "Sensory Dream Mapper and Lab Search became tools for organizing observations and hypotheses — not instruments that diagnose a hidden message."
+    }
   ],
   "limitations": {
     "title": "What This Methodology Cannot Do",
-    "closing": "What it can do is deliver the most honest available account of what your brain was doing while you slept. Not comfort. Not prediction. Precision."
+    "closing": "What it can do is organize the evidence, surface plausible mechanisms, and give you a disciplined question to test against your own experience. The final interpretation remains a hypothesis."
   },
   "cajochen": {
-    "title": "Your Brain Dreamed Differently That Night. The Moon Knows Why.",
+    "title": "Lunar Sleep Effects: Interesting, Inconsistent, Not a Decoder.",
     "stats": [
-      { "value": "30%", "label": "Less deep sleep near full moon" },
-      { "value": "25%", "label": "More REM density near full moon" }
+      {
+        "value": "30%",
+        "label": "Lower NREM delta power near full moon in one 2013 lab analysis"
+      },
+      {
+        "value": "+5 min",
+        "label": "Longer sleep-onset latency in the same study"
+      }
     ],
-    "citation": "Cajochen et al., Current Biology, 2013",
-    "doi": "https://doi.org/10.1016/j.cub.2013.07.029"
+    "citation": "Cajochen et al., Current Biology, 2013; later studies reported mixed or null findings",
+    "doi": "https://doi.org/10.1016/j.cub.2013.06.029"
+  },
+  "evidence_standard": {
+    "established": "Directly supported sleep physiology or replicated observational finding.",
+    "supported_hypothesis": "Plausible interpretation with empirical support but meaningful uncertainty.",
+    "speculative": "Oneirox interpretation or theory that must not be presented as a biological fact."
   }
 }
