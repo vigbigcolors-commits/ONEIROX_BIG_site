@@ -54,33 +54,37 @@
       },
       "mechanism_key": "cutaneous_contact_threat_complete",
       "indexable": true,
-      "wave": "A"
+      "wave": "A",
+      "science_reviewed_core": true,
+      "variants_reviewed": false,
+      "seo_decision": "KEEP_GOLD",
+      "evidence_boundary": "Evidence boundary: the page separates established sleep physiology from plausible interpretation and speculation; no dream image is a diagnostic test."
     },
     {
       "parent_slug": "snakes",
       "slug": "chasing-you",
       "title": "Dream About a Snake Chasing You",
-      "meta_title": "Snake Chasing You Dream — Pursuit Threat Simulation | Oneirox",
-      "meta_description": "A snake chase dream is pursuit-format threat rehearsal with a predator schema — Revonsuo-style simulation, not a Jungian shadow metaphor.",
-      "kicker": "Pursuit format, predator face",
-      "lead": "It does not strike once and leave. It follows. Your legs feel wrong. The distance never quite closes. That geometry is REM motor throttling wearing a snake mask.",
-      "signal": "Threat-simulation is running in chase mode; the pursuer is rendered as a snake because your fear-relevant bias made that the cheapest high-salience face for the chase engine.",
+      "meta_title": "Dream About a Snake Chasing You — What the Chase Changes | Oneirox",
+      "meta_description": "A snake-chase dream combines snake imagery with pursuit. Threat-simulation theory is one possible frame, but the dream does not prove a hidden threat or a single REM mechanism.",
+      "kicker": "Pursuit changes the scene",
+      "lead": "The important difference is the verb: the snake follows and you try to get away. That makes this a pursuit dream, but neuroscience cannot turn the chase into a diagnosis of what you are avoiding.",
+      "signal": "Snake-chase dreams can be explored as high-salience pursuit scenes. Threat-simulation theory is relevant background, not proof that a specific waking threat caused this dream.",
       "body_paragraphs": [
-        "Chase nightmares are among the most cross-cultural dream themes. Revonsuo’s threat-simulation theory treats them as offline rehearsal: detect, flee, fail-to-escape-cleanly. Swapping a human pursuer for a snake does not invent a new mechanism — it swaps the threat face onto the same pursuit loop.",
-        "REM atonia dampens felt motor output. Inside the dream that often becomes “I cannot run.” The snake staying just behind you is a narrative that absorbs brainstem motor inhibition, not a coded message about a person you are avoiding.",
-        "If the chase starts after a sudden jolt or heart-race, you may be seeing a hypnic or phasic arousal event get rewritten into pursuit within the same sleep cycle."
+        "Chase dreams are common across many dream reports, and threat-simulation theory proposes that some dreams rehearse perception and response to danger. That is a theory about one possible function of dreaming, not a decoder for an individual night. A snake can also appear because of recent exposure, personal fear, cultural salience, or ordinary memory recombination.",
+        "REM sleep includes strong motor inhibition, but research does not show that the familiar dream feeling of slow or ineffective running is simply a direct readout of REM atonia. Treat heavy legs or failed escape as part of the remembered scene unless waking paralysis or another physiological event was actually observed.",
+        "The best comparison is therefore descriptive: did the dream emphasize distance, pursuit, hiding, repeated escape attempts, or contact? Then compare the emotion with current life as a hypothesis. The dream itself is not evidence that a particular person or decision is dangerous."
       ],
       "variants": [
         {
-          "q": "Snake chasing you indoors",
-          "a": "Indoor pursuit compresses escape routes — common when daytime stress feels spatially trapped (work, family rooms) without requiring a house-symbol dictionary."
+          "q": "What if the snake chased me inside a house?",
+          "a": "The house changes the setting and may add familiarity or confinement, but there is no validated rule that an indoor chase means a boundary problem. Start with your own associations with the place."
         },
         {
-          "q": "You cannot scream while chased",
-          "a": "Vocal atonia spill: attempted shout meets REM muscle lock; the dream absorbs it as mute panic."
+          "q": "What if I could not run or scream?",
+          "a": "Difficulty moving or speaking is common in dream reports. It can resemble REM motor inhibition, but dream-only difficulty is not enough to diagnose sleep paralysis or prove a direct atonia mechanism."
         }
       ],
-      "morning_prompt": "What waking decision still has no response? Chase geometry clusters around deferred action, not deferred people.",
+      "morning_prompt": "Write what the snake did, how close it came, and what you felt. Only then compare the pursuit with current waking concerns, without assuming the dream identified a hidden threat.",
       "related_somatic": [
         {
           "href": "/somatic/cortisol-awakening-motor/n1/awakening/",
@@ -93,33 +97,37 @@
       },
       "mechanism_key": "pursuit_loop_predator_schema",
       "indexable": true,
-      "wave": "A"
+      "wave": "A",
+      "science_reviewed_core": true,
+      "variants_reviewed": true,
+      "seo_decision": "INDEX_REVIEWED",
+      "evidence_boundary": "Evidence boundary: this page describes plausible sleep and memory context, not a diagnostic test or a one-to-one decoder from dream content to waking cause."
     },
     {
       "parent_slug": "snakes",
       "slug": "shedding-skin",
       "title": "Dream About a Snake Shedding Its Skin",
-      "meta_title": "Snake Shedding Skin Dream — Boundary Update Signal | Oneirox",
-      "meta_description": "Shedding-snake dreams track body-boundary and change rehearsal in REM memory consolidation — not a spiritual rebirth slogan.",
-      "kicker": "Boundary rewrite, not rebirth slogan",
-      "lead": "The snake peels. Something old comes off. Something raw shows underneath. Dictionaries call this transformation; the lab reads it as a body-boundary update during memory consolidation.",
-      "signal": "Your cortex is rehearsing a surface-change event — old map peeling while a new sensory boundary comes online — using the biological fact that snakes actually shed.",
+      "meta_title": "Dream About a Snake Shedding Skin — Memory, Change, and Context | Oneirox",
+      "meta_description": "A shedding-snake dream may invite a change metaphor, but science does not establish a universal transformation meaning. Personal associations and recent exposure come first.",
+      "kicker": "A vivid biological image, not a fixed code",
+      "lead": "Snakes really do shed their skin, so the image naturally invites ideas about change. That metaphor can be useful, but it is interpretation — not a neuroscientific law.",
+      "signal": "Shedding imagery may draw on recent exposure, body sensations, personal associations, or change-related concerns. No validated mechanism makes it a universal marker of identity transition.",
       "body_paragraphs": [
-        "Unlike bite or chase scenes, shedding is low-chase, high-boundary. Dreams that stage molting, peeling, or layer-removal often appear when waking identity, role, or body image is under revision. Continuity hypothesis: daytime unfinished business about “what stays / what goes” gets a concrete visual.",
-        "Interoception matters. Nights with itch, dry skin, sheet friction, or post-illness body oddness give REM a real surface signal. A shedding snake is an efficient story for “my surface is changing.”",
-        "High calm during shedding usually means lower amygdala drive than bite nights — same animal category, different autonomic envelope."
+        "Dreams often recombine salient images from memory. A shedding snake is visually distinctive and culturally associated with renewal in many contexts, which can make the image feel immediately meaningful. The cultural association is real; the claim that every shedding-snake dream represents transformation is not established.",
+        "Skin sensations such as itch, heat, pressure, or dryness can sometimes be incorporated into dreams, but a shedding scene does not prove that this happened. Sensory incorporation is one hypothesis to consider only when there was actual waking residue or a plausible physical cue.",
+        "If a change metaphor fits current life, use it as a personal reflection rather than a diagnosis. If it does not fit, recent media, conversation, or simple dream recombination may be the better explanation."
       ],
       "variants": [
         {
-          "q": "You help the snake shed",
-          "a": "Agency in the scene often mirrors waking locus of control: you are initiating a change, not only enduring one."
+          "q": "What if I helped the snake shed?",
+          "a": "That adds agency to the story, but it does not scientifically prove that you are initiating a life change. Compare the feeling of helping with your own waking context."
         },
         {
-          "q": "Shed skin left behind",
-          "a": "Residue imagery leans memory-consolidation — what remains after an update — more than omen."
+          "q": "What if the old skin was left behind?",
+          "a": "The discarded skin can feel like a strong metaphor for change, but that reading remains personal rather than a validated memory-consolidation signature."
         }
       ],
-      "morning_prompt": "Name one waking role or habit that is mid-change. If nothing comes, check for real skin irritation overnight.",
+      "morning_prompt": "Check recent snake exposure, any real skin sensation, and whether change was already salient in waking life. Keep metaphor and evidence separate.",
       "related_somatic": [
         {
           "href": "/somatic/n1-skin-crawl/n1/onset/",
@@ -132,7 +140,11 @@
       },
       "mechanism_key": "boundary_molting_consolidation",
       "indexable": true,
-      "wave": "A"
+      "wave": "A",
+      "science_reviewed_core": true,
+      "variants_reviewed": true,
+      "seo_decision": "INDEX_REVIEWED",
+      "evidence_boundary": "Evidence boundary: this page describes plausible sleep and memory context, not a diagnostic test or a one-to-one decoder from dream content to waking cause."
     },
     {
       "parent_slug": "snakes",
@@ -168,33 +180,37 @@
       "indexable": true,
       "wave": "A",
       "article_mode": "gold",
-      "custom_body_file": "snakes-coiled-watching.html"
+      "custom_body_file": "snakes-coiled-watching.html",
+      "science_reviewed_core": true,
+      "variants_reviewed": false,
+      "seo_decision": "KEEP_GOLD",
+      "evidence_boundary": "Evidence boundary: the page separates established sleep physiology from plausible interpretation and speculation; no dream image is a diagnostic test."
     },
     {
       "parent_slug": "snakes",
       "slug": "many-snakes",
       "title": "Dream About Many Snakes",
-      "meta_title": "Many Snakes Dream Meaning — Parallel Threat Load | Oneirox",
-      "meta_description": "Multiple snakes in one dream usually mark parallel threat load or fragmented REM — not a dictionary of swarm omens.",
-      "kicker": "Parallel threats, one night",
-      "lead": "Not one snake — a field of them. Floor, trees, water, everywhere you look. Overwhelm is the point: the threat engine multiplied instances instead of refining one pursuer.",
-      "signal": "Your cortex instantiated threat as a population when a single agent could not carry the load — common under multi-source stress or fragmented REM.",
+      "meta_title": "Dream About Many Snakes — Why Multiplicity Matters | Oneirox",
+      "meta_description": "Dreaming about many snakes can feel overwhelming, but science does not show that the number of snakes measures stress load or fragmented REM. Context and emotion matter.",
+      "kicker": "Multiplicity raises salience",
+      "lead": "A room or landscape full of snakes creates a different experience from a single snake. The multiplication increases visual and emotional load, but it is not a biological stress meter.",
+      "signal": "Many-snake dreams are high-salience scenes. They may overlap with waking stress or repeated snake exposure, but the number of snakes cannot be translated into a measured stress burden.",
       "body_paragraphs": [
-        "Crowding a scene with many identical threats is a known nightmare pattern under high allostatic load. Instead of one coherent story, REM sprays the same fear-relevant category across space. That is parallel processing under pressure, not a special “abundance of enemies” prophecy.",
-        "Fragmented REM — microarousals, alcohol rebound, irregular schedules — can restart scene construction mid-cycle. Each restart may spawn another snake instance before the previous narrative closed.",
-        "If the snakes ignore each other and only orient to you, that still reads as ego-centered threat simulation, not an ecosystem metaphor."
+        "Dreams can duplicate people, objects, and threats without a one-to-one relationship to waking events. Many snakes may therefore reflect the same sources as one snake — memory, fear, recent exposure, cultural associations — amplified by the dream's scene construction.",
+        "Fragmented sleep can produce more awakenings and more remembered dream fragments, but current evidence does not justify saying that each snake represents a microarousal or that multiple snakes are a signature of fragmented REM.",
+        "If the scene felt crowded or inescapable, that emotional quality is worth recording. A waking sense of overload may be a plausible continuity hypothesis when independent waking evidence supports it."
       ],
       "variants": [
         {
-          "q": "Snakes covering the floor",
-          "a": "Ground-plane fill maximizes unavoidable contact risk in the dream’s spatial logic — escape cost is high by design."
+          "q": "What if snakes covered the floor?",
+          "a": "That makes avoidance difficult inside the dream and increases the sense of confinement. It does not prove a particular kind of waking threat."
         },
         {
-          "q": "Snakes of different sizes",
-          "a": "Size variance often tracks arousal amplitude changes across the night, not a coded hierarchy of people."
+          "q": "What if the snakes were different sizes?",
+          "a": "Size differences are part of the dream image. There is no validated rule that they map to different stress levels, people, or levels of danger."
         }
       ],
-      "morning_prompt": "List stressors that arrived the same week. Many-snakes nights cluster when load is plural, not singular.",
+      "morning_prompt": "Record whether the dominant feeling was fear, disgust, fascination, or overwhelm. Then check recent exposure and waking stress without treating snake count as a measurement.",
       "related_somatic": [
         {
           "href": "/somatic/fragmented-rem/rem/fragmentation/",
@@ -207,7 +223,11 @@
       },
       "mechanism_key": "parallel_threat_population",
       "indexable": true,
-      "wave": "A"
+      "wave": "A",
+      "science_reviewed_core": true,
+      "variants_reviewed": true,
+      "seo_decision": "INDEX_REVIEWED",
+      "evidence_boundary": "Evidence boundary: this page describes plausible sleep and memory context, not a diagnostic test or a one-to-one decoder from dream content to waking cause."
     },
     {
       "parent_slug": "snakes",
@@ -243,33 +263,37 @@
       "indexable": true,
       "wave": "A",
       "article_mode": "gold",
-      "custom_body_file": "snakes-dead-snake.html"
+      "custom_body_file": "snakes-dead-snake.html",
+      "science_reviewed_core": true,
+      "variants_reviewed": false,
+      "seo_decision": "KEEP_GOLD",
+      "evidence_boundary": "Evidence boundary: the page separates established sleep physiology from plausible interpretation and speculation; no dream image is a diagnostic test."
     },
     {
       "parent_slug": "snakes",
       "slug": "in-house",
       "title": "Dream About Snakes in the House",
-      "meta_title": "Snakes in the House Dream — Territory Breach Threat | Oneirox",
-      "meta_description": "Snakes inside the house mark territory-breach threat simulation — safe-space violation, not a furniture omen chart.",
-      "kicker": "Safe space breached",
-      "lead": "Home should be the one place the predator is not. Then you open a door and it is in the kitchen, the hallway, under the bed. The violation of territory is the mechanism.",
-      "signal": "REM is staging threat inside a place tagged as safe in waking memory — a high-salience breach that amplifies amygdala response without needing a new animal meaning.",
+      "meta_title": "Dream About Snakes in the House — Place, Memory, and Threat | Oneirox",
+      "meta_description": "Snakes in a house combine a familiar place with a salient animal image. The scene may feel like a safe-space breach, but no universal boundary meaning is scientifically established.",
+      "kicker": "Familiar place, salient animal",
+      "lead": "A snake inside a home often feels more alarming than the same animal outdoors because the setting is familiar and close. That contrast is useful description, not a fixed psychological code.",
+      "signal": "The house contributes autobiographical and spatial context; the snake contributes salience. Any interpretation about privacy, family, or boundaries must come from the dreamer's actual waking context.",
       "body_paragraphs": [
-        "Place cells and contextual memory still operate in sleep. Inserting a fear-relevant animal into a home layout exploits the contrast between “safe context” and “predator category.” That contrast alone elevates arousal.",
-        "Domestic snake dreams often cluster when waking stress involves privacy, boundaries, or someone entering your space — continuity of theme, not a coded plumbing metaphor.",
-        "Searching room-to-room for the snake is exploratory threat mapping: the cortex keeps sampling locations because the threat was not localized to one completed contact."
+        "Familiar places are common dream settings because they are richly represented in autobiographical memory. Putting a feared or attention-grabbing animal inside that place can make the scene especially vivid without requiring a special 'territory breach' brain mechanism.",
+        "If privacy, family tension, or unwanted access is already a waking concern, the house setting may feel continuous with that concern. But the dream cannot establish that such a problem exists; recent snake exposure or ordinary memory recombination can also explain the scene.",
+        "Room-to-room searching, hiding, or discovering the snake changes the narrative and the emotion. Those details are better evidence about the dream than universal meanings assigned to bedrooms, kitchens, or doors."
       ],
       "variants": [
         {
-          "q": "Snake under the bed",
-          "a": "Proximal-to-body hiding places maximize startle potential at awakening edges."
+          "q": "What if the snake was under the bed?",
+          "a": "The location creates extreme proximity to the sleeping body and may intensify fear. It does not by itself prove a sexual, relationship, or boundary meaning."
         },
         {
-          "q": "Snake in a childhood home",
-          "a": "Older spatial maps carry denser affective tags; breach there hits harder than a hotel room."
+          "q": "What if the house was my childhood home?",
+          "a": "A childhood home adds autobiographical memory to the scene. Start with your real history with that place rather than a universal house symbol."
         }
       ],
-      "morning_prompt": "Whose access to your space feels wrong right now — physical or digital? Territory breach tracks access, not reptiles.",
+      "morning_prompt": "Write which house and room it was, what the snake did, and your real associations with that place. Interpret only after those facts are clear.",
       "related_somatic": [
         {
           "href": "/somatic/k-complex-arousal/n2/mid-cycle/",
@@ -282,7 +306,11 @@
       },
       "mechanism_key": "safe_context_predator_breach",
       "indexable": true,
-      "wave": "A"
+      "wave": "A",
+      "science_reviewed_core": true,
+      "variants_reviewed": true,
+      "seo_decision": "INDEX_REVIEWED",
+      "evidence_boundary": "Evidence boundary: this page describes plausible sleep and memory context, not a diagnostic test or a one-to-one decoder from dream content to waking cause."
     },
     {
       "parent_slug": "snakes",
@@ -323,7 +351,11 @@
       "indexable": true,
       "wave": "A",
       "article_mode": "gold",
-      "custom_body_file": "snakes-in-bed.html"
+      "custom_body_file": "snakes-in-bed.html",
+      "science_reviewed_core": true,
+      "variants_reviewed": false,
+      "seo_decision": "KEEP_GOLD",
+      "evidence_boundary": "Evidence boundary: the page separates established sleep physiology from plausible interpretation and speculation; no dream image is a diagnostic test."
     },
     {
       "parent_slug": "teeth-falling-out",
@@ -364,33 +396,37 @@
       "indexable": true,
       "wave": "A",
       "article_mode": "gold",
-      "custom_body_file": "teeth-falling-out-with-blood.html"
+      "custom_body_file": "teeth-falling-out-with-blood.html",
+      "science_reviewed_core": true,
+      "variants_reviewed": false,
+      "seo_decision": "KEEP_GOLD",
+      "evidence_boundary": "Evidence boundary: the page separates established sleep physiology from plausible interpretation and speculation; no dream image is a diagnostic test."
     },
     {
       "parent_slug": "teeth-falling-out",
       "slug": "painless",
       "title": "Dream About Teeth Falling Out with No Pain",
-      "meta_title": "Painless Teeth Falling Out Dream — Low-Intensity Bruxism | Oneirox",
-      "meta_description": "Painless teeth-loss dreams are the common low-intensity oral-pressure narrative — bruxism without the injury dye.",
-      "kicker": "Pressure without injury dye",
-      "lead": "They loosen and fall, and it barely hurts. Weirdly calm. That calm is data: same oral channel, lower threat tagging.",
-      "signal": "Interoceptive jaw/gum noise is being explained as tooth loss without a strong nociceptive or blood layer — typical of milder bruxism nights.",
+      "meta_title": "Teeth Falling Out with No Pain Dream | Oneirox",
+      "meta_description": "A painless teeth-loss dream can be vivid without indicating bruxism or a hidden health problem. Dream content alone cannot diagnose jaw activity.",
+      "kicker": "Low pain in the story is still only dream content",
+      "lead": "Teeth can fall out in a dream without pain or panic. That difference describes the experience, but it does not prove a lower-intensity bruxism episode.",
+      "signal": "Painless tooth-loss imagery is not a diagnostic marker. Jaw tension or bruxism is worth considering only when independent waking signs are present.",
       "body_paragraphs": [
-        "The painless variant is statistically common and under-dramatized online because it does not click as hard. Mechanically it is cleaner: pressure and vibration in the mouth become “teeth leaving” without injury theater.",
-        "Lower amygdala drive keeps the scene odd rather than terrifying. You may even try to push teeth back in — problem-solving cortex online enough to act inside the dream.",
-        "Still check for waking clench habits. Absence of dream pain does not equal absence of jaw load."
+        "Teeth-loss dreams are widely reported and can occur with or without pain. The absence of pain may change the emotional tone, but there is no validated mapping from dream pain intensity to the amount of grinding, clenching, or oral pressure during sleep.",
+        "Real jaw tension, cheek biting, dental discomfort, or partner-reported grinding can sometimes provide a physiological clue after waking. Those observations are more meaningful than the dream plot itself.",
+        "If no waking oral symptoms are present, the dream can still be explored through recent dental concerns, appearance worries, stress, media exposure, or ordinary memory recombination. Uncertainty is acceptable."
       ],
       "variants": [
         {
-          "q": "Teeth fall out one by one calmly",
-          "a": "Serial low-intensity events often map to longer, quieter tension rather than a single sharp clench."
+          "q": "What if the teeth fell out one by one?",
+          "a": "The sequence is part of the dream narrative. It does not reliably distinguish chronic tension from a sudden event."
         },
         {
-          "q": "You collect the fallen teeth",
-          "a": "Collecting is executive framing — daytime problem-solving style leaking into REM narrative."
+          "q": "What if I collected the teeth?",
+          "a": "That action may reflect problem-solving inside the dream, but it is not a validated marker of executive control or a particular waking coping style."
         }
       ],
-      "morning_prompt": "Even without dream pain: any morning jaw tightness? Log yes/no for a week.",
+      "morning_prompt": "Check for real jaw or dental symptoms first. If none are present, keep the dream meaning open rather than assigning a bruxism explanation.",
       "related_somatic": [
         {
           "href": "/somatic/sleep-related-bruxism/n2/mid-cycle/",
@@ -402,34 +438,38 @@
         "label": "REM atonia lock"
       },
       "mechanism_key": "oral_pressure_low_nociception",
-      "indexable": true,
-      "wave": "A"
+      "indexable": false,
+      "wave": "A",
+      "science_reviewed_core": true,
+      "variants_reviewed": false,
+      "seo_decision": "NOINDEX_PARENT_SUPPORT",
+      "evidence_boundary": "Evidence boundary: this page describes plausible sleep and memory context, not a diagnostic test or a one-to-one decoder from dream content to waking cause."
     },
     {
       "parent_slug": "teeth-falling-out",
       "slug": "crumbling",
       "title": "Dream About Teeth Crumbling",
-      "meta_title": "Teeth Crumbling Dream — Slow Oral Tension Narrative | Oneirox",
-      "meta_description": "Crumbling teeth map to prolonged low-grade jaw tension — a slow oral signal getting a slow narrative, not decay prophecy.",
-      "kicker": "Slow signal, slow story",
-      "lead": "They do not pop out clean. They grit, powder, rot at the edges. Time stretches. That tempo usually mirrors longer-duration tension, not a sudden clench.",
-      "signal": "A prolonged oral-pressure or grinding pattern is being narrativized as structural failure over time rather than a single extraction event.",
+      "meta_title": "Dream About Teeth Crumbling — What Science Can and Cannot Say | Oneirox",
+      "meta_description": "Crumbling-teeth dreams are common and vivid. Jaw tension is one possible contributor, but the dream cannot diagnose grinding or prove a specific stress mechanism.",
+      "kicker": "Texture is vivid; mechanism is uncertain",
+      "lead": "Teeth crumble, powder, or break apart in the dream. That texture can feel physical, but dream content alone cannot tell us whether real jaw activity caused it.",
+      "signal": "Crumbling teeth may incorporate oral sensations, dental concerns, stress, or memory. Bruxism is a hypothesis only when waking evidence supports it.",
       "body_paragraphs": [
-        "Sharp clench → sudden tooth loss. Sustained grinding → crumbling, rotting, chalk-texture imagery. The cortex matches narrative time scale to signal time scale more often than dream dictionaries admit.",
-        "Texture details (sand, chalk, soft enamel) are somatosensory storytelling. Periodontal ligament noise plus vibration is enough raw material.",
-        "If you use a night guard and still get crumbling dreams, the residual micro-movements can still seed imagery even when macroscopic grinding is reduced."
+        "Dreams can incorporate bodily sensations, including oral sensations, but incorporation is inconsistent and cannot be inferred from imagery alone. A crumbling-teeth dream therefore does not demonstrate that grinding occurred that night.",
+        "Sleep-related bruxism is a real motor phenomenon. Morning jaw soreness, tooth wear assessed by a dental professional, cheek injury, or partner-reported grinding are stronger evidence than the dream. The page keeps that physiology available without turning it into a diagnosis.",
+        "Recent dental work, tooth sensitivity, appearance concerns, stress, or simply a familiar teeth-loss dream theme can all contribute. The useful distinction is between what was observed on waking and what is only an interpretation of the dream."
       ],
       "variants": [
         {
-          "q": "Teeth turn to chalk or sand",
-          "a": "Granular texture is a common translation of vibration + pressure without a clean break event."
+          "q": "What if the teeth turned to sand or chalk?",
+          "a": "Granular texture is a vivid dream feature. It can resemble sensory incorporation, but there is no validated rule linking it to vibration or grinding."
         },
         {
-          "q": "Crumbling while eating in the dream",
-          "a": "Oral-motor dream content plus real jaw load — eating scenes recruit the same effector maps."
+          "q": "What if the teeth crumbled while eating?",
+          "a": "Eating adds an oral-motor scene, but that still does not prove real jaw loading during sleep."
         }
       ],
-      "morning_prompt": "Was last night’s stress a long grind (deadline week) rather than a single shock? Tempo matches.",
+      "morning_prompt": "Note real jaw soreness, tooth sensitivity, or recent dental concerns. If none exist, avoid treating the dream as evidence of hidden dental damage.",
       "related_somatic": [
         {
           "href": "/somatic/n2-brux-microburst/n2/mid-cycle/",
@@ -442,33 +482,37 @@
       },
       "mechanism_key": "prolonged_grind_structural_fail",
       "indexable": true,
-      "wave": "A"
+      "wave": "A",
+      "science_reviewed_core": true,
+      "variants_reviewed": true,
+      "seo_decision": "INDEX_REVIEWED",
+      "evidence_boundary": "Evidence boundary: this page describes plausible sleep and memory context, not a diagnostic test or a one-to-one decoder from dream content to waking cause."
     },
     {
       "parent_slug": "teeth-falling-out",
       "slug": "pulling-own",
       "title": "Dream About Pulling Out Your Own Teeth",
-      "meta_title": "Pulling Own Teeth Dream — Agency + Oral Interoception | Oneirox",
-      "meta_description": "Pulling your own teeth pairs oral-pressure seed with active-agent framing — locus of control, not self-harm prophecy.",
-      "kicker": "You are the motor",
-      "lead": "You grip and pull. It is your decision inside the dream. That active verb matters: same mouth channel, different agency frame.",
-      "signal": "Oral interoception is present, but the dream ego initiates the removal — motor framing follows waking locus of control more than a different dental mechanism.",
+      "meta_title": "Dream About Pulling Out Your Own Teeth | Oneirox",
+      "meta_description": "Pulling out your own teeth adds agency to a teeth-loss dream, but science does not show that it tracks life decisions, control, or bruxism in a fixed way.",
+      "kicker": "Agency changes the story, not the evidence",
+      "lead": "You are not only losing teeth — you are the one removing them. That makes the scene psychologically different, but it does not create a validated 'control' diagnosis.",
+      "signal": "Self-extraction is an action inside the dream. It may feel connected to agency or decision-making, but that connection is interpretive rather than established neuroscience.",
       "body_paragraphs": [
-        "Passive tooth loss (“they fell”) and active extraction (“I pulled”) often split on agency. People mid-decision — quitting, confronting, relocating — show more active-verb oral dreams in continuity research patterns.",
-        "The hand-to-mouth motor loop is heavily practiced waking; REM can drive it even under partial atonia, producing a vivid sense of gripping and twisting.",
-        "If disgust or relief dominates, note which — affective valence is the useful morning datum, not a moral reading."
+        "Dreams often give the dreamer active roles that have no direct waking equivalent. Pulling a tooth can therefore reflect recent dental memory, disgust, pain, curiosity, control, or ordinary dream construction.",
+        "Hand-to-mouth action is familiar in waking life, but the existence of that motor representation does not prove that the dream is reading out a specific motor program or current life decision.",
+        "If relief, panic, disgust, or compulsion dominated the scene, that emotion is useful to record. Any link to quitting, confronting, relocating, or another decision should be tested against waking evidence rather than assumed."
       ],
       "variants": [
         {
-          "q": "Pulling with pliers or tools",
-          "a": "Tool use raises planning cortex involvement inside the scene — more executive, less pure panic."
+          "q": "What if I used pliers or another tool?",
+          "a": "Tools make the action more elaborate, but they do not prove stronger planning-cortex involvement or a particular decision style."
         },
         {
-          "q": "Relief after pulling",
-          "a": "Relief suggests the oral pressure story resolved; check whether jaw load actually eased on waking."
+          "q": "What if I felt relief after pulling the tooth?",
+          "a": "Relief is meaningful as part of the remembered experience. It does not prove that a waking problem has been resolved."
         }
       ],
-      "morning_prompt": "What change are you actively forcing waking? Match the verb, not the tooth.",
+      "morning_prompt": "Record why you pulled the tooth in the dream and how you felt afterward. Compare that with waking life only as a hypothesis.",
       "related_somatic": [
         {
           "href": "/somatic/sleep-related-bruxism/n2/mid-cycle/",
@@ -481,7 +525,11 @@
       },
       "mechanism_key": "agentic_oral_extraction_frame",
       "indexable": true,
-      "wave": "A"
+      "wave": "A",
+      "science_reviewed_core": true,
+      "variants_reviewed": true,
+      "seo_decision": "INDEX_REVIEWED",
+      "evidence_boundary": "Evidence boundary: this page describes plausible sleep and memory context, not a diagnostic test or a one-to-one decoder from dream content to waking cause."
     },
     {
       "parent_slug": "teeth-falling-out",
@@ -519,7 +567,7 @@
         "label": "REM cycle timing"
       },
       "mechanism_key": "social_continuity_oral_proxy",
-      "indexable": true,
+      "indexable": false,
       "wave": "A"
     },
     {
@@ -562,34 +610,34 @@
         "label": "REM cycle timing"
       },
       "mechanism_key": "rehearsal_loop_oral_seed",
-      "indexable": true,
+      "indexable": false,
       "wave": "A"
     },
     {
       "parent_slug": "dogs",
       "slug": "biting",
       "title": "Dream About a Dog Biting You",
-      "meta_title": "Dog Biting Dream Meaning — Social Predator Contact | Oneirox",
-      "meta_description": "A dog bite dream is social-animal threat contact — attachment-category predator with completed contact, not a loyalty omen.",
-      "kicker": "Familiar animal, contact complete",
-      "lead": "Teeth in skin — but it is a dog, not a snake. That swap matters: dogs sit in both attachment and threat categories, so the bite carries social charge.",
-      "signal": "Completed contact threat using a social mammal schema — often higher relational continuity than reptile bites, same contact-completion geometry.",
+      "meta_title": "Dream About a Dog Biting You — Memory, Threat, and Context | Oneirox",
+      "meta_description": "A dog-bite dream is a high-salience contact scene. It may draw on fear, attachment, recent dog exposure, or social memory, but it does not prove betrayal or a hidden relationship threat.",
+      "kicker": "Contact from a familiar animal category",
+      "lead": "A dog can be companion, stranger, pet, or threat. A bite makes the scene physically direct, but the dream cannot tell you whether the real source was social conflict, fear of dogs, or recent exposure.",
+      "signal": "Dog-bite dreams combine an emotionally familiar animal with contact. Personal history with dogs and the specific scene are stronger evidence than a universal loyalty or betrayal interpretation.",
       "body_paragraphs": [
-        "Dogs are fear-relevant and affiliation-relevant at once. A bite from that category frequently consolidates interpersonal conflict, boundary failure, or betrayed expectation — continuity — while still using standard REM threat hardware.",
-        "Compared with snake bites, dog-bite dreams more often include known animals (your dog, a neighbor’s). Known faces raise the odds the daytime seed is relational rather than abstract predator bias.",
-        "Real nighttime startles from pets in the bed can seed contact imagery; rule out literal animal movement before symbolism."
+        "Dogs are emotionally important for many people, but associations vary widely: affection, fear, responsibility, grief, childhood memory, work, or no special meaning. Dreaming of a bite can draw on any of those networks.",
+        "A known dog and an unknown dog may feel very different because one carries autobiographical memory. That distinction is worth noting, but it does not prove that a waking relationship has crossed a boundary.",
+        "Real pet movement, pressure, or startle during sleep can sometimes be incorporated into dreams. Consider that only when there is an actual plausible cue; otherwise keep the explanation open."
       ],
       "variants": [
         {
-          "q": "Your own dog bites you",
-          "a": "Attachment + threat collision — high affective load; ask what boundary felt crossed waking."
+          "q": "What if my own dog bit me?",
+          "a": "A familiar dog adds a strong autobiographical layer. It may feel like a trust violation, but the dream itself is not evidence that a person or pet is unsafe."
         },
         {
-          "q": "Strange dog bites then flees",
-          "a": "Hit-and-run contact: phasic arousal spike with quick scene termination."
+          "q": "What if a strange dog bit me and ran away?",
+          "a": "That is a brief contact scene. It can feel startle-like, but it does not establish that a physiological arousal spike caused the dream."
         }
       ],
-      "morning_prompt": "Was a trust or boundary issue active yesterday involving someone “on your side”? Start there.",
+      "morning_prompt": "Was the dog known or unknown, and what is your real history with dogs? Start there before using the bite as a metaphor for betrayal.",
       "related_somatic": [
         {
           "href": "/somatic/hypnagogic-tachycardia/n1/onset/",
@@ -602,7 +650,11 @@
       },
       "mechanism_key": "social_mammal_bite_contact",
       "indexable": true,
-      "wave": "A"
+      "wave": "A",
+      "science_reviewed_core": true,
+      "variants_reviewed": true,
+      "seo_decision": "INDEX_REVIEWED",
+      "evidence_boundary": "Evidence boundary: this page describes plausible sleep and memory context, not a diagnostic test or a one-to-one decoder from dream content to waking cause."
     },
     {
       "parent_slug": "dogs",
@@ -640,7 +692,7 @@
         "label": "REM atonia lock"
       },
       "mechanism_key": "canid_pursuit_threat_loop",
-      "indexable": true,
+      "indexable": false,
       "wave": "A"
     },
     {
@@ -683,7 +735,7 @@
         "label": "PGO & autonomic surge"
       },
       "mechanism_key": "acoustic_alarm_canid_avatar",
-      "indexable": true,
+      "indexable": false,
       "wave": "A"
     },
     {
@@ -722,7 +774,7 @@
         "label": "REM cortex & EEG"
       },
       "mechanism_key": "caregiving_affiliation_juvenile",
-      "indexable": true,
+      "indexable": false,
       "wave": "A"
     },
     {
@@ -761,7 +813,7 @@
         "label": "REM cycle timing"
       },
       "mechanism_key": "attachment_loss_animal_object",
-      "indexable": true,
+      "indexable": false,
       "wave": "A"
     },
     {
@@ -800,7 +852,7 @@
         "label": "PGO & autonomic surge"
       },
       "mechanism_key": "high_amplitude_assault_canid",
-      "indexable": true,
+      "indexable": false,
       "wave": "A"
     },
     {
@@ -842,7 +894,11 @@
       "indexable": true,
       "wave": "A",
       "article_mode": "gold",
-      "custom_body_file": "falling-hypnic-onset-jolt.html"
+      "custom_body_file": "falling-hypnic-onset-jolt.html",
+      "science_reviewed_core": true,
+      "variants_reviewed": false,
+      "seo_decision": "KEEP_GOLD",
+      "evidence_boundary": "Evidence boundary: the page separates established sleep physiology from plausible interpretation and speculation; no dream image is a diagnostic test."
     },
     {
       "parent_slug": "falling",
@@ -880,7 +936,7 @@
         "label": "REM cortex & EEG"
       },
       "mechanism_key": "extended_rem_vestibular_drop",
-      "indexable": true,
+      "indexable": false,
       "wave": "A"
     },
     {
@@ -919,7 +975,7 @@
         "label": "REM cycle timing"
       },
       "mechanism_key": "open_loop_vestibular_no_impact",
-      "indexable": true,
+      "indexable": false,
       "wave": "A"
     },
     {
@@ -958,7 +1014,7 @@
         "label": "REM atonia lock"
       },
       "mechanism_key": "segmented_locomotor_prediction_fail",
-      "indexable": true,
+      "indexable": false,
       "wave": "A"
     },
     {
@@ -997,7 +1053,7 @@
         "label": "PGO & autonomic surge"
       },
       "mechanism_key": "contained_volume_freefall",
-      "indexable": true,
+      "indexable": false,
       "wave": "A"
     },
     {
@@ -1039,7 +1095,11 @@
       "indexable": true,
       "wave": "A",
       "article_mode": "gold",
-      "custom_body_file": "being-chased-known-person.html"
+      "custom_body_file": "being-chased-known-person.html",
+      "science_reviewed_core": true,
+      "variants_reviewed": false,
+      "seo_decision": "KEEP_GOLD",
+      "evidence_boundary": "Evidence boundary: the page separates established sleep physiology from plausible interpretation and speculation; no dream image is a diagnostic test."
     },
     {
       "parent_slug": "being-chased",
@@ -1077,7 +1137,7 @@
         "label": "PGO & autonomic surge"
       },
       "mechanism_key": "diffuse_anonymous_pursuit",
-      "indexable": true,
+      "indexable": false,
       "wave": "A"
     },
     {
@@ -1116,7 +1176,7 @@
         "label": "REM atonia lock"
       },
       "mechanism_key": "atonia_throttled_flight_fail",
-      "indexable": true,
+      "indexable": false,
       "wave": "A"
     },
     {
@@ -1155,7 +1215,7 @@
         "label": "PGO & autonomic surge"
       },
       "mechanism_key": "nonhuman_predator_pursuit",
-      "indexable": true,
+      "indexable": false,
       "wave": "A"
     },
     {
@@ -1198,34 +1258,34 @@
         "label": "REM cycle timing"
       },
       "mechanism_key": "stuck_pursuit_rehearsal_loop",
-      "indexable": true,
+      "indexable": false,
       "wave": "A"
     },
     {
       "parent_slug": "cats",
       "slug": "attacking",
       "title": "Dream About a Cat Attacking You",
-      "meta_title": "Cat Attacking Dream — Ambivalent Close-Range Threat | Oneirox",
-      "meta_description": "Cat attack dreams are close-range ambivalent threat — affiliation category flipped into assault, not a luck omen.",
-      "kicker": "Soft category, hard contact",
-      "lead": "Claws out from something that should be gentle. That flip — comfort animal as attacker — is the affective signature.",
-      "signal": "An affiliation-tagged animal schema is running in assault mode — ambivalence and boundary violation themes are common continuity matches.",
+      "meta_title": "Dream About a Cat Attacking You — Context Before Symbolism | Oneirox",
+      "meta_description": "Cat-attack dreams can draw on fear, affection, unpredictability, recent exposure, or memory. They do not have a validated betrayal or 'ambivalent threat' meaning.",
+      "kicker": "A familiar animal can become threatening",
+      "lead": "A cat that scratches, bites, or lunges creates a sharp reversal when cats usually feel safe to you. For someone who fears cats, the same scene may mean something entirely different.",
+      "signal": "Cat-attack imagery is best interpreted through personal experience and the scene itself. Neuroscience does not assign cats a universal affiliation-threat circuit.",
       "body_paragraphs": [
-        "Cats occupy a different niche than dogs in many cultures: intimacy plus unpredictability. Attack scenes exploit that ambivalence.",
-        "Scratches to face or hands often co-occur with real facial/hand sensory noise or anxiety about appearance/social face.",
-        "Unlike dog assaults, cat attacks are frequently silent and sudden — startle geometry more than chase geometry."
+        "Cats can be pets, feared animals, cultural symbols, or simply recent visual material. That range makes a universal interpretation especially unreliable.",
+        "An attack scene naturally carries threat and contact, but science does not show that scratches to the hands or face reveal a specific social concern or sensory source. Real skin sensations can sometimes be incorporated, but they must be observed rather than inferred.",
+        "If the cat was familiar, note the autobiographical relationship. If it was unknown, note fear, surprise, and setting. Those details are more defensible than a fixed 'comfort turned to threat' rule."
       ],
       "variants": [
         {
-          "q": "House cat turns feral",
-          "a": "Safe-to-threat flip inside a familiar agent — boundary shock."
+          "q": "What if my house cat turned aggressive?",
+          "a": "Familiarity makes the reversal emotionally striking. It does not prove that a trusted person in waking life has become dangerous."
         },
         {
-          "q": "Big cat (lion/tiger) attack",
-          "a": "Upscaled predator category — higher primal amplitude, less pet ambivalence."
+          "q": "What if it was a lion or tiger?",
+          "a": "A big cat changes species, size, and threat intensity. It should not automatically be treated as the same psychological category as a pet cat."
         }
       ],
-      "morning_prompt": "Where did comfort flip to threat in waking life recently? Match the flip.",
+      "morning_prompt": "Identify whether the cat was familiar, what it did, and what you felt. Use your own cat history before any universal symbolic reading.",
       "related_somatic": [
         {
           "href": "/somatic/n1-skin-crawl/n1/onset/",
@@ -1238,7 +1298,11 @@
       },
       "mechanism_key": "affiliation_flip_close_assault",
       "indexable": true,
-      "wave": "A"
+      "wave": "A",
+      "science_reviewed_core": true,
+      "variants_reviewed": true,
+      "seo_decision": "INDEX_REVIEWED",
+      "evidence_boundary": "Evidence boundary: this page describes plausible sleep and memory context, not a diagnostic test or a one-to-one decoder from dream content to waking cause."
     },
     {
       "parent_slug": "cats",
@@ -1276,7 +1340,7 @@
         "label": "REM atonia lock"
       },
       "mechanism_key": "silent_gaze_vigilance_feline",
-      "indexable": true,
+      "indexable": false,
       "wave": "A"
     },
     {
@@ -1315,7 +1379,7 @@
         "label": "REM cycle timing"
       },
       "mechanism_key": "home_territory_ambivalent_crowd",
-      "indexable": true,
+      "indexable": false,
       "wave": "A"
     },
     {
@@ -1354,7 +1418,7 @@
         "label": "REM cortex & EEG"
       },
       "mechanism_key": "soft_attachment_loss_feline",
-      "indexable": true,
+      "indexable": false,
       "wave": "A"
     },
     {
@@ -1396,7 +1460,11 @@
       "indexable": true,
       "wave": "A",
       "article_mode": "gold",
-      "custom_body_file": "sleep-paralysis-with-presence.html"
+      "custom_body_file": "sleep-paralysis-with-presence.html",
+      "science_reviewed_core": true,
+      "variants_reviewed": false,
+      "seo_decision": "KEEP_GOLD",
+      "evidence_boundary": "Evidence boundary: the page separates established sleep physiology from plausible interpretation and speculation; no dream image is a diagnostic test."
     },
     {
       "parent_slug": "sleep-paralysis",
@@ -1434,7 +1502,7 @@
         "label": "REM atonia lock"
       },
       "mechanism_key": "vocal_effector_atonia_fail",
-      "indexable": true,
+      "indexable": false,
       "wave": "A"
     },
     {
@@ -1477,7 +1545,7 @@
         "label": "REM atonia lock"
       },
       "mechanism_key": "thoracic_load_incubus_bind",
-      "indexable": true,
+      "indexable": false,
       "wave": "A"
     },
     {
@@ -1520,34 +1588,34 @@
         "label": "REM atonia lock"
       },
       "mechanism_key": "hypnopompic_exit_atonia_lag",
-      "indexable": true,
+      "indexable": false,
       "wave": "A"
     },
     {
       "parent_slug": "water-and-drowning",
       "slug": "drowning",
       "title": "Dream About Drowning",
-      "meta_title": "Drowning Dream Meaning — Respiratory Threat Simulation | Oneirox",
-      "meta_description": "Drowning dreams are respiratory-threat simulations — airway and breath interoception bound into water narrative.",
-      "kicker": "Breath as the stakes",
-      "lead": "Water fills the mouth. You cannot get air. Panic is immediate. This is threat simulation aimed at the respiratory map, not a prediction about lakes.",
-      "signal": "Airway/breath interoception plus high amygdala drive is narrativized as drowning — one of the body’s highest-priority threat stories.",
+      "meta_title": "Dream About Drowning — Dream Content Is Not a Breathing Test | Oneirox",
+      "meta_description": "Drowning dreams can be terrifying, but they do not diagnose sleep apnea or airway obstruction. Recurrent waking gasping, choking, or daytime sleepiness deserves clinical attention.",
+      "kicker": "Separate the dream from waking breathing evidence",
+      "lead": "Drowning creates one of the strongest 'no air' stories a dream can produce. That does not mean the dream measured your airway.",
+      "signal": "A drowning dream may coexist with respiratory sensations, anxiety, recent water exposure, or ordinary nightmare construction. Waking breathing symptoms are the evidence that matters medically.",
       "body_paragraphs": [
-        "Breathing threats rank high in alarm hierarchies. REM can stage drowning when CO2 sensitivity, congestion, supine airway resistance, or panic predisposition is elevated.",
-        "Water is an efficient medium for “no air” stories. The specific ocean/pool/bathtub is continuity costume.",
-        "Recurrent drowning nightmares deserve a conversation about anxiety and possible sleep-disordered breathing — mechanism-informed, not dismissive."
+        "Breathing changes across sleep, and sleep-disordered breathing can be worse during REM in some people. However, current evidence does not support diagnosing apnea, congestion, or carbon-dioxide changes from a drowning dream alone.",
+        "Dreams can incorporate bodily sensations, but incorporation is variable. Water imagery can also arise from recent experiences, fear of drowning, media, emotional stress, or ordinary dream recombination.",
+        "If you repeatedly wake gasping, choking, short of breath, with witnessed apneas, or with marked daytime sleepiness, treat those waking signs as a sleep-medicine question. The dream may be worth mentioning, but it is not the diagnostic evidence."
       ],
       "variants": [
         {
-          "q": "Drowning in a pool vs ocean",
-          "a": "Contained vs open water changes spatial panic more than core respiratory mechanism."
+          "q": "Does drowning in a pool versus the ocean change the mechanism?",
+          "a": "It changes the setting and personal associations. There is no validated rule that contained versus open water identifies a different respiratory mechanism."
         },
         {
-          "q": "You watch yourself drown",
-          "a": "Dissociated viewpoint — sometimes lower motor struggle, still respiratory threat tagging."
+          "q": "What if I watched myself drown?",
+          "a": "A third-person viewpoint is a dream-perspective feature. It does not reliably indicate dissociation or lower motor struggle."
         }
       ],
-      "morning_prompt": "Congestion, snoring, or panic residual on waking? Breath first.",
+      "morning_prompt": "Did you actually wake gasping, choking, or short of breath? Record those symptoms separately and seek clinical evaluation if they recur.",
       "related_somatic": [
         {
           "href": "/somatic/hypnopompic-chest-weight/rem/awakening/",
@@ -1564,7 +1632,11 @@
       },
       "mechanism_key": "respiratory_threat_water_bind",
       "indexable": true,
-      "wave": "A"
+      "wave": "A",
+      "science_reviewed_core": true,
+      "variants_reviewed": true,
+      "seo_decision": "INDEX_REVIEWED",
+      "evidence_boundary": "Evidence boundary: this page describes plausible sleep and memory context, not a diagnostic test or a one-to-one decoder from dream content to waking cause."
     },
     {
       "parent_slug": "water-and-drowning",
@@ -1602,34 +1674,34 @@
         "label": "REM cortex & EEG"
       },
       "mechanism_key": "large_scale_approach_overwhelm",
-      "indexable": true,
+      "indexable": false,
       "wave": "A"
     },
     {
       "parent_slug": "anxiety-dreams",
       "slug": "free-floating-dread",
       "title": "Dream About Free-Floating Dread",
-      "meta_title": "Free-Floating Anxiety Dream — Untargeted Limbic Drive | Oneirox",
-      "meta_description": "Free-floating dread dreams are untargeted limbic drive — high anxiety affect without a stable threat object.",
-      "kicker": "Alarm without a file",
-      "lead": "Nothing is chasing you. Nothing is breaking. You still know something is terribly wrong. That is affect without a bound object.",
-      "signal": "Elevated limbic arousal during REM fails to bind to a specific threat schema — dread fills the scene as atmosphere.",
+      "meta_title": "Dream With a Feeling of Dread but No Clear Threat | Oneirox",
+      "meta_description": "Some dreams contain intense dread without a clear threat. The emotion is real, but dream content cannot show that 'limbic drive' preceded the story or identify a specific anxiety mechanism.",
+      "kicker": "Strong emotion, uncertain mechanism",
+      "lead": "Sometimes the dream is mostly a feeling: something is wrong, but there is no clear pursuer or event. That experience is valid even when the mechanism cannot be read from the plot.",
+      "signal": "Diffuse dread can occur in dreams and nightmares, but the dream alone cannot determine whether bodily arousal, anxiety, memory, or narrative construction came first.",
       "body_paragraphs": [
-        "Not all anxiety dreams are chase or exam scripts. Sometimes the hardware runs hot and content stays thin: hallways, gray light, waiting rooms, “wrongness.”",
-        "Generalized anxiety daytime predicts more untargeted dream affect. The fix is rarely a symbol; it is arousal and daytime load management.",
-        "If dread always finds an object by dream’s end, you are watching binding succeed late — useful to note what object finally appeared."
+        "Dreams can contain strong negative emotion with little stable plot. That does not require a hidden object, and it does not prove that an unbound limbic signal generated the dream.",
+        "Anxiety and stress can influence sleep and dream experience, but the direction of cause for one episode is usually uncertain. The safest approach is to record the feeling, sleep quality, recent stress, and any waking physical symptoms separately.",
+        "If recurrent dread causes repeated awakenings or significant daytime distress, the clinical issue is the recurring sleep disturbance or anxiety — not the need to decode a symbol."
       ],
       "variants": [
         {
-          "q": "Dread in an empty house",
-          "a": "Place without agent — context anxiety more than pursuit."
+          "q": "What if the dread happened in an empty house?",
+          "a": "The house is part of the setting, but it does not establish that the anxiety was 'context-based' rather than generated by another process."
         },
         {
-          "q": "Dread that something already happened",
-          "a": "Retrospective threat affect — common after rumination-heavy evenings."
+          "q": "What if I felt that something bad had already happened?",
+          "a": "That retrospective feeling is part of the dream narrative. It does not prove a specific rumination mechanism."
         }
       ],
-      "morning_prompt": "Body anxiety on waking (chest, gut) without a story? Log somatic residue separately from plot.",
+      "morning_prompt": "Record the feeling, any physical arousal on waking, sleep disruption, and recent stress. If there is no stable pattern, leave the mechanism uncertain.",
       "related_somatic": [
         {
           "href": "/somatic/hypnagogic-tachycardia/n1/onset/",
@@ -1645,34 +1717,38 @@
         "label": "PGO & autonomic surge"
       },
       "mechanism_key": "untargeted_limbic_dread",
-      "indexable": true,
-      "wave": "A"
+      "indexable": false,
+      "wave": "A",
+      "science_reviewed_core": true,
+      "variants_reviewed": false,
+      "seo_decision": "NOINDEX_PARENT_SUPPORT",
+      "evidence_boundary": "Evidence boundary: this page describes plausible sleep and memory context, not a diagnostic test or a one-to-one decoder from dream content to waking cause."
     },
     {
       "parent_slug": "naked-in-public",
       "slug": "workplace",
       "title": "Dream About Being Naked at Work",
-      "meta_title": "Naked at Work Dream — Evaluation Exposure Threat | Oneirox",
-      "meta_description": "Naked-at-work dreams are social-evaluation exposure — competence threat in a high-stakes context, not a morality tale.",
-      "kicker": "Exposure where status lives",
-      "lead": "The office. The meeting. No clothes. Shame or odd calm. This is evaluation threat staged as body exposure in the place your status is scored.",
-      "signal": "Social-evaluation circuitry binds “being seen incorrectly / unprepared” to literal bodily exposure in a work context map.",
+      "meta_title": "Dream About Being Naked at Work | Oneirox",
+      "meta_description": "Being naked at work is a vivid social-exposure dream. It may overlap with evaluation concerns, but the dream does not prove impostor syndrome, job risk, or a specific social-threat circuit.",
+      "kicker": "A high-exposure scene in a familiar setting",
+      "lead": "Work adds hierarchy, colleagues, and performance to a classic public-nudity dream. That makes evaluation an obvious hypothesis, not a scientific conclusion.",
+      "signal": "A workplace-nudity dream may connect with embarrassment or evaluation when those concerns are already present, but the scene cannot diagnose a competence or status problem.",
       "body_paragraphs": [
-        "Public nakedness dreams are classic social-threat simulations. Workplace casting raises the stakes because hierarchical eyes are in the scene.",
-        "People under performance review, new roles, or impostor-load report these more — continuity, not a clothing prophecy.",
-        "Calm nakedness (no shame) often means lower amygdala dye on the same exposure schema — oddness without panic."
+        "Public-nudity dreams are familiar and naturally create an exposure scenario. A workplace setting can make the scene more socially consequential because work is a real environment of evaluation for many adults.",
+        "If performance review, a new role, presentation, or workplace visibility is already active, continuity with that waking concern is plausible. If not, the work setting may simply be a frequently used memory environment.",
+        "The emotional response matters: shame, panic, indifference, or humor produce very different experiences. None of them provides a direct measurement of amygdala activity or a hidden career problem."
       ],
       "variants": [
         {
-          "q": "Naked in a presentation",
-          "a": "Peak evaluation moment — exposure timed to performance."
+          "q": "What if I was naked during a presentation?",
+          "a": "The presentation makes evaluation especially explicit inside the dream, but it does not prove a real performance threat."
         },
         {
-          "q": "Only you notice you are naked",
-          "a": "Internal evaluation threat more than external audience response."
+          "q": "What if nobody else noticed?",
+          "a": "That can shift the scene toward self-consciousness, but it is still interpretation rather than a validated distinction between internal and external evaluation."
         }
       ],
-      "morning_prompt": "Where is your competence on display this week? Match the audience, not the outfit.",
+      "morning_prompt": "Was evaluation already a real waking concern this week? If yes, note the overlap. If not, avoid forcing the workplace scene into an impostor-syndrome explanation.",
       "related_somatic": [
         {
           "href": "/somatic/cortisol-awakening-motor/n1/awakening/",
@@ -1684,8 +1760,12 @@
         "label": "REM cortex & EEG"
       },
       "mechanism_key": "workplace_evaluation_exposure",
-      "indexable": true,
-      "wave": "A"
+      "indexable": false,
+      "wave": "A",
+      "science_reviewed_core": true,
+      "variants_reviewed": false,
+      "seo_decision": "NOINDEX_PARENT_SUPPORT",
+      "evidence_boundary": "Evidence boundary: this page describes plausible sleep and memory context, not a diagnostic test or a one-to-one decoder from dream content to waking cause."
     },
     {
       "parent_slug": "house-dreams",
@@ -1721,7 +1801,11 @@
       "indexable": true,
       "wave": "A",
       "article_mode": "gold",
-      "custom_body_file": "house-dreams-childhood-house.html"
+      "custom_body_file": "house-dreams-childhood-house.html",
+      "science_reviewed_core": true,
+      "variants_reviewed": false,
+      "seo_decision": "KEEP_GOLD",
+      "evidence_boundary": "Evidence boundary: the page separates established sleep physiology from plausible interpretation and speculation; no dream image is a diagnostic test."
     },
     {
       "parent_slug": "water-and-drowning",
@@ -4082,7 +4166,11 @@
       "indexable": true,
       "wave": "C",
       "article_mode": "gold",
-      "custom_body_file": "homeland-and-diaspora-mount-ararat.html"
+      "custom_body_file": "homeland-and-diaspora-mount-ararat.html",
+      "science_reviewed_core": true,
+      "variants_reviewed": false,
+      "seo_decision": "KEEP_GOLD",
+      "evidence_boundary": "Evidence boundary: the page separates established sleep physiology from plausible interpretation and speculation; no dream image is a diagnostic test."
     },
     {
       "parent_slug": "homeland-and-diaspora",
@@ -4120,7 +4208,7 @@
         "label": "REM cortex & EEG"
       },
       "mechanism_key": "viewpoint_city_peak_pair_bind",
-      "indexable": true,
+      "indexable": false,
       "wave": "C"
     },
     {
@@ -4163,7 +4251,7 @@
         "label": "REM atonia lock"
       },
       "mechanism_key": "effort_ascent_homeland_peak",
-      "indexable": true,
+      "indexable": false,
       "wave": "C"
     },
     {
@@ -4202,7 +4290,7 @@
         "label": "REM cycle timing"
       },
       "mechanism_key": "diffuse_homeland_category_load",
-      "indexable": true,
+      "indexable": false,
       "wave": "C"
     },
     {
@@ -4241,7 +4329,7 @@
         "label": "PGO & autonomic surge"
       },
       "mechanism_key": "homeland_approach_reunion_script",
-      "indexable": true,
+      "indexable": false,
       "wave": "C"
     },
     {
@@ -4284,7 +4372,7 @@
         "label": "REM atonia lock"
       },
       "mechanism_key": "homeland_access_path_denied",
-      "indexable": true,
+      "indexable": false,
       "wave": "C"
     },
     {
@@ -4327,7 +4415,7 @@
         "label": "REM cycle timing"
       },
       "mechanism_key": "elder_attachment_cultural_node",
-      "indexable": true,
+      "indexable": false,
       "wave": "C"
     },
     {
@@ -4366,7 +4454,7 @@
         "label": "REM cortex & EEG"
       },
       "mechanism_key": "affiliation_feast_sensory_bind",
-      "indexable": true,
+      "indexable": false,
       "wave": "C"
     },
     {
@@ -4409,7 +4497,7 @@
         "label": "PGO & autonomic surge"
       },
       "mechanism_key": "olfactory_sacred_place_bind",
-      "indexable": true,
+      "indexable": false,
       "wave": "C"
     },
     {
@@ -4452,7 +4540,7 @@
         "label": "PGO & autonomic surge"
       },
       "mechanism_key": "identity_document_access_threat",
-      "indexable": true,
+      "indexable": false,
       "wave": "C"
     },
     {
@@ -4495,7 +4583,7 @@
         "label": "REM cycle timing"
       },
       "mechanism_key": "intergenerational_grief_schema_load",
-      "indexable": true,
+      "indexable": false,
       "wave": "C"
     },
     {
@@ -4534,7 +4622,7 @@
         "label": "REM cortex & EEG"
       },
       "mechanism_key": "ritual_bond_on_homeland_map",
-      "indexable": true,
+      "indexable": false,
       "wave": "C"
     },
     {
@@ -4577,7 +4665,7 @@
         "label": "REM atonia lock"
       },
       "mechanism_key": "heritage_language_identity_effector",
-      "indexable": true,
+      "indexable": false,
       "wave": "C"
     },
     {
@@ -4620,7 +4708,7 @@
         "label": "REM cycle timing"
       },
       "mechanism_key": "capital_city_episodic_place_schema",
-      "indexable": true,
+      "indexable": false,
       "wave": "D"
     },
     {
@@ -4659,7 +4747,7 @@
         "label": "REM cortex & EEG"
       },
       "mechanism_key": "highland_lake_homeland_water_bind",
-      "indexable": true,
+      "indexable": false,
       "wave": "D"
     },
     {
@@ -4698,7 +4786,7 @@
         "label": "REM cycle timing"
       },
       "mechanism_key": "us_diaspora_enclave_place_map",
-      "indexable": true,
+      "indexable": false,
       "wave": "D"
     },
     {
@@ -4737,7 +4825,7 @@
         "label": "REM atonia lock"
       },
       "mechanism_key": "duduk_timbre_identity_auditory_cue",
-      "indexable": true,
+      "indexable": false,
       "wave": "D"
     },
     {
@@ -4780,7 +4868,7 @@
         "label": "REM atonia lock"
       },
       "mechanism_key": "celebration_dhol_rhythm_motor_entrainment",
-      "indexable": true,
+      "indexable": false,
       "wave": "D"
     },
     {
@@ -4819,7 +4907,7 @@
         "label": "REM cortex & EEG"
       },
       "mechanism_key": "kamancha_bowed_intimate_affect_timbre",
-      "indexable": true,
+      "indexable": false,
       "wave": "D"
     },
     {
@@ -4862,7 +4950,7 @@
         "label": "REM atonia lock"
       },
       "mechanism_key": "untranslatable_jan_affection_particle_speech",
-      "indexable": true,
+      "indexable": false,
       "wave": "D"
     },
     {
@@ -4901,7 +4989,7 @@
         "label": "REM cycle timing"
       },
       "mechanism_key": "soorj_ritual_olfactory_kinship_script",
-      "indexable": true,
+      "indexable": false,
       "wave": "D"
     },
     {
@@ -4940,7 +5028,7 @@
         "label": "REM atonia lock"
       },
       "mechanism_key": "cascade_landmark_ascent_city_orientation",
-      "indexable": true,
+      "indexable": false,
       "wave": "D"
     },
     {
@@ -4979,7 +5067,7 @@
         "label": "REM cycle timing"
       },
       "mechanism_key": "mother_see_sacred_institutional_place",
-      "indexable": true,
+      "indexable": false,
       "wave": "D"
     },
     {
@@ -5018,7 +5106,7 @@
         "label": "REM cycle timing"
       },
       "mechanism_key": "zvartnots_homeland_threshold_access_script",
-      "indexable": true,
+      "indexable": false,
       "wave": "D"
     },
     {
@@ -5057,7 +5145,7 @@
         "label": "REM cycle timing"
       },
       "mechanism_key": "lavash_staple_kinship_sensory_bind",
-      "indexable": true,
+      "indexable": false,
       "wave": "D"
     }
   ]

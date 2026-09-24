@@ -240,7 +240,7 @@ function bodyParagraphsHtml(entry) {
   // Pillars already have curated body paragraphs + variants. Do not append
   // synthetic long-form padding to pillar pages; it dilutes scientific accuracy
   // and search intent. Scenario/LF pages keep the existing expansion for now.
-  const extra = entry.parent_slug ? expandDreamLongform(entry).html : "";
+  const extra = entry.parent_slug && !entry.science_reviewed_core ? expandDreamLongform(entry).html : "";
   return nofollowOffAllowlist(extra ? `${core}\n${extra}` : core, somaticFollowable);
 }
 
@@ -351,7 +351,7 @@ function jsonLdLf(entry, parent) {
       ],
     },
   ];
-  if ((entry.variants || []).length) {
+  if (entry.variants_reviewed === true && (entry.variants || []).length) {
     graph.push({
       "@type": "FAQPage",
       mainEntity: entry.variants.map((v) => ({
@@ -668,38 +668,21 @@ function writeDreamAllowlist(pillars, lfIndexable) {
 }
 
 function selectLfIndexable(lfEntries, pillarMap) {
-  const baseCount = 1 + pillarMap.size; // hub + pillars
-  const lfCap = Math.max(0, DREAM_INDEX_CAP - baseCount);
-  const candidates = lfEntries.filter((e) => e.indexable && pillarMap.has(e.parent_slug));
-  if (candidates.length <= lfCap) return candidates;
-
-  const byParent = new Map();
-  for (const lf of candidates) {
-    if (!byParent.has(lf.parent_slug)) byParent.set(lf.parent_slug, []);
-    byParent.get(lf.parent_slug).push(lf);
-  }
-
-  const picked = [];
+  const selected = lfEntries.filter((e) => e.indexable === true);
   const seen = new Set();
 
-  // First pass: keep breadth across pillars before depth within one pillar.
-  for (const [parent, list] of byParent) {
-    if (picked.length >= lfCap) break;
-    const lf = list[0];
-    picked.push(lf);
-    seen.add(`${parent}/${lf.slug}`);
-  }
-
-  // Second pass: fill remaining slots in original matrix order.
-  for (const lf of candidates) {
-    if (picked.length >= lfCap) break;
-    const key = `${lf.parent_slug}/${lf.slug}`;
-    if (seen.has(key)) continue;
-    picked.push(lf);
+  for (const lf of selected) {
+    const key = lf.parent_slug + "/" + lf.slug;
+    if (!pillarMap.has(lf.parent_slug)) throw new Error("Indexable LF has missing parent pillar: " + key);
+    if (lf.science_reviewed_core !== true) throw new Error("Indexable LF is not science-reviewed: " + key);
+    if (seen.has(key)) throw new Error("Duplicate indexable LF: " + key);
     seen.add(key);
   }
 
-  return picked;
+  const total = 1 + pillarMap.size + selected.length;
+  if (total > DREAM_INDEX_CAP) throw new Error("Dream index set " + total + " exceeds cap " + DREAM_INDEX_CAP);
+
+  return selected;
 }
 
 function main() {

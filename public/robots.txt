@@ -19,7 +19,7 @@ Allow: /somatic/hypnic-jerk/n1/onset/
 Allow: /somatic/hypnagogic-tachycardia/n1/onset/
 Allow: /somatic/sleep-related-bruxism/n2/mid-cycle/
 
-# Dreams: bulk LF Disallow; Allowlines out-specify for indexable scenarios.
+# Dreams: no bulk Disallow; noindex LF pages must stay crawlable.
 Allow: /dreams/$
 Allow: /dreams/assets/
 Allow: /dreams/teeth-falling-out/$
@@ -50,17 +50,6 @@ Allow: /dreams/anxiety-dreams/$
 Allow: /dreams/naked-in-public/$
 Allow: /dreams/homeland-and-diaspora/$
 Allow: /dreams/snakes/bitten/
-Allow: /dreams/teeth-falling-out/with-blood/
-Allow: /dreams/dogs/biting/
-Allow: /dreams/falling/hypnic-onset-jolt/
-Allow: /dreams/being-chased/known-person/
-Allow: /dreams/cats/attacking/
-Allow: /dreams/sleep-paralysis/with-presence/
-Allow: /dreams/water-and-drowning/drowning/
-Allow: /dreams/anxiety-dreams/free-floating-dread/
-Allow: /dreams/naked-in-public/workplace/
-Allow: /dreams/house-dreams/childhood-house/
-Allow: /dreams/homeland-and-diaspora/mount-ararat/
 Allow: /dreams/snakes/chasing-you/
 Allow: /dreams/snakes/shedding-skin/
 Allow: /dreams/snakes/coiled-watching/
@@ -68,9 +57,16 @@ Allow: /dreams/snakes/many-snakes/
 Allow: /dreams/snakes/dead-snake/
 Allow: /dreams/snakes/in-house/
 Allow: /dreams/snakes/in-bed/
-Allow: /dreams/teeth-falling-out/painless/
+Allow: /dreams/teeth-falling-out/with-blood/
 Allow: /dreams/teeth-falling-out/crumbling/
 Allow: /dreams/teeth-falling-out/pulling-own/
-Disallow: /dreams/*/*/
+Allow: /dreams/dogs/biting/
+Allow: /dreams/falling/hypnic-onset-jolt/
+Allow: /dreams/being-chased/known-person/
+Allow: /dreams/cats/attacking/
+Allow: /dreams/sleep-paralysis/with-presence/
+Allow: /dreams/water-and-drowning/drowning/
+Allow: /dreams/house-dreams/childhood-house/
+Allow: /dreams/homeland-and-diaspora/mount-ararat/
 
 Sitemap: https://oneirox.com/sitemap.xml

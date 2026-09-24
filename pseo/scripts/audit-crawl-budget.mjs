@@ -54,8 +54,8 @@ function main() {
       "robots.txt must NOT Disallow: /somatic/ (noindex demoted pages must stay crawlable)"
     );
   }
-  if (!robots.includes("Disallow: /dreams/*/*/")) {
-    fails.push("robots.txt missing Disallow: /dreams/*/*/");
+  if (robots.includes("Disallow: /dreams/*/*/")) {
+    fails.push("robots.txt must NOT Disallow: /dreams/*/*/ because noindex LF pages must stay crawlable");
   }
 
   const somaticRows = somaticSm.filter((u) => !SOMATIC_HUBS.has(u));
@@ -89,7 +89,7 @@ function main() {
     process.exit(1);
   }
   console.log(
-    `Crawl-budget OK: somatic sitemap ${somaticSm.length} · dreams sitemap ${dreamSm.length} · no somatic Disallow · dreams LF Disallow present`
+    `Crawl-budget OK: somatic sitemap ${somaticSm.length} · dreams sitemap ${dreamSm.length} · no somatic Disallow · no dream LF Disallow`
   );
 }
 
