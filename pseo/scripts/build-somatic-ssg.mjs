@@ -25,6 +25,7 @@ const PSEO = path.resolve(__dirname, "..");
 const MATRIX = path.join(PSEO, "data", "somatic-matrix.json");
 const GOLD = path.join(PSEO, "data", "somatic-matrix.gold.json");
 const TPL_HUB = path.join(PSEO, "templates", "somatic-hub.html");
+const TPL_REVIEWED = path.join(PSEO, "templates", "somatic-reviewed.html");
 const CTA = fs.readFileSync(
   path.join(PSEO, "templates", "partials", "cta-hard.html"),
   "utf8"
@@ -260,6 +261,10 @@ function shellKey(entry) {
 }
 
 function writeUtility(entry, templates, byId) {
+  if (isSomaticBuildEligible(entry)) {
+    writeReviewedUtility(entry, templates.reviewed);
+    return;
+  }
   const key = shellKey(entry);
   const tpl = templates[key] || templates.eeg_baseline;
   const dir = path.join(
@@ -268,9 +273,19 @@ function writeUtility(entry, templates, byId) {
     entry.slug_phase,
     entry.slug_context
   );
+  const existing = path.join(dir, "index.html");
+  if (fs.existsSync(existing)) {
+    const html = fs.readFileSync(existing, "utf8");
+    if (
+      html.includes(`<link rel="canonical" href="${pageUrl(entry)}">`) &&
+      html.includes('<meta name="robots" content="noindex,follow">')
+    ) {
+      return;
+    }
+  }
   ensureDir(dir);
   const base = PHASE_BASE[entry.sleep_phase] || PHASE_BASE.N2;
-  const robots = entry.indexable ? "index,follow" : "noindex,follow";
+  const robots = "noindex,follow";
   const html = fill(tpl, {
     TITLE: esc(entry.title),
     DESCRIPTION: esc(description(entry)),
@@ -307,39 +322,58 @@ function writeUtility(entry, templates, byId) {
   fs.writeFileSync(path.join(dir, "index.html"), html);
 }
 
+function reviewedLinks(entry) {
+  if (!entry.reviewed_mechanics_links.length) return "";
+  return `<section class="sx-panel"><h2>Related physiology</h2><ul>${entry.reviewed_mechanics_links
+    .map((link) => `<li><a href="${esc(link.href)}">${esc(link.label)}</a></li>`)
+    .join("")}</ul></section>`;
+}
+
+function reviewedCitations(entry) {
+  return entry.citations
+    .map((citation) => `<li><a href="https://pubmed.ncbi.nlm.nih.gov/${esc(citation.pmid)}/" rel="noopener noreferrer" target="_blank">${esc(citation.label)}</a></li>`)
+    .join("");
+}
+
+function writeReviewedUtility(entry, tpl) {
+  const dir = path.join(OUT_DIR, entry.slug_symptom, entry.slug_phase, entry.slug_context);
+  ensureDir(dir);
+  fs.writeFileSync(path.join(dir, "index.html"), fill(tpl, {
+    TITLE: esc(entry.reviewed_title),
+    DESCRIPTION: esc(entry.reviewed_description),
+    CANONICAL: pageUrl(entry),
+    JSON_LD: reviewedJsonLd(entry),
+    ESTABLISHED: esc(entry.evidence_sections.established),
+    SUPPORTED_HYPOTHESIS: esc(entry.evidence_sections.supported_hypothesis),
+    LIMITATION: esc(entry.evidence_sections.unknown_or_limitation),
+    OBSERVABLE_FACTS: listItems(entry.observable_facts),
+    MECHANICS_LINKS: reviewedLinks(entry),
+    SAFETY_BOUNDARY: esc(entry.safety_boundary),
+    CITATIONS: reviewedCitations(entry),
+  }));
+}
+
 const PHASE_HUB = {
   n1: {
-    h2: "Map hypnagogic body signals in N1 sleep",
-    lead: "N1 is the theta gate into sleep (4–7 Hz). The body still reports falling, hypnic jerks, limb-float, and onset breathing pauses — residue of the wake-to-sleep switch, not a dream plot.",
-    h2_2: "Indexed N1 utilities — onset, fragmentation, awakening",
-    description: (n) =>
-      `Hypnagogic body signals in N1 (theta 4–7 Hz): jerks, limb-float, exploding-head bursts, onset pauses. ${n} indexed somatic utilities — Oneirox.`,
+    title: "Sleep-onset phenomena",
+    lead: "Sleep onset is a gradual transition rather than a single measurable instant from subjective experience. These reviewed guides cover body and sensory phenomena reported around falling asleep without claiming that a sensation identifies an exact sleep stage.",
   },
   n2: {
-    h2: "Map spindle-stage body signals in N2 sleep",
-    lead: "N2 is the sigma window (11–16 Hz): spindles, K-complex, bruxism, periodic limb movements, pre-REM atonia ramp. The readout is muscle and EEG — not a symbol dictionary.",
-    h2_2: "Indexed N2 utilities — onset, mid-cycle, fragmentation, awakening",
-    description: (n) =>
-      `N2 body signals (sigma 11–16 Hz): bruxism, PLM, alpha intrusion, pre-REM atonia ramp. ${n} indexed somatic utilities — Oneirox.`,
+    title: "Movement phenomena during sleep",
+    lead: "Some movement phenomena are commonly observed during NREM sleep, but a subjective report cannot determine the exact sleep stage. These guides separate observable behavior from laboratory measurement and diagnosis.",
   },
   n3: {
-    h2: "Map slow-wave body residue in N3 sleep",
-    lead: "N3 is delta (0.5–2 Hz). Confusional motor residue at N3-exit is a stage-shift in the body, not a story the cortex finished telling.",
-    h2_2: "Indexed N3 utilities — slow-wave exit and motor residue",
-    description: (n) =>
-      `N3 slow-wave body residue (delta 0.5–2 Hz): confusional arousal motor leftover at stage exit. ${n} indexed somatic utilit${n === 1 ? "y" : "ies"} — Oneirox.`,
+    title: "Confusional arousal and deep-NREM awakening",
+    lead: "Confusional arousals are incomplete awakenings from NREM sleep. The guide focuses on observable behavior and clinical boundaries rather than reconstructing an EEG from memory.",
   },
   rem: {
-    h2: "Map REM atonia and somatic residue during dreaming sleep",
-    lead: "REM runs theta (4–8 Hz) with spinal atonia, phasic twitches, thermoregulatory blunting, and paralysis at the wake border. The body is the metric. The dream narrative is secondary.",
-    h2_2: "Indexed REM utilities — onset, mid-cycle, fragmentation, awakening",
-    description: (n) =>
-      `REM somatic metrics (theta 4–8 Hz): atonia failure, sleep paralysis, hypnopompic surge, distal twitches. ${n} indexed utilities — Oneirox.`,
+    title: "REM-related motor and awakening phenomena",
+    lead: "REM sleep includes characteristic motor inhibition, but subjective experiences do not directly measure REM physiology. These guides separate sleep paralysis, RSWA, awakening sensations, and fragmented sleep from unsupported mechanism claims.",
   },
 };
 
 function writeHubs(tpl, entries) {
-  const indexable = entries.filter((e) => e.indexable);
+  const indexable = entries.filter(isSomaticBuildEligible);
   const byPhase = { n1: [], n2: [], n3: [], rem: [] };
   for (const e of indexable) byPhase[e.slug_phase]?.push(e);
 
@@ -354,7 +388,7 @@ function writeHubs(tpl, entries) {
   const mainLinks = indexable
     .map(
       (e) =>
-        `<a href="/somatic/${e.slug_symptom}/${e.slug_phase}/${e.slug_context}/">${esc(e.title)}</a>`
+        `<a href="/somatic/${e.slug_symptom}/${e.slug_phase}/${e.slug_context}/">${esc(e.reviewed_title)}</a>`
     )
     .join("\n");
 
@@ -362,24 +396,20 @@ function writeHubs(tpl, entries) {
   fs.writeFileSync(
     path.join(OUT_DIR, "index.html"),
     fill(tpl, {
-      TITLE: "Somatic sleep metric utilities",
-      DESCRIPTION: `Indexed dataset: ${indexable.length} high-density utilities (safe crawl budget). Full DB held offline from index until promoted.`,
+      TITLE: "Somatic sleep phenomena: evidence-based guides",
+      DESCRIPTION: "Reviewed guides to body sensations and motor phenomena around sleep. Each page separates established evidence, plausible explanations, limits of inference, and safety boundaries.",
       CANONICAL: `${SITE}/somatic/`,
       JSON_LD: JSON.stringify({
         "@context": "https://schema.org",
         "@type": "CollectionPage",
-        name: "Oneirox Somatic Metric Utilities",
+        name: "Somatic sleep phenomena: evidence-based guides",
         url: `${SITE}/somatic/`,
         numberOfItems: indexable.length,
       }),
-      H2: "Read the body's sleep-phase metrics, not dream symbols",
-      LEAD: `Each utility is a unique EEG/atonia/marker readout for one symptom × phase × context. ${indexable.length} pages are in the index; the rest stay noindex until density is enough.`,
-      H2_2: "Indexed utilities across N1, N2, N3, and REM",
-      ESSAY: phaseHubEssayHtml("all", "somatic", indexable, {
-        h2: "Read the body's sleep-phase metrics, not dream symbols",
-        lead: `Indexed dataset: ${indexable.length} high-density utilities. Full DB held offline from index until promoted.`,
-        h2_2: "Indexed utilities across N1, N2, N3, and REM",
-      }),
+      H2: "Reviewed somatic sleep guides",
+      LEAD: "Reviewed guides to body sensations and motor phenomena around sleep. Each page separates established evidence, plausible explanations, limits of inference, and safety boundaries.",
+      H2_2: "Reviewed guides",
+      ESSAY: "",
       PHASE_LINKS: phaseLinks,
       LINK_LIST: mainLinks + "\n" + CTA,
     })
@@ -398,26 +428,26 @@ function writeHubs(tpl, entries) {
     const links = list
       .map(
         (e) =>
-          `<a href="/somatic/${e.slug_symptom}/${e.slug_phase}/${e.slug_context}/">${esc(e.title)}</a>`
+          `<a href="/somatic/${e.slug_symptom}/${e.slug_phase}/${e.slug_context}/">${esc(e.reviewed_title)}</a>`
       )
       .join("\n");
     fs.writeFileSync(
       path.join(dir, "index.html"),
       fill(tpl, {
-        TITLE: `${label} indexed somatic utilities`,
-        DESCRIPTION: copy.description(list.length),
+        TITLE: copy.title,
+        DESCRIPTION: copy.lead,
         CANONICAL: `${SITE}/somatic/phase/${slug}/`,
         JSON_LD: JSON.stringify({
           "@context": "https://schema.org",
           "@type": "CollectionPage",
-          name: `Oneirox ${label} Somatic Utilities`,
+          name: copy.title,
           url: `${SITE}/somatic/phase/${slug}/`,
           numberOfItems: list.length,
         }),
-        H2: copy.h2,
+        H2: copy.title,
         LEAD: copy.lead,
-        H2_2: copy.h2_2,
-        ESSAY: phaseHubEssayHtml(slug, label, list, copy),
+        H2_2: "Reviewed guides",
+        ESSAY: "",
         PHASE_LINKS: phaseLinks,
         LINK_LIST: links,
       })
@@ -426,8 +456,9 @@ function writeHubs(tpl, entries) {
 }
 
 function writeSitemap(entries) {
-  const indexable = entries.filter((e) => e.indexable);
-  const hubKey = indexable.map((e) => `${e.slug_symptom}/${e.slug_phase}/${e.slug_context}`).join("|");
+  const indexable = entries.filter(isSomaticBuildEligible);
+  const reviewedKey = (e) => `${e.id}|${e.reviewed_title}|${e.reviewed_description}|${JSON.stringify(e.evidence_sections)}|${JSON.stringify(e.observable_facts)}|${JSON.stringify(e.citations)}|${e.safety_boundary}|${JSON.stringify(e.reviewed_mechanics_links)}`;
+  const hubKey = indexable.map(reviewedKey).join("|");
   const urls = [
     { loc: `${SITE}/somatic/`, priority: "0.8", key: `hub-all:${hubKey}` },
     { loc: `${SITE}/somatic/phase/n1/`, priority: "0.7", key: `hub-n1:${hubKey}` },
@@ -437,7 +468,7 @@ function writeSitemap(entries) {
     ...indexable.map((e) => ({
       loc: pageUrl(e),
       priority: "0.65",
-      key: `${e.id}|${e.title}|${e.density_score}|${(e.somatic_markers || []).join(",")}`,
+      key: reviewedKey(e),
     })),
   ];
   const body = urls.map((u) => sitemapUrlXml(u.loc, stableLastmod(u.loc, u.key), u.priority)).join("\n");
@@ -454,8 +485,18 @@ ${body}
 }
 
 function writeAllowlist(entries) {
-  const urls = entries.filter((e) => e.indexable).map((e) => pageUrl(e));
+  const urls = entries.filter(isSomaticBuildEligible).map((e) => pageUrl(e));
   writeAllowlistIfChanged(path.join(PSEO, "data", "indexable-allowlist.json"), urls);
+}
+
+function reviewedJsonLd(entry) {
+  return JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    name: entry.reviewed_title,
+    description: entry.reviewed_description,
+    url: pageUrl(entry),
+  });
 }
 
 function curatedIndexableKeys() {
@@ -491,6 +532,7 @@ function main() {
     phase_disruption: fs.readFileSync(TPL.phase_disruption, "utf8"),
     atonia_risk: fs.readFileSync(TPL.atonia_risk, "utf8"),
     sparse_minimal: fs.readFileSync(TPL.sparse_minimal, "utf8"),
+    reviewed: fs.readFileSync(TPL_REVIEWED, "utf8"),
   };
   templates.transmitter_focus = templates.eeg_baseline;
   templates.somatic_map = templates.eeg_baseline;
@@ -499,12 +541,6 @@ function main() {
   const tplHub = fs.readFileSync(TPL_HUB, "utf8");
   const byId = Object.fromEntries(entries.map((e) => [e.id, e]));
 
-  if (fs.existsSync(OUT_DIR)) {
-    for (const name of fs.readdirSync(OUT_DIR)) {
-      if (name === "assets") continue;
-      fs.rmSync(path.join(OUT_DIR, name), { recursive: true, force: true });
-    }
-  }
   ensureDir(path.join(OUT_DIR, "assets"));
   fs.copyFileSync(
     path.join(PSEO, "assets", "somatic-utility.css"),

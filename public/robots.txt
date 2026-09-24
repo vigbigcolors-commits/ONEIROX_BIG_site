@@ -7,17 +7,17 @@ Allow: /
 Allow: /somatic/$
 Allow: /somatic/phase/
 Allow: /somatic/assets/
-Allow: /somatic/hypnopompic-somatic-surge/rem/awakening/
 Allow: /somatic/sleep-paralysis-onset/rem/awakening/
-Allow: /somatic/rem-atonia-failure/rem/mid-cycle/
-Allow: /somatic/exploding-head-sensory-burst/n1/onset/
-Allow: /somatic/fragmented-rem/rem/fragmentation/
-Allow: /somatic/periodic-limb-movement/n2/fragmentation/
-Allow: /somatic/n3-confusional-arousal-motor/n3/awakening/
-Allow: /somatic/sleep-onset-apnea-like-pause/n1/onset/
 Allow: /somatic/hypnic-jerk/n1/onset/
 Allow: /somatic/hypnagogic-tachycardia/n1/onset/
+Allow: /somatic/rem-atonia-failure/rem/mid-cycle/
 Allow: /somatic/sleep-related-bruxism/n2/mid-cycle/
+Allow: /somatic/hypnopompic-somatic-surge/rem/awakening/
+Allow: /somatic/periodic-limb-movement/n2/fragmentation/
+Allow: /somatic/sleep-onset-apnea-like-pause/n1/onset/
+Allow: /somatic/n3-confusional-arousal-motor/n3/awakening/
+Allow: /somatic/exploding-head-sensory-burst/n1/onset/
+Allow: /somatic/fragmented-rem/rem/fragmentation/
 
 # Dreams: no bulk Disallow; noindex LF pages must stay crawlable.
 Allow: /dreams/$

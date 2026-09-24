@@ -7,6 +7,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { isSomaticBuildEligible, somaticEntryKey } from "../lib/somatic-science.mjs";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, "../..");
@@ -14,6 +15,12 @@ const OUT = path.join(ROOT, "public", "data", "lab-search-index.json");
 
 const somatic = JSON.parse(
   fs.readFileSync(path.join(ROOT, "pseo/data/somatic-matrix.json"), "utf8")
+);
+const somaticGold = JSON.parse(
+  fs.readFileSync(path.join(ROOT, "pseo/data/somatic-matrix.gold.json"), "utf8")
+);
+const reviewedSomaticKeys = new Set(
+  (somaticGold.entries || []).filter(isSomaticBuildEligible).map(somaticEntryKey)
 );
 const dreams = JSON.parse(
   fs.readFileSync(path.join(ROOT, "pseo/data/dream-meaning-matrix.json"), "utf8")
@@ -72,22 +79,21 @@ function firstMatch(source, re) {
 const docs = [];
 
 for (const e of somatic.entries || []) {
+  if (!reviewedSomaticKeys.has(somaticEntryKey(e))) continue;
   const href = `/somatic/${e.slug_symptom}/${e.slug_phase}/${e.slug_context}/`;
-  const markers = e.somatic_markers || [];
-  const zones = e.body_zones || [];
+  const markers = e.observable_facts || [];
+  const zones = [];
   const terms = withStems(
     uniq([
-      ...tok(e.physiological_symptom),
-      ...tok(e.title),
+      ...tok(e.reviewed_title),
+      ...tok(e.reviewed_description),
+      ...tok(e.search_intent),
       ...markers.flatMap(tok),
       ...zones.flatMap(tok),
       ...tok(e.sleep_phase),
       ...tok(e.context),
-      ...tok(e.atonia_state),
-      ...tok(e.utility_type),
-      ...(e.neurotransmitters_involved || []).flatMap(tok),
-      ...tok(e.felt_on_waking),
-      ...tok((e.mechanism_bullets || []).slice(0, 2).join(" ")),
+      ...tok(e.evidence_sections?.established),
+      ...tok(e.evidence_sections?.supported_hypothesis),
     ])
   );
 
@@ -95,19 +101,19 @@ for (const e of somatic.entries || []) {
     id: e.id,
     kind: "somatic",
     href,
-    title: e.title,
-    h1: e.title,
-    summary: (e.felt_on_waking || e.summary || "").slice(0, 180),
-    blurb: (e.felt_on_waking || e.summary || "").slice(0, 180),
+    title: e.reviewed_title,
+    h1: e.reviewed_title,
+    summary: e.reviewed_description,
+    blurb: e.reviewed_description,
     category: "somatic",
     phase: String(e.sleep_phase || "").toLowerCase(),
     context: String(e.context || "").toLowerCase(),
     markers,
     zones,
     terms,
-    indexable: !!e.indexable,
-    rank: e.index_rank || 999,
-    density: e.density_score || 0,
+    indexable: true,
+    rank: 999,
+    density: 0,
   });
 }
 

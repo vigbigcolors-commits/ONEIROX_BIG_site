@@ -15,6 +15,10 @@ const { chromium } = require("playwright");
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../..");
 const PUBLIC = path.join(ROOT, "public");
 const idx = JSON.parse(fs.readFileSync(path.join(PUBLIC, "data/lab-search-index.json"), "utf8"));
+const somaticAllowlist = new Set(
+  JSON.parse(fs.readFileSync(path.join(ROOT, "pseo/data/indexable-allowlist.json"), "utf8"))
+    .urls
+);
 
 function loadRanker() {
   const src = fs.readFileSync(path.join(PUBLIC, "js/lab-search.js"), "utf8");
@@ -77,6 +81,22 @@ function validateIndexDestinations() {
     }
   }
   if (broken) throw new Error(`index broken destinations: ${broken} e.g. ${samples.join(", ")}`);
+}
+
+function validateSomaticScienceGate() {
+  const utility = idx.docs.filter((doc) => /^\/somatic\/[^/]+\/[^/]+\/[^/]+\/$/.test(doc.href));
+  const hrefs = utility.map((doc) => doc.href);
+  const unique = new Set(hrefs);
+  const legacy = hrefs.filter((href) => !somaticAllowlist.has(`https://oneirox.com${href}`));
+  if (legacy.length) throw new Error(`legacy Somatic utilities in Lab Search: ${legacy.join(", ")}`);
+  if (hrefs.length !== 11 || unique.size !== 11 || somaticAllowlist.size !== 11) {
+    throw new Error(`reviewed Somatic Lab Search cardinality mismatch: docs=${hrefs.length} unique=${unique.size} allowlist=${somaticAllowlist.size}`);
+  }
+  for (const url of somaticAllowlist) {
+    const href = new URL(url).pathname;
+    if (!unique.has(href)) throw new Error(`reviewed Somatic utility missing from Lab Search: ${href}`);
+  }
+  console.log(`Lab Search Somatic science gate OK: ${hrefs.length} reviewed utilities · 0 legacy violations`);
 }
 
 async function staticServer() {
@@ -216,6 +236,7 @@ async function browserTests() {
 
 const ranker = loadRanker();
 validateIndexDestinations();
+validateSomaticScienceGate();
 assertTop(ranker, "dream about snake", "/dreams/snakes/");
 assertTop(ranker, "snake bit me", "/dreams/snakes/bitten/");
 assertTop(ranker, "snake in my bed", "/dreams/snakes/in-bed/");
@@ -230,6 +251,10 @@ assertTop(ranker, "dog attacking me", "/dreams/dogs/attacking/");
 assertTop(ranker, "late for exam", "/dreams/exam-anxiety-dreams/");
 assertTop(ranker, "my ex texted me", "/dream-about-someone-texting-you-meaning/");
 assertTop(ranker, "snkae in house", "/dreams/snakes/");
+assertTop(ranker, "sleep paralysis awakening", "/somatic/sleep-paralysis-onset/rem/awakening/");
+assertTop(ranker, "hypnic jerk sleep onset", "/somatic/hypnic-jerk/n1/onset/");
+assertTop(ranker, "REM sleep without atonia", "/somatic/rem-atonia-failure/rem/mid-cycle/");
+assertTop(ranker, "periodic limb movements sleep", "/somatic/periodic-limb-movement/n2/fragmentation/");
 assertEmpty(ranker, "asdf qwerty zxcvbnm nomatchxyz123");
 
 const requiredQueries = [

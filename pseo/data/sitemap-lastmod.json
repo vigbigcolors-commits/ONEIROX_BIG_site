@@ -1,27 +1,27 @@
 {
   "https://oneirox.com/somatic/": {
-    "hash": "da67bb93d5cdd0c0",
-    "lastmod": "2026-08-26"
+    "hash": "d70cd882af5ba21e",
+    "lastmod": "2026-09-24"
   },
   "https://oneirox.com/somatic/phase/n1/": {
-    "hash": "afd2e60464fe6cb8",
-    "lastmod": "2026-08-26"
+    "hash": "c33ef3c422020d29",
+    "lastmod": "2026-09-24"
   },
   "https://oneirox.com/somatic/phase/n2/": {
-    "hash": "3a2e026299bed2f7",
-    "lastmod": "2026-08-26"
+    "hash": "2aff7c33a11b0def",
+    "lastmod": "2026-09-24"
   },
   "https://oneirox.com/somatic/phase/n3/": {
-    "hash": "a9454ca2106d1f8d",
-    "lastmod": "2026-08-26"
+    "hash": "9905e7bba467fea9",
+    "lastmod": "2026-09-24"
   },
   "https://oneirox.com/somatic/phase/rem/": {
-    "hash": "004afe2679d57484",
-    "lastmod": "2026-08-26"
+    "hash": "2339ed60ccf228a9",
+    "lastmod": "2026-09-24"
   },
   "https://oneirox.com/somatic/hypnopompic-somatic-surge/rem/awakening/": {
-    "hash": "040f9515af23e892",
-    "lastmod": "2026-08-18"
+    "hash": "f933918432eacd74",
+    "lastmod": "2026-09-24"
   },
   "https://oneirox.com/somatic/pre-rem-atonia-ramp/n2/onset/": {
     "hash": "00e8a750e7fbfe0a",
@@ -36,12 +36,12 @@
     "lastmod": "2026-08-18"
   },
   "https://oneirox.com/somatic/sleep-paralysis-onset/rem/awakening/": {
-    "hash": "94c234ce887e9b62",
-    "lastmod": "2026-08-18"
+    "hash": "c30faf0e6ac48a62",
+    "lastmod": "2026-09-24"
   },
   "https://oneirox.com/somatic/rem-atonia-failure/rem/mid-cycle/": {
-    "hash": "9742990ae69b4cbe",
-    "lastmod": "2026-08-18"
+    "hash": "2478625c825039ea",
+    "lastmod": "2026-09-24"
   },
   "https://oneirox.com/somatic/sleep-paralysis-onset/rem/fragmentation/": {
     "hash": "2e5f247b89fbf2bd",
@@ -52,16 +52,16 @@
     "lastmod": "2026-08-18"
   },
   "https://oneirox.com/somatic/exploding-head-sensory-burst/n1/onset/": {
-    "hash": "6a7cb6efdd412cb3",
-    "lastmod": "2026-08-18"
+    "hash": "f899ecfeb440dfd7",
+    "lastmod": "2026-09-24"
   },
   "https://oneirox.com/somatic/rem-atonia-failure/rem/fragmentation/": {
     "hash": "6de2f88843a22edc",
     "lastmod": "2026-08-18"
   },
   "https://oneirox.com/somatic/fragmented-rem/rem/fragmentation/": {
-    "hash": "92d42b7075e88001",
-    "lastmod": "2026-08-18"
+    "hash": "ec543388205817f7",
+    "lastmod": "2026-09-24"
   },
   "https://oneirox.com/somatic/hypnopompic-somatic-surge/rem/fragmentation/": {
     "hash": "4d3242fd17614090",
@@ -80,16 +80,16 @@
     "lastmod": "2026-08-18"
   },
   "https://oneirox.com/somatic/periodic-limb-movement/n2/fragmentation/": {
-    "hash": "e6d5fc37be9993f1",
-    "lastmod": "2026-08-18"
+    "hash": "7973caa64a4d8f68",
+    "lastmod": "2026-09-24"
   },
   "https://oneirox.com/somatic/rem-distal-twitch/rem/awakening/": {
     "hash": "371bf0375b118300",
     "lastmod": "2026-08-18"
   },
   "https://oneirox.com/somatic/n3-confusional-arousal-motor/n3/awakening/": {
-    "hash": "67d3dddfde2efe7b",
-    "lastmod": "2026-08-18"
+    "hash": "7a19c60d5bec3901",
+    "lastmod": "2026-09-24"
   },
   "https://oneirox.com/somatic/pre-rem-atonia-ramp/n2/fragmentation/": {
     "hash": "aeb7ae54eade6eec",
@@ -100,24 +100,24 @@
     "lastmod": "2026-08-18"
   },
   "https://oneirox.com/somatic/sleep-onset-apnea-like-pause/n1/onset/": {
-    "hash": "c4c99a46ae3efe7e",
-    "lastmod": "2026-08-18"
+    "hash": "3f154c4d036d3c9c",
+    "lastmod": "2026-09-24"
   },
   "https://oneirox.com/somatic/hypnic-jerk/n1/onset/": {
-    "hash": "07a6b65c3bcab409",
-    "lastmod": "2026-08-18"
+    "hash": "87c95636bb667e85",
+    "lastmod": "2026-09-24"
   },
   "https://oneirox.com/somatic/hypnagogic-tachycardia/n1/onset/": {
-    "hash": "48aa71df9a159cd0",
-    "lastmod": "2026-08-18"
+    "hash": "ccd307700b880e3e",
+    "lastmod": "2026-09-24"
   },
   "https://oneirox.com/somatic/pre-rem-atonia-ramp/n2/mid-cycle/": {
     "hash": "eb4ba4b35f90c4b2",
     "lastmod": "2026-08-18"
   },
   "https://oneirox.com/somatic/sleep-related-bruxism/n2/mid-cycle/": {
-    "hash": "f23e05d30fb0dfed",
-    "lastmod": "2026-08-18"
+    "hash": "4dce456eb6870445",
+    "lastmod": "2026-09-24"
   },
   "https://oneirox.com/somatic/sleep-paralysis-onset/rem/mid-cycle/": {
     "hash": "98c44e66b6badc1a",

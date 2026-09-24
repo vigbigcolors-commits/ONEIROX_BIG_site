@@ -2,97 +2,97 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://oneirox.com/somatic/</loc>
-    <lastmod>2026-08-26</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://oneirox.com/somatic/phase/n1/</loc>
-    <lastmod>2026-08-26</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://oneirox.com/somatic/phase/n2/</loc>
-    <lastmod>2026-08-26</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://oneirox.com/somatic/phase/n3/</loc>
-    <lastmod>2026-08-26</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://oneirox.com/somatic/phase/rem/</loc>
-    <lastmod>2026-08-26</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://oneirox.com/somatic/hypnopompic-somatic-surge/rem/awakening/</loc>
-    <lastmod>2026-08-18</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.65</priority>
-  </url>
-  <url>
     <loc>https://oneirox.com/somatic/sleep-paralysis-onset/rem/awakening/</loc>
-    <lastmod>2026-08-18</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.65</priority>
-  </url>
-  <url>
-    <loc>https://oneirox.com/somatic/rem-atonia-failure/rem/mid-cycle/</loc>
-    <lastmod>2026-08-18</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.65</priority>
-  </url>
-  <url>
-    <loc>https://oneirox.com/somatic/exploding-head-sensory-burst/n1/onset/</loc>
-    <lastmod>2026-08-18</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.65</priority>
-  </url>
-  <url>
-    <loc>https://oneirox.com/somatic/fragmented-rem/rem/fragmentation/</loc>
-    <lastmod>2026-08-18</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.65</priority>
-  </url>
-  <url>
-    <loc>https://oneirox.com/somatic/periodic-limb-movement/n2/fragmentation/</loc>
-    <lastmod>2026-08-18</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.65</priority>
-  </url>
-  <url>
-    <loc>https://oneirox.com/somatic/n3-confusional-arousal-motor/n3/awakening/</loc>
-    <lastmod>2026-08-18</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.65</priority>
-  </url>
-  <url>
-    <loc>https://oneirox.com/somatic/sleep-onset-apnea-like-pause/n1/onset/</loc>
-    <lastmod>2026-08-18</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.65</priority>
   </url>
   <url>
     <loc>https://oneirox.com/somatic/hypnic-jerk/n1/onset/</loc>
-    <lastmod>2026-08-18</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.65</priority>
   </url>
   <url>
     <loc>https://oneirox.com/somatic/hypnagogic-tachycardia/n1/onset/</loc>
-    <lastmod>2026-08-18</lastmod>
+    <lastmod>2026-09-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.65</priority>
+  </url>
+  <url>
+    <loc>https://oneirox.com/somatic/rem-atonia-failure/rem/mid-cycle/</loc>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.65</priority>
   </url>
   <url>
     <loc>https://oneirox.com/somatic/sleep-related-bruxism/n2/mid-cycle/</loc>
-    <lastmod>2026-08-18</lastmod>
+    <lastmod>2026-09-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.65</priority>
+  </url>
+  <url>
+    <loc>https://oneirox.com/somatic/hypnopompic-somatic-surge/rem/awakening/</loc>
+    <lastmod>2026-09-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.65</priority>
+  </url>
+  <url>
+    <loc>https://oneirox.com/somatic/periodic-limb-movement/n2/fragmentation/</loc>
+    <lastmod>2026-09-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.65</priority>
+  </url>
+  <url>
+    <loc>https://oneirox.com/somatic/sleep-onset-apnea-like-pause/n1/onset/</loc>
+    <lastmod>2026-09-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.65</priority>
+  </url>
+  <url>
+    <loc>https://oneirox.com/somatic/n3-confusional-arousal-motor/n3/awakening/</loc>
+    <lastmod>2026-09-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.65</priority>
+  </url>
+  <url>
+    <loc>https://oneirox.com/somatic/exploding-head-sensory-burst/n1/onset/</loc>
+    <lastmod>2026-09-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.65</priority>
+  </url>
+  <url>
+    <loc>https://oneirox.com/somatic/fragmented-rem/rem/fragmentation/</loc>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.65</priority>
   </url>

@@ -148,9 +148,33 @@
         "reviewed_description": { "type": "string", "minLength": 1 },
         "citations": {
           "type": "array",
-          "items": { "type": "string", "minLength": 1 }
+          "items": {
+            "type": "object",
+            "required": ["label", "pmid"],
+            "properties": {
+              "label": { "type": "string", "minLength": 1 },
+              "pmid": { "type": "string", "pattern": "^[0-9]+$" }
+            },
+            "additionalProperties": false
+          }
         },
         "safety_boundary": { "type": "string", "minLength": 1 },
+        "observable_facts": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 1 }
+        },
+        "reviewed_mechanics_links": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["href", "label"],
+            "properties": {
+              "href": { "type": "string", "pattern": "^/mechanics/[a-z0-9/-]+/$" },
+              "label": { "type": "string", "minLength": 1 }
+            },
+            "additionalProperties": false
+          }
+        },
         "evidence_sections": {
           "type": "object",
           "required": ["established", "supported_hypothesis", "unknown_or_limitation"],

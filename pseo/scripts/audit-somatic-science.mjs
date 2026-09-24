@@ -20,6 +20,7 @@ const DATA = path.join(__dirname, "../data");
 const GOLD = path.join(DATA, "somatic-matrix.gold.json");
 const MATRIX = path.join(DATA, "somatic-matrix.json");
 const strict = process.argv.includes("--strict");
+const SOMATIC_PHASE_B_CURATED_TARGET = 11;
 
 function read(file) {
   return JSON.parse(fs.readFileSync(file, "utf8"));
@@ -58,6 +59,21 @@ function main() {
 
   if (curated.length > SOMATIC_INDEXABLE_CAP) {
     failures.push(`Gold indexable count ${curated.length} exceeds SOMATIC_INDEXABLE_CAP ${SOMATIC_INDEXABLE_CAP}`);
+  }
+  if (strict && curated.length !== SOMATIC_PHASE_B_CURATED_TARGET) {
+    failures.push(`expected exactly ${SOMATIC_PHASE_B_CURATED_TARGET} curated Gold nominations, got ${curated.length}`);
+  }
+  const reviewedCurated = curated.filter((entry) => entry.science_reviewed_core === true);
+  if (strict && reviewedCurated.length !== curated.length) {
+    failures.push(`expected science-reviewed curated rows to equal curated rows: ${reviewedCurated.length}/${curated.length}`);
+  }
+  if (strict && buildEligible.length !== curated.length) {
+    failures.push(`expected build-eligible rows to equal curated rows: ${buildEligible.length}/${curated.length}`);
+  }
+  for (const entry of gold) {
+    if (entry.science_reviewed_core === true && entry.indexable !== true) {
+      failures.push(`non-curated Gold row is marked science reviewed: ${somaticEntryKey(entry)}`);
+    }
   }
 
   const curatedKeys = new Set(curated.map(somaticEntryKey));

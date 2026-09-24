@@ -13,8 +13,23 @@ export function missingSomaticReviewFields(entry) {
   ]) {
     if (!String(entry[field] || "").trim()) missing.push(field);
   }
-  if (!Array.isArray(entry.citations) || entry.citations.length === 0) {
+  if (!Array.isArray(entry.observable_facts) || entry.observable_facts.filter((fact) => String(fact).trim()).length < 2) {
+    missing.push("observable_facts");
+  }
+  if (
+    !Array.isArray(entry.citations) ||
+    entry.citations.length === 0 ||
+    entry.citations.some((citation) => !String(citation?.label || "").trim() || !/^\d+$/.test(String(citation?.pmid || "")))
+  ) {
     missing.push("citations");
+  }
+  if (
+    !Array.isArray(entry.reviewed_mechanics_links) ||
+    entry.reviewed_mechanics_links.some(
+      (link) => !String(link?.label || "").trim() || !/^\/mechanics\/[a-z0-9/-]+\/$/.test(String(link?.href || ""))
+    )
+  ) {
+    missing.push("reviewed_mechanics_links");
   }
   for (const field of ["established", "supported_hypothesis", "unknown_or_limitation"]) {
     if (!String(entry.evidence_sections?.[field] || "").trim()) {

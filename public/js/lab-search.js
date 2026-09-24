@@ -440,6 +440,22 @@
     if (sig.phase && doc.phase === sig.phase) score += 14;
     if (sig.context && doc.context === sig.context) score += 16;
 
+    /* Reviewed Somatic pages use neutral compatibility metadata. A specific
+       title match is therefore the authoritative relevance signal, rather
+       than a synthetic rank or density prior. */
+    if (doc.kind === 'somatic') {
+      var somaticTitleHits = 0;
+      var somaticTitleBits = norm(doc.title || '').split(' ').map(stem);
+      for (i = 0; i < somaticTitleBits.length; i++) {
+        if (somaticTitleBits[i].length > 2 && sig.toks.indexOf(somaticTitleBits[i]) !== -1) somaticTitleHits++;
+      }
+      if (somaticTitleHits >= 2) {
+        evidence += 2;
+        score += 52 * somaticTitleHits;
+        if (reasons.length < 3) reasons.push('specific Somatic title match');
+      }
+    }
+
     /* Dream slug / title direct hits (strong theme signal) */
     if (isDreamDoc(doc)) {
       var slug = String(doc.href || '').replace(/^\/dreams\/|\/$/g, '').replace(/\//g, '-');
