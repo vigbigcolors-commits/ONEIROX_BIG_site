@@ -14,64 +14,64 @@
   /* Mechanism-first sleep tips — not omen folklore */
   var LAB_TIPS = [
     {
-      body: 'Name the body first, then the image — chest weight before “snake.” Search reads that order better.',
-      meta: 'SIGNAL · BODY · MORNING — Oneirox method'
+      body: 'Include both the body sensation and the image. Search weighs markers, themes, phase, and context; word order itself is not a score.',
+      meta: 'Search method'
     },
     {
-      body: 'A cool, dark room (~18–19°C) and a fixed wake time do more for dream recall than any symbol dictionary.',
-      meta: 'Sleep hygiene · circadian anchor'
+      body: 'A cool, dark bedroom and regular sleep timing can support sleep quality. Dream recall still varies from person to person.',
+      meta: 'Sleep environment'
     },
     {
-      body: 'Alcohol after dinner fragments second-half REM. Vivid, sticky dreams often follow — physiology, not prophecy.',
-      meta: 'REM architecture'
+      body: 'Alcohol can alter sleep architecture and increase fragmentation later in the night. Dream vividness after alcohol is variable, not diagnostic.',
+      meta: 'Sleep architecture'
     },
     {
-      body: 'Caffeine after mid-afternoon can blunt deep sleep and leave you with light, plot-heavy nights.',
-      meta: 'Adenosine · sleep depth'
+      body: 'Late caffeine can reduce sleep duration or efficiency in sensitive people. The size of the effect depends on dose, timing, and the person.',
+      meta: 'Caffeine · sleep'
     },
     {
-      body: 'If you wake at 3am racing thoughts, jot one body note and return to bed — decoding at dawn beats decoding at dawn’s panic.',
-      meta: 'Cortisol awakening response'
+      body: 'If you wake during the night, record one or two concrete observations first. A half-awake interpretation is still an interpretation, not evidence.',
+      meta: 'Observation first'
     },
     {
-      body: 'Morning outdoor light within an hour of waking stabilizes the clock that decides when REM pressure peaks.',
+      body: 'Morning light helps anchor circadian timing. It does not reveal why a particular dream occurred.',
       meta: 'Circadian timing'
     },
     {
-      body: 'Jaw sore on waking? Bruxism and threat-rehearsal often travel together — map the mouth before the plot.',
-      meta: 'Somatic marker'
+      body: 'Jaw soreness or clenching on waking is useful to record, but dream content cannot diagnose sleep bruxism.',
+      meta: 'Somatic observation'
     },
     {
-      body: 'Heavy late meals raise night arousals. The “chase” may be autonomic noise wearing a costume.',
-      meta: 'Autonomic load'
+      body: 'A heavy late meal may affect comfort, reflux, or sleep in some people. Do not treat a dream plot as proof of autonomic physiology.',
+      meta: 'Sleep context'
     },
     {
-      body: 'Phones in bed delay melatonin. Dim screens an hour before sleep if you want cleaner REM later.',
-      meta: 'Light · melatonin'
+      body: 'Bright evening light can delay circadian timing and melatonin. Effects depend on intensity, duration, timing, and individual sensitivity.',
+      meta: 'Light · circadian timing'
     },
     {
-      body: 'Recurring dreams often mean unfinished consolidation — same mechanism file still open, not a curse.',
-      meta: 'Emotional memory'
+      body: 'A recurring dream is worth tracking, but repetition alone does not prove an unfinished memory or consolidation mechanism.',
+      meta: 'Evidence limit'
     },
     {
-      body: 'Cannot move / chest pressure on waking: check sleep paralysis and atonia pages before omen blogs.',
-      meta: 'REM atonia'
+      body: 'Inability to move while waking can fit sleep paralysis when the context matches. Recurrent or concerning episodes deserve clinical evaluation.',
+      meta: 'REM–wake transition'
     },
     {
-      body: 'Write three words max on waking: place · person · body. That triad beats a novel you will forget by breakfast.',
-      meta: 'Dream recall craft'
+      body: 'Write a few concrete observations on waking: place, person, body sensation, and timing. Interpretation can come later.',
+      meta: 'Dream recall'
     },
     {
-      body: 'Homeland images (Ararat, Yerevan, grandmother) are dense place and attachment files — culture is the scene, not the oracle.',
-      meta: 'Place memory · diaspora'
+      body: 'Personal and cultural context can shape dream content. A homeland image has no fixed biological or symbolic meaning.',
+      meta: 'Personal context'
     },
     {
-      body: 'Naps longer than ~20 minutes can steal REM pressure from tonight. Short reset; long nap reshuffles the script.',
-      meta: 'Ultradian balance'
+      body: 'Long or late naps can change nighttime sleep pressure, but there is no simple rule that a nap “steals REM.”',
+      meta: 'Sleep pressure'
     },
     {
-      body: 'Stress days load threat-simulation nights. A 10-minute walk after work lowers the amygdala dye more than interpretation.',
-      meta: 'Threat rehearsal'
+      body: 'Stress can affect sleep and dream content, but one dream cannot measure amygdala activity or identify a threat circuit.',
+      meta: 'Evidence limit'
     }
   ];
 
