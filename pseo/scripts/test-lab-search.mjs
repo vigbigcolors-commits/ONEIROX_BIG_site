@@ -63,6 +63,191 @@ function assertEmpty(ranker, q) {
   }
 }
 
+
+function runQualityBenchmark(ranker) {
+  const cases = [
+    ["dream","top1","snake bit me",["/dreams/snakes/bitten/"]],
+    ["dream","top1","snake in my bed",["/dreams/snakes/in-bed/"]],
+    ["dream","top1","I saw a dead snake",["/dreams/snakes/dead-snake/"]],
+    ["dream","top1","coiled snake staring at me",["/dreams/snakes/coiled-watching/"]],
+    ["dream","top1","dream about snakes",["/dreams/snakes/"]],
+    ["dream","top1","my teeth fell out and there was blood",["/dreams/teeth-falling-out/with-blood/"]],
+    ["dream","top1","dream about teeth falling out",["/dreams/teeth-falling-out/"]],
+    ["dream","top1","someone I know was chasing me",["/dreams/being-chased/known-person/"]],
+    ["dream","top1","a dog attacked me in my dream",["/dreams/dogs/attacking/"]],
+    ["dream","top1","a cat attacked me",["/dreams/cats/attacking/"]],
+    ["dream","top1","I was late for my exam",["/dreams/exam-anxiety-dreams/"]],
+    ["dream","top1","I dreamed about my childhood house",["/dreams/house-dreams/childhood-house/"]],
+    ["dream","top1","I dreamed about my dead father",["/dreams/death-of-a-loved-one/"]],
+    ["dream","top1","my ex texted me in a dream",["/dream-about-someone-texting-you-meaning/"]],
+    ["dream","top1","sleep paralysis with a shadow figure in my room",["/dreams/sleep-paralysis/with-presence/"]],
+    ["dream","top1","I was falling asleep and suddenly jerked awake",["/dreams/falling/hypnic-onset-jolt/"]],
+    ["dream","top1","dream about Mount Ararat",["/dreams/homeland-and-diaspora/mount-ararat/"]],
+    ["dream","top1","I was drowning in my dream",["/dreams/water-and-drowning/drowning/"]],
+    ["dream","top1","I was naked at work",["/dreams/naked-in-public/workplace/"]],
+    ["dream","top1","I was late and missed my flight",["/dreams/being-late/missed-flight/"]],
+    ["dream","top1","same nightmare repeating again and again",["/dreams/recurring-dreams/nightmare-loop/"]],
+    ["dream","top1","left at the altar in my wedding dream",["/dreams/wedding-and-marriage/left-at-altar/"]],
+    ["dream","top1","debt was chasing me",["/dreams/money-and-wealth/debt-chase/"]],
+    ["dream","top1","cameras were watching me",["/dreams/being-watched/cameras/"]],
+    ["dream","top1","I was pregnant and giving birth",["/dreams/being-pregnant/giving-birth/"]],
+    ["dream","top1","I dreamed about a puppy",["/dreams/dogs/puppy/"]],
+    ["dream","top1","there was a cat inside my house",["/dreams/cats/inside-house/"]],
+    ["dream","top1","I was in the basement of a strange house",["/dreams/house-dreams/basement/"]],
+    ["dream","top1","I reunited with my ex",["/dreams/ex-partner/reunion/"]],
+    ["dream","top1","I couldn't write anything during my exam",["/dreams/exam-anxiety-dreams/cant-write/"]],
+
+    ["somatic","top1","sleep paralysis awakening",["/somatic/sleep-paralysis-onset/rem/awakening/"]],
+    ["somatic","top1","hypnic jerk at sleep onset",["/somatic/hypnic-jerk/n1/onset/"]],
+    ["somatic","top1","loud bang in my head while falling asleep",["/somatic/exploding-head-sensory-burst/n1/onset/"]],
+    ["somatic","top1","hypnopompic body sensations while waking",["/somatic/hypnopompic-somatic-surge/rem/awakening/"]],
+    ["somatic","top1","periodic limb movements during sleep",["/somatic/periodic-limb-movement/n2/fragmentation/"]],
+    ["somatic","top1","sleep bruxism jaw grinding during sleep",["/somatic/sleep-related-bruxism/n2/mid-cycle/"]],
+    ["somatic","top1","confusional arousal from N3 sleep",["/somatic/n3-confusional-arousal-motor/n3/awakening/"]],
+    ["somatic","top1","heart racing as I fall asleep tachycardia",["/somatic/hypnagogic-tachycardia/n1/onset/"]],
+    ["somatic","top1","breathing pause as I fall asleep",["/somatic/sleep-onset-apnea-like-pause/n1/onset/"]],
+    ["somatic","top1","REM sleep without atonia",["/somatic/rem-atonia-failure/rem/mid-cycle/"]],
+    ["somatic","top1","fragmented REM repeated awakenings",["/somatic/fragmented-rem/rem/fragmentation/"]],
+
+    ["typo","top1","snkae bit me",["/dreams/snakes/bitten/"]],
+    ["typo","top1","dag attacking me",["/dreams/dogs/attacking/"]],
+    ["typo","top1","deaad father in my dream",["/dreams/death-of-a-loved-one/"]],
+    ["typo","top1","my childhood hosue",["/dreams/house-dreams/childhood-house/"]],
+    ["typo","top1","my ex sent a mesage",["/dream-about-someone-texting-you-meaning/"]],
+    ["typo","top1","late for exma",["/dreams/exam-anxiety-dreams/"]],
+
+    ["natural","top3","my jaw was sore when I woke after dreaming my teeth broke",[
+      "/somatic/sleep-related-bruxism/n2/mid-cycle/",
+      "/dreams/teeth-falling-out/"
+    ]],
+    ["natural","top3","I couldn't move when I woke and there was a shadow in the room",[
+      "/somatic/sleep-paralysis-onset/rem/awakening/",
+      "/dreams/sleep-paralysis/with-presence/"
+    ]],
+    ["natural","top3","I woke from a vivid dream with my heart racing",[
+      "/somatic/hypnopompic-somatic-surge/rem/awakening/",
+      "/somatic/hypnagogic-tachycardia/n1/onset/"
+    ]],
+    ["natural","top3","I kept waking all night and remembered separate pieces of dreams",[
+      "/somatic/fragmented-rem/rem/fragmentation/"
+    ]],
+    ["natural","top3","someone chased me but my legs would not move",[
+      "/dreams/being-chased/legs-wont-move/",
+      "/dreams/being-chased/"
+    ]],
+    ["natural","top3","an elevator dropped and I woke with a sudden jolt",[
+      "/dreams/falling/elevator-drop/",
+      "/dreams/falling/hypnic-onset-jolt/"
+    ]],
+    ["natural","top3","my Armenian grandmother was with me in Armenia",[
+      "/dreams/homeland-and-diaspora/armenian-grandmother/",
+      "/dreams/homeland-and-diaspora/"
+    ]],
+    ["natural","top3","there was a black snake somewhere inside my house",[
+      "/dreams/snakes/in-house/",
+      "/dreams/snakes/"
+    ]],
+
+    ["empty","empty","how do I cook pasta",[]],
+    ["empty","empty","weather tomorrow in London",[]],
+    ["empty","empty","cheap car insurance quote",[]],
+    ["empty","empty","javascript sorting algorithm",[]],
+    ["empty","empty","football score tonight",[]],
+    ["empty","empty","asdf qwerty zxcvbnm nomatchxyz123",[]],
+  ].map(([group, mode, q, accept]) => ({ group, mode, q, accept }));
+
+  if (cases.length !== 61) {
+    throw new Error(`Lab Search benchmark definition drift: ${cases.length} cases`);
+  }
+
+  const hrefs = new Set(idx.docs.map((doc) => doc.href));
+  const targetMissing = [];
+
+  for (const test of cases) {
+    for (const href of test.accept) {
+      if (!hrefs.has(href)) targetMissing.push(`${href} <= ${test.q}`);
+    }
+  }
+
+  if (targetMissing.length) {
+    throw new Error(
+      "Lab Search benchmark target missing:\n" + targetMissing.join("\n")
+    );
+  }
+
+  const groups = {};
+  const failures = [];
+  let passed = 0;
+
+  for (const test of cases) {
+    const hits = ranker.run(test.q);
+    const top = hits.slice(0, 3).map((hit) => hit.doc?.href || "");
+
+    let pass = false;
+    if (test.mode === "empty") {
+      pass = hits.length === 0;
+    } else if (test.mode === "top1") {
+      pass = !!top[0] && test.accept.includes(top[0]);
+    } else if (test.mode === "top3") {
+      pass = top.some((href) => test.accept.includes(href));
+    }
+
+    groups[test.group] ||= { total: 0, pass: 0 };
+    groups[test.group].total++;
+    if (pass) {
+      groups[test.group].pass++;
+      passed++;
+    } else {
+      failures.push({
+        group: test.group,
+        mode: test.mode,
+        q: test.q,
+        accept: test.accept,
+        top,
+      });
+    }
+  }
+
+  const accuracy = (passed / cases.length) * 100;
+  const summary = Object.entries(groups)
+    .map(([name, group]) => `${name} ${group.pass}/${group.total}`)
+    .join(" · ");
+
+  console.log(
+    `Lab Search quality benchmark: ${passed}/${cases.length} ` +
+    `(${accuracy.toFixed(1)}%) · ${summary}`
+  );
+
+  if (failures.length) {
+    for (const failure of failures) {
+      console.log(
+        `BENCHMARK FAIL [${failure.group}/${failure.mode}] ${failure.q} ` +
+        `=> ${failure.top.join(" | ") || "(empty)"} ` +
+        `expected ${failure.accept.join(" | ") || "(empty)"}`
+      );
+    }
+  }
+
+  /* Release target is >=95%, but natural-language wins and out-of-domain
+     rejection are protected as hard sub-gates. */
+  if (accuracy < 95) {
+    throw new Error(
+      `Lab Search benchmark below 95%: ${passed}/${cases.length} (${accuracy.toFixed(1)}%)`
+    );
+  }
+
+  for (const groupName of ["natural", "empty"]) {
+    const group = groups[groupName];
+    if (!group || group.pass !== group.total) {
+      throw new Error(
+        `Lab Search ${groupName} regression: ${group?.pass || 0}/${group?.total || 0}`
+      );
+    }
+  }
+
+  return { passed, total: cases.length, accuracy, groups, failures };
+}
+
 function validateIndexDestinations() {
   let broken = 0;
   const samples = [];
@@ -237,6 +422,21 @@ async function browserTests() {
 const ranker = loadRanker();
 validateIndexDestinations();
 validateSomaticScienceGate();
+runQualityBenchmark(ranker);
+
+assertTop(
+  ranker,
+  "someone close to me",
+  "/dreaming-about-someone-you-havent-seen-in-years/",
+  "strong person intent"
+);
+
+assertTop(
+  ranker,
+  "dream about someone close to me",
+  "/dreaming-about-someone-you-havent-seen-in-years/",
+  "explicit strong person intent"
+);
 assertTop(ranker, "dream about snake", "/dreams/snakes/");
 assertTop(ranker, "snake bit me", "/dreams/snakes/bitten/");
 assertTop(ranker, "snake in my bed", "/dreams/snakes/in-bed/");
@@ -246,11 +446,11 @@ assertTop(ranker, "sleep paralysis shadow figure", "/dreams/sleep-paralysis/with
 assertTop(ranker, "falling asleep then sudden jolt", "/dreams/falling/hypnic-onset-jolt/");
 assertTop(ranker, "someone I don't talk to anymore", "/dream-about-someone-you-dont-talk-to-anymore-meaning/");
 assertTop(ranker, "my dead father", "/dreams/death-of-a-loved-one/");
-assertTop(ranker, "black snake in my house", "/dreams/snakes/");
+assertTop(ranker, "black snake in my house", "/dreams/snakes/in-house/");
 assertTop(ranker, "dog attacking me", "/dreams/dogs/attacking/");
 assertTop(ranker, "late for exam", "/dreams/exam-anxiety-dreams/");
 assertTop(ranker, "my ex texted me", "/dream-about-someone-texting-you-meaning/");
-assertTop(ranker, "snkae in house", "/dreams/snakes/");
+assertTop(ranker, "snkae in house", "/dreams/snakes/in-house/");
 assertTop(ranker, "sleep paralysis awakening", "/somatic/sleep-paralysis-onset/rem/awakening/");
 assertTop(ranker, "hypnic jerk sleep onset", "/somatic/hypnic-jerk/n1/onset/");
 assertTop(ranker, "REM sleep without atonia", "/somatic/rem-atonia-failure/rem/mid-cycle/");

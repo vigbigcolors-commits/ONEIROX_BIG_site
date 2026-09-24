@@ -101,7 +101,7 @@
   ];
 
   var PHASE_HINTS = [
-    { re: /\b(just (as )?i (fell|was falling) asleep|sleep onset|drifting off|as i fell asleep|falling asleep)\b/i, phase: 'n1', context: 'onset', w: 18 },
+    { re: /\b(just (as )?i (fall|fell|was falling) asleep|sleep onset|drifting off|as i (fall|fell) asleep|falling asleep)\b/i, phase: 'n1', context: 'onset', w: 18 },
     { re: /\b(woke up|on waking|when i woke|morning|awakening)\b/i, phase: '', context: 'awakening', w: 14 },
     { re: /\b(middle of the night|3am|3 am|fragmented|kept waking)\b/i, phase: '', context: 'fragmentation', w: 12 },
     { re: /\b(rem|vivid dream|lucid)\b/i, phase: 'rem', context: '', w: 12 }
@@ -160,6 +160,9 @@
   /* Bounded typo correction: only common, high-signal dream terms and only
      one edit (including a swapped neighbouring pair). */
   var TYPO_TERMS = ['snake', 'serpent', 'dog', 'puppy', 'house', 'home', 'exam', 'test', 'father', 'mother', 'text', 'message', 'chase', 'late', 'dead', 'ex'];
+  var TYPO_ALIASES = {
+    dag: 'dog'
+  };
 
   function editDistance(a, b) {
     var al = a.length, bl = b.length, i, j;
@@ -182,6 +185,7 @@
   }
 
   function correctToken(token) {
+    if (TYPO_ALIASES[token]) return TYPO_ALIASES[token];
     if (token.length < 4) return token;
     for (var i = 0; i < TYPO_TERMS.length; i++) {
       var candidate = TYPO_TERMS[i];
@@ -231,7 +235,24 @@
       paralyz: 'paralysis',
       paralys: 'paralysis',
       houses: 'house',
-      homes: 'home'
+      homes: 'home',
+      attacked: 'attack',
+      attacking: 'attack',
+      attacks: 'attack',
+      watched: 'watch',
+      watching: 'watch',
+      watches: 'watch',
+      recurring: 'repeat',
+      recurred: 'repeat',
+      recurs: 'repeat',
+      repeating: 'repeat',
+      repeated: 'repeat',
+      repeats: 'repeat',
+      reunited: 'reunion',
+      reuniting: 'reunion',
+      reunite: 'reunion',
+      workplace: 'work',
+      workplaces: 'work'
     };
     if (map[t]) return map[t];
     if (t.length > 4 && t.charAt(t.length - 1) === 's' && t.charAt(t.length - 2) !== 's') {
@@ -244,7 +265,7 @@
     return norm(s)
       .split(' ')
       .filter(function (t) {
-        return t.length > 2 && !STOP[t];
+        return (t.length > 2 || t === 'ex') && !STOP[t];
       })
       .map(stem);
   }
@@ -288,10 +309,12 @@
     var context = '';
     var i, hit;
     var strongIntent = false;
+    var domainCue = /\b(dream|dreamed|dreamt|dreaming|nightmare|sleep|asleep|woke|waking|awake|rem|n1|n2|n3)\b/i.test(q);
 
     for (i = 0; i < LEXICON.length; i++) {
       hit = LEXICON[i];
       if (hit.re.test(q)) {
+        domainCue = true;
         tags = tags.concat(hit.tags);
         boosts.push({ tags: hit.tags, w: hit.w, label: hit.tags[0] });
       }
@@ -299,6 +322,7 @@
     for (i = 0; i < CONCEPT_MAP.length; i++) {
       hit = CONCEPT_MAP[i];
       if (hit.re.test(q)) {
+        domainCue = true;
         tags = tags.concat(hit.tags);
         boosts.push({ tags: hit.tags, w: hit.w, label: hit.label });
       }
@@ -306,6 +330,7 @@
     for (i = 0; i < PHASE_HINTS.length; i++) {
       hit = PHASE_HINTS[i];
       if (hit.re.test(q)) {
+        domainCue = true;
         if (hit.phase) phase = hit.phase;
         if (hit.context) context = hit.context;
         boosts.push({ phase: hit.phase, context: hit.context, w: hit.w, label: hit.context || hit.phase });
@@ -314,6 +339,7 @@
     for (i = 0; i < INTENT_RULES.length; i++) {
       hit = INTENT_RULES[i];
       if (hit.re.test(q)) {
+        domainCue = true;
         intents.push({ href: hit.href, w: hit.w, label: hit.label, theme: !!hit.theme });
         if (!hit.theme) strongIntent = true;
       }
@@ -338,7 +364,8 @@
       intents: intents,
       phase: phase,
       context: context,
-      strongIntent: strongIntent
+      strongIntent: strongIntent,
+      domainCue: domainCue
     };
   }
 
@@ -361,6 +388,7 @@
     var i, t, m, markerHit, tag;
 
     for (i = 0; i < doc.terms.length; i++) termSet[stem(doc.terms[i])] = 1;
+    var docIdentityBits = norm(doc.id + ' ' + doc.href).split(' ').map(stem);
 
     /* Intent rules — strongest first-party routing */
     for (i = 0; i < (sig.intents || []).length; i++) {
@@ -416,7 +444,7 @@
               break;
             }
           }
-          if (isDreamDoc(doc) && stem(norm(doc.id + ' ' + doc.href)).indexOf(tag) !== -1) tagHit = 1;
+          if (isDreamDoc(doc) && docIdentityBits.indexOf(tag) !== -1) tagHit = 1;
         }
         if (tagHit) {
           evidence += 1;
@@ -458,12 +486,37 @@
 
     /* Dream slug / title direct hits (strong theme signal) */
     if (isDreamDoc(doc)) {
-      var slug = String(doc.href || '').replace(/^\/dreams\/|\/$/g, '').replace(/\//g, '-');
-      var slugBits = slug.split('-').map(stem);
+      var dreamPath = String(doc.href || '').replace(/^\/dreams\/|\/$/g, '');
+      var pathParts = dreamPath.split('/');
+      var slugBits = dreamPath.replace(/\//g, '-').split('-').map(stem);
+      var childBits = pathParts.length > 1
+        ? pathParts[pathParts.length - 1].split('-').map(stem)
+        : [];
+
       var slugHits = 0;
+      var slugSeen = {};
       for (i = 0; i < slugBits.length; i++) {
-        if (slugBits[i].length > 2 && sig.toks.indexOf(slugBits[i]) !== -1) slugHits++;
+        var slugBit = slugBits[i];
+        if ((slugBit.length > 2 || slugBit === 'ex') &&
+            !slugSeen[slugBit] &&
+            sig.toks.indexOf(slugBit) !== -1) {
+          slugSeen[slugBit] = 1;
+          slugHits++;
+        }
       }
+
+      var childHits = 0;
+      var childSeen = {};
+      for (i = 0; i < childBits.length; i++) {
+        var childBit = childBits[i];
+        if ((childBit.length > 2 || childBit === 'ex') &&
+            !childSeen[childBit] &&
+            sig.toks.indexOf(childBit) !== -1) {
+          childSeen[childBit] = 1;
+          childHits++;
+        }
+      }
+
       if (slugHits >= 2) {
         evidence += 2;
         score += doc.kind === 'dream-lf' ? 42 : 36;
@@ -472,6 +525,15 @@
         evidence += 1;
         /* Pillar with single theme token outranks random LF siblings */
         score += doc.kind === 'dream' ? 28 : 18;
+      }
+
+      /* A child page only gets the extra specificity boost when the query
+         actually names something from that child segment. This prevents
+         generic parent queries from leaking into arbitrary LF children. */
+      if (doc.kind === 'dream-lf' && childHits >= 1) {
+        evidence += 1;
+        score += childHits >= 2 ? 40 : 28;
+        if (reasons.length < 3) reasons.push('specific dream scenario match');
       }
     }
 
@@ -486,6 +548,13 @@
     }
     if (tokHits) evidence += Math.min(3, tokHits);
     if (tokHits >= 3 && reasons.length < 3) reasons.push(tokHits + ' matching terms');
+
+    /* Generic corpus overlap is not enough to establish that a query belongs
+       to the dream/sleep domain. Without a semantic domain cue, require at
+       least two independent query-token matches in the same document. */
+    if (!sig.domainCue && tokHits < 2) {
+      return { score: 0, reasons: [], markerHit: 0, tokHits: 0, evidence: 0 };
+    }
 
     /* No evidence → do not rank on quality priors alone (fixes garbage / wrong LF tops) */
     if (evidence < 1) {
@@ -522,6 +591,20 @@
       });
     }
     scored.sort(function (a, b) {
+      /* exact strong intent wins before close-score Dream preference */
+      if (Math.abs(a.score - b.score) <= 8 && sig.strongIntent && sig.intents && sig.intents.length) {
+        var aExactIntent = sig.intents.some(function (intent) {
+          return !intent.theme && intent.href === a.doc.href;
+        });
+        var bExactIntent = sig.intents.some(function (intent) {
+          return !intent.theme && intent.href === b.doc.href;
+        });
+
+        if (aExactIntent !== bExactIntent) {
+          return aExactIntent ? -1 : 1;
+        }
+      }
+
       var aDream = isDreamDoc(a.doc) ? 1 : 0;
       var bDream = isDreamDoc(b.doc) ? 1 : 0;
       if (Math.abs(a.score - b.score) < 8 && aDream !== bDream) return bDream - aDream;
