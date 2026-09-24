@@ -7,8 +7,8 @@ import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { buildEegSvg } from "../lib/chart-svg.mjs";
-import { markIndexable } from "../lib/rank.mjs";
 import { buildZoneSvg } from "../lib/compose.mjs";
+import { isSomaticBuildEligible, somaticEntryKey } from "../lib/somatic-science.mjs";
 import { phaseHubEssayHtml, utilityEssayHtml } from "../lib/expand-somatic-prose.mjs";
 import {
   writeRobotsTxt,
@@ -23,6 +23,7 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, "../..");
 const PSEO = path.resolve(__dirname, "..");
 const MATRIX = path.join(PSEO, "data", "somatic-matrix.json");
+const GOLD = path.join(PSEO, "data", "somatic-matrix.gold.json");
 const TPL_HUB = path.join(PSEO, "templates", "somatic-hub.html");
 const CTA = fs.readFileSync(
   path.join(PSEO, "templates", "partials", "cta-hard.html"),
@@ -30,7 +31,6 @@ const CTA = fs.readFileSync(
 );
 const OUT_DIR = path.join(ROOT, "public", "somatic");
 const SITE = "https://oneirox.com";
-const INDEXABLE_CAP = 11;
 
 const TPL = {
   eeg_baseline: path.join(PSEO, "templates", "somatic-eeg-baseline.html"),
@@ -458,18 +458,28 @@ function writeAllowlist(entries) {
   writeAllowlistIfChanged(path.join(PSEO, "data", "indexable-allowlist.json"), urls);
 }
 
+function curatedIndexableKeys() {
+  const gold = JSON.parse(fs.readFileSync(GOLD, "utf8"));
+  return new Set(
+    (gold.entries || [])
+      .filter(isSomaticBuildEligible)
+      .map(somaticEntryKey)
+  );
+}
+
 function main() {
   if (!fs.existsSync(MATRIX)) {
     console.error("Missing matrix. Run: npm run pseo:expand && npm run pseo:enrich");
     process.exit(1);
   }
-  let matrix = JSON.parse(fs.readFileSync(MATRIX, "utf8"));
-  let entries = matrix.entries || [];
-  if (!entries.some((e) => e.indexable)) {
-    entries = markIndexable(entries, INDEXABLE_CAP);
-    matrix = { ...matrix, entries, indexable_count: INDEXABLE_CAP };
-    fs.writeFileSync(MATRIX, JSON.stringify(matrix, null, 2));
-  }
+  const matrix = JSON.parse(fs.readFileSync(MATRIX, "utf8"));
+  const curated = curatedIndexableKeys();
+  // Gold is authoritative. This build-time projection never writes or promotes
+  // generated rows; it only reflects explicit reviewed Gold selections.
+  const entries = (matrix.entries || []).map((entry) => ({
+    ...entry,
+    indexable: curated.has(somaticEntryKey(entry)),
+  }));
 
   if (!entries.some((e) => e.mechanism_bullets?.length)) {
     console.error("Matrix not enriched. Run: npm run pseo:enrich");

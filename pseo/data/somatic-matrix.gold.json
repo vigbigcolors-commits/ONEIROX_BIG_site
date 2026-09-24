@@ -20,7 +20,9 @@
       "gauge_atonia": 92,
       "gauge_arousal": 70,
       "gauge_coherence": 35,
-      "sources": ["REM atonia — brainstem glycine/GABA", "Sleep–wake boundary physiology"]
+      "sources": ["REM atonia — brainstem glycine/GABA", "Sleep–wake boundary physiology"],
+      "indexable": true,
+      "science_reviewed_core": false
     },
     {
       "slug_symptom": "hypnic-jerk",
@@ -40,7 +42,9 @@
       "gauge_atonia": 15,
       "gauge_arousal": 78,
       "gauge_coherence": 42,
-      "sources": ["Hypnic jerks — N1 transition", "Myoclonus at sleep onset"]
+      "sources": ["Hypnic jerks — N1 transition", "Myoclonus at sleep onset"],
+      "indexable": true,
+      "science_reviewed_core": false
     },
     {
       "slug_symptom": "hypnagogic-tachycardia",
@@ -60,7 +64,9 @@
       "gauge_atonia": 20,
       "gauge_arousal": 85,
       "gauge_coherence": 38,
-      "sources": ["Autonomic shifts at sleep onset", "Hypnagogic physiology"]
+      "sources": ["Autonomic shifts at sleep onset", "Hypnagogic physiology"],
+      "indexable": true,
+      "science_reviewed_core": false
     },
     {
       "slug_symptom": "rem-atonia-failure",
@@ -80,7 +86,9 @@
       "gauge_atonia": 48,
       "gauge_arousal": 40,
       "gauge_coherence": 55,
-      "sources": ["REM behavior physiology", "Brainstem atonia circuits"]
+      "sources": ["REM behavior physiology", "Brainstem atonia circuits"],
+      "indexable": true,
+      "science_reviewed_core": false
     },
     {
       "slug_symptom": "sleep-related-bruxism",
@@ -100,7 +108,9 @@
       "gauge_atonia": 30,
       "gauge_arousal": 55,
       "gauge_coherence": 60,
-      "sources": ["Sleep bruxism — NREM association", "Motor arousal micro-events"]
+      "sources": ["Sleep bruxism — NREM association", "Motor arousal micro-events"],
+      "indexable": true,
+      "science_reviewed_core": false
     },
     {
       "slug_symptom": "nocturnal-hyperhidrosis",
@@ -140,7 +150,9 @@
       "gauge_atonia": 55,
       "gauge_arousal": 88,
       "gauge_coherence": 28,
-      "sources": ["REM exit transitions", "Aminergic–cholinergic flip-flop"]
+      "sources": ["REM exit transitions", "Aminergic–cholinergic flip-flop"],
+      "indexable": true,
+      "science_reviewed_core": false
     },
     {
       "slug_symptom": "rem-eye-twitch-burst",
@@ -280,7 +292,9 @@
       "gauge_atonia": 25,
       "gauge_arousal": 68,
       "gauge_coherence": 40,
-      "sources": ["Periodic limb movements", "NREM motor arousals"]
+      "sources": ["Periodic limb movements", "NREM motor arousals"],
+      "indexable": true,
+      "science_reviewed_core": false
     },
     {
       "slug_symptom": "sleep-onset-apnea-like-pause",
@@ -300,7 +314,9 @@
       "gauge_atonia": 30,
       "gauge_arousal": 72,
       "gauge_coherence": 36,
-      "sources": ["Sleep-onset respiratory physiology", "Upper-airway tone at N1"]
+      "sources": ["Sleep-onset respiratory physiology", "Upper-airway tone at N1"],
+      "indexable": true,
+      "science_reviewed_core": false
     },
     {
       "slug_symptom": "rem-penile-or-clitoral-engorgement",
@@ -440,7 +456,9 @@
       "gauge_atonia": 35,
       "gauge_arousal": 55,
       "gauge_coherence": 22,
-      "sources": ["Confusional arousals — N3", "Sleep inertia physiology"]
+      "sources": ["Confusional arousals — N3", "Sleep inertia physiology"],
+      "indexable": true,
+      "science_reviewed_core": false
     },
     {
       "slug_symptom": "rem-temperature-deregulation",
@@ -580,7 +598,9 @@
       "gauge_atonia": 22,
       "gauge_arousal": 90,
       "gauge_coherence": 20,
-      "sources": ["Exploding head phenomenon", "Sleep-onset sensory transients"]
+      "sources": ["Exploding head phenomenon", "Sleep-onset sensory transients"],
+      "indexable": true,
+      "science_reviewed_core": false
     },
     {
       "slug_symptom": "rem-muscle-twitch-finger",
@@ -601,6 +621,43 @@
       "gauge_arousal": 38,
       "gauge_coherence": 60,
       "sources": ["Phasic REM twitches", "Distal vs proximal atonia"]
+    },
+    {
+      "slug_symptom": "fragmented-rem",
+      "slug_phase": "rem",
+      "slug_context": "fragmentation",
+      "physiological_symptom": "Fragmented REM with micro-arousals",
+      "sleep_phase": "REM",
+      "context": "fragmentation",
+      "eeg_frequency_hz_range": {
+        "min": 4.04,
+        "max": 10.17,
+        "band": "theta"
+      },
+      "neurotransmitters_involved": [
+        "acetylcholine",
+        "dopamine",
+        "norepinephrine"
+      ],
+      "somatic_markers": [
+        "brief body shifts",
+        "dry mouth on wakelets",
+        "micro-arousal body hitch"
+      ],
+      "atonia_state": "partial_failure",
+      "chart_seed": 66745216,
+      "utility_type": "phase_disruption",
+      "title": "Fragmented REM with micro-arousals · theta 4.04–10.17 Hz · REM",
+      "summary": "Fragmented REM with micro-arousals, scattered across broken stage fragments maps onto [brief body shifts · dry mouth on wakelets · micro-arousal body hitch] inside theta 4.04–10.17 Hz, atonia \"partial_failure\" — read as mechanism, not dream-symbol shorthand.",
+      "gauge_atonia": 47,
+      "gauge_arousal": 77,
+      "gauge_coherence": 28,
+      "sources": [
+        "Sleep stage EEG banding",
+        "Sleep stage EEG banding"
+      ],
+      "indexable": true,
+      "science_reviewed_core": false
     }
   ]
 }

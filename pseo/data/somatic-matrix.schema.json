@@ -140,7 +140,27 @@
         "pillar_blurb": { "type": "string" },
         "density_score": { "type": "number" },
         "indexable": { "type": "boolean" },
-        "index_rank": { "type": "integer" }
+        "index_rank": { "type": "integer" },
+        "science_reviewed_core": { "type": "boolean" },
+        "reviewed_at": { "type": "string" },
+        "search_intent": { "type": "string", "minLength": 1 },
+        "reviewed_title": { "type": "string", "minLength": 1 },
+        "reviewed_description": { "type": "string", "minLength": 1 },
+        "citations": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 1 }
+        },
+        "safety_boundary": { "type": "string", "minLength": 1 },
+        "evidence_sections": {
+          "type": "object",
+          "required": ["established", "supported_hypothesis", "unknown_or_limitation"],
+          "properties": {
+            "established": { "type": "string", "minLength": 1 },
+            "supported_hypothesis": { "type": "string", "minLength": 1 },
+            "unknown_or_limitation": { "type": "string", "minLength": 1 }
+          },
+          "additionalProperties": false
+        }
       }
     }
   }

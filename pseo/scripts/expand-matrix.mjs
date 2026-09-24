@@ -1,14 +1,14 @@
 /**
  * Expand gold somatic seeds + symptom catalog into a unique matrix (~300–1000 rows).
- * Safe PSEO: dense metric DB first; ranking marks top-N indexable.
- * Usage: node pseo/scripts/expand-matrix.mjs [--target=400] [--indexable=50]
+ * Safe PSEO: dense metric DB first. Indexability comes only from reviewed Gold rows.
+ * Usage: node pseo/scripts/expand-matrix.mjs [--target=400]
  */
 
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { clamp, hashString, mulberry32, uniqueSorted } from "../lib/seed.mjs";
-import { markIndexable } from "../lib/rank.mjs";
+import { isSomaticBuildEligible } from "../lib/somatic-science.mjs";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, "..");
@@ -189,14 +189,11 @@ const CONTEXT_GAUGE = {
 
 function parseArgs(argv) {
   let target = 400;
-  let indexable = 50;
   for (const a of argv) {
     if (a.startsWith("--target=")) target = Number(a.slice(9));
-    if (a.startsWith("--indexable=")) indexable = Number(a.slice(12));
   }
   target = clamp(target, 300, 1000);
-  indexable = clamp(indexable, 10, 80);
-  return { target, indexable };
+  return { target };
 }
 
 function fingerprint(entry) {
@@ -360,7 +357,7 @@ function passesUniqueness(candidate, accepted) {
 }
 
 function main() {
-  const { target, indexable } = parseArgs(process.argv.slice(2));
+  const { target } = parseArgs(process.argv.slice(2));
   const gold = JSON.parse(fs.readFileSync(GOLD_PATH, "utf8"));
   const accepted = [];
   const seenFp = new Set();
@@ -414,25 +411,27 @@ function main() {
     accepted.push(entry);
   }
 
-  // No weak fill rows — short dense matrix beats thin volume
-  const ranked = markIndexable(accepted.slice(0, target), indexable);
+  // Generated candidates are never eligible for indexing. Gold nominations need
+  // completed scientific review before they can enter generated indexable output.
+  const rows = accepted.slice(0, target).map((entry) => ({
+    ...entry,
+    indexable: isSomaticBuildEligible(entry),
+  }));
   const out = {
     version: 2,
     architecture: "safe-pseo-db-first",
     generated_at: new Date().toISOString(),
-    count: ranked.length,
-    indexable_count: ranked.filter((e) => e.indexable).length,
-    indexable_cap: indexable,
-    entries: ranked,
+    count: rows.length,
+    indexable_count: rows.filter((e) => e.indexable).length,
+    entries: rows,
   };
 
   fs.writeFileSync(OUT_PATH, JSON.stringify(out, null, 2));
-  const allow = ranked
+  const allow = rows
     .filter((e) => e.indexable)
     .map((e) => ({
       id: e.id,
       url: `https://oneirox.com/somatic/${e.slug_symptom}/${e.slug_phase}/${e.slug_context}/`,
-      density_score: e.density_score,
       utility_type: e.utility_type,
     }));
   fs.writeFileSync(
