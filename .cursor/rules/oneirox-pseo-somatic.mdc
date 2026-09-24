@@ -39,7 +39,6 @@ PSEO = **микро-инструменты с разной математико�
 
 1. **Не** вываливать сотни/тысячи URL за сутки.
 2. Сначала пилот (сейчас Dream Meaning = 26 pillar) → GSC 2–3 недели → потом вентиль.
-3. Порции: **до ~50–100 новых indexable URL/день** через Indexing API + sitemap — только после зелёных логов ботов/позиций.
 4. Соматика: БД может быть большой; **в индекс только топ-N** (`indexable: true`). Остальное `noindex` + **robots Disallow** + не в sitemap. `noindex` без Disallow жрёт crawl budget.
 5. Dream Meaning: глубокие pillar (не 1:1 thin на каждый старый WP URL). Варианты = секции/FAQ на той же странице.
 
@@ -56,7 +55,6 @@ PSEO = **микро-инструменты с разной математико�
 ```bash
 npm run pseo:build            # audit → somatic SSG → mechanics links → dreams SSG
 npm run pseo:audit            # uniqueness gate (somatic + dreams)
-npm run pseo:index:dreams     # Indexing API — новые /dreams/* only
 npm run pseo:indexnow:dreams  # Bing/Yandex
 npm run pseo:notify           # Google + IndexNow dreams
 ```
@@ -65,4 +63,3 @@ npm run pseo:notify           # Google + IndexNow dreams
 
 - Allowlists: `pseo/data/indexable-allowlist.json`, `pseo/data/dream-allowlist.json`
 - Credentials: `GOOGLE_APPLICATION_CREDENTIALS` → `secrets/*.json` (никогда в git)
-- Primary discovery = sitemap; Indexing API = ускоритель, не замена

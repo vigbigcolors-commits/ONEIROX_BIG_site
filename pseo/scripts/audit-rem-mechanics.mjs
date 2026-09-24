@@ -7,6 +7,7 @@ import { somaticEntryKey } from "../lib/somatic-science.mjs";
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, "../..");
 const SOURCE = path.join(ROOT, "content", "mechanics", "rem.json");
+const HUB_SOURCE = path.join(ROOT, "content", "mechanics", "rem-hub.html");
 const GOLD = path.join(ROOT, "pseo", "data", "somatic-matrix.gold.json");
 const EXPECTED = new Set(["atonia", "pgo-autonomic", "cortex-eeg", "cycle-timing"]);
 const EXPECTED_RELATIONSHIPS = {
@@ -24,6 +25,37 @@ const EXPECTED_RELATIONSHIPS = {
 
 function main() {
   const source = JSON.parse(fs.readFileSync(SOURCE, "utf8"));
+  const hub = fs.readFileSync(HUB_SOURCE, "utf8");
+
+  const hubRequired = [
+    '<link rel="canonical" href="https://oneirox.com/mechanics/rem/">',
+    '<meta name="robots" content="index,follow">',
+    "/mechanics/rem/atonia/",
+    "/mechanics/rem/pgo-autonomic/",
+    "/mechanics/rem/cortex-eeg/",
+    "/mechanics/rem/cycle-timing/",
+  ];
+
+  for (const token of hubRequired) {
+    if (!hub.includes(token)) failures.push(`REM hub missing ${token}`);
+  }
+
+  if ((hub.match(/<h1\b/g) || []).length !== 1) {
+    failures.push("REM hub must contain exactly one H1");
+  }
+
+  for (const forbidden of [
+    "hard physiology",
+    "PGO storm",
+    "90-minute gate",
+    "densest dream buffer",
+    "pontine spikes become the visual reel",
+    "Decode scores mechanism",
+    "threat rehearsal",
+  ]) {
+    if (hub.includes(forbidden)) failures.push(`REM hub contains forbidden claim: ${forbidden}`);
+  }
+
   const pages = source.pages || [];
   const failures = [];
   const slugs = new Set();
@@ -60,6 +92,17 @@ function main() {
       }
     }
     const sourceText = JSON.stringify(page);
+    for (const forbidden of [
+      "autonomic chaos",
+      "Likely hardware read",
+      "panic theater",
+      "map to PGO/autonomic load",
+      "Mechanism-first reading starts there",
+    ]) {
+      if (sourceText.includes(forbidden)) {
+        failures.push(`${page.slug} contains overclaim language: ${forbidden}`);
+      }
+    }
     if (sourceText.includes("AUTO-UTILITY-LINKS")) failures.push(`${page.slug} contains AUTO-UTILITY-LINKS`);
     if (/{{[^}]+}}/.test(sourceText)) failures.push(`${page.slug} contains unresolved template token`);
     if (sourceText.includes("public/")) failures.push(`${page.slug} source must not reference public/`);
@@ -110,7 +153,7 @@ function main() {
     failures.forEach((failure) => console.error(` - ${failure}`));
     process.exit(1);
   }
-  console.log(`REM mechanics source audit OK: ${pages.length} pages · ${nominated.size} Gold nominations`);
+  console.log(`REM mechanics source audit OK: ${pages.length} pages В· ${nominated.size} Gold nominations`);
 }
 
 main();
