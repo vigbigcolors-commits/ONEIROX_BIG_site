@@ -1,0 +1,196 @@
+{
+  "version": 1,
+  "pages": [
+    {
+      "slug": "atonia",
+      "canonical": "https://oneirox.com/mechanics/rem/atonia/",
+      "title": "REM atonia — brainstem motor inhibition",
+      "meta_description": "How REM brainstem circuits inhibit skeletal motor output, how sleep paralysis can occur at the REM–wake boundary, and when dream enactment needs clinical attention.",
+      "robots": "index,follow",
+      "json_ld_headline": "REM atonia — GABA and glycine motor lock",
+      "date_published": "2026-07-26",
+      "date_modified": "2026-09-23",
+      "author": "Vigen G.R.",
+      "kicker": "System 02 · motor hardware",
+      "h1": "REM atonia lock",
+      "lead": "During REM sleep, brainstem circuits strongly inhibit skeletal motor output. Glycinergic and GABAergic inhibition contribute to this atonia, which helps prevent most dream-related movement from being acted out.",
+      "cta": {
+        "heading": "Decode with motor context",
+        "body": "Paste the immobility or twitch facts beside the imagery. Mechanism-first reading starts there.",
+        "links": [
+          {
+            "href": "/#lab-search",
+            "label": "Open Lab Search"
+          }
+        ]
+      },
+      "mechanics_links": [
+        {
+          "href": "/mechanics/rem/pgo-autonomic/",
+          "label": "Next: PGO & autonomic →"
+        }
+      ],
+      "somatic_relationships": [
+        {
+          "href": "/somatic/sleep-paralysis-onset/rem/awakening/",
+          "label": "Sleep paralysis at REM–wake border — REM/awakening"
+        },
+        {
+          "href": "/somatic/rem-atonia-failure/rem/mid-cycle/",
+          "label": "Partial REM atonia failure — REM/mid-cycle"
+        }
+      ],
+      "disclaimer": "Educational neurobiology. Not medical advice. Persistent dream enactment needs clinical evaluation.",
+      "modules": [],
+      "body_prefix_html": "<body class=\"rm-body\">\n  <header class=\"rm-top\">\n    <a class=\"rm-brand\" href=\"/\">Oneirox</a>\n    <nav class=\"rm-nav\" aria-label=\"Mechanics\">\n      <a href=\"/mechanics/rem/\">REM mechanics</a>\n      <a href=\"/mechanics/rem/atonia/\" aria-current=\"page\">Atonia</a>\n      <a href=\"/#lab-search\">Lab Search</a>\n    </nav>\n  </header>\n  <main class=\"rm-main\">",
+      "body_suffix_html": "</main>\n  <footer class=\"rm-foot\">\n    <a href=\"/mechanics/rem/\">REM mechanics</a> · <a href=\"/somatic/\">Somatic utilities</a>\n  </footer>\n</body>\n</html>\n",
+      "content_html": "<div class=\"rm-prose\">\n      <h2>What REM atonia is</h2>\n      <p>REM atonia is a well-established motor feature of REM sleep. Brainstem and medullary circuits reduce spinal motoneuron activity through inhibitory pathways, including glycine and GABA. It is protective physiology, not a symbolic “paralysis meaning.”</p>\n      <h2>Sleep paralysis is a state transition, not a dream code</h2>\n      <p>When awareness returns before REM-associated motor inhibition has fully released, a person may experience brief sleep paralysis. Hallucinated presence, chest pressure, or fear can accompany the state, but those experiences are not proof of an external presence or a specific psychological message.</p>\n      <h2>Movement during dreams needs a different standard</h2>\n      <p>Small phasic twitches can occur in normal REM. Repeated dream enactment — punching, kicking, leaving the bed — is different and can require clinical assessment. Oneirox should not collapse normal twitches, sleep paralysis, and REM sleep behavior disorder into one continuum.</p>\n      <h2>What to record</h2>\n      <p>Could you move immediately on waking? How long did immobility last? Was there dream enactment or only a brief twitch? Those observations help describe the sleep event. They do not determine the meaning of the dream scene.</p>\n    </div>\n\n    <div class=\"rm-table-wrap\">\n      <table class=\"rm-table\">\n        <thead>\n          <tr><th>Signal</th><th>Likely hardware read</th></tr>\n        </thead>\n        <tbody>\n          <tr><td>Can’t move for a few breaths on wake</td><td>Atonia lag across REM→wake border</td></tr>\n          <tr><td>Fingers / toes flicker mid-dream recall</td><td>Phasic breakthrough against tonic lock</td></tr>\n          <tr><td>Full body still, panic rising</td><td>Intact brake + high arousal — not “demon visit”</td></tr>\n        </tbody>\n      </table>\n    </div>",
+      "related_heading": "Related utilities",
+      "related_navigation_links": []
+    },
+    {
+      "slug": "pgo-autonomic",
+      "canonical": "https://oneirox.com/mechanics/rem/pgo-autonomic/",
+      "title": "REM PGO waves & autonomic chaos",
+      "meta_description": "What PGO-like activity and REM autonomic variability actually show in humans, what remains based on animal work, and why dream imagery should not be over-decoded.",
+      "robots": "index,follow",
+      "json_ld_headline": "REM PGO waves and autonomic chaos",
+      "date_published": "2026-07-26",
+      "date_modified": "2026-09-23",
+      "author": "Vigen G.R.",
+      "kicker": "System 03 · sensory &amp; visceral hardware",
+      "h1": "PGO waves &amp; autonomic chaos",
+      "lead": "PGO-like phasic activity is a real feature of REM physiology, demonstrated extensively in animals and recorded in limited human intracranial data. Its exact causal role in human dream imagery remains a research question, not a settled projector model.",
+      "cta": {
+        "heading": "Send the autonomic layer",
+        "body": "Decode weights BODY beside SIGNAL. Autonomic facts are not optional garnish — they are often the cleaner channel.",
+        "links": [
+          {
+            "href": "/#lab-search",
+            "label": "Open Lab Search"
+          }
+        ]
+      },
+      "mechanics_links": [
+        {
+          "href": "/mechanics/rem/cycle-timing/",
+          "label": "Next: cycle timing →"
+        }
+      ],
+      "somatic_relationships": [],
+      "disclaimer": "Educational neurobiology. Not medical advice.",
+      "modules": [],
+      "body_prefix_html": "<body class=\"rm-body\">\n  <header class=\"rm-top\">\n    <a class=\"rm-brand\" href=\"/\">Oneirox</a>\n    <nav class=\"rm-nav\" aria-label=\"Mechanics\">\n      <a href=\"/mechanics/rem/\">REM mechanics</a>\n      <a href=\"/mechanics/rem/pgo-autonomic/\" aria-current=\"page\">PGO &amp; autonomic</a>\n      <a href=\"/#lab-search\">Lab Search</a>\n    </nav>\n  </header>\n  <main class=\"rm-main\">",
+      "body_suffix_html": "</main>\n  <footer class=\"rm-foot\">\n    <a href=\"/mechanics/rem/\">REM mechanics</a> · <a href=\"/tools/oneirox-dream-mapper\">Sensory Dream Mapper</a>\n  </footer>\n</body>\n</html>\n",
+      "content_html": "<div class=\"rm-prose\">\n      <h2>What PGO evidence actually shows</h2>\n      <p>Ponto-geniculo-occipital waves are well characterized in animals and PGO-like phasic potentials have been recorded in the human pons. They are associated with REM-related cortical activity, but it is too strong to say that they directly “paint” the visual content of every human dream.</p>\n      <h2>Visual imagery: plausible contribution, not a caption generator</h2>\n      <p>PGO activity has long been proposed as one contributor to internally generated visual experience in REM. That proposal is biologically plausible and supported by animal work, but the mapping from one PGO event to one dream image is not available in human dream reports.</p>\n      <h2>Autonomic variability in REM</h2>\n      <p>Heart rate, breathing, and thermoregulation can become more variable in REM, especially during phasic periods. Waking with a racing heart, irregular breath, heat, or chill can therefore be useful physiological context. It does not tell us what the dream “meant.”</p>\n      <h2>How Oneirox should use this layer</h2>\n      <p>Record autonomic residue as an observation: pulse, breath, sweating, temperature, eye-flutter memory. Then keep the inference modest. “Compatible with phasic REM/autonomic arousal” is scientifically defensible; “the body generated this exact dream plot” usually is not.</p>\n      <p>Human evidence reference: Lim et al., <em>Sleep</em> 2007, PMID 17682651. Review context: PGO waves remain an active but incomplete bridge between REM physiology and dream phenomenology.</p>\n    </div>\n\n    <section class=\"rm-hero-panel\">\n      <h2>Practical capture rule</h2>\n      <p>Before you polish the plot: eye-flutter memory? irregular breath on wake? heat dump or chill? Those three map to PGO/autonomic load better than any dream-dictionary gloss.</p>\n    </section>",
+      "related_heading": "Related utilities",
+      "related_navigation_links": []
+    },
+    {
+      "slug": "cortex-eeg",
+      "canonical": "https://oneirox.com/mechanics/rem/cortex-eeg/",
+      "title": "REM cortex & EEG — wake-like dreaming brain",
+      "meta_description": "What REM and NREM EEG can and cannot tell us about dreaming: activated sleep, posterior cortical correlates, memory and emotion research, and the limits of dream decoding.",
+      "robots": "index,follow",
+      "json_ld_headline": "REM cortex and EEG — wake-like dreaming brain",
+      "date_published": "2026-07-26",
+      "date_modified": "2026-09-23",
+      "author": "Vigen G.R.",
+      "kicker": "System 01 · cortical hardware",
+      "h1": "REM cortex &amp; EEG",
+      "lead": "REM sleep often shows low-voltage, mixed-frequency scalp EEG, but dreaming is not exclusive to REM. Modern studies also find dream experience in NREM, with posterior cortical activity linked to whether and what people report dreaming.",
+      "cta": {
+        "heading": "Feed cortex context into Decode",
+        "body": "Note whether the night felt like filing, rehearsal, or panic theater. That single adjective often lands closer to mechanism than a paragraph of plot.",
+        "links": [
+          {
+            "href": "/#lab-search",
+            "label": "Open Lab Search"
+          }
+        ]
+      },
+      "mechanics_links": [
+        {
+          "href": "/mechanics/rem/atonia/",
+          "label": "Atonia lock →"
+        }
+      ],
+      "somatic_relationships": [],
+      "disclaimer": "Educational neurobiology. Not medical advice.",
+      "modules": [],
+      "body_prefix_html": "<body class=\"rm-body\">\n  <header class=\"rm-top\">\n    <a class=\"rm-brand\" href=\"/\">Oneirox</a>\n    <nav class=\"rm-nav\" aria-label=\"Mechanics\">\n      <a href=\"/mechanics/rem/\">REM mechanics</a>\n      <a href=\"/mechanics/rem/cortex-eeg/\" aria-current=\"page\">Cortex &amp; EEG</a>\n      <a href=\"/#lab-search\">Lab Search</a>\n    </nav>\n  </header>\n  <main class=\"rm-main\">",
+      "body_suffix_html": "</main>\n  <footer class=\"rm-foot\">\n    <a href=\"/mechanics/rem/\">REM mechanics</a> · <a href=\"/methodology/\">Methodology</a>\n  </footer>\n</body>\n</html>\n",
+      "content_html": "<div class=\"rm-prose\">\n      <h2>What “wake-like” does and does not mean</h2>\n      <p>Human REM sleep can look activated on scalp EEG compared with slow-wave sleep, but “the cortex is awake” is an oversimplification. Dreaming also occurs in NREM, and neural correlates of dream experience have been reported across both states. Sleep stage is context, not a dream decoder.</p>\n      <h2>Dreaming, memory, and emotion</h2>\n      <p>Sleep supports memory and affective regulation, and REM appears relevant to several emotional processes. What remains uncertain is whether the content of a particular dream reveals which memory or emotional operation was active. Dream-content studies are informative, but the evidence is mixed and method-dependent.</p>\n      <h2>Do not infer pruning from a strange plot</h2>\n      <p>Synaptic homeostasis and memory reorganization are active research areas in sleep science. A bizarre or compressed dream is not evidence that the brain was “pruning” a specific memory. Oneirox keeps those system-level theories separate from scene-level interpretation.</p>\n      <h2>How to use this page</h2>\n      <p>Use EEG and sleep-stage knowledge to narrow what is physiologically plausible. Then record dream content, waking body state, and timing as separate observations. A vivid dream can be biologically ordinary and still personally meaningful; the meaning is an interpretation, not an EEG result.</p>\n      <p>For a direct neural correlate of dream experience, see Siclari et al. 2017: dreaming in both REM and NREM was associated with local posterior cortical activity. That finding is stronger than the older shorthand that vivid dreaming is simply “REM cortex running like waking.”</p>\n    </div>",
+      "related_heading": "Continue",
+      "related_navigation_links": [
+        {
+          "href": "/mechanics/rem/",
+          "label": "Full REM systems map →"
+        }
+      ]
+    },
+    {
+      "slug": "cycle-timing",
+      "canonical": "https://oneirox.com/mechanics/rem/cycle-timing/",
+      "title": "REM cycle timing — 90 minutes to dawn elongation",
+      "meta_description": "How REM timing changes across the night, why 90 minutes is only an average, and why clock time can guide dream context without identifying a sleep stage.",
+      "robots": "index,follow",
+      "json_ld_headline": "REM cycle timing — 90 minutes to dawn elongation",
+      "date_published": "2026-07-26",
+      "date_modified": "2026-09-23",
+      "author": "Vigen G.R.",
+      "kicker": "Architecture of the night",
+      "h1": "REM cycle timing",
+      "lead": "REM episodes usually become longer across a typical night, while exact cycle lengths vary substantially between people and nights. Late-night awakenings can therefore make vivid dream recall more likely, but clock time alone cannot identify the sleep stage.",
+      "cta": {
+        "heading": "Estimate phase, then Lab Search",
+        "body": "If you know roughly when you slept and woke, run the Phase Calculator, then describe dream + body in Lab Search with that timing in mind.",
+        "links": [
+          {
+            "href": "/phase/",
+            "label": "Open Phase Calculator"
+          },
+          {
+            "href": "/#lab-search",
+            "label": "Lab Search",
+            "style": "margin-left:0.5rem;background:#f8faf5"
+          }
+        ]
+      },
+      "mechanics_links": [
+        {
+          "href": "/mechanics/rem/cortex-eeg/",
+          "label": "Cortex & EEG →"
+        }
+      ],
+      "somatic_relationships": [
+        {
+          "href": "/somatic/hypnopompic-somatic-surge/rem/awakening/",
+          "label": "Hypnopompic somatic surge — REM/awakening"
+        },
+        {
+          "href": "/somatic/fragmented-rem/rem/fragmentation/",
+          "label": "Fragmented REM with micro-arousals — REM/fragmentation"
+        }
+      ],
+      "disclaimer": "Educational neurobiology. Individual architecture varies; not medical advice.",
+      "modules": [
+        "cycle-timing-night-scrubber"
+      ],
+      "body_prefix_html": "<body class=\"rm-body\">\r\n  <header class=\"rm-top\">\r\n    <a class=\"rm-brand\" href=\"/\">Oneirox</a>\r\n    <nav class=\"rm-nav\" aria-label=\"Mechanics\">\r\n      <a href=\"/mechanics/rem/\">REM mechanics</a>\r\n      <a href=\"/mechanics/rem/cycle-timing/\" aria-current=\"page\">Cycle timing</a>\r\n      <a href=\"/#lab-search\">Lab Search</a>\r\n    </nav>\r\n  </header>\r\n  <main class=\"rm-main\">",
+      "body_suffix_html": "</main>\r\n  <footer class=\"rm-foot\">\r\n    <a href=\"/mechanics/rem/\">REM mechanics</a> · <a href=\"/phase/\">Phase calculator</a>\r\n  </footer>\r\n  <script src=\"/mechanics/assets/rem-mechanics.js\" defer></script>\r\n</body>\r\n</html>\r\n",
+      "content_html": "<section class=\"rm-night\" aria-labelledby=\"rm-cycle-h\">\r\n      <h2 id=\"rm-cycle-h\">Scrub the night</h2>\r\n      <p class=\"rm-night__hint\">Same interactive model as the hub: watch episode blocks open and thicken toward morning.</p>\r\n      <div class=\"rm-track\" aria-hidden=\"true\">\r\n        <div class=\"rm-rem-block\" data-rm-ep=\"0\"></div>\r\n        <div class=\"rm-rem-block\" data-rm-ep=\"1\"></div>\r\n        <div class=\"rm-rem-block\" data-rm-ep=\"2\"></div>\r\n        <div class=\"rm-rem-block\" data-rm-ep=\"3\"></div>\r\n      </div>\r\n      <label class=\"rm-kicker\" for=\"rm-night-scrub\">Night minute</label>\r\n      <input class=\"rm-scrub\" id=\"rm-night-scrub\" type=\"range\" min=\"0\" max=\"480\" value=\"360\" step=\"5\" />\r\n      <p class=\"rm-night__readout\" id=\"rm-night-readout\"></p>\r\n    </section>\r\n\r\n    <div class=\"rm-prose\">\r\n      <h2>REM gets longer toward morning — approximately</h2>\r\n      <p>Across a typical adult night, REM tends to occupy more time in later sleep cycles. The familiar “90-minute cycle” is only an average: cycle length varies, and individual episodes do not follow a fixed clock. Use timing as a probability, not a timestamped diagnosis.</p>\r\n      <h2>Why late-night dreams are often easier to remember</h2>\r\n      <p>Longer late-night REM opportunities and awakening directly from a dream can increase recall. Vividness and recall are not proof that a dream was more important, more emotional, or more biologically meaningful.</p>\r\n      <h2>Fragmented nights change recall and architecture</h2>\r\n      <p>Alcohol, sleep-disordered breathing, stress, medications, and irregular schedules can alter sleep continuity and stage distribution. A consumer timing tool cannot reconstruct an individual hypnogram; polysomnography is the clinical measurement when sleep-stage precision matters.</p>\r\n      <h2>Use the calculators as planning tools</h2>\r\n      <p>The Sleep Cycle Calculator is a rough planning aid, not a sleep-stage detector. The Dream Phase Calculator’s lunar layer is exploratory only because lunar effects on human sleep are inconsistent across studies. Lab Search should treat timing as context beside the dream report, not as a mechanism verdict.</p>\r\n    </div>",
+      "related_heading": "Continue",
+      "related_navigation_links": [
+        {
+          "href": "/mechanics/rem/",
+          "label": "Full REM systems map →"
+        },
+        {
+          "href": "/somatic/phase/rem/",
+          "label": "Indexed REM somatic utilities →"
+        }
+      ]
+    }
+  ]
+}
