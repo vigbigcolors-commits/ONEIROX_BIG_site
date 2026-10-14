@@ -9,6 +9,10 @@ const files = [
   "public/data/lab-search-index.json",
   "pseo/data/dream-lf-matrix.json",
   "public/dreams/being-chased/legs-wont-move/index.html",
+  "public/dreams/being-chased/index.html",
+  "public/dreams/dogs/index.html",
+  "public/dreams/cheating-dreams/index.html",
+  "public/dreams/falling/hypnic-onset-jolt/index.html",
   "public/lab/sleep-cycles/index.html",
   "public/js/lab-sleep-cycles.js",
 ];
