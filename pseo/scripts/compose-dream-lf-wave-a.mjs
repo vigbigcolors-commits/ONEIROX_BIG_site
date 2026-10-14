@@ -988,30 +988,30 @@ export const WAVE_A = [
     parent_slug: "being-chased",
     slug: "legs-wont-move",
     title: "Dream About Being Chased but Legs Won't Move",
-    meta_title: "Chase Dream Legs Won't Move — REM Atonia Signature | Oneirox",
+    meta_title: "Chase Dream Legs Won't Move — Sleep Context | Oneirox",
     meta_description:
-      "Heavy legs in a chase dream are the REM atonia signature leaking into narrative — motor lock, not weakness prophecy.",
-    kicker: "Brainstem throttle as plot",
-    lead: "You need to sprint. Your legs are concrete. The pursuer gains. This is one of the cleanest body-to-story maps in nightmare science.",
+      "Heavy legs in a chase dream can feel like blocked escape. REM motor inhibition is relevant background, but one dream cannot establish that mechanism.",
+    kicker: "When escape feels impossible",
+    lead: "You need to sprint. Your legs are concrete. The pursuer gains. It is a powerful body-to-story pattern, not a direct readout of a sleep state.",
     signal:
-      "REM atonia is dampening motor output; the chase narrative absorbs that as ineffective running — hardware signature, not moral metaphor.",
+      "A chase with heavy legs can be explored as blocked escape. REM motor inhibition is relevant background, but the dream alone does not show what caused the feeling.",
     body_paragraphs: [
-      "During REM, spinal motor neurons are actively inhibited. Dreamed running still “happens” in motor cortex maps, but the felt efficacy collapses. Heavy-leg chase is that collapse told as story.",
-      "People who lucid-dream sometimes recognize leg-lock as a REM cue. For everyone else, it just feels like failure.",
-      "If the same heavy-leg feeling persists after waking, that is hypnopompic atonia spill — different page, related mechanism.",
+      "REM sleep normally includes substantial muscle inhibition. That physiology is useful background, but research does not let a remembered heavy-leg dream reveal a precise motor mechanism.",
+      "The scene may feel like failure or blocked escape. Start with its details and waking context before assigning it a sleep-stage explanation.",
+      "If immobility persists after waking, record its duration and context; the sleep-paralysis material explains what that experience can and cannot show.",
     ],
     variants: [
       {
         q: "Legs in mud or water while chased",
-        a: "Narrative metaphors for the same throttle — viscosity stories for inhibited output.",
+        a: "Mud or water may make the blocked-escape feeling more vivid, but neither image establishes a single mechanism.",
       },
       {
         q: "You crawl instead of run",
-        a: "Motor downgrade mid-scene as atonia deepens or arousal shifts.",
+        a: "Crawling changes the scene's sense of escape; it does not by itself identify a sleep stage or motor state.",
       },
     ],
     morning_prompt:
-      "Did any immobility linger after waking? If yes, read sleep-paralysis / atonia pages next.",
+      "Did any immobility linger after waking? Record what happened before comparing it with the sleep-paralysis and atonia material.",
     related_somatic: [
       { href: "/somatic/hypnopompic-immobility/rem/awakening/", label: "Hypnopompic immobility" },
     ],

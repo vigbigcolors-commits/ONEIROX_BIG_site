@@ -18,13 +18,13 @@
   <link rel="manifest" href="/site.webmanifest">
   <meta name="theme-color" content="#123834">
   <title>Sleep Cycle Calculator — 90-Minute Ultradian Rhythm | Oneirox Lab</title>
-  <meta name="description" content="Free sleep cycle calculator. Enter a wake time or bedtime and get bedtimes/wake times aligned to 90-minute ultradian cycles — avoid sleep inertia, no app, no login.">
+  <meta name="description" content="Free sleep cycle calculator. Explore bedtime or wake-time planning estimates using average 90-minute cycles; individual timing varies and the tool does not detect sleep stage.">
   <meta name="application-name" content="Oneirox Sleep Cycle Lab">
   <link rel="canonical" href="https://oneirox.com/lab/sleep-cycles/">
   <link rel="alternate" hreflang="en" href="https://oneirox.com/lab/sleep-cycles/">
   <link rel="alternate" hreflang="x-default" href="https://oneirox.com/lab/sleep-cycles/">
   <meta property="og:title" content="Sleep Cycle Calculator — Oneirox Lab">
-  <meta property="og:description" content="90-minute ultradian rhythm math: find bedtimes or wake times that land between cycles, not mid-cycle. Free, no login.">
+  <meta property="og:description" content="Explore bedtime or wake-time planning estimates using average 90-minute cycles. Free, no login.">
   <meta property="og:url" content="https://oneirox.com/lab/sleep-cycles/">
   <meta property="og:site_name" content="Oneirox">
   <link rel="stylesheet" href="/css/page.css">
@@ -39,7 +39,7 @@
         "@id": "https://oneirox.com/lab/sleep-cycles/#app",
         "name": "Oneirox Sleep Cycle Calculator",
         "url": "https://oneirox.com/lab/sleep-cycles/",
-        "description": "Free web tool: calculates bedtimes or wake times aligned to 90-minute ultradian sleep cycles, to reduce sleep inertia.",
+        "description": "Free web tool: calculates bedtime or wake-time planning estimates using average 90-minute sleep cycles; it does not detect sleep stage.",
         "applicationCategory": "HealthApplication",
         "operatingSystem": "Web browser",
         "isAccessibleForFree": true,
@@ -97,7 +97,7 @@
         <div>
           <p class="onx-cycles-hero__kicker">Oneirox Lab · Free instrument · No login</p>
           <h1 class="onx-cycles-hero__title">Sleep Cycle <em>Calculator</em></h1>
-          <p class="onx-cycles-hero__lead">Sleep runs in ~90-minute ultradian blocks, alternating NREM and REM. Wake mid-cycle and you get sleep inertia — grogginess, not rest. Enter a wake time or bedtime and land on a cycle boundary instead.</p>
+          <p class="onx-cycles-hero__lead">Sleep cycles often average around 90 minutes, but their timing varies between people and across a night. Use a wake time or bedtime to explore planning estimates — not to identify your sleep stage or guarantee how waking will feel.</p>
         </div>
         <div class="onx-cycles-hero__stats" aria-label="Cycle facts">
           <div class="onx-cycles-hero__stat">
@@ -127,14 +127,14 @@
           <button type="button" id="cyc-calc-btn" class="onx-cyc-btn">Find bedtimes →</button>
           <button type="button" id="cyc-now-btn" class="onx-cyc-btn" style="background:transparent;color:var(--onx-moss);border:1.5px solid rgba(58,68,53,0.25)">Use current time</button>
         </div>
-        <p class="onx-cyc-hint">Math only — no account, no data sent anywhere. Based on the ~90-minute ultradian rhythm (Kleitman) and average sleep-onset latency.</p>
+        <p class="onx-cyc-hint">Math only — no account, no data sent anywhere. Uses a ~90-minute planning average and estimated sleep-onset latency; neither is a reading of your night.</p>
 
         <div class="onx-cyc-results" id="cyc-results">
           <p class="onx-cyc-results__label" id="cyc-results-label"></p>
         </div>
 
         <div class="onx-cyc-mech">
-          <p id="cyc-mech-text">Each full cycle moves through light NREM, deep slow-wave sleep, and REM. Waking near a cycle boundary catches you in light sleep — the easiest state to surface from.</p>
+          <p id="cyc-mech-text">Sleep includes NREM and REM, but their timing varies. These are planning estimates, not an indication of your current sleep stage or a guarantee about sleep inertia.</p>
         </div>
       </div>
     </section>
@@ -145,7 +145,7 @@
         <h2 class="onx-cycles-section__title" id="cycles-science">The ultradian rhythm, <em>not a rule of thumb</em></h2>
         <div class="onx-cycles-prose">
           <p>Nathaniel Kleitman's basic rest-activity cycle (BRAC) and the classic Dement &amp; Kleitman (1957) EEG studies established that human sleep alternates through NREM and REM in cycles averaging <strong>90 minutes</strong>, four to six times a night. Cycle length is not perfectly fixed — it can range 70–110 minutes and shifts slightly across the night — so this calculator gives a small window of options rather than one rigid number.</p>
-          <p><strong>Sleep inertia</strong> — the grogginess, slowed reaction time, and disorientation right after waking — is strongest when an alarm interrupts slow-wave (deep NREM) sleep. Waking during light NREM, near a cycle boundary, produces measurably less inertia. That is the entire mechanism this tool calculates for: not a lucky number, a boundary in your own ultradian rhythm.</p>
+          <p><strong>Sleep inertia</strong> — grogginess, slowed reaction time, and disorientation right after waking — varies with sleep stage, sleep loss, timing, and the individual. A calculator built on an average cycle cannot identify your stage or guarantee less inertia; it offers planning intervals rather than a result about your own night.</p>
           <p>This is a planning tool, not a Lab Search path. If a specific dream from one of these nights is still with you, <a href="/#lab-search">open Lab Search</a> for a mechanism-based interpretation — or add somatic detail first with the <a href="/tools/oneirox-dream-mapper">Sensory Dream Mapper</a>.</p>
         </div>
       </div>
