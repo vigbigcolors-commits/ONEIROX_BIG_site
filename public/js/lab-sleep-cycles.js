@@ -41,10 +41,10 @@
   }
 
   function labelFor(n) {
-    if (n === 6) return { label: 'Full restoration', badge: true };
-    if (n === 5) return { label: 'Solid recovery', badge: false };
-    if (n === 4) return { label: 'Minimum viable', badge: false };
-    return { label: 'Short — expect sleep inertia', badge: false };
+    if (n === 6) return { label: 'Longest listed window', badge: true };
+    if (n === 5) return { label: 'Longer listed window', badge: false };
+    if (n === 4) return { label: 'Shorter listed window', badge: false };
+    return { label: 'Shortest listed window', badge: false };
   }
 
   function setMode(next) {
@@ -97,7 +97,7 @@
       list.push({ n: n, time: bed });
     }
     render(list, true);
-    mechText.textContent = 'Your brain needs about ' + ONSET_MIN + ' minutes to fall asleep, then cycles through ~90-minute blocks of NREM and REM. Waking between cycles (light sleep) feels sharp. Waking mid-cycle triggers sleep inertia — grogginess from an interrupted slow-wave or REM phase.';
+    mechText.textContent = 'This uses an average ' + ONSET_MIN + '-minute sleep-onset estimate and ~90-minute blocks. Actual onset and cycle length vary, so these times are planning options—not a reading of your sleep stage or how alert you will feel.';
   }
 
   function calcFromBed(bedDate) {
@@ -108,7 +108,7 @@
       list.push({ n: n, time: wake });
     }
     render(list, false);
-    mechText.textContent = 'Counting forward from sleep onset (~' + ONSET_MIN + ' min after lights-out), each 90-minute block completes one full NREM\u2192REM cycle. Set an alarm near a cycle boundary — not mid-cycle — to avoid sleep inertia.';
+    mechText.textContent = 'Counting forward from an estimated sleep onset (~' + ONSET_MIN + ' min after lights-out), this tool uses 90-minute planning blocks. Individual cycles vary, so it cannot tell which stage you will be in or promise less sleep inertia.';
   }
 
   function run() {
